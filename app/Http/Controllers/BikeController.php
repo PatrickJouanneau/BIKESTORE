@@ -55,4 +55,14 @@ class BikeController extends Controller
             return $table->Tables_in_BikeStores;
         }
     }
+
+    public function pdf()
+    {
+        return view('pdfExample');
+    }
+
+    public function fact()
+    {
+        return view('FactureTest');
+    }
 }

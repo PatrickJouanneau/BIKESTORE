@@ -16,7 +16,7 @@ class StaffController extends Controller
      */
     public function listePerso()
     {
-        return view('staffs');
+        return view('Staffs');
     }
 
     /**

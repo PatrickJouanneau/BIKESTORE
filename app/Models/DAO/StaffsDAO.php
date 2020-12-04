@@ -12,6 +12,23 @@ class StaffsDAO
 {
     use HasFactory;
 
+    function saveFormulaireStaff($contact)
+    {
+        $resultSaff = DB::prepare('INSERT INTO sales_staffs(first_name, last_name, email, phone, active, store_Id, Manager_Id) VALUE (?, ?, ?, ?, ?, ?, ?, SCOPE_IDENTITY(), SCOPE_IDENTITY())');
+        $resultSaff->executute(array(
+            $contact->getFirstName(),
+            $contact->getLastName(),
+            $contact->getEmail(),
+            $contact->getPhone(),
+            $contact->getActive(),
+            $contact->getStoreId(),
+            $contact->getManagerId()
+        ));
+
+    }
+
+
+
     function getAllStaffs(){
         $result = DB::select('SELECT staff_id, first_name, last_name, email, phone, active, store_id, manager_id FROM sales.staffs');
 
