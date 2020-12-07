@@ -6,15 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class ContactAdmins extends SalesStaffs
+class ContactAdmins extends Contact
 {
     use HasFactory;
 
     public $password;
     public $passwordBis;
 
-    function __construct($password, $passwordBis)
-    {
+    function __construct(
+        $password,
+        $passwordBis
+    ) {
         $this->passWord = $password;
         $this->passwordBis = $passwordBis;
     }

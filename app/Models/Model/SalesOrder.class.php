@@ -14,12 +14,16 @@ class SalesOrder
     private $requiredDate = null;
     private $shippedDate = null;
 
-    function __construct($orderStatus, $orderDate, $requiredDate, $shippedDate)
-    {
-        return $this->orderStatus;
-        return $this->orderDate;
-        return $this->requiredDate;
-        return $this->shippedDate;
+    function __construct(
+        $orderStatus,
+        $orderDate,
+        $requiredDate,
+        $shippedDate
+    ) {
+        return $this->orderStatus = $orderStatus;
+        return $this->orderDate = $orderDate;
+        return $this->requiredDate = $requiredDate;
+        return $this->shippedDate = $shippedDate;
     }
 
     public function getOrderStatus()
@@ -55,5 +59,4 @@ class SalesOrder
     {
         return $this->shippedDate = $shippedDate;
     }
-
 }

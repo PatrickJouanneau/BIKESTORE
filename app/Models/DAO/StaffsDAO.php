@@ -5,24 +5,25 @@ namespace App\Models\DAO;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
-use App\Models\Model\ContactAdmins;
 use App\Models\Model\SalesStaffs;
+use App\Models\Model\ContactAdmins;
+use App\Models\Model\SalesCustomers;
 
 class StaffsDAO
 {
     use HasFactory;
 
-    function saveFormulaireStaff($contact)
+    function saveFormulaire($staff)
     {
         $resultSaff = DB::prepare('INSERT INTO sales_staffs(first_name, last_name, email, phone, active, store_Id, Manager_Id) VALUE (?, ?, ?, ?, ?, ?, ?, SCOPE_IDENTITY(), SCOPE_IDENTITY())');
         $resultSaff->executute(array(
-            $contact->getFirstName(),
-            $contact->getLastName(),
-            $contact->getEmail(),
-            $contact->getPhone(),
-            $contact->getActive(),
-            $contact->getStoreId(),
-            $contact->getManagerId()
+            $staff->getFirstName(),
+            $staff->getLastName(),
+            $staff->getEmail(),
+            $staff->getPhone(),
+            $staff->getActive(),
+            $staff->getStoreId(),
+            $staff->getManagerId()
         ));
 
     }
@@ -51,14 +52,14 @@ class StaffsDAO
     }
 
 
-    
+
     function login($email, $password){
         $admin = new ContactAdmins($email, $password);
         $requser = DB::prepare("SELECT email, password FROM sales.staffs WHERE email = ? AND passwword = ?");
         $requser->execute(array($email, $password));
         $res = $requser->fetch();
         $requser->rowCount();
-    
+
         if ($res){
             $admin->setFirstName($res['first_name']);
             $admin->setLastName($res['last_name']);

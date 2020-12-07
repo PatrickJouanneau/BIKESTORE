@@ -12,8 +12,10 @@ class ProductionCategories
     private $categoryId = 0;
     private $categoryName = null;
 
-    function __construct($categoryId, $categoryName)
-    {
+    function __construct(
+        $categoryId,
+        $categoryName
+    ) {
         $this->categoryId = $categoryId;
         $this->categoryName = $categoryName;
     }
@@ -24,7 +26,7 @@ class ProductionCategories
     }
     public function getCategoryName()
     {
-        return$this->categoryName;
+        return $this->categoryName;
     }
 
 
@@ -36,5 +38,4 @@ class ProductionCategories
     {
         return $this->categoryName = $categoryName;
     }
-
 }

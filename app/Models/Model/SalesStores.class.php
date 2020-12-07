@@ -18,8 +18,16 @@ class SalesStores
     private $state;
     private $zipcode;
 
-    function __construct($storeId, $storeName, $phone, $email, $street, $city, $state, $zipcode)
-    {
+    function __construct(
+        $storeId,
+        $storeName,
+        $phone,
+        $email,
+        $street,
+        $city,
+        $state,
+        $zipcode
+    ) {
         $this->storeId = $storeId;
         $this->storeName = $storeName;
         $this->phone = $phone;

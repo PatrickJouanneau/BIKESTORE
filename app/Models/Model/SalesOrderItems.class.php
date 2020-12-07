@@ -14,8 +14,12 @@ class SalesOrderItems
     private $listPrice = 0;
     private $discount = 0;
 
-    function __construct($orderId, $quantity, $listPrice, $discount)
-    {
+    function __construct(
+        $orderId,
+        $quantity,
+        $listPrice,
+        $discount
+    ) {
         $this->orderId = $orderId;
         $this->quantity = $quantity;
         $this->listPrice = $listPrice;
@@ -43,20 +47,18 @@ class SalesOrderItems
 
     public function setOrderId($orderId)
     {
-        return $this->orderId =$orderId;
+        return $this->orderId = $orderId;
     }
     public function setQuantity($quantity)
     {
-        return $this->quantity =$quantity;
+        return $this->quantity = $quantity;
     }
     public function setListPrice($listPrice)
     {
-        return $this->listPrice =$listPrice;
+        return $this->listPrice = $listPrice;
     }
     public function setDiscount($discount)
     {
-        return $this->discount =$discount;
+        return $this->discount = $discount;
     }
-
-
 }

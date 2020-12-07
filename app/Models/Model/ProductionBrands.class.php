@@ -12,8 +12,10 @@ class ProductionBrands
     private $brandId = 0;
     private $brandName = null;
 
-    function __construct($brandId, $brandName)
-    {
+    function __construct(
+        $brandId,
+        $brandName
+    ) {
         $this->brandId = $brandId;
         $this->brandName = $brandName;
     }
@@ -36,5 +38,4 @@ class ProductionBrands
     {
         return $this->brandName = $brandName;
     }
-
 }

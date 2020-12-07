@@ -14,8 +14,12 @@ class ProductionProducts
     private $modelYear = null;
     private $listPrice = 0;
 
-    function __construct($productId, $productName, $modelYear, $listPrice)
-    {
+    function __construct(
+        $productId,
+        $productName,
+        $modelYear,
+        $listPrice
+    ) {
         $this->productId = $productId;
         $this->productName = $productName;
         $this->modelYear = $modelYear;
@@ -56,7 +60,4 @@ class ProductionProducts
     {
         return $this->listPrice = $listPrice;
     }
-
-
-
 }

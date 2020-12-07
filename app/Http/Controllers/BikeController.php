@@ -37,8 +37,9 @@ class BikeController extends Controller
 
     public function categories()
     {
-        $result = DB::select('SELECT first_name,last_name FROM sales.staffs');
+        $result = DB::select('SELECT * FROM production.categories');
         return $result;
+
     }
 
     public function order()
