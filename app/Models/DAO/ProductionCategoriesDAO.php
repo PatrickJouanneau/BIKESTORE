@@ -12,18 +12,17 @@ class CategoriesDAO extends Model
 {
     use HasFactory;
 
-    function saveCategorie($categorie)
+    function saveCategorie()
     {
-        $resultCategorie = DB::prepere('INSERT INTO production.categories (category_name) VALUE (?)');
-        $resultCategorie->execute(array(
-            $categorie->getCategorieName()
-        ));
+        $results = DB::insert('INSERT INTO production.categories (category_name) VALUE (?)', [1, 1, 'Dayle']);
+        return $results;
+
     }
 
-    
+
     function getAllCategories()
     {
-        $result = DB::selest('SELECT * FROM production.categories');
-        return $result;
+        $results = DB::select('SELECT * FROM production.categories');
+        return $results;
     }
 }

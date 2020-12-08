@@ -13,10 +13,12 @@ class StaffsDAO
 {
     use HasFactory;
 
-    function saveFormulaire($staff)
+    function saveFormulaire()
     {
-        $resultSaff = DB::prepare('INSERT INTO sales_staffs(first_name, last_name, email, phone, active, store_Id, Manager_Id) VALUE (?, ?, ?, ?, ?, ?, ?, SCOPE_IDENTITY(), SCOPE_IDENTITY())');
-        $resultSaff->executute(array(
+        $resultStaff = DB::insert('INSERT INTO sales_staffs (staff_id, first_name, last_name, email, phone, active, store_Id, Manager_Id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, SCOPE_IDENTITY(), SCOPE_IDENTITY())');
+        return $resultStaff;
+
+        /*$resultStaff->executute(array(
             $staff->getFirstName(),
             $staff->getLastName(),
             $staff->getEmail(),
@@ -24,17 +26,18 @@ class StaffsDAO
             $staff->getActive(),
             $staff->getStoreId(),
             $staff->getManagerId()
-        ));
+        ));*/
 
     }
 
 
 
     function getAllStaffs(){
-        $result = DB::select('SELECT staff_id, first_name, last_name, email, phone, active, store_id, manager_id FROM sales.staffs');
-
+        $results = DB::select('SELECT staff_id, first_name, last_name, email, phone, active, store_id, manager_id FROM sales.staffs');
+        return $results;
+        /*
         $listStaffs = array();
-        foreach ($result as $value) {
+        foreach ($results as $value) {
             $staffs = new SalesStaffs(
                 $value->staffId,
                 $value->firstName,
@@ -49,6 +52,7 @@ class StaffsDAO
             array_push($listStaffs, $staffs);
         }
         return $listStaffs;
+        */
     }
 
 

@@ -11,18 +11,15 @@ class BrandDAO
 {
     use HasFactory;
 
-    function saveBrand($brand)
+    function saveBrand()
     {
-        $resultBrand = DB::prepare('INSERT INTO production.brands (brand_name) VALUE (?)');
-        $resultBrand->execute(array(
-            $brand->getBrandName()
-        ));
-
+        $results = DB::insert('INSERT INTO production.brands (brands_id, brans_name) VALUES (?, ?)', [1, 'Dayle']);
+        return $results;
     }
 
     function getAllBrands()
     {
-        $result = DB::select('SELECT * FROM production.brands');
-        return $result;
+        $results = DB::select('SELECT * FROM production.brands');
+        return $results;
     }
 }

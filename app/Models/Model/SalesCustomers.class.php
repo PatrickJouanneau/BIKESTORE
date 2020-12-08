@@ -14,7 +14,6 @@ class SalesCustomers extends Contact
     private $city = null;
     private $state = null;
     private $zipCode = null;
-    private $ordersId;
 
     function __construct(
         $customerId,
