@@ -3,11 +3,11 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-md-12">
             <div class="card shadow-lg">
 
                 <div class="row justify-content-center">
-                    <div class="col-xl-6 p-5">
+                    <div class="col-md-6 p-5">
                         <svg width="100%" height="100%" viewBox="0 0 1280 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                             <path d="M478.361,539.929c-89.993,-0.018 -162.927,-72.988 -162.909,-162.98c0.027,-89.992 72.997,-162.926 162.98,-162.908c89.992,0.018 162.926,72.996 162.908,162.98c-0.018,89.992 -72.987,162.926 -162.979,162.908m0.08,-355.933c-106.577,-0.027 -193.007,86.358 -193.034,192.944c-0.027,106.586 86.359,193.007 192.945,193.034c106.585,0.027 193.007,-86.359 193.033,-192.944c0.027,-106.586 -86.358,-193.007 -192.944,-193.034" style="fill:#0668e8;fill-rule:nonzero;" />
                             <path d="M1077.01,184.022c-20.111,-0 -39.514,3.096 -57.737,8.807c3.625,10.032 7.035,19.457 10.275,28.29c15.018,-4.591 30.949,-7.034 47.462,-7.034c90.001,-0 162.962,72.951 162.962,162.926c-0,90.001 -72.961,162.962 -162.962,162.962c-89.975,-0 -162.926,-72.961 -162.926,-162.962c-0,-48.429 21.14,-91.944 54.729,-121.801c-3.499,-9.362 -7.16,-19.368 -11.008,-30c-44.929,35.361 -73.784,90.207 -73.784,151.801c-0,106.612 86.412,192.989 192.989,192.989c106.577,0 192.989,-86.377 192.989,-192.989c0,-106.577 -86.412,-192.989 -192.989,-192.989" style="fill:#0668e8;fill-rule:nonzero;" />
@@ -39,7 +39,7 @@
                                 </text><text x="274.424px" y="403.133px" style="font-family:'GillSansMT-Bold', 'Gill Sans MT', sans-serif;font-weight:700;font-size:20.904px;fill:#f28825;">R<tspan x="287.775px 293.941px 309.905px " y="403.133px 403.133px 403.133px ">IDE</tspan></text><text x="214.457px" y="415.327px" style="font-family:'GillSansMT-Italic', 'Gill Sans MT', sans-serif;font-style:italic;font-size:10.452px;fill:#314866;">d<tspan x="218.985px 223.185px 226.508px 227.468px 232.419px 236.62px 238.208px 242.516px 245.839px 248.366px 253.113px 257.421px 261.948px 264.842px 267.369px 269.927px 274.235px 278.762px 282.085px 284.612px 286.2px 290.401px 292.928px 300.287px 304.595px 309.123px 313.65px 317.851px " y="415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px ">es Vélos pour tous le mondes</tspan></text></g>
                         </svg>
                     </div>
-                    <div class="col-xl-6 h-100 align-items-center">
+                    <div class="col-md-6 h-100 align-items-center">
                         <div class="p-5">
                             <div class="user">
                                 <div class="media align-items-center mb-4">
@@ -64,12 +64,13 @@
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
 
                 <div class="card-body">
                     <h4 class="card-title">Vente & Stosk</h4>
-                    <!-- PREMIERE RANGEE -->
+                    <!-- RANGEE PRINCIPALE -->
                     <div class="default-tab">
                         <ul class="nav nav-tabs mb-3" role="tablist">
                             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production">PRODUCTION</a>
@@ -86,7 +87,8 @@
                                 PRODUCTION
                             -->
                             <div class="tab-pane fade show active" id="production" role="tabpanel">
-                                    <div class="col-xl-12">
+                                <div class="p-t-15">
+                                    <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <!--<h4>“La réussite d'une production repose sur l'attention prêtée aux détails.”</h4>-->
@@ -106,172 +108,163 @@
                                                         <div class="tab-pane fade show active" id="marque" role="tabpanel">
                                                             <!-- MARQUE -->
                                                             <div class="container">
-
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>Liste des marques</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
-                                                                              <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">Nom</th>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                              <tr>
-                                                                                <th scope="row">1</th>
-                                                                                <td>Electra</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">2</th>
-                                                                                <td>Haro</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">3</th>
-                                                                                <td colspan="2">Heller</td>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Electra</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Haro</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td colspan="2">Heller</td>
 
-                                                                              </tr>
+                                                                                </tr>
                                                                             </tbody>
-                                                                          </table>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
                                                                         <h4>SELECTION</h4>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="Tout">Choisir une marques</option>
-                                                                    </select>
-                                                                    <br><br><hr><br>
-                                                                    <h4>CREATION d'une nouvelle marque</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="Tout">Choisir une marques</option>
+                                                                        </select>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouvelle marque</h4>
                                                                         <form name="brand" action="">
                                                                             <div class="form-marque">
                                                                                 <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
                                                                             </div>
                                                                             <br>
-                                                                            <button type="submite"  class="btn btn-primary btn-user btn-block">Enregistrer</button>
-
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                                                         </form>
-
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="categorie">
-                                                             <!-- CATEGORIE -->
-                                                             <div class="container">
-
+                                                            <!-- CATEGORIE -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>Liste des catégories</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
-                                                                              <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">Choisir une catégorie</th>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Choisir une catégorie</th>
+                                                                                </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                              <tr>
-                                                                                <th scope="row">1</th>
-                                                                                <td>Children Bicycles</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">2</th>
-                                                                                <td>Comfort Bicycles</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">3</th>
-                                                                                <td colspan="2">Cruisers Bicycles</td>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Children Bicycles</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Comfort Bicycles</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td colspan="2">Cruisers Bicycles</td>
 
-                                                                              </tr>
+                                                                                </tr>
                                                                             </tbody>
-                                                                          </table>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
                                                                         <h4>SELECTION</h4>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="Tout">Toute les marques</option>
-                                                                    </select>
-                                                                    <br><br><hr><br>
-                                                                    <h4>CREATION d'une nouvelle catégorie</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="Tout">Toute les marques</option>
+                                                                        </select>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouvelle catégorie</h4>
                                                                         <form name="categorie" action="">
                                                                             <div class="form-categorie">
                                                                                 <input type="text" class="form-control form-control-user" id="categorie" placeholder="New categorie">
                                                                             </div>
                                                                             <br>
-                                                                            <button type="submite"  class="btn btn-primary btn-user btn-block">Enregistrer</button>
-
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                                                         </form>
-
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="produits">
-                                                             <!-- PRODUITS -->
-                                                             <div class="container">
-
+                                                            <!-- PRODUITS -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>Liste des produits</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
-                                                                              <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">Nom</th>
-                                                                                <th scope="col">Millesime</th>
-                                                                                <th scope="col">Marque</th>
-                                                                                <th scope="col">Catégorie</th>
-                                                                                <th scope="col">Prix €</th>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                    <th scope="col">Millesime</th>
+                                                                                    <th scope="col">Marque</th>
+                                                                                    <th scope="col">Catégorie</th>
+                                                                                    <th scope="col">Prix €</th>
+                                                                                </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                              <tr>
-                                                                                <th scope="row">1</th>
-                                                                                <td>Trek</td>
-                                                                                <td>2016</td>
-                                                                                <td>Electra</td>
-                                                                                <td>Children</td>
-                                                                                <td>1000,00</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">2</th>
-                                                                                <td>Surly</td>
-                                                                                <td>2016</td>
-                                                                                <td>Haro</td>
-                                                                                <td>Confort</td>
-                                                                                <td>1000,00</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">3</th>
-                                                                                <td>Heller</td>
-                                                                                <td>Ritchey</td>
-                                                                                <td>2016</td>
-                                                                                <td>Cruiser</td>
-                                                                                <td>1000,00</td>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Trek</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Electra</td>
+                                                                                    <td>Children</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Surly</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Haro</td>
+                                                                                    <td>Confort</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td>Heller</td>
+                                                                                    <td>Ritchey</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Cruiser</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
                                                                             </tbody>
-                                                                          </table>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
                                                                         <h4>SELECTION</h4>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allBrands">Choisir une marques</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allCategories">Choisir une catégorie</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allYears">Choisir une année</option>
-                                                                    </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allBrands">Choisir une marques</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allCategories">Choisir une catégorie</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Choisir une année</option>
+                                                                        </select>
 
-                                                                    <br><br><hr><br>
-                                                                    <h4>CREATION d'une nouveau produit</h4>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouveau produit</h4>
                                                                         <form name="brand" action="">
                                                                             <div class="form-produit">
                                                                                 <input type="text" class="form-control form-control-user" id="brand" placeholder="Nom du produit">
@@ -283,126 +276,118 @@
                                                                                 <option value="allCategories">Choisir une catégorie</option>
                                                                             </select>
                                                                             <br>
-                                                                            <button type="submite"  class="btn btn-primary btn-user btn-block">Enregistrer</button>
-
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                                                         </form>
-
                                                                     </div>
-                                                                    </div>
-
                                                                 </div>
+                                                            </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="stock">
-                                                             <!-- STOCK -->
-                                                             <div class="container">
-
+                                                            <!-- STOCK -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>Liste des stocks</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
-                                                                              <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">Nom</th>
-                                                                                <th scope="col">Stocks</th>
-                                                                                <th scope="col">Magasin</th>
-                                                                                <th scope="col">Production</th>
-                                                                                <th scope="col">Prix €</th>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                    <th scope="col">Stocks</th>
+                                                                                    <th scope="col">Magasin</th>
+                                                                                    <th scope="col">Production</th>
+                                                                                    <th scope="col">Prix €</th>
+                                                                                </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                              <tr>
-                                                                                <th scope="row">1</th>
-                                                                                <td>Trek</td>
-                                                                                <td>23</td>
-                                                                                <td>Magasin</td>
-                                                                                <td>Production</td>
-                                                                                <td>1000.00</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">2</th>
-                                                                                <td>Surly</td>
-                                                                                <td>18</td>
-                                                                                <td>Magasin</td>
-                                                                                <td>Production</td>
-                                                                                <td>1000.00</td>
-                                                                              </tr>
-                                                                              <tr>
-                                                                                <th scope="row">3</th>
-                                                                                <td>Heller</td>
-                                                                                <td>134</td>
-                                                                                <td>Magasin</td>
-                                                                                <td>Production</td>
-                                                                                <td>1000.00</td>
-                                                                              </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Trek</td>
+                                                                                    <td>23</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Surly</td>
+                                                                                    <td>18</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td>Heller</td>
+                                                                                    <td>134</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
 
                                                                     <div class="col-xl-6">
                                                                         <h4>SELECTION</h4>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allBrands">Sélection marques</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allCategories">Sélection par catégorie</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allYears">Sélection par année</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allYears">Sélection par magasin</option>
-                                                                    </select>
-                                                                    <select name="" id="" class="btn btn-light btn-block">
-                                                                        <option value="allYears">Sélection par production</option>
-                                                                    </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allBrands">Sélection marques</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allCategories">Sélection par catégorie</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par année</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par magasin</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par production</option>
+                                                                        </select>
 
-                                                                    <br><br><hr><br>
-                                                                    <h4>Nouvelle mise en stock</h4>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>Nouvelle mise en stock</h4>
                                                                         <form name="brand" action="">
                                                                             <div class="form-marque">
                                                                                 <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
                                                                             </div>
                                                                             <br>
-                                                                            <button type="submite"  class="btn btn-primary btn-user btn-block">Enregistrer</button>
-
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
                                                                         </form>
-
                                                                     </div>
-
                                                                 </div>
-
-                                                                </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
 
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
+
                             </div>
 
-                            <div class="tab-content">
-                                <!--
-                                        VENTES
-                                 -->
                             <div class="tab-pane fade" id="ventes">
-                                    <div class="col-xl-12">
+                                <div class="p-t-15">
+
+                                    <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <!--<h4>“Les yeux de celui qui achète sont dans la main de celui qui vend.”</h4>-->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
-                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#marque1">Marque</a>
+                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#marqueBis">Marque</a>
                                                         </li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#categorie1">Catégorie</a>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#categorieBis">Catégorie</a>
                                                         </li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#produits1">Produits</a>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#produitsBis">Produits</a>
                                                         </li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#stock1">Stock</a>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#stockBis">Stock</a>
                                                         </li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#client">Client</a>
                                                         </li>
@@ -410,116 +395,306 @@
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content">
-                                                        <div class="tab-pane fade show active" id="marque1">
-                                                             <!-- MARQUES -->
-                                                             <div class="container">
 
+                                                        <div class="tab-pane fade show active" id="marqueBis" role="tabpanel">
+                                                            <!-- MARQUE -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4>Liste des marques</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Electra</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Haro</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td colspan="2">Heller</td>
+
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4>SELECTION</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="Tout">Choisir une marques</option>
+                                                                        </select>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouvelle marque</h4>
+                                                                        <form name="brand" action="">
+                                                                            <div class="form-marque">
+                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
+                                                                            </div>
+                                                                            <br>
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+
+                                                                        </form>
+
                                                                     </div>
 
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="categorie1">
-                                                             <!-- CATEGORIES -->
-                                                             <div class="container">
 
+                                                        <div class="tab-pane fade" id="categorieBis">
+                                                            <!-- CATEGORIE -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4>Liste des catégories</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Choisir une catégorie</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Children Bicycles</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Comfort Bicycles</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td colspan="2">Cruisers Bicycles</td>
+
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4>SELECTION</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="Tout">Toute les marques</option>
+                                                                        </select>
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouvelle catégorie</h4>
+                                                                        <form name="categorie" action="">
+                                                                            <div class="form-categorie">
+                                                                                <input type="text" class="form-control form-control-user" id="categorie" placeholder="New categorie">
+                                                                            </div>
+                                                                            <br>
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+                                                                        </form>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="produits1">
-                                                             <!-- PRODUITS -->
-                                                             <div class="container">
 
+                                                        <div class="tab-pane fade" id="produitsBis">
+                                                            <!-- PRODUITS -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4>Liste des produits</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                    <th scope="col">Millesime</th>
+                                                                                    <th scope="col">Marque</th>
+                                                                                    <th scope="col">Catégorie</th>
+                                                                                    <th scope="col">Prix €</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Trek</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Electra</td>
+                                                                                    <td>Children</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Surly</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Haro</td>
+                                                                                    <td>Confort</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td>Heller</td>
+                                                                                    <td>Ritchey</td>
+                                                                                    <td>2016</td>
+                                                                                    <td>Cruiser</td>
+                                                                                    <td>1000,00</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
+                                                                        <h4>SELECTION</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allBrands">Choisir une marques</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allCategories">Choisir une catégorie</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Choisir une année</option>
+                                                                        </select>
 
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>CREATION d'une nouveau produit</h4>
+                                                                        <form name="brand" action="">
+                                                                            <div class="form-produit">
+                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="Nom du produit">
+                                                                            </div><br>
+                                                                            <select name="" id="" class="form-control form-control-user">
+                                                                                <option value="allBrands">Choisir une marques</option>
+                                                                            </select><br>
+                                                                            <select name="" id="" class="form-control form-control-user">
+                                                                                <option value="allCategories">Choisir une catégorie</option>
+                                                                            </select>
+                                                                            <br>
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="stock1">
-                                                             <!-- STOCKS -->
-                                                             <div class="container">
 
+                                                        <div class="tab-pane fade" id="stockBis">
+                                                            <!-- STOCK -->
+                                                            <div class="container">
                                                                 <div class="row">
+                                                                    <div class="col-xl-6">
+                                                                        <h4>Liste des stocks</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                    <th scope="col">Stocks</th>
+                                                                                    <th scope="col">Magasin</th>
+                                                                                    <th scope="col">Production</th>
+                                                                                    <th scope="col">Prix €</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <th scope="row">1</th>
+                                                                                    <td>Trek</td>
+                                                                                    <td>23</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">2</th>
+                                                                                    <td>Surly</td>
+                                                                                    <td>18</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <th scope="row">3</th>
+                                                                                    <td>Heller</td>
+                                                                                    <td>134</td>
+                                                                                    <td>Magasin</td>
+                                                                                    <td>Production</td>
+                                                                                    <td>1000.00</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
 
                                                                     <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
+                                                                        <h4>SELECTION</h4>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allBrands">Sélection marques</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allCategories">Sélection par catégorie</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par année</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par magasin</option>
+                                                                        </select>
+                                                                        <select name="" id="" class="btn btn-light btn-block">
+                                                                            <option value="allYears">Sélection par production</option>
+                                                                        </select>
 
+                                                                        <br><br>
+                                                                        <hr><br>
+                                                                        <h4>Nouvelle mise en stock</h4>
+                                                                        <form name="brand" action="">
+                                                                            <div class="form-marque">
+                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
+                                                                            </div>
+                                                                            <br>
+                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="tab-pane fade" id="client" role="tabpanel">
-                                                             <!-- CLIENTS -->
-                                                             <div class="container">
-
+                                                        <!-- CLIENTS -->
+                                                            <div class="container">
                                                                 <div class="row">
 
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
+
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
 
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="tab-pane fade" id="vente">
-                                                             <!-- VENTES -->
-                                                             <div class="container">
-
+                                                        <!-- VENTES -->
+                                                            <div class="container">
                                                                 <div class="row">
 
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
+
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
 
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </div>
-                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -528,11 +703,8 @@
                             </div>
 
                             <div class="tab-pane fade" id="reporting">
-                                 <!--
-                                        REPORTING
-                                -->
                                 <div class="p-t-15">
-                                    <div class="col-xl-12">
+                                    <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <!--<h4>“La mesure oblige à la clarté, à la fois à clarifier les idées, les stratégies et actions qui en découlent.”</h4>-->
@@ -544,40 +716,18 @@
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content">
-                                                         <!-- PRODUCTION -->
                                                         <div class="tab-pane fade show active" id="production" role="tabpanel">
-                                                            <div class="container">
-
-                                                                <div class="row">
-
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-
-                                                                </div>
+                                                            <div class="p-t-15">
+                                                                <h4>This is home title</h4>
+                                                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="vente">
-                                                             <!-- VENTES -->
-                                                             <div class="container">
-
-                                                                <div class="row">
-
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-
-                                                                </div>
+                                                            <div class="p-t-15">
+                                                                <h4>This is profile title</h4>
+                                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor.</p>
+                                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor.</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -589,11 +739,8 @@
                             </div>
 
                             <div class="tab-pane fade" id="administration">
-                            <!--
-                                    ADMINISTRATION
-                            -->
                                 <div class="p-t-15">
-                                    <div class="col-xl-12">
+                                    <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
                                                 <!--<h4>“L'abondance est le fruit d'une bonne administration.”</h4>
@@ -610,52 +757,53 @@
                                                     </ul>
                                                     <div class="tab-content">
                                                         <div class="tab-pane fade show active" id="utilisateur" role="tabpanel">
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <!-- UTILISATEURS -->
+
+                                                        <!-- UTILISATEURS -->
+                                                        <div class="container">
+                                                            <div class="row">
                                                                 <div class="col-xl-7">
                                                                     <h4>Liste des utilisateurs</h4>
                                                                     <table class="table table-sm table-hover">
                                                                         <thead>
-                                                                          <tr>
-                                                                            <th scope="col">#</th>
-                                                                            <th scope="col">Nom</th>
-                                                                            <th scope="col">Prénom</th>
-                                                                            <th scope="col">Email</th>
-                                                                            <th scope="col">Phone</th>
-                                                                            <th scope="col">Magasin</th>
-                                                                            <th scope="col">Responsable</th>
-                                                                          </tr>
+                                                                            <tr>
+                                                                                <th scope="col">#</th>
+                                                                                <th scope="col">Nom</th>
+                                                                                <th scope="col">Prénom</th>
+                                                                                <th scope="col">Email</th>
+                                                                                <th scope="col">Phone</th>
+                                                                                <th scope="col">Magasin</th>
+                                                                                <th scope="col">Responsable</th>
+                                                                            </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                          <tr>
-                                                                            <th scope="row">1</th>
-                                                                            <td>Otto</td>
-                                                                            <td>Mark</td>
-                                                                            <td>@mdo</td>
-                                                                            <td>0262000000</td>
-                                                                            <td>Santa-Cruz</td>
-                                                                            <td>Raymond</td>
-                                                                          </tr>
-                                                                          <tr>
-                                                                            <th scope="row">2</th>
-                                                                            <td>Jacob</td>
-                                                                            <td>Thornton</td>
-                                                                            <td>@fat</td>
-                                                                            <td>0262000000</td>
-                                                                            <td>Santa-Cruz</td>
-                                                                            <td>Raymond</td>
-                                                                          </tr>
-                                                                          <tr>
-                                                                            <th scope="row">3</th>
-                                                                            <td colspan="2">Larry the Bird</td>
-                                                                            <td>@twitter</td>
-                                                                            <td>0262000000</td>
-                                                                            <td>Santa-Cruz</td>
-                                                                            <td>Raymond</td>
-                                                                          </tr>
+                                                                            <tr>
+                                                                                <th scope="row">1</th>
+                                                                                <td>Otto</td>
+                                                                                <td>Mark</td>
+                                                                                <td>@mdo</td>
+                                                                                <td>0262000000</td>
+                                                                                <td>Santa-Cruz</td>
+                                                                                <td>Raymond</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">2</th>
+                                                                                <td>Jacob</td>
+                                                                                <td>Thornton</td>
+                                                                                <td>@fat</td>
+                                                                                <td>0262000000</td>
+                                                                                <td>Santa-Cruz</td>
+                                                                                <td>Raymond</td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <th scope="row">3</th>
+                                                                                <td colspan="2">Larry the Bird</td>
+                                                                                <td>@twitter</td>
+                                                                                <td>0262000000</td>
+                                                                                <td>Santa-Cruz</td>
+                                                                                <td>Raymond</td>
+                                                                            </tr>
                                                                         </tbody>
-                                                                      </table>
+                                                                    </table>
                                                                 </div>
 
                                                                 <div class="col-xl-5">
@@ -718,45 +866,38 @@
                                                                         <hr>
                                                                     </div>
                                                                 </div>
-                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    </div>
+                                                        </div>
 
                                                         <div class="tab-pane fade" id="profil">
-                                                             <!-- PRROFILE -->
-                                                             <div class="container">
-
+                                                        <!-- PRROFILE -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="tab-pane fade" id="historique">
-                                                             <!-- HISTORIQUE -->
-                                                             <div class="container">
-
+                                                        <!-- HISTORIQUE -->
+                                                            <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
                                                                     <div class="col-xl-6">
                                                                         <h4>This is brand</h4>
-                                                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -765,7 +906,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
