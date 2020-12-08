@@ -2,17 +2,13 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class SalesOrder
 {
-    use HasFactory;
-
-    private $orderStatus = 0;
-    private $orderDate = null;
-    private $requiredDate = null;
-    private $shippedDate = null;
+    private $orderStatus;
+    private $orderDate;
+    private $requiredDate;
+    private $shippedDate;
 
     function __construct(
         $orderStatus,

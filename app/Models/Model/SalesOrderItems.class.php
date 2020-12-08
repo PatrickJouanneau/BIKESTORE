@@ -2,17 +2,13 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class SalesOrderItems
 {
-    use HasFactory;
-
-    private $orderId = 0;
-    private $quantity = 0;
-    private $listPrice = 0;
-    private $discount = 0;
+    private $orderId;
+    private $quantity;
+    private $listPrice;
+    private $discount;
 
     function __construct(
         $orderId,

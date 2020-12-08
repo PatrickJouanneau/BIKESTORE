@@ -2,15 +2,11 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class ProductionCategories
 {
-    use HasFactory;
-
-    private $categoryId = 0;
-    private $categoryName = null;
+    private $categoryId;
+    private $categoryName;
 
     function __construct(
         $categoryId,

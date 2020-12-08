@@ -2,17 +2,13 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class ProductionProducts
 {
-    use HasFactory;
-
-    private $productId = 0;
-    private $productName = null;
-    private $modelYear = null;
-    private $listPrice = 0;
+    private $productId;
+    private $productName;
+    private $modelYear;
+    private $listPrice;
 
     function __construct(
         $productId,

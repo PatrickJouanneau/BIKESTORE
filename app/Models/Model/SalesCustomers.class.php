@@ -2,18 +2,15 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use app\Models\Model\Contact;
 
 class SalesCustomers extends Contact
 {
-    use HasFactory;
-
-    private $customerId = 0;
-    private $street = null;
-    private $city = null;
-    private $state = null;
-    private $zipCode = null;
+    private $customerId;
+    private $street;
+    private $city;
+    private $state;
+    private $zipCode;
 
     function __construct(
         $customerId,

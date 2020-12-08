@@ -2,15 +2,10 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-
 class ProductionBrands
 {
-    use HasFactory;
-
-    private $brandId = 0;
-    private $brandName = null;
+    private $brandId;
+    private string $brandName;
 
     function __construct(
         $brandId,
@@ -24,7 +19,7 @@ class ProductionBrands
     {
         return $this->brandId;
     }
-    public function getBrandName()
+    public function getBrandName(): string
     {
         return $this->brandName;
     }
@@ -34,7 +29,7 @@ class ProductionBrands
     {
         return $this->brandId = $brandId;
     }
-    public function setBrandName($brandName)
+    public function setBrandName(string $brandName)
     {
         return $this->brandName = $brandName;
     }

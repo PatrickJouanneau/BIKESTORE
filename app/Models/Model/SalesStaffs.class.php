@@ -2,17 +2,14 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use app\Models\Model\Contact;
 
 class SalesStaffs extends Contact
 {
-    use HasFactory;
-
-    private $staffId = 0;
-    private $active = null;
-    private $storeId = null;
-    private $managerId = null;
+    private $staffId;
+    private $active;
+    private $storeId ;
+    private $managerId;
 
     function __construct(
         $staffId,

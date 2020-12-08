@@ -2,14 +2,11 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class ProductionStocks
 {
-    use HasFactory;
 
-    private $quantity = 0;
+    private $quantity;
 
     function __construct($quantity)
     {

@@ -2,18 +2,14 @@
 
 namespace App\Models\Model;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
 class Contact
 {
-    use HasFactory;
-
-    private $contactId = 0;
-    private $firstName = null;
-    private $lastName = null;
-    private $phone = null;
-    private $email = null;
+    private $contactId;
+    private $firstName;
+    private $lastName;
+    private $phone;
+    private $email;
 
     function __construct(
         $customerId,
