@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/bis', [\App\Http\Controllers\HomeController::class, 'homeBis']);
 Route::get('/formStaff', [\App\Http\Controllers\FormulaireStaffController::class, 'formulaireStaff']);
 Route::get('/saveform', [\App\Http\Controllers\FormulaireStaffController::class, 'saveFormulaireStaff']);
 Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'formulaireLogin']);
