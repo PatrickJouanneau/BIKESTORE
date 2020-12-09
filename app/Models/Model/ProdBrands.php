@@ -2,7 +2,7 @@
 
 namespace App\Models\Model;
 
-class ProductionBrands
+class ProdBrands
 {
     private $brandId;
     private string $brandName;
