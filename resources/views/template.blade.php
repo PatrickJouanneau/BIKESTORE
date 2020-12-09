@@ -21,15 +21,28 @@
 
 <body>
 
-    @section('sidebar')
-    <!--Voici l'encadré principal.-->
-    @show
-
-
     <div class="container">
-        @yield('content')
-    </div>
+        <div class="row">
+            <div class="col-md-6">
+                @yield('contenu')
+            </div>
 
+            <div class="col-xl-6">
+                <h4>Liste des marques</h4>
+                <table class="table table-sm table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @yield('liste_des_marques')
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 </body>
 

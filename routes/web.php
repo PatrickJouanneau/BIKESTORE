@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\BikeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +27,7 @@ Route::get('/fact', [\App\Http\Controllers\FactureController::class, 'facture'])
 
 
 Route::get('/4', [\App\Http\Controllers\BikeController::class, 'register']);
-Route::get('/1', [\App\Http\Controllers\BikeController::class, 'categories']);
+Route::get('/1', [BikeController::class, 'categories']);
 Route::get('/2', [\App\Http\Controllers\BikeController::class, 'order']);
 Route::get('/3', [\App\Http\Controllers\BikeController::class, 'bonjour']);
 Route::get('/5', [\App\Http\Controllers\BikeController::class, 'accueil']);
@@ -45,7 +48,7 @@ Route::get('/3', function () {
 */
 //Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Auth::routes();
 
@@ -56,4 +59,3 @@ Route::get('/brands', [BrandsController::class, 'index']);
 Route::get('/', function () {
     return view('listeBrands');
 });
-

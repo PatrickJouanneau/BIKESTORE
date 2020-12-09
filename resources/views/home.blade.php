@@ -130,7 +130,6 @@
                                                                                 <tr>
                                                                                     <th scope="row">3</th>
                                                                                     <td colspan="2">Heller</td>
-
                                                                                 </tr>
                                                                             </tbody>
                                                                         </table>

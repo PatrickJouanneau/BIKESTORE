@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ProductionBrands;
+use App\Models\Manager\ProdBrandsManagerImplement;
+use App\Models\Manager\ProdBrandsManagerInterface;
+use App\Models\Model\ProdBrands;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
@@ -12,14 +14,16 @@ class BrandsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    // Récupérer tous les Brands
+    // entre ICI
+
+    public function index(ProdBrandsManagerInterface $brandsManager)
     {
-        // Récupérer tous les Brands
-        // entre ICI
+        $brands = $brandsManager->getAllBrands();
         // le code MVC
         // et là
-        return view('listeBrands');
-
+        return view('ListeBrands')->with(['brands' => $brands]);
     }
 
     /**
@@ -49,10 +53,12 @@ class BrandsController extends Controller
      * @param  \App\Models\ProductionBrands  $productionBrands
      * @return \Illuminate\Http\Response
      */
+    /*
     public function show(ProductionBrands $productionBrands)
     {
         //
     }
+    */
 
     /**
      * Show the form for editing the specified resource.
@@ -60,10 +66,12 @@ class BrandsController extends Controller
      * @param  \App\Models\ProductionBrands  $productionBrands
      * @return \Illuminate\Http\Response
      */
+    /*
     public function edit(ProductionBrands $productionBrands)
     {
         //
     }
+    */
 
     /**
      * Update the specified resource in storage.
@@ -72,10 +80,12 @@ class BrandsController extends Controller
      * @param  \App\Models\ProductionBrands  $productionBrands
      * @return \Illuminate\Http\Response
      */
+    /*
     public function update(Request $request, ProductionBrands $productionBrands)
     {
         //
     }
+    */
 
     /**
      * Remove the specified resource from storage.
@@ -83,8 +93,10 @@ class BrandsController extends Controller
      * @param  \App\Models\ProductionBrands  $productionBrands
      * @return \Illuminate\Http\Response
      */
+    /*
     public function destroy(ProductionBrands $productionBrands)
     {
         //
     }
+    */
 }

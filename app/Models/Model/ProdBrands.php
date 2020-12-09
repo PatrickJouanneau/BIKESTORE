@@ -6,15 +6,15 @@ class ProdBrands
 {
     private $brandId;
     private string $brandName;
-
-    function __construct(
+    /*
+    public function __construct(
         $brandId,
         $brandName
     ) {
         $this->brandId = $brandId;
-        $this->brandName = $brandName;
+        $this->brandName = $brandId;
     }
-
+*/
     public function getBrandId()
     {
         return $this->brandId;
@@ -27,10 +27,10 @@ class ProdBrands
 
     public function setBrandId($brandId)
     {
-        return $this->brandId = $brandId;
+        $this->brandId = $brandId;
     }
     public function setBrandName(string $brandName)
     {
-        return $this->brandName = $brandName;
+        $this->brandName = $brandName;
     }
 }
