@@ -4,6 +4,7 @@ use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\BikeController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/brands', [BrandsController::class, 'index']);
+Route::get('/categories', [CategoriesController::class, 'index']);
+
+
+
 Route::get('/formStaff', [\App\Http\Controllers\FormulaireStaffController::class, 'formulaireStaff']);
 Route::get('/saveform', [\App\Http\Controllers\FormulaireStaffController::class, 'saveFormulaireStaff']);
 Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'formulaireLogin']);
@@ -53,5 +59,3 @@ Route::get('/3', function () {
 //Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/brands', [BrandsController::class, 'index']);

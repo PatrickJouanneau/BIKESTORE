@@ -36,6 +36,7 @@
                         </thead>
                         <tbody>
                             @yield('liste_des_marques')
+                            @yield('liste_des_catégories')
                         </tbody>
                     </table>
                 </div>

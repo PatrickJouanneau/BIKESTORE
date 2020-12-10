@@ -120,20 +120,6 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 @yield('liste_des_marques')
-                                                                            <!--
-                                                                                <tr>
-                                                                                    <th scope="row">1</th>
-                                                                                    <td>Electra</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">2</th>
-                                                                                    <td>Haro</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">3</th>
-                                                                                    <td colspan="2">Heller</td>
-                                                                                </tr>
-                                                                            -->
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
@@ -171,19 +157,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr>
-                                                                                    <th scope="row">1</th>
-                                                                                    <td>Children Bicycles</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">2</th>
-                                                                                    <td>Comfort Bicycles</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">3</th>
-                                                                                    <td colspan="2">Cruisers Bicycles</td>
-
-                                                                                </tr>
+                                                                                @yield('liste_des_catégories')
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

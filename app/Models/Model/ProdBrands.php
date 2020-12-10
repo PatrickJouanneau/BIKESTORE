@@ -6,6 +6,7 @@ class ProdBrands
 {
     private $brandId;
     private string $brandName;
+
     /*
     public function __construct(
         $brandId,

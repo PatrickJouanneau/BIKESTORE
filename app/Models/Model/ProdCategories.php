@@ -3,11 +3,11 @@
 namespace App\Models\Model;
 
 
-class ProductionCategories
+class ProdCategories
 {
     private $categoryId;
     private $categoryName;
-    /*
+
     function __construct(
         $categoryId,
         $categoryName
@@ -15,7 +15,7 @@ class ProductionCategories
         $this->categoryId = $categoryId;
         $this->categoryName = $categoryName;
     }
-*/
+
     public function getCategoryId()
     {
         return $this->categoryId;

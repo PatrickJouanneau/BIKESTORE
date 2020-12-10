@@ -2,9 +2,11 @@
 
 namespace App\Models\DAO;
 
-use App\Models\DAO\ProdBrandsDaoInterface;
-use App\Models\Model\ProdBrands;
 use Illuminate\Support\Facades\DB;
+use App\Models\Model\ProdBrands;
+use App\Models\DAO\ProdBrandsDaoInterface;
+
+
 
 class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {

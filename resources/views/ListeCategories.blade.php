@@ -1,4 +1,4 @@
-@extends('template')
+@extends('home')
 
 @section('liste_des_catégories')
         @foreach($categories as $c)
