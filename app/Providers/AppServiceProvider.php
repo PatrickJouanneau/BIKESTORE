@@ -6,10 +6,14 @@ use App\Models\DAO\ProdBrandDaoImplement;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoImplement;
 use App\Models\DAO\ProdCategoriesDaoInterface;
+use App\Models\DAO\ProdProductsDaoImplement;
+use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\Manager\ProdBrandsManagerImplement;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerImplement;
 use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Manager\ProdProductsManagerInterface;
+use App\Models\Model\ProdBrands;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProdBrandsDaoInterface::class, ProdBrandDaoImplement::class);
         $this->app->bind(ProdCategoriesManagerInterface::class, ProdCategoriesManagerImplement::class);
         $this->app->bind(ProdCategoriesDaoInterface::class, ProdCategoriesDaoImplement::class);
+        $this->app->bind(ProdProductsManagerInterface::class, ProdBrandsManagerImplement::class);
+        $this->app->bind(ProdProductsDaoInterface::class, ProdProductsDaoImplement::class);
     }
 
     /**

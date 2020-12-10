@@ -2,6 +2,7 @@
 
 namespace App\Models\Model;
 
+
 class ProdBrands
 {
     private $brandId;

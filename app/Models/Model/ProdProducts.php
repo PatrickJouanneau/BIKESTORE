@@ -3,7 +3,7 @@
 namespace App\Models\Model;
 
 
-class ProductionProducts
+class ProdProducts
 {
     private $productId;
     private $productName;
@@ -42,18 +42,18 @@ class ProductionProducts
 
     public function setProductId($productId)
     {
-        return $this->productId = $productId;
+        $this->productId = $productId;
     }
     public function setProductName($productName)
     {
-        return $this->productName = $productName;
+        $this->productName = $productName;
     }
     public function setModelYear($modelYear)
     {
-        return $this->modelYear = $modelYear;
+        $this->modelYear = $modelYear;
     }
     public function setListPrice($listPrice)
     {
-        return $this->listPrice = $listPrice;
+        $this->listPrice = $listPrice;
     }
 }

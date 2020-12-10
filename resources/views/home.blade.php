@@ -199,30 +199,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <tr>
-                                                                                    <th scope="row">1</th>
-                                                                                    <td>Trek</td>
-                                                                                    <td>2016</td>
-                                                                                    <td>Electra</td>
-                                                                                    <td>Children</td>
-                                                                                    <td>1000,00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">2</th>
-                                                                                    <td>Surly</td>
-                                                                                    <td>2016</td>
-                                                                                    <td>Haro</td>
-                                                                                    <td>Confort</td>
-                                                                                    <td>1000,00</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <th scope="row">3</th>
-                                                                                    <td>Heller</td>
-                                                                                    <td>Ritchey</td>
-                                                                                    <td>2016</td>
-                                                                                    <td>Cruiser</td>
-                                                                                    <td>1000,00</td>
-                                                                                </tr>
+                                                                                @yield('liste_des_productions')
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

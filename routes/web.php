@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/brands', [BrandsController::class, 'index']);
 Route::get('/categories', [CategoriesController::class, 'index']);
+Route::get('/products', [ProductsController::class, 'index']);
 
 
 
