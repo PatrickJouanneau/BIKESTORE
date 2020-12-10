@@ -21,25 +21,40 @@
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                @yield('contenu')
-            </div>
-
-            <div class="col-xl-6">
-                <h4>Liste des marques</h4>
-                <table class="table table-sm table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Nom</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @yield('liste_des_marques')
-                    </tbody>
-                </table>
+    <div class="tab-pane fade show active" id="marque" role="tabpanel">
+        <!-- MARQUE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <h4>Liste des marques</h4>
+                    <table class="table table-sm table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @yield('liste_des_marques')
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xl-6">
+                    <h4>SELECTION</h4>
+                    <select name="" id="" class="btn btn-light btn-block">
+                        <option value="Tout">Choisir une marques</option>
+                    </select>
+                    <br><br>
+                    <hr><br>
+                    <h4>CREATION d'une nouvelle marque</h4>
+                    <form name="brand" action="">
+                        <div class="form-marque">
+                            <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
+                        </div>
+                        <br>
+                        <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

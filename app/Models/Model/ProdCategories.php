@@ -7,7 +7,7 @@ class ProductionCategories
 {
     private $categoryId;
     private $categoryName;
-
+    /*
     function __construct(
         $categoryId,
         $categoryName
@@ -15,7 +15,7 @@ class ProductionCategories
         $this->categoryId = $categoryId;
         $this->categoryName = $categoryName;
     }
-
+*/
     public function getCategoryId()
     {
         return $this->categoryId;
@@ -28,10 +28,10 @@ class ProductionCategories
 
     public function setCategoryId($categoryId)
     {
-        return $this->categoryId = $categoryId;
+        $this->categoryId = $categoryId;
     }
     public function setCategoryName($categoryName)
     {
-        return $this->categoryName = $categoryName;
+        $this->categoryName = $categoryName;
     }
 }

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/formStaff', [\App\Http\Controllers\FormulaireStaffController::class, 'formulaireStaff']);
 Route::get('/saveform', [\App\Http\Controllers\FormulaireStaffController::class, 'saveFormulaireStaff']);
 Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'formulaireLogin']);
@@ -31,7 +31,7 @@ Route::get('/1', [BikeController::class, 'categories']);
 Route::get('/2', [\App\Http\Controllers\BikeController::class, 'order']);
 Route::get('/3', [\App\Http\Controllers\BikeController::class, 'bonjour']);
 Route::get('/5', [\App\Http\Controllers\BikeController::class, 'accueil']);
-Route::get('/info', [\App\Http\Controllers\BikeController::class, 'phpInfo']);
+Route::get('/info', [HomeController::class, 'phpinfo']);
 Route::get('/6', [\App\Http\Controllers\BikeController::class, 'home']);
 Route::get('/tables', [\App\Http\Controllers\BikeController::class, 'tables']);
 Route::get('/pdf', [\App\Http\Controllers\BikeController::class, 'pdf']);
@@ -55,7 +55,3 @@ Route::get('/3', function () {
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/brands', [BrandsController::class, 'index']);
-
-Route::get('/', function () {
-    return view('listeBrands');
-});

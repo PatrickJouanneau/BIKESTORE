@@ -119,6 +119,8 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
+                                                                                @yield('liste_des_marques')
+                                                                            <!--
                                                                                 <tr>
                                                                                     <th scope="row">1</th>
                                                                                     <td>Electra</td>
@@ -131,6 +133,7 @@
                                                                                     <th scope="row">3</th>
                                                                                     <td colspan="2">Heller</td>
                                                                                 </tr>
+                                                                            -->
                                                                             </tbody>
                                                                         </table>
                                                                     </div>

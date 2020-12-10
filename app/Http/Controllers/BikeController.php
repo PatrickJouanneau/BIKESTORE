@@ -20,7 +20,7 @@ class BikeController extends Controller
     }
 
 
-    public function phpInfo()
+    public function phpinfo()
     {
         return phpinfo();
     }
@@ -39,7 +39,6 @@ class BikeController extends Controller
     {
         $result = DB::select('SELECT * FROM production.categories');
         return $result;
-
     }
 
     public function order()
