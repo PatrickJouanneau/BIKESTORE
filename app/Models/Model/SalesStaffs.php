@@ -8,20 +8,10 @@ class SalesStaffs extends Contact
 {
     private $staffId;
     private $active;
-    private $storeId ;
+    private $storeId;
     private $managerId;
 
-    function __construct(
-        $staffId,
-        $active,
-        $storeId,
-        $managerId
-    ) {
-        $this->staffId = $staffId;
-        $this->active = $active;
-        $this->storeId = $storeId;
-        $this->managerId = $managerId;
-    }
+
 
     public function getStaffId()
     {

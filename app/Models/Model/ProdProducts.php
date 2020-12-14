@@ -2,6 +2,8 @@
 
 namespace App\Models\Model;
 
+use App\Models\Model\ProdBrands;
+use App\Models\Model\ProdCategories;
 
 class ProdProducts
 {
@@ -10,17 +12,9 @@ class ProdProducts
     private $modelYear;
     private $listPrice;
 
-    function __construct(
-        $productId,
-        $productName,
-        $modelYear,
-        $listPrice
-    ) {
-        $this->productId = $productId;
-        $this->productName = $productName;
-        $this->modelYear = $modelYear;
-        $this->listPrice = $listPrice;
-    }
+    private ProdBrands $productBrand;
+    private ProdCategories $productCategory;
+
 
     public function getProductId()
     {
@@ -39,6 +33,16 @@ class ProdProducts
         return $this->listPrice;
     }
 
+    public function getProductBrand(): ProdBrands
+    {
+        return $this->productBrand;
+    }
+    public function getProductCategory(): ProdCategories
+    {
+        return $this->productCategory;
+    }
+
+
 
     public function setProductId($productId)
     {
@@ -55,5 +59,14 @@ class ProdProducts
     public function setListPrice($listPrice)
     {
         $this->listPrice = $listPrice;
+    }
+
+    public function setProductBrand(ProdBrands $productBrand)
+    {
+        $this->brand = $productBrand;
+    }
+    public function setProductCategory(ProdCategories $productCategory)
+    {
+        $this->productCategory = $productCategory;
     }
 }

@@ -2,12 +2,13 @@
 
 namespace App\Models\Manager;
 
-use App\Models\DAO\ProdCategoriesDaoImplement;
+use App\Models\DAO\ProdCategoriesDaoInterface;
+use App\Models\Manager\ProdCategoriesManagerInterface;
 
 class ProdCategoriesManagerImplement implements ProdCategoriesManagerInterface
 {
     private $categoriesDao;
-    public function __construct(ProdCategoriesDaoImplement $categoriesDao)
+    public function __construct(ProdCategoriesDaoInterface $categoriesDao)
     {
         $this->categoriesDao = $categoriesDao;
     }

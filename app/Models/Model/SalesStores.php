@@ -12,27 +12,9 @@ class SalesStores
     private $street;
     private $city;
     private $state;
-    private $zipcode;
+    private $zipCode;
 
-    function __construct(
-        $storeId,
-        $storeName,
-        $phone,
-        $email,
-        $street,
-        $city,
-        $state,
-        $zipcode
-    ) {
-        $this->storeId = $storeId;
-        $this->storeName = $storeName;
-        $this->phone = $phone;
-        $this->email = $email;
-        $this->street = $street;
-        $this->city = $city;
-        $this->state = $state;
-        $this->zipcode = $zipcode;
-    }
+
 
     public function getStoreId()
     {
@@ -71,34 +53,34 @@ class SalesStores
 
     public function setStoreId($storeId)
     {
-        return $this->storeId = $storeId;
+        $this->storeId = $storeId;
     }
     public function setStoreName($storeName)
     {
-        return $this->storeName = $storeName;
+        $this->storeName = $storeName;
     }
     public function setPhone($phone)
     {
-        return $this->phone = $phone;
+        $this->phone = $phone;
     }
     public function setEmail($email)
     {
-        return $this->email = $email;
+        $this->email = $email;
     }
     public function setStreet($street)
     {
-        return $this->street = $street;
+        $this->street = $street;
     }
     public function setCity($city)
     {
-        return $this->city = $city;
+        $this->city = $city;
     }
     public function setState($state)
     {
-        return $this->state = $state;
+        $this->state = $state;
     }
-    public function setZipCode($zipcode)
+    public function setZipCode($zipCode)
     {
-        return $this->zipcode = $zipcode;
+        $this->zipCode = $zipCode;
     }
 }

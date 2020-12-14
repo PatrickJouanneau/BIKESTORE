@@ -2,49 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DAO;
-use App\Models\Manager\ProdBrandsManagerImplement;
 use App\Models\Manager\ProdBrandsManagerInterface;
-use App\Models\DAO\ProdBrandsDaoImplement;
-use App\Models\DAO\ProdBrandsDaoInterface;
-use Illuminate\Http\Request;
-
+use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Manager\ProdProductsManagerInterface;
+use App\Models\Manager\ProdStocksManagerInterface;
+use App\Models\Manager\SalesStoresManagerInterface;
 
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //$this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-
     public function index(
-        ProdBrandsManagerInterface $brandsManager
+        ProdBrandsManagerInterface $brandManager,
+        ProdCategoriesManagerInterface $categoryManager,
+        ProdProductsManagerInterface $productManager,
+        ProdStocksManagerInterface $stockMananger,
+        SalesStoresManagerInterface $storeManager
     ) {
-        // je dois faire appel au controller 'BrandsController' pour
-        // pouvoir afficher le tableau 'ListeBrands'
-        $brands = $brandsManager->getAllBrands();
-        return view('home', [
-            'brands' => $brands,
+        $allBrands = $brandManager->getAllBrands();
+        $allCategories = $categoryManager->getAllCategories();
+        $allProducts = $productManager->getAllProducts();
+        $allStocks = $stockMananger->getAllStocks();
+        $allStores = $storeManager->getAllStores();
+
+        return view('home')->with([
+            'brands' => $allBrands,
+            'categories' => $allCategories,
+            'products' => $allProducts,
+            'stocks' => $allStocks,
+            'stores' => $allStores
         ]);
-        //echo "Bonjour les amis !";
-    }
-
-
-    public function phpinfo()
-    {
-        return phpinfo();
-        //echo "Bonjour les amis !";
     }
 }

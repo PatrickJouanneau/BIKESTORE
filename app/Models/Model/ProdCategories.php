@@ -8,14 +8,7 @@ class ProdCategories
     private $categoryId;
     private $categoryName;
 
-    function __construct(
-        $categoryId,
-        $categoryName
-    ) {
-        $this->categoryId = $categoryId;
-        $this->categoryName = $categoryName;
-    }
-
+    
     public function getCategoryId()
     {
         return $this->categoryId;

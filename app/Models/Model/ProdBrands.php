@@ -8,15 +8,6 @@ class ProdBrands
     private $brandId;
     private string $brandName;
 
-    /*
-    public function __construct(
-        $brandId,
-        $brandName
-    ) {
-        $this->brandId = $brandId;
-        $this->brandName = $brandId;
-    }
-*/
     public function getBrandId()
     {
         return $this->brandId;
