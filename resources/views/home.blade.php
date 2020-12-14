@@ -41,7 +41,7 @@
                 <th>{{ $s->getProdProduct()->getProductId() }}</th>
                 <td>{{ $s->getProdProduct()->getProductName() }}</td>
                 <td>{{ $s->getQuantity() }}</td>
-                <td>{{-- $s->getSalesname() --}}</td>
+                <td>{{ $s->getSalesStores()->getBrandName() }}</td>
                 <td>{{ $s->getProdProduct()->getModelYear() }}</td>
                 <td>{{ $s->getProdProduct()->getListPrice() }}</td>
             </tr>
