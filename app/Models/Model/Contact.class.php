@@ -11,19 +11,6 @@ class Contact
     private $phone;
     private $email;
 
-    function __construct(
-        $customerId,
-        $firstName,
-        $lastName,
-        $phone,
-        $email
-    ) {
-        $this->customerId = $customerId;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->phone = $phone;
-        $this->email = $email;
-    }
 
     public function getContactId()
     {
@@ -50,22 +37,22 @@ class Contact
 
     public function setContactId($contactId)
     {
-        return $this->contactId = $contactId;
+        $this->contactId = $contactId;
     }
     public function setFirstName($firstName)
     {
-        return $this->firstName = $firstName;
+        $this->firstName = $firstName;
     }
     public function setLastName($lastName)
     {
-        return $this->lastName = $lastName;
+        $this->lastName = $lastName;
     }
     public function setPhone($phone)
     {
-        return $this->phone = $phone;
+        $this->phone = $phone;
     }
     public function setEmail($email)
     {
-        return $this->email = $email;
+        $this->email = $email;
     }
 }

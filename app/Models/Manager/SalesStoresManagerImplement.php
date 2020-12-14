@@ -5,7 +5,6 @@ namespace App\Models\Manager;
 use App\Models\DAO\SalesStoresDaoInterface;
 use App\Models\Manager\SalesStoresManagerInterface;
 
-
 class SalesStoresManagerImplement implements SalesStoresManagerInterface
 {
     private $storeDao;

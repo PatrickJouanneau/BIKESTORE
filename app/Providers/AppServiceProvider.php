@@ -11,6 +11,8 @@ use App\Models\DAO\ProdProductsDaoImplement;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\ProdStocksDaoImplement;
 use App\Models\DAO\ProdStocksDaoInterface;
+use App\Models\Dao\SalesCustomersDaoImplement;
+use App\Models\Dao\SalesCustomersDaoInterface;
 use App\Models\DAO\SalesStoresDaoImplement;
 use App\Models\DAO\SalesStoresDaoInterface;
 use App\Models\Manager\ProdBrandsManagerImplement;
@@ -21,6 +23,8 @@ use App\Models\Manager\ProdProductsManagerImplement;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerImplement;
 use App\Models\Manager\ProdStocksManagerInterface;
+use App\Models\Manager\SalesCustomersManagerImplement;
+use App\Models\Manager\SalesCustomersManagerInterface;
 use App\Models\Manager\SalesStoresManagerImplement;
 use App\Models\Manager\SalesStoresManagerInterface;
 
@@ -45,6 +49,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProdStocksDaoInterface::class, ProdStocksDaoImplement::class);
         $this->app->bind(SalesStoresManagerInterface::class, SalesStoresManagerImplement::class);
         $this->app->bind(SalesStoresDaoInterface::class, SalesStoresDaoImplement::class);
+        $this->app->bind(SalesCustomersManagerInterface::class, SalesCustomersManagerImplement::class);
+        $this->app->bind(SalesCustomersDaoInterface::class, SalesCustomersDaoImplement::class);
     }
 
     /**

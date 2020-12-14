@@ -2,7 +2,7 @@
 
 namespace App\Models\Manager;
 
-use App\Models\DAO\ProdBrandsDaoImplement;
+//use App\Models\DAO\ProdBrandsDaoImplement;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use app\Models\Manager\ProdBrandsManagerInterface;
 

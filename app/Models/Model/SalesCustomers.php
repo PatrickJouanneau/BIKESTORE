@@ -12,19 +12,6 @@ class SalesCustomers extends Contact
     private $state;
     private $zipCode;
 
-    function __construct(
-        $customerId,
-        $street,
-        $city,
-        $state,
-        $zipCode
-    ) {
-        $this->customerId = $customerId;
-        $this->street = $street;
-        $this->city = $city;
-        $this->state = $state;
-        $this->zipCode = $zipCode;
-    }
 
     public function getCustomerId()
     {
@@ -50,22 +37,22 @@ class SalesCustomers extends Contact
 
     public function setCustomerId($customerId)
     {
-        return $this->customerId = $customerId;
+        $this->customerId = $customerId;
     }
     public function setStreet($street)
     {
-        return $this->street = $street;
+        $this->street = $street;
     }
     public function setCity($city)
     {
-        return $this->city = $city;
+        $this->city = $city;
     }
     public function setState($state)
     {
-        return $this->state = $state;
+        $this->state = $state;
     }
     public function setZipCode($zipCode)
     {
-        return $this->zipCode = $zipCode;
+        $this->zipCode = $zipCode;
     }
 }

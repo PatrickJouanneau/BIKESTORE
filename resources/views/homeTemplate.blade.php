@@ -510,12 +510,29 @@
                                                             <div class="container">
                                                                 <div class="row">
 
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                    <div class="col-xl-7">
+                                                                        <h4>Liste des clients</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Nom</th>
+                                                                                    <th scope="col">Prénom</th>
+                                                                                    <th scope="col">Adresse</th>
+                                                                                    <th scope="col">Ville</th>
+                                                                                    <th scope="col">Code postal</th>
+                                                                                    <th scope="col">Pays</th>
+                                                                                    <th scope="col">Téléphone</th>
+                                                                                    <th scope="col">Email</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @yield('liste_des_clients')
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
 
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-5">
                                                                         <h4>This is brand</h4>
                                                                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>

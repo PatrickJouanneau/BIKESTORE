@@ -14,7 +14,6 @@ use App\Models\Model\ProdBrands;
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
 {
-
     private $categoryDao;
     private $brandDao;
 

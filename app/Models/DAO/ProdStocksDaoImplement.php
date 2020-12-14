@@ -5,8 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\ProdStocks;
 use App\Models\DAO\ProdStocksDaoInterface;
-use App\Models\Dao\ProdProductsDaoInterface;
-use App\Models\Dao\SalesStoresDaoInterface;
+
 
 class ProdStocksDaoImplement implements ProdStocksDaoInterface
 {
@@ -34,7 +33,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             $stock->setProdProduct($product);
 
             $store = $this->storeDao->getStoreById($row['store_id']);
-            $store->setSalesStores($store);
+            $stock->setSalesStore($store);
 
             array_push($allStocks, $stock);
         }

@@ -41,7 +41,7 @@
                 <th>{{ $s->getProdProduct()->getProductId() }}</th>
                 <td>{{ $s->getProdProduct()->getProductName() }}</td>
                 <td>{{ $s->getQuantity() }}</td>
-                <td>{{ $s->getSalesStores()->getBrandName() }}</td>
+                <td>{{ $s->getSalesStore()->getStoreName() }}</td>
                 <td>{{ $s->getProdProduct()->getModelYear() }}</td>
                 <td>{{ $s->getProdProduct()->getListPrice() }}</td>
             </tr>
@@ -60,6 +60,21 @@
             <td>{{  $st->getState() }}</td>
             <td>{{  $st->getPhone() }}</td>
             <td>{{  $st->getEmail() }}</td>
+        </tr>
+    @endforeach
+@stop
+
+@section('liste_des_clients')
+    @foreach ($customers as $cu)
+        <tr>
+            <th>{{  $cu->getCustomerId() }}</th>
+            <td>{{  $cu->getFirstName() }}</td>
+            <td>{{  $cu->getLastName() }}</td>
+            <td>{{  $cu->getCity() }}</td>
+            <td>{{  $cu->getZipCode() }}</td>
+            <td>{{  $cu->getState() }}</td>
+            <td>{{  $cu->getPhone() }}</td>
+            <td>{{  $cu->getEmail() }}</td>
         </tr>
     @endforeach
 @stop
