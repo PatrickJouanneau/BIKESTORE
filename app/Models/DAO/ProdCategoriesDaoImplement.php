@@ -18,7 +18,7 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
     function getAllCategories()
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.categories");
+        $reponse = $bdd->query("SELECT * FROM production.categories ORDER BY category_name");
         $resultBdd = $reponse->fetchAll();
 
         $allCategories = [];

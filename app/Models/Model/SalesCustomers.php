@@ -2,7 +2,7 @@
 
 namespace App\Models\Model;
 
-use app\Models\Model\Contact;
+use App\Models\Model\Contact;
 
 class SalesCustomers extends Contact
 {

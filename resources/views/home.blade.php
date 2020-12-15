@@ -68,8 +68,9 @@
     @foreach ($customers as $cu)
         <tr>
             <th>{{  $cu->getCustomerId() }}</th>
-            <td>{{  $cu->getFirstName() }}</td>
             <td>{{  $cu->getLastName() }}</td>
+            <td>{{  $cu->getFirstName() }}</td>
+            <td>{{  $cu->getStreet() }}</td>
             <td>{{  $cu->getCity() }}</td>
             <td>{{  $cu->getZipCode() }}</td>
             <td>{{  $cu->getState() }}</td>
@@ -78,3 +79,35 @@
         </tr>
     @endforeach
 @stop
+
+@section('liste_des_employes')
+    @foreach ($staffs as $staf)
+        <tr>
+            <th>{{  $staf->getStaffId() }}</th>
+            <td>{{  $staf->getLastName() }}</td>
+            <td>{{  $staf->getFirstName() }}</td>
+            <td>{{  $staf->getEmail() }}</td>
+            <td>{{  $staf->getPhone() }}</td>
+            <td>{{--  $staf->getPoste() --}}</td>
+            <td>{{  $staf->getSalesStore()->getStoreName() }}</td>
+            <td>{{  $staf->getManagerId() }}</td>
+            <td>{{  $staf->getActive() }}</td>
+        </tr>
+    @endforeach
+@stop
+
+@section('Liste_des_commandes')
+    @foreach ($orders as $o)
+        <tr>
+            <th>{{ $o->getOrderId() }}</th>
+            <td>{{ $o->getCustomerId() }}</td>
+            <td>{{ $o->getOrderStatus() }}</td>
+            <td>{{ $o->getOrderdate() }}</td>
+            <td>{{ $o->getRequiredDate() }}</td>
+            <td>{{ $o->getShippedDate() }}</td>
+            <td>{{ $o->getStoreId() }}</td>
+            <td>{{ $o->getStaffId() }}</td>
+        </tr>
+    @endforeach
+@endsection
+

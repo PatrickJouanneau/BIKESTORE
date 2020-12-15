@@ -2,7 +2,7 @@
 
 namespace App\Models\Model;
 
-use app\Models\Model\Contact;
+use App\Models\Model\Contact;
 
 class SalesStaffs extends Contact
 {
@@ -10,6 +10,8 @@ class SalesStaffs extends Contact
     private $active;
     private $storeId;
     private $managerId;
+
+    private SalesStores $salesStores;
 
 
 
@@ -29,23 +31,31 @@ class SalesStaffs extends Contact
     {
         return $this->managerId;
     }
+    public function getSalesStores(): SalesStores
+    {
+        return $this->salesStores;
+    }
 
 
 
     public function setStaffId($staffId)
     {
-        return $this->staffId = $staffId;
+        $this->staffId = $staffId;
     }
     public function setActive($active)
     {
-        return $this->active = $active;
+        $this->active = $active;
     }
     public function setStoreId($storeId)
     {
-        return $this->storeId = $storeId;
+        $this->storeId = $storeId;
     }
     public function setManagerId($managerId)
     {
-        return $this->managerId = $managerId;
+        $this->managerId = $managerId;
+    }
+    public function setSalesStores(SalesStores $salesStores)
+    {
+        $this->salesStores = $salesStores;
     }
 }

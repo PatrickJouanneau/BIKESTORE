@@ -9,10 +9,11 @@ use App\Models\Dao\SalesCustomersDaoInterface;
 
 class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 {
+
     public function getAllCustomers()
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->querry('SELECT * FROM sales.customers');
+        $reponse = $bdd->query('SELECT * FROM sales.customers ORDER BY last_name');
         $resultBdd = $reponse->fetchAll();
 
         $allCustomers = [];
@@ -30,8 +31,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
             array_push($allCustomers, $customer);
         }
-        return $allCustomers();
+        return $allCustomers;
     }
+
 
     public function getCustomerById($customerId)
     {
@@ -40,7 +42,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
         $resultBdd = $reponse->fetch();
 
         $customer = new SalesCustomers();
-        $customer->setCustomerId($resultBdd['customer_id']);
+
         $customer->setFirstName($resultBdd['first_name']);
         $customer->setLastName($resultBdd['last_name']);
         $customer->setPhone($resultBdd['phone']);
@@ -52,4 +54,6 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
         return $customer;
     }
+
 }
+

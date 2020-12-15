@@ -22,7 +22,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         //return $results;
 
         $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.brands");
+        $reponse = $bdd->query("SELECT * FROM production.brands ORDER BY brand_name");
         $resultBdd = $reponse->fetchAll();
 
         $allBrands = [];  // je crée une variable $allBrands de type tableau

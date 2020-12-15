@@ -453,7 +453,7 @@
                                                             <!-- STOCK -->
                                                             <div class="container">
                                                                 <div class="row">
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-9">
                                                                         <h4>Liste des stocks</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
@@ -472,7 +472,7 @@
                                                                         </table>
                                                                     </div>
 
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-3">
                                                                         <h4>SELECTION</h4>
                                                                         <select name="" id="" class="btn btn-light btn-block">
                                                                             <option value="allBrands">Sélection marques</option>
@@ -510,7 +510,7 @@
                                                             <div class="container">
                                                                 <div class="row">
 
-                                                                    <div class="col-xl-7">
+                                                                    <div class="col-xl-9">
                                                                         <h4>Liste des clients</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
@@ -521,7 +521,7 @@
                                                                                     <th scope="col">Adresse</th>
                                                                                     <th scope="col">Ville</th>
                                                                                     <th scope="col">Code postal</th>
-                                                                                    <th scope="col">Pays</th>
+                                                                                    <th scope="col">State</th>
                                                                                     <th scope="col">Téléphone</th>
                                                                                     <th scope="col">Email</th>
                                                                                 </tr>
@@ -532,7 +532,7 @@
                                                                         </table>
                                                                     </div>
 
-                                                                    <div class="col-xl-5">
+                                                                    <div class="col-xl-3">
                                                                         <h4>This is brand</h4>
                                                                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
@@ -546,12 +546,26 @@
                                                             <div class="container">
                                                                 <div class="row">
 
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                    <div class="col-xl-9">
+                                                                        <h4>Suivi des commandes</h4>
+                                                                        <table class="table table-sm table-hover">
+                                                                            <tr>
+                                                                                <th scope="col">#</th>
+                                                                                <th scope="col">N° Client</th>
+                                                                                <th scope="col">Statut</th>
+                                                                                <th scope="col">Date commande</th>
+                                                                                <th scope="col">Date prévue</th>
+                                                                                <th scope="col">Date de livraison</th>
+                                                                                <th scope="col">Magasin</th>
+                                                                                <th scope="col">Exécutant</th>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <tbody>
+                                                                            @yield('Liste_des_commandes')
+                                                                        </tbody>
                                                                     </div>
 
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-3">
                                                                         <h4>This is brand</h4>
                                                                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
@@ -631,7 +645,7 @@
                                                         <!-- UTILISATEURS -->
                                                         <div class="container">
                                                             <div class="row">
-                                                                <div class="col-xl-7">
+                                                                <div class="col-xl-9">
                                                                     <h4>Liste des utilisateurs</h4>
                                                                     <table class="table table-sm table-hover">
                                                                         <thead>
@@ -641,42 +655,19 @@
                                                                                 <th scope="col">Prénom</th>
                                                                                 <th scope="col">Email</th>
                                                                                 <th scope="col">Phone</th>
+                                                                                <th scope="col">Poste</th>
                                                                                 <th scope="col">Magasin</th>
                                                                                 <th scope="col">Responsable</th>
+                                                                                <th scope="col">Activité</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                            <tr>
-                                                                                <th scope="row">1</th>
-                                                                                <td>Otto</td>
-                                                                                <td>Mark</td>
-                                                                                <td>@mdo</td>
-                                                                                <td>0262000000</td>
-                                                                                <td>Santa-Cruz</td>
-                                                                                <td>Raymond</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th scope="row">2</th>
-                                                                                <td>Jacob</td>
-                                                                                <td>Thornton</td>
-                                                                                <td>@fat</td>
-                                                                                <td>0262000000</td>
-                                                                                <td>Santa-Cruz</td>
-                                                                                <td>Raymond</td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <th scope="row">3</th>
-                                                                                <td colspan="2">Larry the Bird</td>
-                                                                                <td>@twitter</td>
-                                                                                <td>0262000000</td>
-                                                                                <td>Santa-Cruz</td>
-                                                                                <td>Raymond</td>
-                                                                            </tr>
+                                                                            @yield('liste_des_employes')
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
 
-                                                                <div class="col-xl-5">
+                                                                <div class="col-xl-3">
 
                                                                     <div class="card-body">
                                                                         <h4>Création d'un utilisateur</h4>
@@ -722,7 +713,7 @@
 
                                                                             <div class="form-group">
                                                                                 <p class="form-control form-control-user">
-                                                                                    Personnel en activité &nbsp;? &nbsp;&nbsp;&nbsp;
+                                                                                    Activité &nbsp;? &nbsp;&nbsp;&nbsp;
                                                                                     <label class="radio-inline"><input type="radio" name="active" checked> &nbsp; Oui</label>&nbsp;&nbsp;&nbsp;
                                                                                     <label class="radio-inline"><input type="radio" name="active"> &nbsp; Non</label>
                                                                                 </p>

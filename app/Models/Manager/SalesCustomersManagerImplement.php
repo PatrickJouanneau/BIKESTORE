@@ -15,6 +15,10 @@ class SalesCustomersManagerImplement implements SalesCustomersManagerInterface
 
     public function getAllCustomers()
     {
-        return $this->getAllCustomers();
+        return $this->customerDao->getAllCustomers();
+    }
+    public function getCustomerById()
+    {
+        return $this->customerById->getCustomerById;
     }
 }
