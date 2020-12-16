@@ -1,10 +1,7 @@
 <?php
 
-use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Controller;
 use App\Http\Controllers\BikeController;
-use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-//Route::get('/brands', [BrandsController::class, 'index']);
-//Route::get('/categories', [CategoriesController::class, 'index']);
-//Route::get('/products', [ProductsController::class, 'index']);
+
 
 
 

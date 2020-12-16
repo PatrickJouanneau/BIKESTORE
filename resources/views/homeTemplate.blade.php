@@ -117,8 +117,8 @@
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                         <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="Tout">Choisir une marques</option>
+                                                                        <select name="select-by-name" id="brand-dropdown" class="btn btn-light btn-block">
+                                                                            <option value="Tout">Choisir une marque</option>
                                                                         </select>
                                                                         <br><br>
                                                                         <hr><br>
@@ -398,7 +398,7 @@
                                                             <!-- PRODUITS -->
                                                             <div class="container">
                                                                 <div class="row">
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-7">
                                                                         <h4>Liste des produits</h4>
                                                                         <table class="table table-sm table-hover">
                                                                             <thead>
@@ -416,7 +416,7 @@
                                                                             </tbody>
                                                                         </table>
                                                                     </div>
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-5">
                                                                         <h4>SELECTION</h4>
                                                                         <select name="" id="" class="btn btn-light btn-block">
                                                                             <option value="allBrands">Choisir une marques</option>
@@ -549,20 +549,23 @@
                                                                     <div class="col-xl-9">
                                                                         <h4>Suivi des commandes</h4>
                                                                         <table class="table table-sm table-hover">
-                                                                            <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">N° Client</th>
-                                                                                <th scope="col">Statut</th>
-                                                                                <th scope="col">Date commande</th>
-                                                                                <th scope="col">Date prévue</th>
-                                                                                <th scope="col">Date de livraison</th>
-                                                                                <th scope="col">Magasin</th>
-                                                                                <th scope="col">Exécutant</th>
-                                                                            </tr>
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th scope="col">#</th>
+                                                                                    <th scope="col">Client</th>
+                                                                                    <th scope="col">Statut</th>
+                                                                                    <th scope="col">Date commande</th>
+                                                                                    <th scope="col">Date prévue</th>
+                                                                                    <th scope="col">Date de livraison</th>
+                                                                                    <th scope="col">Magasin</th>
+                                                                                    <th scope="col">Exécutant</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @yield('liste_des_commandes')
+                                                                            </tbody>
                                                                         </table>
-                                                                        <tbody>
-                                                                            @yield('Liste_des_commandes')
-                                                                        </tbody>
+
                                                                     </div>
 
                                                                     <div class="col-xl-3">
@@ -593,24 +596,25 @@
                                                 <!--<h4>“La mesure oblige à la clarté, à la fois à clarifier les idées, les stratégies et actions qui en découlent.”</h4>-->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
-                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production">Production</a>
+                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production3">Production</a>
                                                         </li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente">Vente</a>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente4">Vente</a>
                                                         </li>
                                                     </ul>
                                                     <div class="tab-content">
-                                                        <div class="tab-pane fade show active" id="production" role="tabpanel">
+                                                        <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4>This is home title</h4>
                                                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                             </div>
                                                         </div>
-                                                        <div class="tab-pane fade" id="vente">
+                                                        <div class="tab-pane fade" id="vente4">
                                                             <div class="p-t-15">
                                                                 <h4>This is profile title</h4>
-                                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor.</p>
-                                                                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor.</p>
+
+                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>

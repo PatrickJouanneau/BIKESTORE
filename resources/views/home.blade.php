@@ -89,25 +89,25 @@
             <td>{{  $staf->getEmail() }}</td>
             <td>{{  $staf->getPhone() }}</td>
             <td>{{--  $staf->getPoste() --}}</td>
-            <td>{{  $staf->getSalesStore()->getStoreName() }}</td>
+            <td>{{  $staf->getSalesStores()->getStoreName() }}</td>
             <td>{{  $staf->getManagerId() }}</td>
             <td>{{  $staf->getActive() }}</td>
         </tr>
     @endforeach
 @stop
 
-@section('Liste_des_commandes')
+@section('liste_des_commandes')
     @foreach ($orders as $o)
         <tr>
             <th>{{ $o->getOrderId() }}</th>
-            <td>{{ $o->getCustomerId() }}</td>
+            <td>{{ $o->getSalesCustomers()->getLastName() }}</td>
             <td>{{ $o->getOrderStatus() }}</td>
             <td>{{ $o->getOrderdate() }}</td>
             <td>{{ $o->getRequiredDate() }}</td>
             <td>{{ $o->getShippedDate() }}</td>
-            <td>{{ $o->getStoreId() }}</td>
-            <td>{{ $o->getStaffId() }}</td>
+            <td>{{ $o->getSalesStores()->getStoreName() }}</td>
+            <td>{{ $o->getSalesStaffs()->getLastName() }}</td>
         </tr>
     @endforeach
-@endsection
+@stop
 

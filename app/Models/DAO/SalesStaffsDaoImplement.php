@@ -5,13 +5,15 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStaffs;
 use App\Models\DAO\SalesStaffsDaoInterface;
-//use App\Models\Dao\SalesStoresDaoInterface;
+
 
 class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 {
-    //private $storeDao;
+
+    private $storeDao;
     //private $managerDao;
-    public function __construct(SalesStoresDaoInterface $storeDao)
+    public function __construct(
+        SalesStoresDaoInterface $storeDao)
     {
         $this->storeDao = $storeDao;
         //$this->managerDao = $managerDao;
@@ -36,7 +38,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
             //$staff->setPoste($row['poste']);
 
             $store = $this->storeDao->getStoreById($row['store_id']);
-            $staff->setSalesStore($store);
+            $staff->setSalesStores($store);
 
             //$manager = $this->setManagerId($row['manager_id']);
             //$staff = $this->managerDao($manager);
@@ -60,7 +62,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         $staff->setEmail($resultBdd['email']);
         $staff->setActive($resultBdd['active']);
         $staff->setStoreId($resultBdd['store_id']);
-        $staff->setManagerId($resultBdd['manager_Id']);
+        $staff->setManagerId($resultBdd['manager_id']);
         //$staff->setPoste($resultBdd['poste']);
 
         return $staff;

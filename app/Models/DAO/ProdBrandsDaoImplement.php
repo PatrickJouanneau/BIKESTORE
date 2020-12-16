@@ -18,7 +18,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
     public function getAllBrands()
     {
-        //$allBrands = DB::select('SELECT * FROM production.brands');
+        //$results = DB::select('SELECT * FROM production.brands');
         //return $results;
 
         $bdd = DB::getPdo();
@@ -31,7 +31,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         foreach ($resultBdd as $i => $row) {
             // A chaque exécution de la boucle, je crée une variable $brand,
             // et on instancie un objet ProdBrands que l'on place dans la variable $brand
-            $brand = new ProdBrands($row['brand_id'], $row['brand_name']);
+            $brand = new ProdBrands();
             // $brand contientl'instance de de l'objet ProdBrand (La variable $brand est de type ProdBrands)
 
             // Ensuite on rempli les valeurs de $brand (qui est de type ProdBrand) grace aux valeurs retournées par la requêtes sql.

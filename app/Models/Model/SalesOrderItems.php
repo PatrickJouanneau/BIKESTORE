@@ -1,31 +1,26 @@
 <?php
 
 namespace App\Models\Model;
+use App\Models\Model\ProdProducts;
 
-
-class SalesOrderItems
+class SalesOrderItems extends SalesOrders
 {
     private $orderId;
+    private $itemId;
     private $quantity;
     private $listPrice;
     private $discount;
 
-    function __construct(
-        $orderId,
-        $quantity,
-        $listPrice,
-        $discount
-    ) {
-        $this->orderId = $orderId;
-        $this->quantity = $quantity;
-        $this->listPrice = $listPrice;
-        $this->discount = $discount;
-    }
+    private ProdProducts $productDao;
 
 
     public function getOrderId()
     {
         return $this->orderId;
+    }
+    public function getItemId()
+    {
+        return $this->itemId;
     }
     public function getQuantity()
     {
@@ -39,22 +34,34 @@ class SalesOrderItems
     {
         return $this->discount;
     }
+    public function getProductdao(): ProdProducts
+    {
+        return $this->productDao;
+    }
 
 
     public function setOrderId($orderId)
     {
-        return $this->orderId = $orderId;
+        $this->orderId = $orderId;
+    }
+    public function setItemId($itemId)
+    {
+        $this->itemId = $itemId;
     }
     public function setQuantity($quantity)
     {
-        return $this->quantity = $quantity;
+        $this->quantity = $quantity;
     }
     public function setListPrice($listPrice)
     {
-        return $this->listPrice = $listPrice;
+        $this->listPrice = $listPrice;
     }
     public function setDiscount($discount)
     {
-        return $this->discount = $discount;
+        $this->discount = $discount;
+    }
+    public function setProductDao(ProdProducts $productDao)
+    {
+        $this->productDao = $productDao;
     }
 }

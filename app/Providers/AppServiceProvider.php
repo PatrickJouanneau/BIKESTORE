@@ -13,6 +13,8 @@ use App\Models\DAO\ProdStocksDaoImplement;
 use App\Models\DAO\ProdStocksDaoInterface;
 use App\Models\Dao\SalesCustomersDaoImplement;
 use App\Models\Dao\SalesCustomersDaoInterface;
+use App\Models\DAO\SalesOrderItemsDaoImplement;
+use App\Models\DAO\SalesOrderItemsDaoInterface;
 use App\Models\DAO\SalesOrdersDaoImplement;
 use App\Models\DAO\SalesOrdersDaoInterface;
 use App\Models\DAO\SalesStaffsDaoImplement;
@@ -29,6 +31,8 @@ use App\Models\Manager\ProdStocksManagerImplement;
 use App\Models\Manager\ProdStocksManagerInterface;
 use App\Models\Manager\SalesCustomersManagerImplement;
 use App\Models\Manager\SalesCustomersManagerInterface;
+use App\Models\Manager\SalesOrderItemsManagerImplement;
+use App\Models\Manager\SalesOrderItemsManagerInterface;
 use App\Models\Manager\SalesOrdersManagerImplement;
 use App\Models\Manager\SalesOrdersManagerInterface;
 use App\Models\Manager\SalesStaffsManagerImplement;
@@ -63,6 +67,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesStaffsDaoInterface::class, SalesStaffsDaoImplement::class);
         $this->app->bind(SalesOrdersManagerInterface::class, SalesOrdersManagerImplement::class);
         $this->app->bind(SalesOrdersDaoInterface::class, SalesOrdersDaoImplement::class);
+        $this->app->bind(SalesOrderItemsManagerInterface::class, SalesOrderItemsManagerImplement::class);
+        $this->app->bind(SalesOrderItemsDaoInterface::class, SalesOrderItemsDaoImplement::class);
     }
 
     /**

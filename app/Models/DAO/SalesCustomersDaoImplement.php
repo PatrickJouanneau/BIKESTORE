@@ -38,7 +38,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     public function getCustomerById($customerId)
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->querry("SELECT * FROM sales.customers WHERE customer_id='" . $customerId . "'");
+        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id='" . $customerId . "'");
         $resultBdd = $reponse->fetch();
 
         $customer = new SalesCustomers();

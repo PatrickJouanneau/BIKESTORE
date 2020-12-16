@@ -3,14 +3,12 @@
 namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\DAO\ProdBrandsDaoImplement;
-use App\Models\Manager\ProdCategoriesDaoImplement;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\Model\ProdProducts;
 
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoInterface;
-use App\Models\Model\ProdBrands;
+
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
 {

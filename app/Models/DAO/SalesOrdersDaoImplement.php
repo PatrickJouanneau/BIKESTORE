@@ -5,6 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrders;
 use App\Models\DAO\SalesOrdersDaoInterface;
+use App\Models\Dao\SalesCustomersDaoInterface;
 
 class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 {
@@ -37,8 +38,8 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
             $order->setRequiredDate($row['required_date']);
             $order->setShippedDate($row['shipped_date']);
 
-            //$customer = $this->customerDao->getCustomerById($row['customer_id']);
-            //$order->setSalesCustomers($customer);
+            $customer = $this->customerDao->getCustomerById($row['customer_id']);
+            $order->setSalesCustomers($customer);
 
             $store = $this->storeDao->getStoreById($row['store_id']);
             $order->setSalesStores($store);
@@ -51,7 +52,7 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
         return $allOrders;
     }
 
-    public function getOrderByid($orderId)
+    public function getOrderById($orderId)
     {
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM sales.orders WHERE order_id='".$orderId."'");
@@ -64,8 +65,8 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
             $order->setRequiredDate($resultBdd['required_date']);
             $order->setShippedDate($resultBdd['shipped_date']);
 
-            //$customer = $this->customerDao->getCustomerById($resultBdd['customer_id']);
-            //$order->setSalesCustomers($customer);
+            $customer = $this->customerDao->getCustomerById($resultBdd['customer_id']);
+            $order->setSalesCustomers($customer);
 
             $store = $this->storeDao->getStoreById($resultBdd['store_id']);
             $order->setSalesStores($store);
@@ -75,4 +76,5 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 
             return $order;
     }
+
 }

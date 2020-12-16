@@ -8,6 +8,7 @@ use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerInterface;
 use App\Models\Manager\SalesStoresManagerInterface;
 use App\Models\Manager\SalesCustomersManagerInterface;
+use App\Models\Manager\SalesOrderItemsManagerInterface;
 use App\Models\Manager\SalesOrdersManagerInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
 
@@ -22,7 +23,8 @@ class HomeController extends Controller
         SalesStoresManagerInterface $storeManager,
         SalesCustomersManagerInterface $customerManager,
         SalesStaffsManagerInterface $staffManager,
-        SalesOrdersManagerInterface $orderManager
+        SalesOrdersManagerInterface $orderManager,
+        SalesOrderItemsManagerInterface $orderItemManager
     ) {
         $allBrands = $brandManager->getAllBrands();
         $allCategories = $categoryManager->getAllCategories();
@@ -32,6 +34,7 @@ class HomeController extends Controller
         $allCustomers = $customerManager->getAllCustomers();
         $allStaffs = $staffManager->getAllStaffs();
         $allOrders = $orderManager->getAllOrders();
+        $allOrderItems = $orderItemManager->getAllOrderItems();
 
         return view('home')->with([
             'brands' => $allBrands,
@@ -41,7 +44,8 @@ class HomeController extends Controller
             'stores' => $allStores,
             'customers' => $allCustomers,
             'staffs' => $allStaffs,
-            'orders' => $allOrders
+            'orders' => $allOrders,
+            'orderItems' => $allOrderItems
         ]);
     }
 }
