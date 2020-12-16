@@ -311,6 +311,7 @@
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#produitsBis">Produits</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#stockBis">Stock</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#client">Client</a></li>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#commande">Commande</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente">Vente</a></li>
                                                     </ul>
                                                     <div class="tab-content">
@@ -541,8 +542,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="tab-pane fade" id="vente">
-                                                        <!-- VENTES -->
+                                                        <div class="tab-pane fade" id="commande">
+                                                        <!-- COMMANDES -->
                                                             <div class="container">
                                                                 <div class="row">
 
@@ -576,6 +577,41 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
+                                                        <div class="tab-pane fade" id="vente">
+                                                            <!-- VENTES -->
+                                                                <div class="container">
+                                                                    <div class="row">
+
+                                                                        <div class="col-xl-9">
+                                                                            <h4>Suivi des commandes</h4>
+                                                                            <table class="table table-sm table-hover">
+                                                                                <thead>
+                                                                                    <tr>
+                                                                                        <th scope="col">Order_id</th>
+                                                                                        <th scope="col">Item_id</th>
+                                                                                        <th scope="col">Product_id</th>
+                                                                                        <th scope="col">Product Name</th>
+                                                                                        <th scope="col">Quantité</th>
+                                                                                        <th scope="col">Prix</th>
+                                                                                        <th scope="col">Remise</th>
+                                                                                    </tr>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    @yield('liste_des_ventes')
+                                                                                </tbody>
+                                                                            </table>
+
+                                                                        </div>
+
+                                                                        <div class="col-xl-3">
+                                                                            <h4>This is brand</h4>
+                                                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        </div>
+
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
                                                     </div>
                                                 </div>
@@ -613,7 +649,7 @@
                                                             <div class="p-t-15">
                                                                 <h4>This is profile title</h4>
 
-                                                                
+
 
                                                             </div>
                                                         </div>

@@ -111,3 +111,17 @@
     @endforeach
 @stop
 
+@section('liste_des_ventes')
+    @foreach ($orderItems as $oi)
+        <tr>
+            <th>{{ $oi->getOrderId() }}</th>
+            <td>{{ $oi->getItemId() }}</td>
+            <td>{{-- $oi->getProdProducts()->getproductId() --}}</td>
+            <td>{{-- $oi->getProdProducts()->getproductName() --}}</td>
+            <td>{{ $oi->getQuantity() }}</td>
+            <td>{{ $oi->getListPrice() }}</td>
+            <td>{{ $oi->getDiscount() }}</td>
+        </tr>
+    @endforeach
+@stop
+
