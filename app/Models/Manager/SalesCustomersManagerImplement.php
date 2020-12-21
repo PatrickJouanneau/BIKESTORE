@@ -2,7 +2,7 @@
 
 namespace App\Models\Manager;
 
-use App\Models\Dao\SalesCustomersDaoInterface;
+use App\Models\DAO\SalesCustomersDaoInterface;
 use App\Models\Manager\SalesCustomersManagerInterface;
 
 class SalesCustomersManagerImplement implements SalesCustomersManagerInterface

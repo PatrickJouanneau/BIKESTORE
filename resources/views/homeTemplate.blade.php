@@ -1,4 +1,4 @@
-@extends('Layout')
+@extends('layouts/Layout')
 
 @section('content')
 <div class="container-fluid">
@@ -46,8 +46,8 @@
                                     <svg class="mr-3" width="25%" height="25%" viewBox="0 0 625 625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><use id="Arrière-plan" xlink:href="#_Image1" x="0" y="0" width="150px" height="150px" transform="matrix(4.16667,0,0,4.16667,0,0)"/><defs><image id="_Image1" width="150px" height="150px" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/4QCgRXhpZgAATU0AKgAAAAgABQEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAAEyAAIAAAAUAAAAWodpAAQAAAABAAAAbgAAAAAAAABIAAAAAQAAAEgAAAABMjAyMDowOTowOSAxODo1MTo1NgAAA6ABAAMAAAABAAEAAKACAAMAAAABAJYAAKADAAMAAAABAJYAAAAAAAD/4QtAaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA1LjUuMCI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgcGhvdG9zaG9wOklDQ1Byb2ZpbGU9InNSR0IgSUVDNjE5NjYtMi4xIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMC0wOS0wOVQxODo1MTo1NiswNDowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMC0wOS0wOVQxODo1MTo1NiswNDowMCI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249InByb2R1Y2VkIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZmZpbml0eSBQaG90byAxLjguNSIgc3RFdnQ6d2hlbj0iMjAyMC0wOS0wOVQxODo1MTo1NiswNDowMCIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0idyI/Pv/tACxQaG90b3Nob3AgMy4wADhCSU0EJQAAAAAAENQdjNmPALIE6YAJmOz4Qn7/4gJkSUNDX1BST0ZJTEUAAQEAAAJUbGNtcwQwAABtbnRyUkdCIFhZWiAH5AAJAAkADgAwABVhY3NwTVNGVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxjbXMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtkZXNjAAABCAAAAD5jcHJ0AAABSAAAAEx3dHB0AAABlAAAABRjaGFkAAABqAAAACxyWFlaAAAB1AAAABRiWFlaAAAB6AAAABRnWFlaAAAB/AAAABRyVFJDAAACEAAAACBnVFJDAAACEAAAACBiVFJDAAACEAAAACBjaHJtAAACMAAAACRtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACIAAAAcAHMAUgBHAEIAIABJAEUAQwA2ADEAOQA2ADYALQAyAC4AMQAAbWx1YwAAAAAAAAABAAAADGVuVVMAAAAwAAAAHABOAG8AIABjAG8AcAB5AHIAaQBnAGgAdAAsACAAdQBzAGUAIABmAHIAZQBlAGwAeVhZWiAAAAAAAAD21gABAAAAANMtc2YzMgAAAAAAAQxCAAAF3v//8yUAAAeTAAD9kP//+6H///2iAAAD3AAAwG5YWVog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"/></defs></svg>
                                     <!--<img class="mr-3" width="80" height="80" alt="Avatar" src="" >-->
                                     <div class="media-body">
-                                        <h3 class="mb-0">Bonjour John Doe,</h3>
-                                        <p class="text-muted mb-0">Admin</p>
+                                        <h3 class="mb-0">Bonjour {{ __('John Doe,') }}</h3>
+                                        <p class="text-muted mb-0">{{ __('Admin') }}</p>
                                     </div>
                                 </div>
 
@@ -64,13 +64,14 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
 
                 <div class="card-body">
                     <h4 class="card-title">Vente & Stosk</h4>
-                    <!-- RANGEE PRINCIPALE -->
+                    <!--------------------------
+                         RANGEE PRINCIPALE
+                    -------------------------->
                     <div class="default-tab">
                         <ul class="nav nav-tabs mb-3" role="tablist">
                             <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production">PRODUCTION</a></li>
@@ -79,15 +80,14 @@
                             <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#administration">ADMINISTRATION</a></li>
                         </ul>
                         <div class="tab-content">
-                            <!--
+                            <!-------------------
                                 PRODUCTION
-                            -->
+                            --------------------->
                             <div class="tab-pane fade show active" id="production" role="tabpanel">
                                 <div class="p-t-15">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <!--<h4>“La réussite d'une production repose sur l'attention prêtée aux détails.”</h4>-->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
                                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#marque">Marque</a></li>
@@ -98,521 +98,152 @@
                                                     <div class="tab-content">
 
                                                         <div class="tab-pane fade show active" id="marque" role="tabpanel">
-                                                            <!-- MARQUE -->
+                                                        <!-- ** MARQUE ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-8">
-                                                                        <h4>Liste des marques</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_marques')
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <!--LISTE DES MARQUES -->
+                                                                        @include('Brands/BrandsListe')
                                                                     </div>
+
                                                                     <div class="col-xl-4">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="select-by-name" id="brand-dropdown" class="btn btn-light btn-block">
-                                                                            <option value="Tout">Choisir une marque</option>
-                                                                        </select>
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouvelle marque</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-marque">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
+                                                                        <!--MODIFICATION & CREATION d'une nouvelle marque-->
+                                                                        @include('Brands/BrandsForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="categorie">
-                                                            <!-- CATEGORIE -->
+                                                        <!-- ** CATEGORIE ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-8">
-                                                                        <h4>Liste des catégories</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">nom</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_categories')
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <!-- LISTE DES CATEGORIES -->
+                                                                        @include('Categories/categoriesListe')
                                                                     </div>
+
                                                                     <div class="col-xl-4">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="Tout">Toute les marques</option>
-                                                                        </select>
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouvelle catégorie</h4>
-                                                                        <form name="categorie" action="">
-                                                                            <div class="form-categorie">
-                                                                                <input type="text" class="form-control form-control-user" id="categorie" placeholder="New categorie">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
+                                                                        <!-- MODIFICATION d'une catégorie -->
+                                                                        @include('Categories/CategoriesForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="produits">
-                                                            <!-- PRODUITS -->
+                                                        <!--** PRODUITS ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-8">
-                                                                        <h4>Liste des produits</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                    <th scope="col">Millesime</th>
-                                                                                    <th scope="col">Marque</th>
-                                                                                    <th scope="col">Catégorie</th>
-                                                                                    <th scope="col">Prix €</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_produits')
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <!-- LISTE DES PRODUITS -->
+                                                                        @include('Products/productsListe')
                                                                     </div>
                                                                     <div class="col-xl-4">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allBrands">Choisir une marques</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allCategories">Choisir une catégorie</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Choisir une année</option>
-                                                                        </select>
-
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouveau produit</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-produit">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="Nom du produit">
-                                                                            </div><br>
-                                                                            <select name="" id="" class="form-control form-control-user">
-                                                                                <option value="allBrands">Choisir une marques</option>
-                                                                            </select><br>
-                                                                            <select name="" id="" class="form-control form-control-user">
-                                                                                <option value="allCategories">Choisir une catégorie</option>
-                                                                            </select>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
+                                                                    <!-- SELECTION MODIFICATION et CREATION d'un produit -->
+                                                                        @include('Products/productsForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="stock">
-                                                            <!-- STOCK -->
+                                                        <!-- ** STOCK ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-8">
-                                                                        <h4>Liste des stocks</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                    <th scope="col">Stocks</th>
-                                                                                    <th scope="col">Magasin</th>
-                                                                                    <th scope="col">Année</th>
-                                                                                    <th scope="col">Prix €</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_stocks')
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <!-- LISTE DES STOCKS -->
+                                                                        @include('Stocks/StocksListe')
                                                                     </div>
 
                                                                     <div class="col-xl-4">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allBrands">Sélection marques</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allCategories">Sélection par catégorie</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par année</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par magasin</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par production</option>
-                                                                        </select>
-
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>Nouvelle mise en stock</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-marque">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
+                                                                    <!-- SELECTION & MISE EN STOCK d'un produit -->
+                                                                        @include('Stocks/StocksForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-
                             </div>
 
-                            <!--
+                            <!-----------------
                                 VENTES
-                            -->
+                            ------------------->
                             <div class="tab-pane fade" id="ventes">
                                 <div class="p-t-15">
-
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <!--<h4>“Les yeux de celui qui achète sont dans la main de celui qui vend.”</h4>-->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
-                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#marqueBis">Marque</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#categorieBis">Catégorie</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#produitsBis">Produits</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#stockBis">Stock</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#client">Client</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#commande">Commande</a></li>
+                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#client">Client</a></li>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#commande">Liste cmd</a></li>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#bdc">Bon de cmd</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente">Vente</a></li>
                                                     </ul>
                                                     <div class="tab-content">
-
-                                                        <div class="tab-pane fade show active" id="marqueBis" role="tabpanel">
-                                                            <!-- MARQUE -->
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-xl-6">
-                                                                        <h4>Liste des marques</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_marques')
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="Tout">Choisir une marques</option>
-                                                                        </select>
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouvelle marque</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-marque">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-
-                                                                        </form>
-
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="tab-pane fade" id="categorieBis">
-                                                            <!-- CATEGORIE -->
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-xl-6">
-                                                                        <h4>Liste des catégories</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Choisir une catégorie</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_categories')
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="Tout">Toute les marques</option>
-                                                                        </select>
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouvelle catégorie</h4>
-                                                                        <form name="categorie" action="">
-                                                                            <div class="form-categorie">
-                                                                                <input type="text" class="form-control form-control-user" id="categorie" placeholder="New categorie">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="tab-pane fade" id="produitsBis">
-                                                            <!-- PRODUITS -->
-                                                            <div class="container">
-                                                                <div class="row">
-                                                                    <div class="col-xl-7">
-                                                                        <h4>Liste des produits</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                    <th scope="col">Millesime</th>
-                                                                                    <th scope="col">Marque</th>
-                                                                                    <th scope="col">Catégorie</th>
-                                                                                    <th scope="col">Prix €</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_produits')
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-                                                                    <div class="col-xl-5">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allBrands">Choisir une marques</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allCategories">Choisir une catégorie</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Choisir une année</option>
-                                                                        </select>
-
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>CREATION d'une nouveau produit</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-produit">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="Nom du produit">
-                                                                            </div><br>
-                                                                            <select name="" id="" class="form-control form-control-user">
-                                                                                <option value="allBrands">Choisir une marques</option>
-                                                                            </select><br>
-                                                                            <select name="" id="" class="form-control form-control-user">
-                                                                                <option value="allCategories">Choisir une catégorie</option>
-                                                                            </select>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="tab-pane fade" id="stockBis">
-                                                            <!-- STOCK -->
+                                                        <div class="tab-pane fade show active" id="client" role="tabpanel">
+                                                        <!-- ** CLIENTS ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-9">
-                                                                        <h4>Liste des stocks</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                    <th scope="col">Stocks</th>
-                                                                                    <th scope="col">Magasin</th>
-                                                                                    <th scope="col">Production</th>
-                                                                                    <th scope="col">Prix €</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_stocks')
-                                                                            </tbody>
-                                                                        </table>
+                                                                        <!-- LISTE DES CLIENTS -->
+                                                                        @include('Customers/customersListe')
                                                                     </div>
 
                                                                     <div class="col-xl-3">
-                                                                        <h4>SELECTION</h4>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allBrands">Sélection marques</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allCategories">Sélection par catégorie</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par année</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par magasin</option>
-                                                                        </select>
-                                                                        <select name="" id="" class="btn btn-light btn-block">
-                                                                            <option value="allYears">Sélection par production</option>
-                                                                        </select>
-
-                                                                        <br><br>
-                                                                        <hr><br>
-                                                                        <h4>Nouvelle mise en stock</h4>
-                                                                        <form name="brand" action="">
-                                                                            <div class="form-marque">
-                                                                                <input type="text" class="form-control form-control-user" id="brand" placeholder="New brand">
-                                                                            </div>
-                                                                            <br>
-                                                                            <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
-                                                                        </form>
+                                                                        <!-- FORMULAIRE CREATION et MODIFICATION DE CLIENT -->
+                                                                        @include('Customers/CustomersForm')
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="tab-pane fade" id="client" role="tabpanel">
-                                                        <!-- CLIENTS -->
-                                                            <div class="container">
-                                                                <div class="row">
-
-                                                                    <div class="col-xl-9">
-                                                                        <h4>Liste des clients</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Nom</th>
-                                                                                    <th scope="col">Prénom</th>
-                                                                                    <th scope="col">Adresse</th>
-                                                                                    <th scope="col">Ville</th>
-                                                                                    <th scope="col">Code postal</th>
-                                                                                    <th scope="col">State</th>
-                                                                                    <th scope="col">Téléphone</th>
-                                                                                    <th scope="col">Email</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_clients')
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </div>
-
-                                                                    <div class="col-xl-3">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                    </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="commande">
-                                                        <!-- COMMANDES -->
+                                                        <!-- ** COMMANDES**  -->
                                                             <div class="container">
                                                                 <div class="row">
-
                                                                     <div class="col-xl-9">
-                                                                        <h4>Suivi des commandes</h4>
-                                                                        <table class="table table-sm table-hover">
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th scope="col">#</th>
-                                                                                    <th scope="col">Client</th>
-                                                                                    <th scope="col">Statut</th>
-                                                                                    <th scope="col">Date commande</th>
-                                                                                    <th scope="col">Date prévue</th>
-                                                                                    <th scope="col">Date de livraison</th>
-                                                                                    <th scope="col">Magasin</th>
-                                                                                    <th scope="col">Exécutant</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @yield('liste_des_commandes')
-                                                                            </tbody>
-                                                                        </table>
-
+                                                                        <!-- LISTE DES COMMANDES -->
+                                                                        @include('Orders/OrdersListe')
                                                                     </div>
 
                                                                     <div class="col-xl-3">
                                                                         <h4>This is brand</h4>
                                                                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
 
+                                                        <div class="tab-pane fade" id="bdc">
+                                                            <!-- ** BON DE COMMANDE ** -->
+                                                            <div class="p-t-15">
+                                                                <h4>Bon de commande</h4>
+                                                                @include('BonDeCommande')
+                                                            </div>
+                                                        </div>
+
                                                         <div class="tab-pane fade" id="vente">
-                                                            <!-- VENTES -->
-                                                                <div class="container">
-                                                                    <div class="row">
-
-                                                                        <div class="col-xl-9">
-                                                                            <h4>Suivi des commandes</h4>
-                                                                            <table class="table table-sm table-hover">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">Order_id</th>
-                                                                                        <th scope="col">Item_id</th>
-                                                                                        <th scope="col">Product_id</th>
-                                                                                        <th scope="col">Product Name</th>
-                                                                                        <th scope="col">Quantité</th>
-                                                                                        <th scope="col">Prix</th>
-                                                                                        <th scope="col">Remise</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    @yield('liste_des_ventes')
-                                                                                </tbody>
-                                                                            </table>
-
-                                                                        </div>
-
-                                                                        <div class="col-xl-3">
-                                                                            <h4>This is brand</h4>
-                                                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                        </div>
-
+                                                        <!-- ** VENTES**  -->
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-xl-9">
+                                                                        <!-- SUIVI DES COMMANDES -->
+                                                                        @include('OrderItems/OrderItemsListe')
+                                                                    </div>
+                                                                    <div class="col-xl-3">
+                                                                        <h4>This is brand</h4>
+                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
-
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -621,36 +252,30 @@
                                 </div>
                             </div>
 
-                            <!--
+                            <!----------------
                                 REPORTING
-                            -->
+                            ------------------>
                             <div class="tab-pane fade" id="reporting">
                                 <div class="p-t-15">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <!--<h4>“La mesure oblige à la clarté, à la fois à clarifier les idées, les stratégies et actions qui en découlent.”</h4>-->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
-                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production3">Production</a>
-                                                        </li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente4">Vente</a>
-                                                        </li>
+                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production3">Production</a></li>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente4">Vente</a></li>
                                                     </ul>
                                                     <div class="tab-content">
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4>This is home title</h4>
-                                                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                @include('Reporting/Dashboard')
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="vente4">
                                                             <div class="p-t-15">
                                                                 <h4>This is profile title</h4>
 
-
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -661,17 +286,14 @@
                                 </div>
                             </div>
 
-                            <!--
+                            <!-------------------
                                 ADMINISTRATION
-                            -->
+                            --------------------->
                             <div class="tab-pane fade" id="administration">
                                 <div class="p-t-15">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <!--<h4>“L'abondance est le fruit d'une bonne administration.”</h4>
-                                                <h4 class="card-title">Custom Tab 1</h4>-->
-                                                <!-- Nav tabs -->
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
                                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#utilisateur">Utilisateurs</a></li>
@@ -681,130 +303,42 @@
                                                     </ul>
                                                     <div class="tab-content">
                                                         <div class="tab-pane fade show active" id="utilisateur" role="tabpanel">
+                                                        <!-- ** UTILISATEURS ** -->
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-xl-9">
+                                                                        <!-- LISTE DES UTILISATEURS -->
+                                                                        @include('Staffs/StaffsListe')
+                                                                    </div>
 
-                                                        <!-- UTILISATEURS -->
-                                                        <div class="container">
-                                                            <div class="row">
-                                                                <div class="col-xl-9">
-                                                                    <h4>Liste des utilisateurs</h4>
-                                                                    <table class="table table-sm table-hover">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th scope="col">#</th>
-                                                                                <th scope="col">Nom</th>
-                                                                                <th scope="col">Prénom</th>
-                                                                                <th scope="col">Email</th>
-                                                                                <th scope="col">Phone</th>
-                                                                                <th scope="col">Poste</th>
-                                                                                <th scope="col">Magasin</th>
-                                                                                <th scope="col">Responsable</th>
-                                                                                <th scope="col">Activité</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            @yield('liste_des_employes')
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-
-                                                                <div class="col-xl-3">
-
-                                                                    <div class="card-body">
-                                                                        <h4>Création d'un utilisateur</h4>
-                                                                        <form class="user">
-                                                                            <div class="form-group">
-                                                                                <input type="text" class="form-control form-control-user" id="first_name" aria-describedby="firstNameHelp" placeholder="Prénom">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="text" class="form-control form-control-user" id="last_name" aria-describedby="lastNameHelp" placeholder="Nom">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="email">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="text" class="form-control form-control-user" id="phone" aria-describedby="phoneHelp" placeholder="téléphone">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
-                                                                            </div>
-                                                                            <div class="form-group">
-                                                                                <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Confirmer le mot de passe">
-                                                                            </div>
-
-                                                                            <div class="form-group">
-                                                                                <select id="magasin" class="form-control" value="{{ old('magasin') }}" required>
-                                                                                    <option selected>Magasin</option>
-                                                                                    <option>Santa Cruz</option>
-                                                                                    <option>Baldwin</option>
-                                                                                    <option>Rowlett</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="form-group">
-                                                                                <select id="manager" class="form-control" value="{{ old('profil') }}" required>
-                                                                                    <option selected>Responsable direct</option>
-                                                                                    <option>Vendeur</option>
-                                                                                    <option>Administratif</option>
-                                                                                    <option>Préparateur</option>
-                                                                                    <option>Réparateur</option>
-                                                                                    <option>Direction</option>
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="form-group">
-                                                                                <p class="form-control form-control-user">
-                                                                                    Activité &nbsp;? &nbsp;&nbsp;&nbsp;
-                                                                                    <label class="radio-inline"><input type="radio" name="active" checked> &nbsp; Oui</label>&nbsp;&nbsp;&nbsp;
-                                                                                    <label class="radio-inline"><input type="radio" name="active"> &nbsp; Non</label>
-                                                                                </p>
-                                                                            </div>
-
-                                                                            <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                                                                Enregistrer
-                                                                            </a>
-
-                                                                        </form>
-                                                                        <hr>
+                                                                    <div class="col-xl-3">
+                                                                        <div class="card-body">
+                                                                            <!-- CREATION MODIFICATION d'un UTILISATEUR -->
+                                                                            @include('Staffs/StaffsForm')
+                                                                            <hr>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
                                                         </div>
 
                                                         <div class="tab-pane fade" id="magasins">
-                                                            <!-- MAGASIN -->
-                                                                <div class="container">
-                                                                    <div class="row">
-                                                                        <div class="col-xl-9">
-                                                                            <h4>Liste des magasins</h4>
-                                                                            <table class="table table-sm table-hover">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th scope="col">#</th>
-                                                                                        <td scope="col">Nom</td>
-                                                                                        <td scope="col">Adresse</td>
-                                                                                        <td scope="col">Ville</td>
-                                                                                        <td scope="col">Code postal</td>
-                                                                                        <td scope="col">Etat</td>
-                                                                                        <td scope="col">Téléphone</td>
-                                                                                        <td scope="col">Email</td>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                    @yield('liste_des_magasins')
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div>
-                                                                        <div class="col-xl-3">
-                                                                            <h4>This is brand</h4>
-                                                                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
-                                                                        </div>
+                                                        <!-- ** MAGASIN ** -->
+                                                            <div class="container">
+                                                                <div class="row">
+                                                                    <div class="col-xl-9">
+                                                                        <!-- LISTE DES MAGASINS -->
+                                                                        @include('Stores/StoresListe')
+                                                                    </div>
+                                                                    <div class="col-xl-3">
+                                                                        @include('Stores/StoresForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
                                                         <div class="tab-pane fade" id="profil">
-                                                            <!-- PRROFILE -->
+                                                        <!-- ** PRROFILE ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-6">
@@ -820,7 +354,7 @@
                                                         </div>
 
                                                         <div class="tab-pane fade" id="historique">
-                                                        <!-- HISTORIQUE -->
+                                                        <!-- ** HISTORIQUE ** -->
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-6">

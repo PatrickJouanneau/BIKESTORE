@@ -15,8 +15,10 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     private $categoryDao;
     private $brandDao;
 
-    public function __construct(ProdCategoriesDaoInterface $categoryDao, ProdBrandsDaoInterface $brandDao)
-    {
+    public function __construct(
+        ProdCategoriesDaoInterface $categoryDao,
+        ProdBrandsDaoInterface $brandDao
+    ) {
         $this->categoryDao  = $categoryDao;
         $this->brandDao  = $brandDao;
     }
@@ -24,23 +26,27 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
     public function getAllProducts()
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.products ORDER BY product_name");
-        $resultBdd = $reponse->fetchAll();
+        //$bdd = DB::getPdo();
+        //$reponse = $bdd->query("SELECT * FROM production.products ORDER BY product_name");
+        //$resultBdd = $reponse->fetchAll();
+
+        $resultBdd = DB::select('exec dbo.get_all_products');
 
         $allProducts = [];
         foreach ($resultBdd as $i => $row) {
             $product = new ProdProducts();
-            $product->setProductId($row['product_id']);
-            $product->setProductName($row['product_name']);
-            $product->setModelYear($row['model_year']);
-            $product->setListPrice($row['list_price']);
+            $product->setProductId($row->product_id);
+            $product->setProductName($row->product_name);
+            $product->setModelYear($row->model_year);
+            $product->setListPrice($row->list_price);
 
-            $category = $this->categoryDao->getCategoryById($row['category_id']);
-            $brand = $this->brandDao->getBrandById($row['brand_id']);
-
+            $category = $this->categoryDao->getCategoryById($row->category_id);
             $product->setProductCategory($category);
+
+            $brand = $this->brandDao->getBrandById($row->brand_id);
             $product->setProductBrand($brand);
+
+
 
             array_push($allProducts, $product);
         }

@@ -8,10 +8,10 @@ use App\Models\DAO\ProdProductsDaoInterface;
 
 class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 {
-    private $productDao;
-    public function __construct(ProdProductsDaoInterface $productDao)
+    private $prodProduct;
+    public function __construct(ProdProductsDaoInterface $prodProduct)
     {
-        $this->productDao = $productDao;
+        $this->prodProduct = $prodProduct;
     }
 
     public function getAllOrderItems()
@@ -26,10 +26,12 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $orderItem->setOrderId($row['order_id']);
             $orderItem->setItemId($row['item_id']);
             $orderItem->setQuantity($row['quantity']);
+            $orderItem->setListPrice($row['list_price']);
             $orderItem->setDiscount($row['discount']);
 
-            $product = $this->productDao->getProductById($row['product_id']);
-            $orderItem->setProductDao($product);
+            $product = $this->prodProduct->getProductById($row['product_id']);
+            $orderItem->setprodProduct($product);
+
 
             array_push($allOrderItems, $orderItem);
         }
@@ -46,10 +48,11 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $orderItem->setOrderId($resultBdd['order_id']);
             $orderItem->setItemId($resultBdd['item_id']);
             $orderItem->setQuantity($resultBdd['quantity']);
+            $orderItem->setListPrice($resultBdd['list_price']);
             $orderItem->setDiscount($resultBdd['discount']);
 
-            $product = $this->productDao->getProductById($resultBdd['product_id']);
-            $orderItem->setProductDao($product);
+            $product = $this->produprodProductctDao->getProductById($resultBdd['product_id']);
+            $orderItem->setprodProduct($product);
 
             return $orderItem;
     }

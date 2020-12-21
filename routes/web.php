@@ -14,10 +14,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::group(['middleware' => ['is_connected']], function(){
+
+});
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/404', [LoginController::class, 'index']);
+Route::post('/404', [LoginController::class, 'login']);
 
+Route::get('brand/creation', [
+    'as' => 'produits.create',
+    'uses' => 'HomeController@createBrand',
+]);
 
 
 Route::get('/formStaff', [\App\Http\Controllers\FormulaireStaffController::class, 'formulaireStaff']);

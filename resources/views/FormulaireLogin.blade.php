@@ -2,18 +2,17 @@
 
 @section('content')
 
-<body class="antialiased">
-    <div class="container">
+<body style="background-image: url(img/pexels-maarten-van-den-heuvel-4254902.jpg)">
+    <div class="container" >
         <!-- Rangée extérieure -->
-        <div class="row justify-content-center">
-
-            <div class="col-xl-10 col-lg-12 col-md-9">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="card border-primary mt-6">
+                    <div class="card-body p-1">
                         <!-- Rangée imbriquée dans le corps de la carte -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image text-center p-6">
                                 <svg width="100%" height="100%" viewBox="0 0 1280 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                                     <path d="M478.361,539.929c-89.993,-0.018 -162.927,-72.988 -162.909,-162.98c0.027,-89.992 72.997,-162.926 162.98,-162.908c89.992,0.018 162.926,72.996 162.908,162.98c-0.018,89.992 -72.987,162.926 -162.979,162.908m0.08,-355.933c-106.577,-0.027 -193.007,86.358 -193.034,192.944c-0.027,106.586 86.359,193.007 192.945,193.034c106.585,0.027 193.007,-86.359 193.033,-192.944c0.027,-106.586 -86.358,-193.007 -192.944,-193.034" style="fill:#0668e8;fill-rule:nonzero;" />
                                     <path d="M1077.01,184.022c-20.111,-0 -39.514,3.096 -57.737,8.807c3.625,10.032 7.035,19.457 10.275,28.29c15.018,-4.591 30.949,-7.034 47.462,-7.034c90.001,-0 162.962,72.951 162.962,162.926c-0,90.001 -72.961,162.962 -162.962,162.962c-89.975,-0 -162.926,-72.961 -162.926,-162.962c-0,-48.429 21.14,-91.944 54.729,-121.801c-3.499,-9.362 -7.16,-19.368 -11.008,-30c-44.929,35.361 -73.784,90.207 -73.784,151.801c-0,106.612 86.412,192.989 192.989,192.989c106.577,0 192.989,-86.377 192.989,-192.989c0,-106.577 -86.412,-192.989 -192.989,-192.989" style="fill:#0668e8;fill-rule:nonzero;" />
@@ -51,13 +50,23 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Bonjour !</h1>
                                     </div>
-                                    <form class="user">
+                                    {{ $message ?? ""}}
+                                    <form class="user" method="post" action="{{ url('/LoginController/login') }}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Identifiant...">
+                                            <input type="email" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Identifiant...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Mot de passe">
                                         </div>
+
+                                        <!--<div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
+                                            </div>
+                                        </div>-->
+
 
                                         <!--<div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -69,6 +78,8 @@
                                         <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="input">
+
                                         <!--<a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
@@ -85,11 +96,8 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div>
@@ -113,4 +121,4 @@
     <script src="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
 </body>
 
-@endsection
+@stop

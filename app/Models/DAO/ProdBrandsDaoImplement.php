@@ -9,13 +9,18 @@ use App\Models\DAO\ProdBrandsDaoInterface;
 
 class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
-
-    public function saveBrand($productionBrands)
+/*
+    public function createBrand($brand)
     {
-        $results = DB::insert('INSERT INTO production.brands (brands_id, brans_name) VALUES (?, ?)');
-        return $results;
-    }
+        $bdd = DB::getPdo();
+        $create = $bdd->prepare('INSERT INTO production.brands (brands_id, brand_name) VALUES (?, ?)');
 
+        $create->execute(array(
+            $brand->getBrandName()
+        ));
+
+    }
+*/
     public function getAllBrands()
     {
         //$results = DB::select('SELECT * FROM production.brands');
@@ -55,4 +60,15 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
         return $brand;
     }
+
+    public function updateBrand($brandId)
+    {
+        $bdd = DB::postPdo();
+        $modify = $bdd->prepare("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ")[$brandId];
+        $modify->execute(array(
+            $brandId->getBrandName()
+        ));
+    }
+
+
 }

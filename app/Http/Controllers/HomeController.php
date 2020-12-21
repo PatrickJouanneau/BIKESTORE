@@ -27,6 +27,7 @@ class HomeController extends Controller
         SalesOrderItemsManagerInterface $orderItemManager
     ) {
         $allBrands = $brandManager->getAllBrands();
+        //$createBrand = $brandManager->createBrand();
         $allCategories = $categoryManager->getAllCategories();
         $allProducts = $productManager->getAllProducts();
         $allStocks = $stockMananger->getAllStocks();
@@ -38,6 +39,7 @@ class HomeController extends Controller
 
         return view('home')->with([
             'brands' => $allBrands,
+            //'brands' => $createBrand,
             'categories' => $allCategories,
             'products' => $allProducts,
             'stocks' => $allStocks,

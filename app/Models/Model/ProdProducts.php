@@ -63,7 +63,7 @@ class ProdProducts
 
     public function setProductBrand(ProdBrands $productBrand)
     {
-        $this->brand = $productBrand;
+        $this->productBrand = $productBrand;
     }
     public function setProductCategory(ProdCategories $productCategory)
     {

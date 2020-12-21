@@ -5,7 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrders;
 use App\Models\DAO\SalesOrdersDaoInterface;
-use App\Models\Dao\SalesCustomersDaoInterface;
+use App\Models\DAO\SalesCustomersDaoInterface;
 
 class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 {

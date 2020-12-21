@@ -10,6 +10,8 @@ class SalesStaffs extends Contact
     private $active;
     private $storeId;
     private $managerId;
+    private $profil;
+    private $password;
 
     private SalesStores $salesStores;
 
@@ -30,6 +32,14 @@ class SalesStaffs extends Contact
     public function getManagerId()
     {
         return $this->managerId;
+    }
+    public function getProfil()
+    {
+        return $this->profil;
+    }
+    public function getPassword()
+    {
+        return $this->password;
     }
     public function getSalesStores(): SalesStores
     {
@@ -53,6 +63,14 @@ class SalesStaffs extends Contact
     public function setManagerId($managerId)
     {
         $this->managerId = $managerId;
+    }
+    public  function setProfil($profil)
+    {
+        $this->profil = $profil;
+    }
+    public function setpassword($password)
+    {
+        $this->password = $password;
     }
     public function setSalesStores(SalesStores $salesStores)
     {

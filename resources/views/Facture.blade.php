@@ -11,8 +11,8 @@
 
         </div>
         <div class="card-body">
-            <div class="row mb-4">
-                <div class="col-sm-4">
+            <div class="row mb-5">
+                <div class="col-sm-4 p-5">
                     <svg width="100%" height="100%" viewBox="0 0 1280 960" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
                         <path d="M478.361,539.929c-89.993,-0.018 -162.927,-72.988 -162.909,-162.98c0.027,-89.992 72.997,-162.926 162.98,-162.908c89.992,0.018 162.926,72.996 162.908,162.98c-0.018,89.992 -72.987,162.926 -162.979,162.908m0.08,-355.933c-106.577,-0.027 -193.007,86.358 -193.034,192.944c-0.027,106.586 86.359,193.007 192.945,193.034c106.585,0.027 193.007,-86.359 193.033,-192.944c0.027,-106.586 -86.358,-193.007 -192.944,-193.034" style="fill:#0668e8;fill-rule:nonzero;" />
                         <path d="M1077.01,184.022c-20.111,-0 -39.514,3.096 -57.737,8.807c3.625,10.032 7.035,19.457 10.275,28.29c15.018,-4.591 30.949,-7.034 47.462,-7.034c90.001,-0 162.962,72.951 162.962,162.926c-0,90.001 -72.961,162.962 -162.962,162.962c-89.975,-0 -162.926,-72.961 -162.926,-162.962c-0,-48.429 21.14,-91.944 54.729,-121.801c-3.499,-9.362 -7.16,-19.368 -11.008,-30c-44.929,35.361 -73.784,90.207 -73.784,151.801c-0,106.612 86.412,192.989 192.989,192.989c106.577,0 192.989,-86.377 192.989,-192.989c0,-106.577 -86.412,-192.989 -192.989,-192.989" style="fill:#0668e8;fill-rule:nonzero;" />
@@ -44,28 +44,39 @@
                             </text><text x="274.424px" y="403.133px" style="font-family:'GillSansMT-Bold', 'Gill Sans MT', sans-serif;font-weight:700;font-size:20.904px;fill:#f28825;">R<tspan x="287.775px 293.941px 309.905px " y="403.133px 403.133px 403.133px ">IDE</tspan></text><text x="214.457px" y="415.327px" style="font-family:'GillSansMT-Italic', 'Gill Sans MT', sans-serif;font-style:italic;font-size:10.452px;fill:#314866;">d<tspan x="218.985px 223.185px 226.508px 227.468px 232.419px 236.62px 238.208px 242.516px 245.839px 248.366px 253.113px 257.421px 261.948px 264.842px 267.369px 269.927px 274.235px 278.762px 282.085px 284.612px 286.2px 290.401px 292.928px 300.287px 304.595px 309.123px 313.65px 317.851px " y="415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px 415.327px ">es Vélos pour tous le mondes</tspan></text></g>
                     </svg>
                 </div>
-                <div class="col-sm-4">
-                    <h6 class="mb-3">From:</h6>
-                    <div>
-                        <strong>BIKE - RIDE</strong>
-                    </div>
-                    <div>La grande montée</div>
-                    <div>97000 SAINT-DENIS</div>
-                    <div>Email: info@bikeride.com</div>
-                    <div>Phone: +262 987 654 32 10</div>
-                </div>
+                <div class="col-sm-8">
+                    <div class="row">
+                        <div class="col-sm-5 pt-5 ml-5">
+                            <h6 class="mb-3">From:</h6>
+                            <div>
+                                <strong>BIKE - RIDE</strong>
+                            </div>
+                            <div>La grande montée</div>
+                            <div>97000 SAINT-DENIS</div>
+                            <div>Email: info@bikeride.com</div>
+                            <div>Phone: +262 987 654 32 10</div>
+                        </div>
 
-                <div class="col-sm-4">
-                    <h6 class="mb-3">To:</h6>
-                    <div>
-                        <strong>Ronan JAFFRE</strong>
+                        <div class="col-sm-5 pt-5 ml-5">
+                            <h6 class="mb-3">To:</h6>
+                            <div>
+                                <strong>Ronan JAFFRE</strong>
+                            </div>
+                            <div>Attn: Daniel Marek</div>
+                            <div>43-190 Mikolow, Poland</div>
+                            <div>Email: robert@daniel.com</div>
+                            <div>Phone: +48 123 456 349</div>
+                        </div>
                     </div>
-                    <div>Attn: Daniel Marek</div>
-                    <div>43-190 Mikolow, Poland</div>
-                    <div>Email: robert@daniel.com</div>
-                    <div>Phone: +48 123 456 349</div>
+                    <div class="row">
+                        <div class="col-sm-4"></div>
+                        <div class="right mt-6 col-sm-8">
+                            <h4>FACTURE</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
+
 
             <div class="table-responsive-sm">
                 <table class="table table-striped">

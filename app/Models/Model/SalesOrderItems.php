@@ -11,7 +11,7 @@ class SalesOrderItems extends SalesOrders
     private $listPrice;
     private $discount;
 
-    private ProdProducts $productDao;
+    private ProdProducts $prodProduct;
 
 
     public function getOrderId()
@@ -34,9 +34,9 @@ class SalesOrderItems extends SalesOrders
     {
         return $this->discount;
     }
-    public function getProductdao(): ProdProducts
+    public function getProdProduct(): ProdProducts
     {
-        return $this->productDao;
+        return $this->prodProduct;
     }
 
 
@@ -60,8 +60,8 @@ class SalesOrderItems extends SalesOrders
     {
         $this->discount = $discount;
     }
-    public function setProductDao(ProdProducts $productDao)
+    public function setProdProduct(ProdProducts $prodProduct)
     {
-        $this->productDao = $productDao;
+        $this->prodProduct = $prodProduct;
     }
 }

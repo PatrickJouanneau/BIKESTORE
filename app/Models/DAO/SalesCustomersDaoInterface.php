@@ -1,7 +1,6 @@
 <?php
 
-namespace App\Models\Dao;
-
+namespace App\Models\DAO;
 
 interface SalesCustomersDaoInterface
 {

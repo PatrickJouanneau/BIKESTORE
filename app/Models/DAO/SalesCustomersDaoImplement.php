@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Dao;
+namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesCustomers;

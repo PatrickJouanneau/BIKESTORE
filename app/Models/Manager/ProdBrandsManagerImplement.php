@@ -18,4 +18,14 @@ class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
     {
         return $this->brandsDao->getAllBrands();
     }
+
+    public function createBrand()
+    {
+        //return $this->brandsDao->createBrand();
+    }
+
+    public function updateBrand()
+    {
+        //return $this->brandsDao->updateBrand();
+    }
 }

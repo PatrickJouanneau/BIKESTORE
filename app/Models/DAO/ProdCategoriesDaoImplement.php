@@ -17,15 +17,17 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
 
     function getAllCategories()
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.categories ORDER BY category_name");
-        $resultBdd = $reponse->fetchAll();
+        //$bdd = DB::getPdo();
+        //$reponse = $bdd->query("SELECT * FROM production.categories ORDER BY category_name");
+        //$resultBdd = $reponse->fetchAll();
+
+        $resultBdd = DB::select('SELECT * FROM production.categories ORDER BY category_name');
 
         $allCategories = [];
         foreach ($resultBdd as $i => $row) {
             $category = new ProdCategories();
-            $category->setCategoryId($row['category_id']);
-            $category->setCategoryName($row['category_name']);
+            $category->setCategoryId($row->category_id);
+            $category->setCategoryName($row->category_name);
             array_push($allCategories, $category);
         }
         return $allCategories;
@@ -37,6 +39,8 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.categories WHERE category_id='" . $categoryId . "'");
         $resultBdd = $reponse->fetch();
+
+        //$resultBdd = DB::select("SELECT * FROM production.categories WHERE category_id = ? ", [$categoryId]);
 
         $category = new ProdCategories();
         $category->setCategoryId($resultBdd['category_id']);
