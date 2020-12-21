@@ -33,7 +33,7 @@
                   </div>
                   <hr>
                   Styling for the area chart can be found in the
-                  <script>/js/demo/chart-area-demo.js</script> file.
+                  <script>{{asset('js/demo/chart-area-demo.js')}}</script> file.
                 </div>
               </div>
 
