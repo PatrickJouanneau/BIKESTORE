@@ -14,16 +14,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($stores as $st)
+            @foreach ($stores as $store)
                 <tr>
-                    <th>{{  $st->getStoreId() }}</th>
-                    <td>{{  $st->getStoreName() }}</td>
-                    <td>{{  $st->getStreet() }}</td>
-                    <td>{{  $st->getCity() }}</td>
-                    <td>{{  $st->getZipCode() }}</td>
-                    <td>{{  $st->getState() }}</td>
-                    <td>{{  $st->getPhone() }}</td>
-                    <td>{{  $st->getEmail() }}</td>
+                    <th>{{  $store->getStoreId() }}</th>
+                    <td>{{  $store->getStoreName() }}</td>
+                    <td>{{  $store->getStreet() }}</td>
+                    <td>{{  $store->getCity() }}</td>
+                    <td>{{  $store->getZipCode() }}</td>
+                    <td>{{  $store->getState() }}</td>
+                    <td>{{  $store->getPhone() }}</td>
+                    <td>{{  $store->getEmail() }}</td>
+                    <td>
+                        <a href="{{ url('/home/'.$store->getStoreId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
+                        <a href="{{ url('/home/'.$store->getStoreId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

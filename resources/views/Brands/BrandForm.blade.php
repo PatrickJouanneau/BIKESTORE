@@ -22,11 +22,12 @@
 
 <h4>CREATION d'une nouvelle marque</h4>
 <form name="brand" action="{{-- route('') --}}" method="POST">
+    @csrf
     <div class="form-marque">
-        <input type="text" class="form-control form-control-user" id="brand-creat" placeholder="Nouvelle marque">
+        <input type="text" class="form-control form-control-user" name="rand-creat" id="brand-creat" placeholder="Nouvelle marque">
     </div>
     <br>
-    <a class="btn btn-primary btn-user btn-block" href="{{-- route('') --}}">Ajouter</a>
+    <a class="btn btn-primary btn-user btn-block" type="submit">Ajouter</a>
 </form>
 
 

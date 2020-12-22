@@ -15,17 +15,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($staffs as $staf)
+        @foreach ($staffs as $staff)
             <tr>
-                <th>{{  $staf->getStaffId() }}</th>
-                <td>{{  $staf->getLastName() }}</td>
-                <td>{{  $staf->getFirstName() }}</td>
-                <td>{{  $staf->getEmail() }}</td>
-                <td>{{  $staf->getPhone() }}</td>
-                <td>{{--  $staf->getPoste() --}}</td>
-                <td>{{  $staf->getSalesStores()->getStoreName() }}</td>
-                <td>{{  $staf->getManagerId() }}</td>
-                <td>{{  $staf->getActive() }}</td>
+                <th>{{  $staff->getStaffId() }}</th>
+                <td>{{  $staff->getLastName() }}</td>
+                <td>{{  $staff->getFirstName() }}</td>
+                <td>{{  $staff->getEmail() }}</td>
+                <td>{{  $staff->getPhone() }}</td>
+                <td>{{--  $staff->getPoste() --}}</td>
+                <td>{{  $staff->getSalesStores()->getStoreName() }}</td>
+                <td>{{  $staff->getManagerId() }}</td>
+                <td>{{  $staff->getActive() }}</td>
+                <td>
+                    <a href="{{ url('/home/'.$staff->getStaffId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
+                    <a href="{{ url('/home/'.$staff->getStaffId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                </td>
             </tr>
         @endforeach
     </tbody>

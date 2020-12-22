@@ -15,17 +15,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($customers as $cu)
+        @foreach ($customers as $cust)
             <tr>
-                <th>{{  $cu->getCustomerId() }}</th>
-                <td>{{  $cu->getLastName() }}</td>
-                <td>{{  $cu->getFirstName() }}</td>
-                <td>{{  $cu->getStreet() }}</td>
-                <td>{{  $cu->getCity() }}</td>
-                <td>{{  $cu->getZipCode() }}</td>
-                <td>{{  $cu->getState() }}</td>
-                <td>{{  $cu->getPhone() }}</td>
-                <td>{{  $cu->getEmail() }}</td>
+                <th>{{  $cust->getCustomerId() }}</th>
+                <td>{{  $cust->getLastName() }}</td>
+                <td>{{  $cust->getFirstName() }}</td>
+                <td>{{  $cust->getStreet() }}</td>
+                <td>{{  $cust->getCity() }}</td>
+                <td>{{  $cust->getZipCode() }}</td>
+                <td>{{  $cust->getState() }}</td>
+                <td>{{  $cust->getPhone() }}</td>
+                <td>{{  $cust->getEmail() }}</td>
+                <td>
+                    <a href="{{ url('/home/'.$cust->getCustomerId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
+                    <a href="{{ url('/home/'.$cust->getCustomerId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                </td>
             </tr>
         @endforeach
     </tbody>

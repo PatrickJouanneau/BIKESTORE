@@ -8,14 +8,7 @@ use App\Models\DAO\ProdCategoriesDaoInterface;
 
 class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
 {
-    function saveCategory($productionCategories)
-    {
-        $results = DB::insert('INSERT INTO production.categories (category_name) VALUE (?)');
-        return $results;
-    }
-
-
-    function getAllCategories()
+    public function getAllCategories()
     {
         //$bdd = DB::getPdo();
         //$reponse = $bdd->query("SELECT * FROM production.categories ORDER BY category_name");
@@ -34,7 +27,7 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
     }
 
 
-    function getCategoryById($categoryId)
+    public function getCategoryById($categoryId)
     {
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.categories WHERE category_id='" . $categoryId . "'");
@@ -47,5 +40,23 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
         $category->setCategoryName($resultBdd['category_name']);
 
         return $category;
+    }
+
+
+    public function createCategory($prodCategories)
+    {
+        $resultBdd = DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$prodCategories->getCategoryName()]);
+    }
+
+
+    public function updateCategory($prodCategories)
+    {
+        $resultBdd = DB::update("UPDATE production.categories SET category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
+    }
+
+    
+    public function deleteCategoryById($categoryId)
+    {
+        $resultBdd =DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
     }
 }

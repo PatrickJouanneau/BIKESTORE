@@ -1,4 +1,4 @@
-@extends('Layout')
+@extends('layouts/Layout')
 
 @section('content')
 
@@ -54,6 +54,7 @@
                                     <form class="user" method="post" action="{{ url('/LoginController/login') }}">
                                         @csrf
                                         <div class="form-group">
+                                            <div class="error">{{ $errors->has('email') ? $errors->first('email') : ''  }}</div>
                                             <input type="email" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Identifiant...">
                                         </div>
                                         <div class="form-group">

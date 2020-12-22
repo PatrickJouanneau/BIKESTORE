@@ -12,14 +12,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($stocks as $s)
+        @foreach($stocks as $stock)
             <tr>
-                <th>{{ $s->getProdProduct()->getProductId() }}</th>
-                <td>{{ $s->getProdProduct()->getProductName() }}</td>
-                <td>{{ $s->getQuantity() }}</td>
-                <td>{{ $s->getSalesStore()->getStoreName() }}</td>
-                <td>{{ $s->getProdProduct()->getModelYear() }}</td>
-                <td>{{ $s->getProdProduct()->getListPrice() }}</td>
+                <th>{{ $stock->getProdProduct()->getProductId() }}</th>
+                <td>{{ $stock->getProdProduct()->getProductName() }}</td>
+                <td>{{ $stock->getQuantity() }}</td>
+                <td>{{ $stock->getSalesStore()->getStoreName() }}</td>
+                <td>{{ $stock->getProdProduct()->getModelYear() }}</td>
+                <td>{{ $stock->getProdProduct()->getListPrice() }}</td>
             </tr>
         @endforeach
     </tbody>

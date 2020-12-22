@@ -9,10 +9,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($brands as $b)
+        @foreach($brands as $brand)
             <tr>
-                <th>{{ $b->getBrandId() }}</th>
-                <td>{{ $b->getBrandName() }}</td>
+                <th>{{ $brand->getBrandId() }}</th>
+                <td>{{ $brand->getBrandName() }}</td>
+                <td>
+                    <a href="{{ url('/home/'.$brand->getBrandId().'/edit') }}"><img src="img/wrench.svg" alt="Clé"></a>&nbsp;&nbsp;
+                    <a href="{{ url('/home/'.$brand->getBrandId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                </td>
             </tr>
         @endforeach
     </tbody>

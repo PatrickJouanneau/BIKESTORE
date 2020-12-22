@@ -16,6 +16,7 @@
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}" deffer></script>
     <script src="{{ asset('js/demo/datables-demo.js') }}" deffer></script>
 
+
     <title>Bike Store</title>
     <style>
         body {
