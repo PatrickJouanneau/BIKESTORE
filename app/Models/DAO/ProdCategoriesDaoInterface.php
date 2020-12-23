@@ -4,6 +4,7 @@ namespace App\Models\DAO;
 
 use App\Models\Model\ProdCategories;
 
+
 interface ProdCategoriesDaoInterface
 {
     public function getAllCategories();

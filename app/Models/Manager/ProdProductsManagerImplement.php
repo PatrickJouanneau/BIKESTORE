@@ -3,7 +3,8 @@
 namespace App\Models\Manager;
 
 use App\Models\DAO\ProdProductsDaoInterface;
-use app\Models\Manager\ProdProductsManagerInterface;
+use App\Models\Manager\ProdProductsManagerInterface;
+
 
 class ProdProductsManagerImplement implements ProdProductsManagerInterface
 {
@@ -13,8 +14,21 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         $this->productsDao = $productsDao;
     }
 
+
     public function getAllProducts()
     {
         return $this->productsDao->getAllProducts();
+    }
+
+
+    public function countProdProductsWithCategoryId($categoryId)
+    {
+        return $this->productsDao->countProdProductsWithCategoryId($categoryId);
+    }
+
+
+    public function countProdProductsWithBrandId($brandId)
+    {
+        return $this->productsDao->countProdProductsWithBrandId($brandId);
     }
 }

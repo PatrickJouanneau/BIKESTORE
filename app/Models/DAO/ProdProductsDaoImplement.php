@@ -4,10 +4,9 @@ namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\DAO\ProdProductsDaoInterface;
-use App\Models\Model\ProdProducts;
-
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoInterface;
+use App\Models\Model\ProdProducts;
 
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
@@ -73,4 +72,14 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
         return $product;
     }
+
+    public function countProdProductsWithCategoryId($categoryId){
+        return DB::select("SELECT count(*) AS count FROM production.products WHERE category_id = " .$categoryId)[0]->count;
+    }
+
+
+    public function countProdProductsWithBrandId($brandId) {
+        return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " . $brandId)[0]->count;
+    }
+
 }

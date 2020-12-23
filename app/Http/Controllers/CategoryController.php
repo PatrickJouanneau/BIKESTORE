@@ -5,17 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategorieRequest;
 use App\Models\Manager\ProdCategoriesManagerInterface;
 use App\Models\Model\ProdCategories;
-use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
-    public function formCreate()
+    public function formCreateCat()
     {
         return view('/Categories/CategoryForm');
     }
 
 
-    public function create(CategorieRequest $request, ProdCategoriesManagerInterface $CategoriesManager)
+    public function createCat(CategorieRequest $request, ProdCategoriesManagerInterface $CategoriesManager)
     {
         $cat = $request->input('categorie');
 
@@ -28,14 +28,14 @@ class CategoryController extends Controller
     }
 
 
-    public function formUpdate(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
+    public function formUpdateCat(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
     {
         $category = $CategoriesManager->getCategoryById($categoryId);
-        return view('Categories/CategoryForm')->with(["category" => $category]);
+        return view('Categories/CategoryFormUpdate')->with(["category" => $category]);
     }
 
 
-    public function update(CategorieRequest $request, ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
+    public function updateCat(CategorieRequest $request, ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
     {
         $cat = new ProdCategories();
         $cat->setCategoryId($categoryId);
@@ -47,7 +47,7 @@ class CategoryController extends Controller
     }
 
 
-    public function delete(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
+    public function deleteCat(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
     {
         $CategoriesManager->deleteCategoryById($categoryId);
         //return redirect('/success');

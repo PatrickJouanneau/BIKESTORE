@@ -2,101 +2,49 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Manager\ProdBrandsManagerImplement;
+use App\Http\Requests\BrandRequest;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Model\ProdBrands;
-use Illuminate\Http\Request;
+
 
 class BrandsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    // Récupérer tous les Brands
-    // entre ICI
-
-    public function index(ProdBrandsManagerInterface $brandsManager)
+    public function createBrand(BrandRequest $request, ProdBrandsManagerInterface $BrandsManager)
     {
-        $brands = $brandsManager->createBrand();
-        // le code MVC
-        // est là
-        return view('BrandForm')->with(['brands' => $brands]);
+        $brd = $request->input('brand');
+
+        $brand = new ProdBrands();
+        $brand->setBrandName($brd);
+
+        $BrandsManager->createBrand($brand);
+        //return redirect('/success');
+        return view('/Success');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create(Request $request)
+    public function formUpdateBrand(ProdBrandsManagerInterface $brandsManager, $brandId)
     {
-        //
+        $brand = $brandsManager->getbrandById($brandId);
+        return view('Brands/BrandsFormUpdate')->with(["brand" => $brand]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function updateBrand(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $brandId)
     {
-        //
+        $brd = new ProdBrands();
+        $brd->setBrandId($brandId);
+        $brd->setBrandName($request->input("brandUp"));
+
+        $brandsManager->updateBrand($brd);
+
+        return redirect('/brands/' . $brd->getBrandId() . '/edit/');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ProductionBrands  $productionBrands
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function show(ProductionBrands $productionBrands)
-    {
-        //
-    }
-    */
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ProductionBrands  $productionBrands
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function edit(ProductionBrands $productionBrands)
+    public function deleteBrand(ProdBrandsManagerInterface $brandsManager, $brandId)
     {
-        //
+        $brandsManager->deleteBrandById($brandId);
+        //return redirect('/success');
+        return view('/Success');
     }
-    */
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ProductionBrands  $productionBrands
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function update(Request $request, ProductionBrands $productionBrands)
-    {
-        //
-    }
-    */
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ProductionBrands  $productionBrands
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function destroy(ProductionBrands $productionBrands)
-    {
-        //
-    }
-    */
 }

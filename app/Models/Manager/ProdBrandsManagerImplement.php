@@ -2,30 +2,52 @@
 
 namespace App\Models\Manager;
 
-//use App\Models\DAO\ProdBrandsDaoImplement;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use app\Models\Manager\ProdBrandsManagerInterface;
+use App\Models\Manager\ProdProductsManagerInterface;
+use App\Models\Model\ProdBrands;
+
 
 class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
 {
     private $brandsDao;
-    public function __construct(ProdBrandsDaoInterface $brandsDao)
-    {
+    private $ProdProductsManagerInterface;
+    public function __construct(
+        ProdBrandsDaoInterface $brandsDao,
+        ProdProductsManagerInterface $ProdProductsManagerInterface
+    ) {
         $this->brandsDao = $brandsDao;
+        $this->ProdProductsManagerInterface = $ProdProductsManagerInterface;
     }
+
 
     public function getAllBrands()
     {
         return $this->brandsDao->getAllBrands();
     }
 
-    public function createBrand()
+    public function getBrandById($brandId)
     {
-        //return $this->brandsDao->createBrand();
+        return $this->brandsDao->getBrandById($brandId);
     }
 
-    public function updateBrand()
+    public function createBrand(ProdBrands $prodBrands)
     {
-        //return $this->brandsDao->updateBrand();
+        $this->brandsDao->createBrand($prodBrands);
+    }
+
+    public function updateBrand(ProdBrands $prodBrands)
+    {
+        $this->brandsDao->updateBrand($prodBrands);
+    }
+
+    public function deleteBrandById($brandId)
+    {
+        if ($this->ProdProductsManagerInterface->countProdProductsWithBrandId($brandId) == 0) {
+            $this->brandsDao->deleteBrandById($brandId);
+        } else {
+            return view('failure');
+            //throw new CategoryException();
+        }
     }
 }

@@ -7,4 +7,6 @@ interface ProdProductsDaoInterface
 {
     public function getAllProducts();
     public function getProductById($productId);
+    public function countProdProductsWithCategoryId($categoryId);
+    public function countProdProductsWithBrandId($brandId);
 }

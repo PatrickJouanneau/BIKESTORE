@@ -2,22 +2,22 @@
 
 namespace App\Models\Manager;
 
-use App\Exceptions\CategoryException;
 use App\Models\DAO\ProdCategoriesDaoInterface;
-use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdCategories;
+
 
 class ProdCategoriesManagerImplement implements ProdCategoriesManagerInterface
 {
     private $categoriesDao;
-    private $productManagerInterface;
+    private $ProdProductsManagerInterface;
     public function __construct(
         ProdCategoriesDaoInterface $categoriesDao,
-        ProdProductsDaoInterface $productManagerInterface
+        ProdProductsManagerInterface $ProdProductsManagerInterface
     ) {
         $this->categoriesDao = $categoriesDao;
-        $this->productManagerInterface = $productManagerInterface;
+        $this->ProdProductsManagerInterface = $ProdProductsManagerInterface;
     }
 
 
@@ -45,9 +45,9 @@ class ProdCategoriesManagerImplement implements ProdCategoriesManagerInterface
     }
 
 
-    public function deleteCategoryById(Prodcategories $categoryId)
+    public function deleteCategoryById($categoryId)
     {
-        if ($this->ProductManagerInterface->countProductionWithCategoryId($categoryId) == 0) {
+        if ($this->ProdProductsManagerInterface->countProdProductsWithCategoryId($categoryId) == 0) {
             $this->categoriesDao->deleteCategoryById($categoryId);
         } else {
             return view('failure');

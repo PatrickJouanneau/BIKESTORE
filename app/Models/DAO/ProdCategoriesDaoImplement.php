@@ -3,8 +3,9 @@
 namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Model\ProdCategories;
 use App\Models\DAO\ProdCategoriesDaoInterface;
+use App\Models\Model\ProdCategories;
+
 
 class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
 {
@@ -54,9 +55,9 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
         $resultBdd = DB::update("UPDATE production.categories SET category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
     }
 
-    
+
     public function deleteCategoryById($categoryId)
     {
-        $resultBdd =DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
+        $resultBdd = DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
     }
 }

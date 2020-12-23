@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\BikeController;
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BikeController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
@@ -26,13 +26,20 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/success', [HomeController::class, 'success']);
 Route::get('/failure', [HomeController::class, 'failure']);
 
-//Route::post('Brands/create', [BrandsController::class]);
 
-Route::get('/categories/create', [CategoryController::class, 'formCreate']);
-Route::post('/categories/create', [CategoryController::class, 'create']);
-Route::get('/categories/{categoryId}/edit', [CategoryController::class, 'formUpdate']);
-Route::post('/categories/{categoryId}/edit', [CategoryController::class, 'update']);
-Route::get('/categories/{categoryId}/delete', [CategoryController::class, 'delete']);
+Route::get('/brands/create', [BrandsController::class, 'formCreateBrand']);
+Route::post('/brands/create', [BrandsController::class, 'createBrand']);
+Route::get('/brands/{categoryId}/edit', [BrandsController::class, 'formUpdateBrand']);
+Route::post('/brands/{categoryId}/edit', [BrandsController::class, 'updateBrand']);
+Route::get('/brands/{categoryId}/delete', [BrandsController::class, 'deleteBrand']);
+
+Route::get('/categories/create', [CategoryController::class, 'formCreateCat']);
+Route::post('/categories/create', [CategoryController::class, 'createCat']);
+Route::get('/categories/{categoryId}/edit', [CategoryController::class, 'formUpdateCat']);
+Route::post('/categories/{categoryId}/edit', [CategoryController::class, 'updateCat']);
+Route::get('/categories/{categoryId}/delete', [CategoryController::class, 'deleteCat']);
+
+
 
 
 
