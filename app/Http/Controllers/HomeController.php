@@ -11,7 +11,8 @@ use App\Models\Manager\SalesCustomersManagerInterface;
 use App\Models\Manager\SalesOrderItemsManagerInterface;
 use App\Models\Manager\SalesOrdersManagerInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
-
+use GuzzleHttp\Psr7\Request;
+use Symfony\Component\Console\Input\Input;
 
 class HomeController extends Controller
 {
@@ -36,6 +37,7 @@ class HomeController extends Controller
         $allStaffs = $staffManager->getAllStaffs();
         $allOrders = $orderManager->getAllOrders();
         $allOrderItems = $orderItemManager->getAllOrderItems();
+        $tabActive = !empty($_GET['activeTab']) ? $_GET['activeTab'] : null;
 
         return view('home')->with([
             'brands' => $allBrands,
@@ -47,7 +49,21 @@ class HomeController extends Controller
             'customers' => $allCustomers,
             'staffs' => $allStaffs,
             'orders' => $allOrders,
-            'orderItems' => $allOrderItems
+            'orderItems' => $allOrderItems,
+            'activeTab' =>$tabActive
         ]);
+    }
+
+    public function success()
+    {
+        $tabActive = !empty($_GET['activeTab']) ? $_GET['activeTab'] : null;
+        
+        return view('Success')->with(["activeTab"=>$tabActive]);
+    }
+
+
+    public function failure()
+    {
+        return view('Failure');
     }
 }

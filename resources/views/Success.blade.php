@@ -12,7 +12,7 @@
                 <hr>
                 <br><br>
                 <p class="lead p-2">
-                  <a class="btn btn-success btn-lg" href="{{ URL::previous() }}" role="button">On continue </a>
+                  <a class="btn btn-success btn-lg" href="{{ url('/') }}{{ !empty($activeTab) ? '?activeTab='.$activeTab :  ''  }}" role="button">On continue </a>
                 </p>
           </div>
     </div>

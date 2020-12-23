@@ -1,5 +1,26 @@
 @extends('layouts/Layout')
 
+@section('scripts')
+    @if (!empty($activeTab))
+        @switch($activeTab)
+            @case("category")
+                var tab1 = "production";
+                var tab2 = "categorie";
+                @break
+            @case("client")
+                var tab1 = "ventes";
+                var tab2 = "client";
+                @break
+            @case("commande")
+                var tab1 = "ventes";
+                var tab2 = "commande";
+            @break
+            @default
+                
+        @endswitch
+    @endif
+@endsection
+
 @section('content')
 <div class="container-fluid">
     <div class="row">
@@ -91,7 +112,7 @@
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
                                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#marque">Marque</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#categorie">Catégorie</a></li>
+                                                        <li class="nav-item"><a  class="nav-link" data-toggle="tab" href="#categorie">Catégorie</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#produits">Produits</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#stock">Stock</a></li>
                                                     </ul>

@@ -7,7 +7,7 @@ use App\Models\DAO\ProdCategoriesDaoInterface;
 use App\Models\Model\ProdCategories;
 
 
-class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
+class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
 {
     public function getAllCategories()
     {
@@ -60,4 +60,5 @@ class prodCategoriesDaoImplement implements ProdCategoriesDaoInterface
     {
         $resultBdd = DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
     }
+
 }

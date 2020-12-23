@@ -10,8 +10,11 @@
 		</div>
 		<h1 class="head"><span>404</span></h1>
 		<p>Oops! La page que vous avez demandé n'a pas été trouvée !</p>
+		<p>{{ $message ?? '' }}</p>
 		<a href="#" class="btn-outline"> Retour à la page d'accueil</a>
 	</div>
+
+
 
     <!-- jQuery -->
     <script src="{{asset ('js/jquery.min.js') }}"></script>

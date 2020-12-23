@@ -26,10 +26,10 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     public function getAllProducts()
     {
         //$bdd = DB::getPdo();
-        //$reponse = $bdd->query("SELECT * FROM production.products ORDER BY product_name");
+        $resultBdd = DB::select("SELECT * FROM production.products ORDER BY product_name");
         //$resultBdd = $reponse->fetchAll();
 
-        $resultBdd = DB::select('exec dbo.get_all_products');
+        //$resultBdd = DB::select('exec dbo.get_all_products');
 
         $allProducts = [];
         foreach ($resultBdd as $i => $row) {

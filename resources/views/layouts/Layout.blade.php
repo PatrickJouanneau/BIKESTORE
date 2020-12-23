@@ -16,6 +16,11 @@
     <script src="{{ asset('js/demo/chart-pie-demo.js') }}" deffer></script>
     <script src="{{ asset('js/demo/datables-demo.js') }}" deffer></script>
 
+    <script deffer>
+         @yield('scripts')
+    </script>
+    <script src="{{ asset('js/custom.js') }}" deffer></script>
+
 
     <title>Bike Store</title>
     <style>

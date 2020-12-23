@@ -11,5 +11,5 @@ interface ProdBrandsDaoInterface
     public function getBrandById($brandId);
     public function createBrand(ProdBrands $prodBrands);
     public function updateBrand(ProdBrands $prodBrands);
-    public function deleteBrand(ProdBrands $prodBrands);
+    public function deleteBrandById($brandId);
 }

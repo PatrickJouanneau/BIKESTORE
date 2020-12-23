@@ -2,8 +2,9 @@
 
 namespace App\Models\Model;
 
+use JsonSerializable;
 
-class ProdBrands
+class ProdBrands implements JsonSerializable
 {
     private $brandId;
     private string $brandName;
@@ -25,5 +26,13 @@ class ProdBrands
     public function setBrandName(string $brandName)
     {
         $this->brandName = $brandName;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "id" => $this->brandId,
+            "name" => $this->brandName
+        ];
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models\Manager;
 
+use App\Exceptions\CategoryException;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use app\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
@@ -46,8 +47,7 @@ class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
         if ($this->ProdProductsManagerInterface->countProdProductsWithBrandId($brandId) == 0) {
             $this->brandsDao->deleteBrandById($brandId);
         } else {
-            return view('failure');
-            //throw new CategoryException();
+            throw new CategoryException("Des produits sont liés à cette marque.");
         }
     }
 }

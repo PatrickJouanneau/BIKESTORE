@@ -24,7 +24,8 @@ class CategoryController extends Controller
 
         $CategoriesManager->createCategory($category);
         //return redirect('/success');
-        return view('/Success');
+        //return view('/Success');
+        return redirect('/success/category');
     }
 
 
@@ -51,6 +52,6 @@ class CategoryController extends Controller
     {
         $CategoriesManager->deleteCategoryById($categoryId);
         //return redirect('/success');
-        return view('/Success');
+        return redirect('/success');
     }
 }

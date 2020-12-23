@@ -59,8 +59,8 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$prodBrands->getBrandName(), $prodBrands->getBrandId()]);
     }
 
-    public function deleteBrand($brandId)
+    public function deleteBrandById($brandId)
     {
-        $resultBdd = DB::delete("DELETE FROM production.brands WHERE brands_id = ? ", [$brandId]);
+        $resultBdd = DB::delete("DELETE FROM production.brands WHERE brands_id = ? ", [$brandId]);   
     }
 }
