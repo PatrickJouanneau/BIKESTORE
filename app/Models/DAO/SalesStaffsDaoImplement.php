@@ -21,26 +21,24 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
     public function getAllStaffs()
     {
-        $bdd = DB::getpdo();
-        $reponse = $bdd->query('SELECT * FROM sales.staffs');
-        $resultBdd = $reponse->fetchAll();
+        $resultBdd = DB::select("exec get_all_staffs");
 
         $allStaffs = [];
         foreach ($resultBdd as $i => $row) {
             $staff = new SalesStaffs();
-            $staff->setStaffId($row['staff_id']);
-            $staff->setFirstName($row['first_name']);
-            $staff->setLastName($row['last_name']);
-            $staff->setPhone($row['phone']);
-            $staff->setEmail($row['email']);
-            $staff->setActive($row['active']);
-            $staff->setManagerId($row['manager_id']);
-            //$staff->setPoste($row['poste']);
+            $staff->setStaffId($row->staff_id);
+            $staff->setFirstName($row->first_name);
+            $staff->setLastName($row->last_name);
+            $staff->setPhone($row->phone);
+            $staff->setEmail($row->email);
+            $staff->setActive($row->active);
+            $staff->setManagerId($row->manager_id);
+            //$staff->setPoste($row->poste);
 
-            $store = $this->storeDao->getStoreById($row['store_id']);
+            $store = $this->storeDao->getStoreById($row->store_id);
             $staff->setSalesStores($store);
 
-            //$manager = $this->setManagerId($row['manager_id']);
+            //$manager = $this->setManagerId($row->manager_id);
             //$staff = $this->managerDao($manager);
 
             array_push($allStaffs, $staff);

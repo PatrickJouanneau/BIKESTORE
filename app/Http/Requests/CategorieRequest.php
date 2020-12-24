@@ -24,7 +24,7 @@ class CategorieRequest extends FormRequest
     public function rules()
     {
         return [
-            "categorie" => "required | min:10"
+            "categorie" => "required | min:3"
         ];
     }
 
@@ -32,7 +32,7 @@ class CategorieRequest extends FormRequest
     {
         return [
             "categorie.required" => "Le champs est requis !",
-            "categorie.min" => "Le champ doit comporter au moins 10 caractères"
+            "categorie.min" => "Le champ doit comporter au moins 3 caractères"
         ];
     }
 }

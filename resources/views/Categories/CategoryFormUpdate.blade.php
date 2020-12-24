@@ -2,7 +2,7 @@
 
 <body style="background-image: url(/img/bike-3521378-1920.jpg">
     <div class="container row">
-        <div class="col-md-4"></div>
+        <div class="col-md-6"></div>
             <div class="jumbotron border border-primary col-md-5 mt-6">
                 <div class="p-3">
                     <h4 class="pb-5" >MODIFICATION d'une catégorie <small> : </small><img src="/img/wrench.svg" alt="Clé"></h4>

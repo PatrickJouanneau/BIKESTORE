@@ -27,21 +27,25 @@ class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
         return $this->brandsDao->getAllBrands();
     }
 
+
     public function getBrandById($brandId)
     {
         return $this->brandsDao->getBrandById($brandId);
     }
+
 
     public function createBrand(ProdBrands $prodBrands)
     {
         $this->brandsDao->createBrand($prodBrands);
     }
 
+
     public function updateBrand(ProdBrands $prodBrands)
     {
         $this->brandsDao->updateBrand($prodBrands);
     }
 
+    
     public function deleteBrandById($brandId)
     {
         if ($this->ProdProductsManagerInterface->countProdProductsWithBrandId($brandId) == 0) {

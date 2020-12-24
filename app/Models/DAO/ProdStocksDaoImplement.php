@@ -20,19 +20,17 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
     public function getAllStocks()
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.stocks JOIN production.products ON production.stocks.product_id = production.products.product_id ORDER BY product_name");
-        $resultBdd = $reponse->fetchAll();
+        $resultBdd = DB::select("exec get_all_stocks");
 
         $allStocks = [];
         foreach ($resultBdd as $i => $row) {
             $stock = new ProdStocks();
-            $stock->setQuantity($row['quantity']);
+            $stock->setQuantity($row->quantity);
 
-            $product = $this->productDao->getProductById($row['product_id']);
+            $product = $this->productDao->getProductById($row->product_id);
             $stock->setProdProduct($product);
 
-            $store = $this->storeDao->getStoreById($row['store_id']);
+            $store = $this->storeDao->getStoreById($row->store_id);
             $stock->setSalesStore($store);
 
             array_push($allStocks, $stock);

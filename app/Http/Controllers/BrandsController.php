@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Exceptions\CategoryException;
 use App\Http\Requests\BrandRequest;
 use App\Models\Manager\ProdBrandsManagerInterface;
@@ -10,6 +11,12 @@ use App\Models\Model\ProdBrands;
 
 class BrandsController extends Controller
 {
+    public function formCreateBrand()
+    {
+        return view('Brands/BrandForm');
+    }
+
+
     public function createBrand(BrandRequest $request, ProdBrandsManagerInterface $BrandsManager)
     {
         $brd = $request->input('brand');
@@ -18,14 +25,15 @@ class BrandsController extends Controller
         $brand->setBrandName($brd);
 
         $BrandsManager->createBrand($brand);
-        //return redirect('/success');
-        return view('/Success').with(["tabActive"=>"brand"]);
+        return redirect('/success/');
+        //return view('/Success').with(["tabActive"=>"brand"]);
+        //return view('/Success');
     }
 
     public function formUpdateBrand(ProdBrandsManagerInterface $brandsManager, $brandId)
     {
         $brand = $brandsManager->getbrandById($brandId);
-        return view('Brands/BrandsFormUpdate')->with(["brand" => $brand]);
+        return view('Brands/BrandFormUpdate')->with(["brand" => $brand]);
     }
 
 
@@ -37,7 +45,8 @@ class BrandsController extends Controller
 
         $brandsManager->updateBrand($brd);
 
-        return redirect('/brands/' . $brd->getBrandId() . '/edit/');
+        //return redirect('/brands/' . $brd->getBrandId() . '/edit/');
+        return redirect('/success');
     }
 
 
@@ -52,10 +61,15 @@ class BrandsController extends Controller
         //return redirect('/success');
     }
 
+
+
+
+
+
     public function getAllBrandsJson(ProdBrandsManagerInterface $brandManager){
         $brands = $brandManager->getAllBrands();
 
-        
+
         $xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
         $xml .= "<brands>\n";
         foreach ($brands as $data) {
@@ -77,7 +91,7 @@ class BrandsController extends Controller
         $item .= "</brand>\n";
         return $item;
     }
-    
+
 
 
 }

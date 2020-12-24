@@ -28,7 +28,6 @@ class HomeController extends Controller
         SalesOrderItemsManagerInterface $orderItemManager
     ) {
         $allBrands = $brandManager->getAllBrands();
-        //$createBrand = $brandManager->createBrand();
         $allCategories = $categoryManager->getAllCategories();
         $allProducts = $productManager->getAllProducts();
         $allStocks = $stockMananger->getAllStocks();
@@ -41,7 +40,6 @@ class HomeController extends Controller
 
         return view('home')->with([
             'brands' => $allBrands,
-            //'brands' => $createBrand,
             'categories' => $allCategories,
             'products' => $allProducts,
             'stocks' => $allStocks,
@@ -57,7 +55,7 @@ class HomeController extends Controller
     public function success()
     {
         $tabActive = !empty($_GET['activeTab']) ? $_GET['activeTab'] : null;
-        
+
         return view('Success')->with(["activeTab"=>$tabActive]);
     }
 

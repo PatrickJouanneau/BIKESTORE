@@ -1,23 +1,24 @@
 <h4>Création d'un utilisateur</h4>
 
-<form class="user">
+<form class="user" method="POST" action="{{-- route('register') --}}">
+    @csrf
     <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="first_name" aria-describedby="firstNameHelp" placeholder="Prénom">
+        <input type="text" class="form-control form-control-user"  placeholder="Prénom">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="last_name" aria-describedby="lastNameHelp" placeholder="Nom">
+        <input type="text" class="form-control form-control-user" placeholder="Nom">
     </div>
     <div class="form-group">
-        <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="email">
+        <input type="email" class="form-control form-control-user"  placeholder="email">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control form-control-user" id="phone" aria-describedby="phoneHelp" placeholder="téléphone">
+        <input type="text" class="form-control form-control-user"  placeholder="téléphone">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe">
+        <input type="password" class="form-control form-control-user" id="" placeholder="Mot de passe">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Confirmer le mot de passe">
+        <input type="password" class="form-control form-control-user" id="" placeholder="Confirmer le mot de passe">
     </div>
     <div class="form-group">
         <select id="magasin" class="form-control" value="{{ old('magasin') }}" required>

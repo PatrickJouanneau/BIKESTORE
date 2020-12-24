@@ -11,9 +11,6 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
     public function getAllBrands()
     {
-        //$results = DB::select('SELECT * FROM production.brands');
-        //return $results;
-
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.brands ORDER BY brand_name");
         $resultBdd = $reponse->fetchAll();
@@ -51,7 +48,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
     public function createBrand($prodBrands)
     {
-        $resultBdd = DB::insert("INSERT INTO production.brands (brans_name) VALUES (?) ", [$prodBrands->getBrandName()]);
+        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?) ", [$prodBrands->getBrandName()]);
     }
 
     public function updateBrand($prodBrands)
@@ -61,6 +58,6 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
     public function deleteBrandById($brandId)
     {
-        $resultBdd = DB::delete("DELETE FROM production.brands WHERE brands_id = ? ", [$brandId]);   
+        $resultBdd = DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
     }
 }

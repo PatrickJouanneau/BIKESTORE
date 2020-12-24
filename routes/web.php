@@ -32,9 +32,9 @@ Route::get('/failure', [HomeController::class, 'failure']);
 Route::get('/brands/create', [BrandsController::class, 'formCreateBrand']);
 Route::post('/brands/create', [BrandsController::class, 'createBrand']);
 Route::get('/brands/json', [BrandsController::class, 'getAllBrandsJson']);
-Route::get('/brands/{categoryId}/edit', [BrandsController::class, 'formUpdateBrand']);
-Route::post('/brands/{categoryId}/edit', [BrandsController::class, 'updateBrand']);
-Route::get('/brands/{categoryId}/delete', [BrandsController::class, 'deleteBrand']);
+Route::get('/brands/{brandId}/edit', [BrandsController::class, 'formUpdateBrand']);
+Route::post('/brands/{brandId}/edit', [BrandsController::class, 'updateBrand']);
+Route::get('/brands/{brandId}/delete', [BrandsController::class, 'deleteBrand']);
 
 Route::get('/categories/create', [CategoryController::class, 'formCreateCat']);
 Route::post('/categories/create', [CategoryController::class, 'createCat']);

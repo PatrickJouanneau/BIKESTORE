@@ -3,9 +3,21 @@
 @section('scripts')
     @if (!empty($activeTab))
         @switch($activeTab)
+            @case("brand")
+                var tab1 = "production";
+                var tab2 = "marque";
+                @break
             @case("category")
                 var tab1 = "production";
                 var tab2 = "categorie";
+            @break
+            @case("product")
+                var tab1 = "production";
+                var tab2 = "produits";
+                @break
+            @case("stock")
+                var tab1 = "production";
+                var tab2 = "Stock";
                 @break
             @case("client")
                 var tab1 = "ventes";
@@ -14,9 +26,33 @@
             @case("commande")
                 var tab1 = "ventes";
                 var tab2 = "commande";
-            @break
+                @break
+            @case("order")
+                var tab1 = "ventes";
+                var tab2 = "bdc";
+                @break
+            @case("orderItem")
+                var tab1 = "ventes";
+                var tab2 = "vente";
+                @break
+            @case("customer")
+                var tab1 = "administration";
+                var tab2 = "utilisateur";
+                @break
+            @case("store")
+                var tab1 = "administration";
+                var tab2 = "magasins";
+                @break
+            @case("profil")
+                var tab1 = "administration";
+                var tab2 = "profif";
+                @break
+            @case("historique")
+                var tab1 = "administration";
+                var tab2 = "historique";
+                @break
             @default
-                
+
         @endswitch
     @endif
 @endsection

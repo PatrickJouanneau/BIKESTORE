@@ -12,22 +12,20 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
     public function getAllCustomers()
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query('SELECT * FROM sales.customers ORDER BY last_name');
-        $resultBdd = $reponse->fetchAll();
+        $resultBdd = DB::select("exec get_all_customers");
 
         $allCustomers = [];
         foreach ($resultBdd as $i => $row) {
             $customer = new SalesCustomers();
-            $customer->setCustomerId($row['customer_id']);
-            $customer->setFirstName($row['first_name']);
-            $customer->setLastName($row['last_name']);
-            $customer->setPhone($row['phone']);
-            $customer->setEmail($row['email']);
-            $customer->setStreet($row['street']);
-            $customer->setCity($row['city']);
-            $customer->setState($row['state']);
-            $customer->setZipCode($row['zip_code']);
+            $customer->setCustomerId($row->customer_id);
+            $customer->setFirstName($row->first_name);
+            $customer->setLastName($row->last_name);
+            $customer->setPhone($row->phone);
+            $customer->setEmail($row->email);
+            $customer->setStreet($row->street);
+            $customer->setCity($row->city);
+            $customer->setState($row->state);
+            $customer->setZipCode($row->zip_code);
 
             array_push($allCustomers, $customer);
         }

@@ -11,5 +11,5 @@ interface ProdCategoriesDaoInterface
     public function getCategoryById($categoryId);
     public function createCategory(ProdCategories $prodCategories);
     public function updateCategory(ProdCategories $prodCategories);
-    public function deleteCategoryById(ProdCategories $prodCategories);
+    public function deleteCategoryById($categoryId);
 }

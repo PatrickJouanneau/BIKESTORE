@@ -11,10 +11,6 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
 {
     public function getAllCategories()
     {
-        //$bdd = DB::getPdo();
-        //$reponse = $bdd->query("SELECT * FROM production.categories ORDER BY category_name");
-        //$resultBdd = $reponse->fetchAll();
-
         $resultBdd = DB::select('SELECT * FROM production.categories ORDER BY category_name');
 
         $allCategories = [];
@@ -22,6 +18,7 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
             $category = new ProdCategories();
             $category->setCategoryId($row->category_id);
             $category->setCategoryName($row->category_name);
+
             array_push($allCategories, $category);
         }
         return $allCategories;
@@ -34,8 +31,6 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
         $reponse = $bdd->query("SELECT * FROM production.categories WHERE category_id='" . $categoryId . "'");
         $resultBdd = $reponse->fetch();
 
-        //$resultBdd = DB::select("SELECT * FROM production.categories WHERE category_id = ? ", [$categoryId]);
-
         $category = new ProdCategories();
         $category->setCategoryId($resultBdd['category_id']);
         $category->setCategoryName($resultBdd['category_name']);
@@ -44,13 +39,13 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     }
 
 
-    public function createCategory($prodCategories)
+    public function createCategory(ProdCategories $prodCategories)
     {
         $resultBdd = DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$prodCategories->getCategoryName()]);
     }
 
 
-    public function updateCategory($prodCategories)
+    public function updateCategory(ProdCategories $prodCategories)
     {
         $resultBdd = DB::update("UPDATE production.categories SET category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
     }
@@ -60,5 +55,4 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     {
         $resultBdd = DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
     }
-
 }

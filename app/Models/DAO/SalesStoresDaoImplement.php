@@ -10,21 +10,20 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
 {
     public function getAllStores()
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query('SELECT * FROM sales.stores');
-        $resultBdd = $reponse->fetchAll();
+
+        $resultBdd = DB::select("exec get_all_stores");
 
         $allStores = [];
         foreach ($resultBdd as $i => $row) {
             $store = new SalesStores();
-            $store->setStoreId($row['store_id']);
-            $store->setStoreName($row['store_name']);
-            $store->setPhone($row['phone']);
-            $store->setEmail($row['email']);
-            $store->setStreet($row['street']);
-            $store->setCity($row['city']);
-            $store->setState($row['state']);
-            $store->setZipCode($row['zip_code']);
+            $store->setStoreId($row->store_id);
+            $store->setStoreName($row->store_name);
+            $store->setPhone($row->phone);
+            $store->setEmail($row->email);
+            $store->setStreet($row->street);
+            $store->setCity($row->city);
+            $store->setState($row->state);
+            $store->setZipCode($row->zip_code);
 
             array_push($allStores, $store);
         }

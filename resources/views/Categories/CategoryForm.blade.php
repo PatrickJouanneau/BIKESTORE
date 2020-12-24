@@ -14,6 +14,7 @@
 -->
 
 <h4>CREATION d'une catégorie</h4>
+
 <form name="categorie-create" action="{{ url('categories/create')  }}" method="POST">
     @csrf
     <div class="form-categorie">

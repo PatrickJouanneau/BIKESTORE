@@ -16,20 +16,18 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
     public function getAllOrderItems()
     {
-        $bdd = DB::getpdo();
-        $reponse = $bdd->query("SELECT * FROM sales.order_items");
-        $resultBdd = $reponse->fetchall();
+        $resultBdd = DB::select("exec get_all_order_items");
 
         $allOrderItems = [];
         foreach ($resultBdd as $i => $row) {
             $orderItem = new SalesOrderItems();
-            $orderItem->setOrderId($row['order_id']);
-            $orderItem->setItemId($row['item_id']);
-            $orderItem->setQuantity($row['quantity']);
-            $orderItem->setListPrice($row['list_price']);
-            $orderItem->setDiscount($row['discount']);
+            $orderItem->setOrderId($row->order_id);
+            $orderItem->setItemId($row->item_id);
+            $orderItem->setQuantity($row->quantity);
+            $orderItem->setListPrice($row->list_price);
+            $orderItem->setDiscount($row->discount);
 
-            $product = $this->prodProduct->getProductById($row['product_id']);
+            $product = $this->prodProduct->getProductById($row->product_id);
             $orderItem->setprodProduct($product);
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\CategoryException;
 use App\Http\Requests\CategorieRequest;
 use App\Models\Manager\ProdCategoriesManagerInterface;
 use App\Models\Model\ProdCategories;
@@ -11,7 +12,7 @@ class CategoryController extends Controller
 {
     public function formCreateCat()
     {
-        return view('/Categories/CategoryForm');
+        return view('/Categories.CategoryForm');
     }
 
 
@@ -25,14 +26,14 @@ class CategoryController extends Controller
         $CategoriesManager->createCategory($category);
         //return redirect('/success');
         //return view('/Success');
-        return redirect('/success/category');
+        return redirect('/success/');
     }
 
 
     public function formUpdateCat(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
     {
         $category = $CategoriesManager->getCategoryById($categoryId);
-        return view('Categories/CategoryFormUpdate')->with(["category" => $category]);
+        return view('Categories.CategoryFormUpdate')->with(["category" => $category]);
     }
 
 
@@ -44,14 +45,20 @@ class CategoryController extends Controller
 
         $CategoriesManager->updateCategory($cat);
 
-        return redirect('/categories/' . $cat->getCategoryId() . '/edit/');
+        //return redirect('/categories/' . $cat->getCategoryId() . '/edit/');
+        return redirect('/success/category');
     }
 
 
     public function deleteCat(ProdCategoriesManagerInterface $CategoriesManager, $categoryId)
     {
-        $CategoriesManager->deleteCategoryById($categoryId);
-        //return redirect('/success');
-        return redirect('/success');
+        try{
+            $CategoriesManager->deleteCategoryById($categoryId);
+            return redirect('/success');
+        } catch(CategoryException $e) {
+            return view('error').with(['message'=>$e->getMessage()]);
+        }
     }
+
+
 }
