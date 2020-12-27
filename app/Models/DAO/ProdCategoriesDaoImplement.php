@@ -47,8 +47,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
 
     public function updateCategory(ProdCategories $prodCategories)
     {
-        $resultBdd = DB::update("UPDATE production.categories SET category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
+        $resultBdd = DB::update("UPDATE production.categories set category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
     }
+
 
 
     public function deleteCategoryById($categoryId)

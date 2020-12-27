@@ -15,10 +15,10 @@
         <input type="text" class="form-control form-control-user"  placeholder="téléphone">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control form-control-user" id="" placeholder="Mot de passe">
+        <input type="password" class="form-control form-control-user"   placeholder="Mot de passe">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control form-control-user" id="" placeholder="Confirmer le mot de passe">
+        <input type="password" class="form-control form-control-user"   placeholder="Confirmer le mot de passe">
     </div>
     <div class="form-group">
         <select id="magasin" class="form-control" value="{{ old('magasin') }}" required>

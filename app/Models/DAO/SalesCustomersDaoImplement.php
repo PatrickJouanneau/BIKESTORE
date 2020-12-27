@@ -53,5 +53,21 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
         return $customer;
     }
 
+
+    public function createCustomer(SalesCustomers $salesCustomers)
+    {
+        $resultBdd = DB::insert("INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip-code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [$salesCustomers->getFirstName()],
+        [$salesCustomers->getLastName()],
+        [$salesCustomers->getPhone()],
+        [$salesCustomers->getEmail()],
+        [$salesCustomers->getStreet()],
+        [$salesCustomers->getCity()],
+        [$salesCustomers->getState()],
+        [$salesCustomers->getZipcode()]
+     );
+    }
+
+    
 }
 

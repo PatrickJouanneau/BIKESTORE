@@ -33,28 +33,34 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         return $allBrands;
     }
 
+
     public function getBrandById($brandId)
     {
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.brands WHERE brand_id='" . $brandId . "'");
-        $resultbdd = $reponse->fetch();
+        $resultBdd = $reponse->fetch();
 
         $brand = new ProdBrands();
-        $brand->setBrandId($resultbdd['brand_id']);
-        $brand->setBrandName($resultbdd['brand_name']);
+        $brand->setBrandId($resultBdd['brand_id']);
+        $brand->setBrandName($resultBdd['brand_name']);
 
         return $brand;
     }
 
-    public function createBrand($prodBrands)
+
+    public function createBrand(ProdBrands $prodBrands)
     {
-        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?) ", [$prodBrands->getBrandName()]);
+        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$prodBrands->getBrandName()]);
+
+        dd($resultBdd);
     }
 
-    public function updateBrand($prodBrands)
+
+    public function updateBrand(prodBrands $prodBrands)
     {
         $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$prodBrands->getBrandName(), $prodBrands->getBrandId()]);
     }
+
 
     public function deleteBrandById($brandId)
     {

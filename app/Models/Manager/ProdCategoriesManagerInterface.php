@@ -4,6 +4,7 @@ namespace App\Models\Manager;
 
 use App\Models\Model\ProdCategories;
 
+
 interface ProdCategoriesManagerInterface
 {
     public function getAllCategories();

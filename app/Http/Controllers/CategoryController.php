@@ -41,12 +41,12 @@ class CategoryController extends Controller
     {
         $cat = new ProdCategories();
         $cat->setCategoryId($categoryId);
-        $cat->setCategoryName($request->input("categorieUp"));
+        $cat->setCategoryName($request->input("categorie"));
 
         $CategoriesManager->updateCategory($cat);
 
         //return redirect('/categories/' . $cat->getCategoryId() . '/edit/');
-        return redirect('/success/category');
+        return redirect('/success/');
     }
 
 

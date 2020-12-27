@@ -4,6 +4,7 @@ namespace app\Models\Manager;
 
 use App\Models\Model\ProdBrands;
 
+
 interface ProdBrandsManagerInterface
 {
     public function getAllBrands();

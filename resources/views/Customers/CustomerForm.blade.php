@@ -1,88 +1,49 @@
 <h4>Nouveau client</h4>
-<form method="POST" action="{{-- route('register') --}}">
+<form name="customer-create" action="{{ url('brands/create') }}" method="POST">
     @csrf
 
     <div class="form-marque">
-        <input id="last_name" type="text" class="form-control @error('last_name')is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" requiredautocomplete="last_name" autofocus placeholder="{{ __('Nom') }}">
-        @error('last_name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("last-name") ? $errors->first("last-name") : "" }}</div>
+        <input id="last-name" name="last-name" type="text" class="form-control" placeholder="{{ __('Prénom') }}">
     </div><br>
 
    <div class="form-marque">
-        <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" placeholder="{{ __('Prénom') }}">
-
-        @error('first_name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+    <div class="error">{{ $errors->has("first-name") ? $errors->first("first-name") : "" }}</div>
+        <input id="first-name" name="first-name" type="text" class="form-control" placeholder="{{ __('Nom') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="{{ __('Téléphone') }}">
-
-        @error('phone')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("phone") ? $errors->first("phone") : "" }}</div>
+        <input id="phone" name="phone" type="text" class="form-control" placeholder="{{ __('Téléphone') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email') }}">
-
-        @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("email") ? $errors->first("email") : "" }}</div>
+        <input id="email" name="email" type="text" class="form-control" placeholder="{{ __('email') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="street" type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}" required autocomplete="street" placeholder="{{ __('Adresse') }}">
-
-        @error('street')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("street") ? $errors->first("street") : "" }}</div>
+        <input id="street" name="street" type="text" class="form-control" placeholder="{{ __('Adresse') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="zip_code" type="text" class="form-control @error('zip_code') is-invalid @enderror" name="zip_code" value="{{ old('zip_code') }}" required autocomplete="zip_code" placeholder="{{ __('Code postal') }}">
-
-        @error('zip_code')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("zip-code") ? $errors->first("zip-code") : "" }}</div>
+        <input id="zip-code" name="zip-code" type="text" class="form-control" placeholder="{{ __('Code postal') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" placeholder="{{ __('Ville') }}">
-
-        @error('city')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("city") ? $errors->first("city") : "" }}</div>
+        <input id="city" name="city" type="text" class="form-control" placeholder="{{ __('Ville') }}">
     </div><br>
 
     <div class="form-marque">
-        <input id="state" type="text" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required autocomplete="state" placeholder="{{ __('Région') }}">
-
-        @error('state')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
+        <div class="error">{{ $errors->has("state") ? $errors->first("state") : "" }}</div>
+        <input id="state" name="state" type="text" class="form-control" placeholder="{{ __('Région') }}">
     </div><br>
 
     <div class="form-marque">
-        <a class="btn btn-primary btn-user btn-block" href="{{ __('')  }}">Ajouter</a>
+        <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
     </div>
 
 </form>

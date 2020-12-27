@@ -1,19 +1,19 @@
 <h4>SELECTION</h4>
 
-<select name="" id="" class="btn btn-light btn-block">
-    <option value="allBrands">Sélection marques</option>
+<select     class="btn btn-light btn-block">
+    <option value="">Sélection marques</option>
 </select>
-<select name="" id="" class="btn btn-light btn-block">
-    <option value="allCategories">Sélection par catégorie</option>
+<select     class="btn btn-light btn-block">
+    <option value="">Sélection par catégorie</option>
 </select>
-<select name="" id="" class="btn btn-light btn-block">
-    <option value="allYears">Sélection par année</option>
+<select     class="btn btn-light btn-block">
+    <option value="">Sélection par année</option>
 </select>
-<select name="" id="" class="btn btn-light btn-block">
-    <option value="allYears">Sélection par magasin</option>
+<select     class="btn btn-light btn-block">
+    <option value=">Sélection par magasin</option>
 </select>
-<select name="" id="" class="btn btn-light btn-block">
-    <option value="allYears">Sélection par production</option>
+<select     class="btn btn-light btn-block">
+    <option value="">Sélection par production</option>
 </select>
 <br><br>
 <hr><br>

@@ -12,13 +12,10 @@ use App\Models\Model\ProdBrands;
 class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
 {
     private $brandsDao;
-    private $ProdProductsManagerInterface;
     public function __construct(
-        ProdBrandsDaoInterface $brandsDao,
-        ProdProductsManagerInterface $ProdProductsManagerInterface
+        ProdBrandsDaoInterface $brandsDao
     ) {
         $this->brandsDao = $brandsDao;
-        $this->ProdProductsManagerInterface = $ProdProductsManagerInterface;
     }
 
 
@@ -45,7 +42,7 @@ class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
         $this->brandsDao->updateBrand($prodBrands);
     }
 
-    
+
     public function deleteBrandById($brandId)
     {
         if ($this->ProdProductsManagerInterface->countProdProductsWithBrandId($brandId) == 0) {

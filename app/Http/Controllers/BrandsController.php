@@ -11,54 +11,55 @@ use App\Models\Model\ProdBrands;
 
 class BrandsController extends Controller
 {
-    public function formCreateBrand()
+    public function formCreateBrd()
     {
-        return view('Brands/BrandForm');
+        return view('Brands.BrandForm');
     }
 
 
-    public function createBrand(BrandRequest $request, ProdBrandsManagerInterface $BrandsManager)
+    public function createBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager)
     {
         $brd = $request->input('brand');
 
         $brand = new ProdBrands();
         $brand->setBrandName($brd);
 
-        $BrandsManager->createBrand($brand);
-        return redirect('/success/');
+        $brandsManager->createBrand($brand);
+        //return redirect('/success/');
         //return view('/Success').with(["tabActive"=>"brand"]);
         //return view('/Success');
+        dd($brand);
+
     }
 
-    public function formUpdateBrand(ProdBrandsManagerInterface $brandsManager, $brandId)
+    public function formUpdateBrd(ProdBrandsManagerInterface $brandsManager, $brandId)
     {
-        $brand = $brandsManager->getbrandById($brandId);
-        return view('Brands/BrandFormUpdate')->with(["brand" => $brand]);
+        $brand = $brandsManager->getBrandById($brandId);
+        return view('Brands.BrandFormUpdate')->with(["brand" => $brand]);
     }
 
 
-    public function updateBrand(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $brandId)
+    public function updateBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $brandId)
     {
         $brd = new ProdBrands();
         $brd->setBrandId($brandId);
-        $brd->setBrandName($request->input("brandUp"));
+        $brd->setBrandName($request->input("brand"));
 
         $brandsManager->updateBrand($brd);
 
         //return redirect('/brands/' . $brd->getBrandId() . '/edit/');
-        return redirect('/success');
+        return redirect('/success/');
     }
 
 
-    public function deleteBrand(ProdBrandsManagerInterface $brandsManager, $brandId)
+    public function deleteBrd(ProdBrandsManagerInterface $brandsManager, $brandId)
     {
-        try{
+        try {
             $brandsManager->deleteBrandById($brandId);
-            return view('/Success');
-        }catch(CategoryException $e){
+            return redirect('/success');
+        } catch(CategoryException $e) {
             return view('error').with(['message'=>$e->getMessage()]);
         }
-        //return redirect('/success');
     }
 
 
@@ -66,7 +67,8 @@ class BrandsController extends Controller
 
 
 
-    public function getAllBrandsJson(ProdBrandsManagerInterface $brandManager){
+    public function getAllBrandsJson(ProdBrandsManagerInterface $brandManager)
+    {
         $brands = $brandManager->getAllBrands();
 
 
@@ -78,7 +80,7 @@ class BrandsController extends Controller
         $xml .= "</brands>\n";
         #echo $xml;
 
-        return response($xml,200)->header("Content-type","text/xml");
+        return response($xml, 200)->header("Content-type", "text/xml");
 
         //return response()->json($brands);
     }
@@ -91,7 +93,4 @@ class BrandsController extends Controller
         $item .= "</brand>\n";
         return $item;
     }
-
-
-
 }

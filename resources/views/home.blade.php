@@ -326,7 +326,7 @@
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4>This is home title</h4>
-                                                                @include('Reporting/Charts')
+
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="vente4">
@@ -364,8 +364,8 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-9">
-                                                                        <!-- LISTE DES UTILISATEURS -->
-                                                                        @include('Staffs/StaffsListe')
+                                                                        <!-- LISTE DES UTILISATEURS ('Staffs/StaffsListe')-->
+                                                                        
                                                                     </div>
 
                                                                     <div class="col-xl-3">

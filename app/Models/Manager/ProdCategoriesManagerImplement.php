@@ -51,7 +51,7 @@ class ProdCategoriesManagerImplement implements ProdCategoriesManagerInterface
         if ($this->ProdProductsManagerInterface->countProdProductsWithCategoryId($categoryId) == 0) {
             $this->categoriesDao->deleteCategoryById($categoryId);
         } else {
-            throw new CategoryException("Des produits sont liés à cette marque.");
+            throw new CategoryException("Des produits sont liés à cette catégorie.");
         }
     }
 }
