@@ -1,35 +1,24 @@
-<h4>SELECTION</h4>
-
-<select     class="btn btn-light btn-block">
-    <option value="">Sélection marques</option>
-</select>
-<select     class="btn btn-light btn-block">
-    <option value="">Sélection par catégorie</option>
-</select>
-<select     class="btn btn-light btn-block">
-    <option value="">Sélection par année</option>
-</select>
-<select     class="btn btn-light btn-block">
-    <option value=">Sélection par magasin</option>
-</select>
-<select     class="btn btn-light btn-block">
-    <option value="">Sélection par production</option>
-</select>
-<br><br>
-<hr><br>
 
 <h4>Nouvelle mise en stock</h4>
-<form name="brand" action="">
+
+<form name="form-stock" action="{{ url('stocks/create')  }}" method="POST" class="mb-5">
     @csrf
-    <div class="form-marque">
-        <input type="text" class="form-control form-control-user" id="stockCode" placeholder="Code">
-    </div><br>
-    <div class="form-marque">
-        <input type="text" class="form-control form-control-user" id="stockName" placeholder="Name">
-    </div><br>
-    <div class="form-marque">
-        <input type="text" class="form-control form-control-user" id="stockQuantity" placeholder="Quantité">
+
+    <div class="mb-2">
+        <input id="stock-code" name="stock-code" type="text" class="form-control form-control-user" placeholder="Saisir référence">
     </div>
-    <br>
+
+    <div class="mb-2">
+
+        <div id="stock-name" name="stock-name" type="text" class="form-control form-control-user">
+            <p >Retour de la référece saisie : </p>
+        </div>
+
+    </div>
+
+    <div class="mb-2">
+        <input id="stock-quantity" name="stock-quantity" type="text" class="form-control form-control-user" placeholder="Quantité à entrer">
+    </div>
+
     <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
 </form>

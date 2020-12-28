@@ -9,6 +9,7 @@
             <th scope="col">Marque</th>
             <th scope="col">Catégorie</th>
             <th scope="col">Prix €</th>
+            <th scope="col">@</th>
         </tr>
     </thead>
     <tbody>

@@ -21,14 +21,14 @@ class SalesCustomersManagerImplement implements SalesCustomersManagerInterface
     }
 
 
-    public function getCustomerById($customerId)
+    public function getCustomerById($id)
     {
-        return $this->customerById->getCustomerById;
+        return $this->customerDao->getCustomerById($id);
     }
 
 
-    public function createCustomer(SalesCustomers $salesCustomers)
+    public function createCustomer(SalesCustomers $customers)
     {
-        $this->customerDao->createCustomer($salesCustomers);
+        $this->customerDao->createCustomer($customers);
     }
 }

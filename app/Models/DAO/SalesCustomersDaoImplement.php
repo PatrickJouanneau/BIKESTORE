@@ -33,10 +33,10 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     }
 
 
-    public function getCustomerById($customerId)
+    public function getCustomerById($id)
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id='" . $customerId . "'");
+        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id='" . $id . "'");
         $resultBdd = $reponse->fetch();
 
         $customer = new SalesCustomers();
@@ -54,20 +54,20 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     }
 
 
-    public function createCustomer(SalesCustomers $salesCustomers)
+    public function createCustomer(SalesCustomers $customers)
     {
-        $resultBdd = DB::insert("INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip-code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        [$salesCustomers->getFirstName()],
-        [$salesCustomers->getLastName()],
-        [$salesCustomers->getPhone()],
-        [$salesCustomers->getEmail()],
-        [$salesCustomers->getStreet()],
-        [$salesCustomers->getCity()],
-        [$salesCustomers->getState()],
-        [$salesCustomers->getZipcode()]
+        $resultBdd = DB::insert("INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [$customers->getFirstName()],
+        [$customers->getLastName()],
+        [$customers->getPhone()],
+        [$customers->getEmail()],
+        [$customers->getStreet()],
+        [$customers->getCity()],
+        [$customers->getState()],
+        [$customers->getZipCode()]
      );
     }
 
-    
+
 }
 

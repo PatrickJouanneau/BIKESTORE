@@ -1,5 +1,5 @@
 <h4>Nouveau client</h4>
-<form name="customer-create" action="{{ url('brands/create') }}" method="POST">
+<form name="customer-create" action="{{ url('customers/create') }}" method="POST">
     @csrf
 
     <div class="form-marque">

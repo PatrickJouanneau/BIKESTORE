@@ -2,66 +2,55 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Exceptions\CategoryException;
 use App\Http\Requests\BrandRequest;
-use App\Models\Manager\ProdBrandsManagerInterface;
+use app\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Model\ProdBrands;
+use Illuminate\Http\Request;
 
-
-class BrandsController extends Controller
+class BrandController extends Controller
 {
     public function formCreateBrd()
     {
         return view('Brands.BrandForm');
     }
 
-
-    public function createBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager)
+    public function createBrd(BrandRequest $request, ProdBrandsManagerInterface $BrandsManager)
     {
         $brd = $request->input('brand');
 
         $brand = new ProdBrands();
         $brand->setBrandName($brd);
-
-        $brandsManager->createBrand($brand);
-        //return redirect('/success/');
-        //return view('/Success').with(["tabActive"=>"brand"]);
-        //return view('/Success');
-        dd($brand);
-
-    }
-
-    public function formUpdateBrd(ProdBrandsManagerInterface $brandsManager, $brandId)
-    {
-        $brand = $brandsManager->getBrandById($brandId);
-        return view('Brands.BrandFormUpdate')->with(["brand" => $brand]);
-    }
-
-
-    public function updateBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $brandId)
-    {
-        $brd = new ProdBrands();
-        $brd->setBrandId($brandId);
-        $brd->setBrandName($request->input("brand"));
-
-        $brandsManager->updateBrand($brd);
-
-        //return redirect('/brands/' . $brd->getBrandId() . '/edit/');
+        
+        $BrandsManager->createBrand($brand);
         return redirect('/success/');
     }
 
-
-    public function deleteBrd(ProdBrandsManagerInterface $brandsManager, $brandId)
+    public function formUpdateBrd(ProdBrandsManagerInterface $brandsManager, $id)
     {
-        try {
-            $brandsManager->deleteBrandById($brandId);
-            return redirect('/success');
-        } catch(CategoryException $e) {
-            return view('error').with(['message'=>$e->getMessage()]);
-        }
+        $brand = $brandsManager->getBrandById($id);
+        return view('Brands.BrandFormUpdate')->with(["brand" => $brand]);
     }
 
+    public function updateBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $id)
+    {
+        $brd = new ProdBrands();
+        $brd->setBrandId($id);
+        $brd->setBrandName($request->input("brand"));
+
+        $brandsManager->updateBrand($brd);
+        return redirect('/success/');
+    }
+
+    public function deleteBrd(ProdBrandsManagerInterface $brandsManager, $id)
+    {
+        try {
+            $brandsManager->deleteBrandById($id);
+            return redirect('/success/');
+        } catch (CategoryException $e) {
+            return view('error') . with(['message' => $e->getMessage()]);
+        }
+    }
 
 
 

@@ -6,7 +6,7 @@ use App\Exceptions\CustomerException;
 use App\Http\Requests\CustomerRequest;
 use App\Models\Manager\SalesCustomersManagerInterface;
 use App\Models\Model\SalesCustomers;
-use Symfony\Component\Console\Logger\ConsoleLogger;
+
 
 class CustomerController extends Controller
 {
@@ -39,7 +39,7 @@ class CustomerController extends Controller
 
         $CustomerManager->createCustomer($customer);
         return redirect('/success/');
-        echo $customer;
+
     }
 
 }

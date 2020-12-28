@@ -24,15 +24,14 @@ class BrandRequest extends FormRequest
     public function rules()
     {
         return [
-            "categorie" => "required | min:3"
+            "categorie" => "required"
         ];
     }
 
     public function messages()
     {
         return [
-            "brand.required" => "Le champs est requis !",
-            "brand.min" => "Le champ doit comporter au moins 3 caractères"
+            "brand.required" => "Le champs est requis !"
         ];
     }
 }

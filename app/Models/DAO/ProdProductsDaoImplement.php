@@ -7,6 +7,8 @@ use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoInterface;
 use App\Models\Model\ProdProducts;
+use App\Models\Model\ProdBrands;
+use App\Models\Model\ProdCategories;
 
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
@@ -79,7 +81,18 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
     public function countProdProductsWithBrandId($brandId) {
-        return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " . $brandId)[0]->count;
+        return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " .$brandId)[0]->count;
     }
 
+
+    public function createProduct($products)
+    {
+        $resultBdd = DB::insert("INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)", [
+            $products->getProductName(),
+            $products->prodProductBrand->getBrandName(),
+            $products->prodProductCategory->getCategoryName(),
+            $products->getModelYear(),
+            $products->getListPrice()
+        ]);
+    }
 }

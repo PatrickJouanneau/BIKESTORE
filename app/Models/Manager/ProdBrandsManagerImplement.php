@@ -25,21 +25,21 @@ class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
     }
 
 
-    public function getBrandById($brandId)
+    public function getBrandById($id)
     {
-        return $this->brandsDao->getBrandById($brandId);
+        return $this->brandsDao->getBrandById($id);
     }
 
 
-    public function createBrand(ProdBrands $prodBrands)
+    public function createBrand(ProdBrands $brands)
     {
-        $this->brandsDao->createBrand($prodBrands);
+        $this->brandsDao->createBrand($brands);
     }
 
 
-    public function updateBrand(ProdBrands $prodBrands)
+    public function updateBrand(ProdBrands $brands)
     {
-        $this->brandsDao->updateBrand($prodBrands);
+        $this->brandsDao->updateBrand($brands);
     }
 
 

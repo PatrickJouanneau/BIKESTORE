@@ -4,8 +4,9 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\BrandsController;
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,12 +31,12 @@ Route::get('/success', [HomeController::class, 'success']);
 Route::get('/failure', [HomeController::class, 'failure']);
 
 
-Route::get('/brands/create', [BrandsController::class, 'formCreateBrd']);
-Route::post('/brands/create', [BrandsController::class, 'createBrd']);
-Route::get('/brands/json', [BrandsController::class, 'getAllBrandsJson']);
-Route::get('/brands/{brandId}/edit', [BrandsController::class, 'formUpdateBrd']);
-Route::post('/brands/{brandId}/edit', [BrandsController::class, 'updateBrd']);
-Route::get('/brands/{brandId}/delete', [BrandsController::class, 'deleteBrd']);
+Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
+Route::post('/brands/create', [BrandController::class, 'createBrd']);
+Route::get('/brands/json', [BrandController::class, 'getAllBrandsJson']);
+Route::get('/brands/{brandId}/edit', [BrandController::class, 'formUpdateBrd']);
+Route::post('/brands/{brandId}/edit', [BrandController::class, 'updateBrd']);
+Route::get('/brands/{brandId}/delete', [BrandController::class, 'deleteBrd']);
 
 Route::get('/categories/create', [CategoryController::class, 'formCreateCat']);
 Route::post('/categories/create', [CategoryController::class, 'createCat']);
@@ -45,6 +46,12 @@ Route::get('/categories/{categoryId}/delete', [CategoryController::class, 'delet
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
+
+Route::get('/products/create', [ProductController::class, 'formCreateProd']);
+Route::post('/products/create', [ProductController::class, 'createProd']);
+
+Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
+Route::post('/stocks/create', [StockController::class, 'createStk']);
 
 
 

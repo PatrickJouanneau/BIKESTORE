@@ -14,7 +14,7 @@
 
     <div class="form-marque">
         <div class="error">{{ $errors->has("phone") ? $errors->first("phone") : "" }}</div>
-        <input id="phon-up" name="phone" type="text" class="form-control" placeholder=" " value="{{ !empty($salesCustomer) ? $salesCustomer->getFirstPhone()  : "" }}">
+        <input id="phone-up" name="phone" type="text" class="form-control" placeholder=" " value="{{ !empty($salesCustomer) ? $salesCustomer->getFirstPhone()  : "" }}">
     </div><br>
 
     <div class="form-marque">

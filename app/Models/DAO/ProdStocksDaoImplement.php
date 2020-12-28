@@ -37,4 +37,34 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
         return $allStocks;
     }
+
+
+
+
+
+    /* VOIR SI C'EST BON ? */
+    public function getStockskByStoreAndYear()
+    {
+        $resultBdd = DB::select("SELECT product_name, quantity, store_name, model_year, list_price
+        FROM production.stocks stk
+            INNER JOIN production.products prod ON prod.product_id = stk.product_id
+            INNER join sales.stores mag ON mag.store_id = stk.store_id
+        WHERE store_id = ?  AND model_year = ?
+        ORDER BY [product_name];");
+
+        $allStocks = [];
+        foreach ($resultBdd as $i => $row) {
+            $stock = new ProdStocks();
+            $stock->setQuantity($row->quantity);
+
+            $product = $this->productDao->getProductById($row->product_id);
+            $stock->setProdProduct($product);
+
+            $store = $this->storeDao->getStoreById($row->store_id);
+            $stock->setSalesStore($store);
+
+            array_push($allStocks, $stock);
+        }
+        return $allStocks;
+    }
 }

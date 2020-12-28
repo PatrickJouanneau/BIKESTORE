@@ -198,6 +198,7 @@
                                                                     </div>
                                                                     <div class="col-xl-4">
                                                                     <!-- SELECTION MODIFICATION et CREATION d'un produit -->
+                                                                        @include('Products/ProductSelect')
                                                                         @include('Products/productForm')
                                                                     </div>
                                                                 </div>
@@ -215,7 +216,8 @@
 
                                                                     <div class="col-xl-4">
                                                                     <!-- SELECTION & MISE EN STOCK d'un produit -->
-                                                                        @include('Stocks/StockForm')
+                                                                    @include('Stocks/stockSelect')
+                                                                    @include('Stocks/StockForm')
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -365,7 +367,7 @@
                                                                 <div class="row">
                                                                     <div class="col-xl-9">
                                                                         <!-- LISTE DES UTILISATEURS ('Staffs/StaffsListe')-->
-                                                                        
+
                                                                     </div>
 
                                                                     <div class="col-xl-3">

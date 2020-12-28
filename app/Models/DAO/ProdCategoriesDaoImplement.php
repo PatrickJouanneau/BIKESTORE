@@ -39,15 +39,15 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     }
 
 
-    public function createCategory(ProdCategories $prodCategories)
+    public function createCategory(ProdCategories $categories)
     {
-        $resultBdd = DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$prodCategories->getCategoryName()]);
+        $resultBdd = DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$categories->getCategoryName()]);
     }
 
 
-    public function updateCategory(ProdCategories $prodCategories)
+    public function updateCategory(ProdCategories $categories)
     {
-        $resultBdd = DB::update("UPDATE production.categories set category_name = ? WHERE category_id = ?", [$prodCategories->getCategoryName(), $prodCategories->getCategoryId()]);
+        $resultBdd = DB::update("UPDATE production.categories set category_name = ? WHERE category_id = ?", [$categories->getCategoryName(), $categories->getCategoryId()]);
     }
 
 

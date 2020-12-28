@@ -48,17 +48,15 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     }
 
 
-    public function createBrand(ProdBrands $prodBrands)
+    public function createBrand(ProdBrands $brands)
     {
-        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$prodBrands->getBrandName()]);
-
-        dd($resultBdd);
+        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
     }
 
 
-    public function updateBrand(prodBrands $prodBrands)
+    public function updateBrand(prodBrands $brands)
     {
-        $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$prodBrands->getBrandName(), $prodBrands->getBrandId()]);
+        $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
     }
 
 
