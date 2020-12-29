@@ -44,14 +44,19 @@ Route::get('/categories/{categoryId}/edit', [CategoryController::class, 'formUpd
 Route::post('/categories/{categoryId}/edit', [CategoryController::class, 'updateCat']);
 Route::get('/categories/{categoryId}/delete', [CategoryController::class, 'deleteCat']);
 
-Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
-Route::post('/customers/create', [CustomerController::class, 'createCust']);
-
 Route::get('/products/create', [ProductController::class, 'formCreateProd']);
 Route::post('/products/create', [ProductController::class, 'createProd']);
 
 Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
 Route::post('/stocks/create', [StockController::class, 'createStk']);
+
+Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
+Route::post('/customers/create', [CustomerController::class, 'createCust']);
+
+Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
+Route::post('/staffs/create', [StaffController::class, 'createStf']);
+
+
 
 
 

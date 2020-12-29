@@ -4,6 +4,7 @@ namespace App\Models\Manager;
 
 use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
+use App\Models\Model\SalesStaffs;
 
 class SalesStaffsManagerImplement implements SalesStaffsManagerInterface
 {
@@ -16,5 +17,15 @@ class SalesStaffsManagerImplement implements SalesStaffsManagerInterface
     public function getAllStaffs()
     {
         return $this->staffsDao->getAllStaffs();
+    }
+
+    public function getStaffById($staffId)
+    {
+        return $this->staffsDao->getStaffById($staffId);
+    }
+
+    public function createStaff(SalesStaffs $staffs)
+    {
+        $this->staffsDao->createStaff($staffs);
     }
 }

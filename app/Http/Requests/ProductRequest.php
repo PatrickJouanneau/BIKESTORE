@@ -24,22 +24,22 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            "product-name"      => "required",
-            "getBrandName"      => "required",
-            "getCategoryId"     => "required",
-            "year"              => "required",
-            "product-price"     => "required",
+            "product-name"              => "required",
+            "product-select-brand"      => "required",
+            "product-select-category"   => "required",
+            "product-select-year"       => "required",
+            "product-price"             => "required",
         ];
     }
 
     public function message()
     {
        return [
-        "product-name.required"      => "Le nom est requis !",
-        "getBrandName.required"      => "Le choix de la marque est requis",
-        "getCategoryId.required"     => "Le choix de la catégorie est requis",
-        "year.required"              => "Le choix de l'année est requis",
-        "product-price.required"     => "Le prix est requis",
+        "product-name.required"             => "Le nom est requis !",
+        "product-select-brand.required"     => "Le choix de la marque est requis",
+        "product-select-category.required"  => "Le choix de la catégorie est requis",
+        "product-select-year.required"      => "Le choix de l'année est requis",
+        "product-price.required"            => "Le prix est requis",
        ];
     }
 }

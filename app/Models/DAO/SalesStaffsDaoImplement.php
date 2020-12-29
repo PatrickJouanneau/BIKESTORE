@@ -5,18 +5,16 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStaffs;
 use App\Models\DAO\SalesStaffsDaoInterface;
-
+use App\Models\Manager\SalesStaffsManagerInterface;
 
 class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 {
-
     private $storeDao;
-    //private $managerDao;
     public function __construct(
-        SalesStoresDaoInterface $storeDao)
+        SalesStoresDaoInterface $storeDao
+        )
     {
         $this->storeDao = $storeDao;
-        //$this->managerDao = $managerDao;
     }
 
     public function getAllStaffs()
@@ -33,13 +31,9 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
             $staff->setEmail($row->email);
             $staff->setActive($row->active);
             $staff->setManagerId($row->manager_id);
-            //$staff->setPoste($row->poste);
 
             $store = $this->storeDao->getStoreById($row->store_id);
             $staff->setSalesStores($store);
-
-            //$manager = $this->setManagerId($row->manager_id);
-            //$staff = $this->managerDao($manager);
 
             array_push($allStaffs, $staff);
         }
@@ -61,8 +55,22 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         $staff->setActive($resultBdd['active']);
         $staff->setStoreId($resultBdd['store_id']);
         $staff->setManagerId($resultBdd['manager_id']);
-        //$staff->setPoste($resultBdd['poste']);
 
         return $staff;
+    }
+
+    public function createStaff($staffs)
+    {
+        $resultBdd = DB::insert("INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",[
+            $staffs->getFirstName(),
+            $staffs->getLastName(),
+            $staffs->getEmail(),
+            $staffs->getPhone(),
+            $staffs->getActive(),
+            $staffs->getStoreId(),
+            $staffs->getManagerId(),
+            $staffs->getPassword(),
+            $staffs->getProfil()
+        ]);
     }
 }

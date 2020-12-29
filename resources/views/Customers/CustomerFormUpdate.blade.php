@@ -1,4 +1,5 @@
-<h4>Nouveau client</h4>
+<div class="mb-5">
+    <h4>Nouveau client</h4>
 <form name="customer" action="{{ !empty($customer) ? url('/customers/'.$category->getCustomerId().'/edit') : url('/customers/create') }}" method="POST">
     @csrf
 
@@ -47,3 +48,4 @@
     </div>
 
 </form>
+</div>

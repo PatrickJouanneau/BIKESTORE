@@ -1,4 +1,5 @@
-<h4>Nouveau magasin</h4>
+<div class="mb-5">
+    <h4>Nouveau magasin</h4>
 <form method="POST" action="{{-- route('register') --}}">
     @csrf
 
@@ -77,3 +78,4 @@
     </div>
 
 </form>
+</div>

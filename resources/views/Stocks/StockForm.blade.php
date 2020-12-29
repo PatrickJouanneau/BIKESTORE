@@ -1,3 +1,4 @@
+<div class="mb-5">
 
 <h4>Nouvelle mise en stock</h4>
 
@@ -22,3 +23,4 @@
 
     <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
 </form>
+</div>

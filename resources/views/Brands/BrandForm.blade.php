@@ -1,5 +1,6 @@
 
-<h4>CREATION d'une nouvelle marque</h4>
+<div class="mb-5">
+    <h4>CREATION d'une nouvelle marque</h4>
 
 <form name="brand-create" action="{{ url('brands/create') }}" method="POST">
     @csrf
@@ -10,6 +11,7 @@
     <br>
     <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
 </form>
+</div>
 
 
 

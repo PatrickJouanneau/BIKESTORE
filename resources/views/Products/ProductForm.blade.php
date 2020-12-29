@@ -1,4 +1,5 @@
-<hr>
+<div class="mb-5">
+    <hr>
 <h4>CREATION d'un nouveau produit</h4>
 
 <form name="product-create" action="{{ url('products/create')  }}" method="POST" class="mb-5">
@@ -13,7 +14,7 @@
         @foreach ($brands as $b)
             <option value="{{ $b->getBrandId() }}">{{ $b->getBrandName() }}</option>
         @endforeach
-    </select><br>
+    </select>
 
     <select name="product-select-category" id="product-select-category" class="form-control form-control-user mb-2">
         <option value="allCategories">Choisir une catégorie</option>
@@ -24,14 +25,14 @@
 
     <select name="product-select-year" id="product-select-year" class="form-control form-control-user mb-2">
         <option value="allYears">Choisir une année</option>
-        <option value="year">2016</option>
-        <option value="year">2017</option>
-        <option value="year">2018</option>
-        <option value="year">2019</option>
-        <option value="year">2020</option>
-        <option value="year">2021</option>
-        <option value="year">2022</option>
-        <option value="year">2023</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
     </select>
 
     <div class="pb-2">
@@ -41,3 +42,4 @@
 
     <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
 </form>
+</div>

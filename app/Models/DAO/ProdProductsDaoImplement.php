@@ -89,8 +89,8 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     {
         $resultBdd = DB::insert("INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)", [
             $products->getProductName(),
-            $products->prodProductBrand->getBrandName(),
-            $products->prodProductCategory->getCategoryName(),
+            $products->brandDao->getBrandName(),
+            $products->categoryDao->getCategoryName(),
             $products->getModelYear(),
             $products->getListPrice()
         ]);

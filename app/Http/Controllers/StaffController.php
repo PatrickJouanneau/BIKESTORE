@@ -2,86 +2,43 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Model\Model_Staffs;
+use App\Http\Requests\StaffRequest;
+use App\Models\Manager\SalesStaffsManagerInterface;
+use App\Models\Model\SalesStaffs;
 
 class StaffController extends Controller
 {
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function listePerso()
+    public function formCreateStf()
     {
-        return view('Staffs');
+        return view('/Staffs.staffForm');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    Public function createStf(StaffRequest $request, SalesStaffsManagerInterface $staffsManager)
     {
-        //
+        $stf = $request->input('first-name-stf');
+        $stf = $request->input('last-name-stf');
+        $stf = $request->input('email-stf');
+        $stf = $request->input('phone-stf');
+        $stf = $request->input('store-stf');
+        $stf = $request->input('manager-stf');
+        $stf = $request->input('profif-stf');
+        $stf = $request->input('active');
+        $stf = $request->input('password');
+
+        $staff = new SalesStaffs();
+        $staff->setFirstName($stf);
+        $staff->setLastName($stf);
+        $staff->setEmail($stf);
+        $staff->setPhone($stf);
+        $staff->setStoreId($stf);
+        $staff->setManagerId($stf);
+        $staff->setProfil($stf);
+        $staff->setActive($stf);
+        $staff->setpassword($stf);
+
+        $staffsManager->createStaff($staff);
+        return redirect('/success/');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

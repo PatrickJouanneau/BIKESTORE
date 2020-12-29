@@ -8,7 +8,6 @@
             <th scope="col">Prénom</th>
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
-            <th scope="col">Poste</th>
             <th scope="col">Magasin</th>
             <th scope="col">Responsable</th>
             <th scope="col">Activité</th>
@@ -22,7 +21,6 @@
                 <td>{{  $staff->getFirstName() }}</td>
                 <td>{{  $staff->getEmail() }}</td>
                 <td>{{  $staff->getPhone() }}</td>
-                <td>{{--  $staff->getPoste() --}}</td>
                 <td>{{  $staff->getSalesStores()->getStoreName() }}</td>
                 <td>{{  $staff->getManagerId() }}</td>
                 <td>{{  $staff->getActive() }}</td>
