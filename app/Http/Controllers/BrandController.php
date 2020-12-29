@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exceptions\CategoryException;
 use App\Http\Requests\BrandRequest;
-use app\Models\Manager\ProdBrandsManagerInterface;
+use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Model\ProdBrands;
 use Illuminate\Http\Request;
 
@@ -21,7 +21,7 @@ class BrandController extends Controller
 
         $brand = new ProdBrands();
         $brand->setBrandName($brd);
-        
+
         $BrandsManager->createBrand($brand);
         return redirect('/success/');
     }

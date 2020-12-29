@@ -12,10 +12,13 @@ use App\Models\Model\ProdBrands;
 class ProdBrandsManagerImplement implements ProdBrandsManagerInterface
 {
     private $brandsDao;
+    private $ProdProductsManagerInterface;
     public function __construct(
-        ProdBrandsDaoInterface $brandsDao
+        ProdBrandsDaoInterface $brandsDao,
+        ProdProductsManagerInterface $ProdProductsManagerInterface
     ) {
         $this->brandsDao = $brandsDao;
+        $this->ProdProductsManagerInterface = $ProdProductsManagerInterface;
     }
 
 
