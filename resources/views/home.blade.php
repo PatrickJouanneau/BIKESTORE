@@ -199,13 +199,23 @@
                                                                     <div class="col-xl-3">
                                                                     <!-- SELECTION MODIFICATION et CREATION d'un produit -->
                                                                         @include('Products/ProductSelect')
-                                                                        @include('Products/productForm')
+                                                                        @include('Products/ProductForm')
                                                                     </div>
 
                                                                     <div class="col-xl-9">
                                                                         <!-- LISTE DES PRODUITS -->
-                                                                        @include('Products/productsListe')
+                                                                        @include('Products/ProductsListe')
+
+                                                                        <a href="{{ url('/products/liste/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Tout voir</a>
+
+                                                                        <div class="collapse" id="collapseExample">
+                                                                          <div class="card card-body">
+                                                                            @include('Products/ProductsListeAll')
+                                                                          </div>
+                                                                        </div>
+
                                                                     </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>

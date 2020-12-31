@@ -5,48 +5,61 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
-use App\Models\DAO\ProdBrandsDaoInterface;
-use App\Models\DAO\ProdCategoriesDaoInterface;
-
+use App\Models\Manager\ProdBrandsManagerInterface;
+use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Model\ProdBrands;
+use App\Models\Model\ProdCategories;
 
 class ProductController extends Controller
 {
-
-    private $categoryDao;
-    private $brandDao;
-
-    public function __construct(
-        ProdCategoriesDaoInterface $categoryDao,
-        ProdBrandsDaoInterface $brandDao
-    ) {
-        $this->categoryDao  = $categoryDao;
-        $this->brandDao  = $brandDao;
-    }
-
     public function formCreateProd()
     {
         return view('/Products.ProductForm');
     }
 
 
-    public function createProd(ProductRequest $request, ProdProductsManagerInterface $productsManager)
+    public function createProd(ProductRequest $request, ProdProductsManagerInterface $productsManager, ProdBrandsManagerInterface $brandManager, ProdCategoriesManagerInterface $categoryManager)
     {
-        $prod = $request->input('product-name');
-        $prod = $request->input('product-select-brand');
-        $prod = $request->input('product-select-category');
-        $prod = $request->input('product-select-year');
-        $prod = $request->input('product-price');
-
+        $name = $request->input('product-name');
+        $brandId = $request->input('product-select-brand');
+        $categoryId = $request->input('product-select-category');
+        $year = $request->input('product-select-year');
+        $price = $request->input('product-price');
 
         $product = new ProdProducts();
-        $product->setProductName($prod);
-        $product->brandDao->setBrandName($prod);
-        $product->categoryDao->setCategoryName($prod);
-        $product->setModelYear($prod);
-        $product->setListPrice($prod);
-
+        $product->setProductName($name);
+        $product->setProductBrand($brandManager->getBrandById($brandId));
+        $product->setProductCategory($categoryManager->getCategoryById($categoryId));
+        $product->setModelYear($year);
+        $product->setListPrice($price);
 
         $productsManager->createProduct($product);
         return redirect('/success');
     }
+
+
+    public function formUpdateProd(ProdProductsManagerInterface $productsManager, $productId)
+    {
+        $product = $productsManager->getProductById($productId);
+        return view('Products.ProductFormUpdate')->with(["product" => $product]);
+    }
+
+
+    public function updateProd(ProductRequest $request, ProdProductsManagerInterface $productsManager, ProdBrandsManagerInterface $brandManager, ProdCategoriesManagerInterface $categoryManager, $productId)
+    {
+        $prod = new ProdProducts();
+        $prod->setProductId($productId);
+        $prod->setProductName($request->input("product-name"));
+        $prod->setProductBrand->$brandManager($request->input("product-select-brand"));
+        $prod->setProductCategory->$categoryManager($request->input("product-select-category"));
+        $prod->setModelYear($request->input("product-select-year"));
+        $prod->setListPrice($request->input("product-price"));
+
+        $productsManager->updateProduct($prod);
+        return redirect('/success/');
+
+    }
+
+
+
 }

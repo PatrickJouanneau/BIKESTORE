@@ -5,6 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrderItems;
 use App\Models\DAO\ProdProductsDaoInterface;
+use App\Models\Model\ProdProducts;
 
 class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 {
@@ -16,7 +17,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
     public function getAllOrderItems()
     {
-        $resultBdd = DB::select("exec get_all_order_items");
+        $resultBdd = DB::select("exec get_liste_order_items");
 
         $allOrderItems = [];
         foreach ($resultBdd as $i => $row) {
@@ -43,15 +44,20 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $resultBdd = $reponse->fetch();
 
         $orderItem = new SalesOrderItems();
-            $orderItem->setOrderId($resultBdd['order_id']);
-            $orderItem->setItemId($resultBdd['item_id']);
-            $orderItem->setQuantity($resultBdd['quantity']);
-            $orderItem->setListPrice($resultBdd['list_price']);
-            $orderItem->setDiscount($resultBdd['discount']);
+        $orderItem->setOrderId($resultBdd['order_id']);
+        $orderItem->setItemId($resultBdd['item_id']);
+        $orderItem->setQuantity($resultBdd['quantity']);
+        $orderItem->setListPrice($resultBdd['list_price']);
+        $orderItem->setDiscount($resultBdd['discount']);
 
-            $product = $this->produprodProductctDao->getProductById($resultBdd['product_id']);
-            $orderItem->setprodProduct($product);
+        $product = $this->produprodProductctDao->getProductById($resultBdd['product_id']);
+        $orderItem->setprodProduct($product);
 
-            return $orderItem;
+        return $orderItem;
+    }
+
+    public function countSalesOrderItemsWithProductId($productId)
+    {
+        return DB::select("SELECT count(*) AS count FROM sales.order_items WHERE product_id = " . $productId)[0]->count;
     }
 }

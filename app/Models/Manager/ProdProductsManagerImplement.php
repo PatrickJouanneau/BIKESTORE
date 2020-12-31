@@ -2,6 +2,7 @@
 
 namespace App\Models\Manager;
 
+use App\Exceptions\ProductException;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
@@ -32,13 +33,35 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         return $this->productsDao->countProdProductsWithBrandId($brandId);
     }
 
+
+    
     public function getProductById($productId)
     {
         return $this->productsDao->getProductById($productId);
     }
 
+
+
     public function createProduct(ProdProducts $products)
     {
         $this->productsDao->createProduct($products);
+    }
+
+
+
+    public function updateProduct(ProdProducts $products)
+    {
+        $this->productsDao->updateProduct($products);
+    }
+
+
+
+    public function deleteProductById($productId)
+    {
+        if ($this->SalesOrderItemsManagerInterface->countSalesOrderItemsWithProductId($productId) == 0) {
+            $this->productsDao->deleteproductById($productId);
+        } else {
+            throw new ProductException("Des ordres sont liés à ce produit");
+        }
     }
 }

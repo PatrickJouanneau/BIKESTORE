@@ -1,4 +1,4 @@
-<h4>Liste des 10 derniers produits enregistrés</h4>
+<h4>Liste des produits</h4>
 
 <table class="table table-sm table-hover">
     <thead>
@@ -22,13 +22,10 @@
                 <td>{{ $prod->getProductCategory()->getCategoryName() }}</td>
                 <td>{{ $prod->getListPrice() }}</td>
                 <td>
-                    <a href="{{ url('/products/'.$prod->getProductId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
-                    <a href="{{ url('/products/'.$prod->getProductId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                    <a href="{{ url('/home/'.$prod->getProductId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
+                    <a href="{{ url('/home/'.$prod->getProductId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
-
-
-

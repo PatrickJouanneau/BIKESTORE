@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-/*@charset "UTF-8";*/
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.3 (https://getbootstrap.com/)
@@ -8515,7 +8515,7 @@ button.bg-dark:focus {
     margin: 3rem !important;
 }
 
-.m-6 {
+.m-6{
     margin: 5rem !important;
 }
 
@@ -8668,6 +8668,10 @@ button.bg-dark:focus {
     padding: 3rem !important;
 }
 
+.p-6 {
+    padding: 5rem !important;
+}
+
 .pt-5,
 .py-5 {
     padding-top: 3rem !important;
@@ -8676,6 +8680,11 @@ button.bg-dark:focus {
 .pr-5,
 .px-5 {
     padding-right: 3rem !important;
+}
+
+.pr-6,
+.px-6 {
+    padding-right: 5rem !important;
 }
 
 .pb-5,

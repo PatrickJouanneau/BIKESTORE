@@ -1,0 +1,28 @@
+@media (min-width: 1200px) {
+    .container-xl,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container {
+        max-width: 1490px;
+    }
+}
+
+.m-6{
+    margin: 5rem !important;
+}
+
+.p-6 {
+    padding: 5rem !important;
+}
+
+.mt-6,
+.my-6 {
+    margin-top: 5rem !important;
+}
+
+.pr-6,
+.px-6 {
+    padding-right: 5rem !important;
+}
+

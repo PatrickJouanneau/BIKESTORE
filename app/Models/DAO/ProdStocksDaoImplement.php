@@ -67,4 +67,6 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
         return $allStocks;
     }
+
 }
+

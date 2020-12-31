@@ -28,10 +28,10 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     public function getAllProducts()
     {
         //$bdd = DB::getPdo();
-        //$resultBdd = DB::select("SELECT * FROM production.products ORDER BY product_name");
+        //$resultBdd = DB::select("SELECT TOP 10 * FROM production.products ORDER BY product_id DESC");
         //$resultBdd = $reponse->fetchAll();
 
-        $resultBdd = DB::select('exec dbo.get_all_products');
+        $resultBdd = DB::select('exec dbo.get_liste_products');
 
         $allProducts = [];
         foreach ($resultBdd as $i => $row) {
@@ -75,13 +75,15 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
         return $product;
     }
 
-    public function countProdProductsWithCategoryId($categoryId){
-        return DB::select("SELECT count(*) AS count FROM production.products WHERE category_id = " .$categoryId)[0]->count;
+    public function countProdProductsWithCategoryId($categoryId)
+    {
+        return DB::select("SELECT count(*) AS count FROM production.products WHERE category_id = " . $categoryId)[0]->count;
     }
 
 
-    public function countProdProductsWithBrandId($brandId) {
-        return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " .$brandId)[0]->count;
+    public function countProdProductsWithBrandId($brandId)
+    {
+        return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " . $brandId)[0]->count;
     }
 
 
@@ -89,10 +91,45 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     {
         $resultBdd = DB::insert("INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)", [
             $products->getProductName(),
-            $products->brandDao->getBrandName(),
-            $products->categoryDao->getCategoryName(),
+            $products->getProductBrand()->getBrandId(),
+            $products->getProductCategory()->getCategoryId(),
             $products->getModelYear(),
             $products->getListPrice()
         ]);
+    }
+
+
+
+    public function updateProduct($products)
+    {
+        $resultBdd = DB::update("UPDATE production.products SET
+            product_name = ?,
+            brand_id = ?,
+            category_id = ?,
+            model_year = ?,
+            liste_price = ?
+        WHERE product_id = ?
+        ", [
+            $products->getProductName(),
+            $products->getProductBrand()->getBrandId(),
+            $products->getProductCategory()->getCategoryId(),
+            $products->getModelYear(),
+            $products->getListPrice(),
+            $products->getProductId(),
+        ]);
+    }
+
+
+    public function deleteProductById($productId)
+    {
+        $resultBdd = DB::delete("DELETE FROM production.products WHERE product_id = ? ", [$productId]);
+    }
+
+
+
+
+    public function searchProduct($product)
+    {
+        $resultBdd = DB::select("SELECT product_name FROM production.product");
     }
 }

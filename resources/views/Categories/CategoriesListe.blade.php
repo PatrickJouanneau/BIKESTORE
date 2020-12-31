@@ -1,5 +1,3 @@
-
-
 <h4>Liste des catégories</h4>
 
 <table class="table table-sm table-hover">
