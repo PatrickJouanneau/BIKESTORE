@@ -32,7 +32,7 @@ class HomeController extends Controller
         $allProducts = $productManager->getAllProducts();
         $allStocks = $stockMananger->getAllStocks();
         $allStores = $storeManager->getAllStores();
-        $allCustomers = $customerManager->getAllCustomers();
+        $listCustomers = $customerManager->getListCustomers();
         $allStaffs = $staffManager->getAllStaffs();
         $allOrders = $orderManager->getAllOrders();
         $allOrderItems = $orderItemManager->getAllOrderItems();
@@ -44,7 +44,7 @@ class HomeController extends Controller
             'products' => $allProducts,
             'stocks' => $allStocks,
             'stores' => $allStores,
-            'customers' => $allCustomers,
+            'customers' => $listCustomers,
             'staffs' => $allStaffs,
             'orders' => $allOrders,
             'orderItems' => $allOrderItems,

@@ -10,6 +10,11 @@ use App\Models\Model\SalesCustomers;
 
 class CustomerController extends Controller
 {
+    public function getAllcustomers()
+    {
+        return view('Customers.CustomersListe');
+    }
+
     public function formCreateCust()
     {
         return view('/Customers.CustomerForm');

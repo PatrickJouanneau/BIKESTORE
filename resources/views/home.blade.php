@@ -274,6 +274,15 @@
                                                                     <div class="col-xl-10">
                                                                         <!-- LISTE DES CLIENTS -->
                                                                         @include('Customers/customersListe')
+
+                                                                        <a href="{{ url('/customers/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#allCustomers" aria-expanded="false" aria-controls="allCustomers">Tout voir</a>
+
+                                                                        <div class="collapse" id="allCustomers">
+                                                                          <div class="card card-body">
+                                                                            @include('Customers/CustomersListe')
+                                                                          </div>
+                                                                        </div>
+
                                                                     </div>
                                                                 </div>
                                                             </div>

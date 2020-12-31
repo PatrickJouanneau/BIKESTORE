@@ -15,11 +15,15 @@ class SalesCustomersManagerImplement implements SalesCustomersManagerInterface
     }
 
 
+    public function getListCustomers()
+    {
+        return $this->customerDao->getListCustomers();
+    }
+
     public function getAllCustomers()
     {
         return $this->customerDao->getAllCustomers();
     }
-
 
     public function getCustomerById($id)
     {

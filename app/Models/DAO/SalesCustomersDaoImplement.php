@@ -10,6 +10,28 @@ use App\Models\Dao\SalesCustomersDaoInterface;
 class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 {
 
+    public function getListCustomers()
+    {
+        $resultBdd = DB::select("exec get_liste_customers");
+
+        $listCustomers = [];
+        foreach ($resultBdd as $i => $row) {
+            $customer = new SalesCustomers();
+            $customer->setCustomerId($row->customer_id);
+            $customer->setFirstName($row->first_name);
+            $customer->setLastName($row->last_name);
+            $customer->setPhone($row->phone);
+            $customer->setEmail($row->email);
+            $customer->setStreet($row->street);
+            $customer->setCity($row->city);
+            $customer->setState($row->state);
+            $customer->setZipCode($row->zip_code);
+
+            array_push($listCustomers, $customer);
+        }
+        return $listCustomers;
+    }
+
     public function getAllCustomers()
     {
         $resultBdd = DB::select("exec get_all_customers");
@@ -56,18 +78,16 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
     public function createCustomer(SalesCustomers $customers)
     {
-        $resultBdd = DB::insert("INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-        [$customers->getFirstName()],
-        [$customers->getLastName()],
-        [$customers->getPhone()],
-        [$customers->getEmail()],
-        [$customers->getStreet()],
-        [$customers->getCity()],
-        [$customers->getState()],
-        [$customers->getZipCode()]
-     );
+        $resultBdd = DB::insert(
+            "INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            [$customers->getFirstName()],
+            [$customers->getLastName()],
+            [$customers->getPhone()],
+            [$customers->getEmail()],
+            [$customers->getStreet()],
+            [$customers->getCity()],
+            [$customers->getState()],
+            [$customers->getZipCode()]
+        );
     }
-
-
 }
-

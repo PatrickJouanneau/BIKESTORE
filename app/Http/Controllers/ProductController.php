@@ -50,8 +50,8 @@ class ProductController extends Controller
         $prod = new ProdProducts();
         $prod->setProductId($productId);
         $prod->setProductName($request->input("product-name"));
-        $prod->setProductBrand->$brandManager($request->input("product-select-brand"));
-        $prod->setProductCategory->$categoryManager($request->input("product-select-category"));
+        $prod->setProductBrand($brandManager->getBrandById($request->input("product-select-brand")));
+        $prod->setProductCategory($categoryManager->getCategoryById($request->input("product-select-category")));
         $prod->setModelYear($request->input("product-select-year"));
         $prod->setListPrice($request->input("product-price"));
 

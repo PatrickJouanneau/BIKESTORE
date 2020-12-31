@@ -56,6 +56,7 @@ Route::post('/stocks/create', [StockController::class, 'createStk']);
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
+Route::get('/customers/all', [CustomerController::class, 'getAllcustomers']);
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
 Route::post('/staffs/create', [StaffController::class, 'createStf']);
