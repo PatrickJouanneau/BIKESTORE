@@ -30,6 +30,8 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
         return $allStores;
     }
 
+
+    
     public function getStoreById($storeId)
     {
         $bdd = DB::getPdo();

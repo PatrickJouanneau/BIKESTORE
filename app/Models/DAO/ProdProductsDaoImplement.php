@@ -9,7 +9,8 @@ use App\Models\DAO\ProdCategoriesDaoInterface;
 use App\Models\Model\ProdProducts;
 use App\Models\Model\ProdBrands;
 use App\Models\Model\ProdCategories;
-
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
 {
@@ -54,26 +55,34 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
         return $allProducts;
     }
 
+
+
     public function getProductById($productId)
     {
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.products WHERE product_id ='" . $productId . "'");
         $resultBdd = $reponse->fetch();
 
-        $product = new ProdProducts();
-        $product->setProductId($resultBdd['product_id']);
-        $product->setProductName($resultBdd['product_name']);
-        $product->setModelYear($resultBdd['model_year']);
-        $product->setListPrice($resultBdd['list_price']);
+        try {
+            $product = new ProdProducts();
+            $product->setProductId($resultBdd['product_id']);
+            $product->setProductName($resultBdd['product_name']);
+            $product->setModelYear($resultBdd['model_year']);
+            $product->setListPrice($resultBdd['list_price']);
 
-        $category = $this->categoryDao->getCategoryById($resultBdd['category_id']);
-        $brand = $this->brandDao->getBrandById($resultBdd['brand_id']);
+            $category = $this->categoryDao->getCategoryById($resultBdd['category_id']);
+            $brand = $this->brandDao->getBrandById($resultBdd['brand_id']);
 
-        $product->setProductCategory($category);
-        $product->setProductBrand($brand);
+            $product->setProductCategory($category);
+            $product->setProductBrand($brand);
 
-        return $product;
+            return $product;
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
+
+
 
     public function countProdProductsWithCategoryId($categoryId)
     {
@@ -87,6 +96,8 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     }
 
 
+
+    
     public function createProduct($products)
     {
         $resultBdd = DB::insert("INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)", [
@@ -127,9 +138,25 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-
-    public function searchProduct($product)
+    public function searchProduct($products)
     {
-        $resultBdd = DB::select("SELECT product_name FROM production.product");
+        if (!empty($_POST["keyword"])) {
+            $resultBdd = DB::select("SELECT product_id, product_name FROM production.products WHERE product_name like '" . $_POST["keyword"] . "%' ORDER BY product_name LIMIT 0,6");
+            $product = new ProdProducts();
+            $product->setProductId($resultBdd['product_id']);
+            $product->setProductName($resultBdd['product_name']);
+
+            if (!empty($product)) {
+?> <ul id="product-list">
+                    <?php
+                    foreach ($product as $designation) {
+                    ?>
+                        <li onClick="selectProduct('<?php echo $designation["product_name"]; ?>');"><?php echo $designation["product_name"]; ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+<?php
+            }
+        }
     }
 }

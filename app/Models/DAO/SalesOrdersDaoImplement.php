@@ -50,6 +50,8 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
         return $allOrders;
     }
 
+
+    
     public function getOrderById($orderId)
     {
         $bdd = DB::getPdo();

@@ -6,8 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductAutocompleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +22,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['is_connected']], function(){
 
+Route::group(['middleware' => ['is_connected']], function () {
 });
 
 Route::get('/', [HomeController::class, 'index']);
@@ -50,13 +52,21 @@ Route::get('/products/liste/all', [ProductController::class, 'listeAllProd']);
 Route::get('/products/{productId}/edit', [ProductController::class, 'formUpdateProd']);
 Route::post('/products/{productId}/edit', [ProductController::class, 'updateProd']);
 Route::get('/products/{productId}/delete', [ProductController::class, 'deleteProd']);
+Route::get('/products/select', [ProductAutocompleteController::class, 'formSelectProduct']);
+Route::post('/products/select', [ProductAutocompleteController::class, 'selectProduct']);
+
 
 Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
 Route::post('/stocks/create', [StockController::class, 'createStk']);
+Route::get('/stocks/liste/all', [SockController::class, 'listeAllStk']);
+Route::get('/stocks/{stockId}/edit', [SockController::class, 'frmUpdateStk']);
+Route::get('/stocks/{stockId}/edit', [SockController::class, 'updateStk']);
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
-Route::get('/customers/all', [CustomerController::class, 'getAllcustomers']);
+Route::get('/customers/all', [CustomerController::class, 'getAllCust']);
+
+Route::get('/orders/all', [OrdererController::class, 'getAllOrd']);
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
 Route::post('/staffs/create', [StaffController::class, 'createStf']);

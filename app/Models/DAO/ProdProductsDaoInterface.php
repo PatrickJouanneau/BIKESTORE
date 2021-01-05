@@ -2,6 +2,7 @@
 
 namespace App\Models\DAO;
 
+use App\Models\Model\ProdProducts;
 
 interface ProdProductsDaoInterface
 {
@@ -9,8 +10,8 @@ interface ProdProductsDaoInterface
     public function getProductById($productId);
     public function countProdProductsWithCategoryId($categoryId);
     public function countProdProductsWithBrandId($brandId);
-    public function searchProduct($products);
-    public function createProduct($products);
-    public function updateProduct($products);
+    public function searchProduct(ProdProducts $products);
+    public function createProduct(ProdProducts $products);
+    public function updateProduct(ProdProducts $products);
     public function deleteProductById($productId);
 }

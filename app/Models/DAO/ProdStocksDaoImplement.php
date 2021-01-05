@@ -5,6 +5,10 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\ProdStocks;
 use App\Models\DAO\ProdStocksDaoInterface;
+use App\Models\DAO\ProdProductsDaoInterface;
+use App\Models\DAO\SalesStoresDaoInterface;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 
 class ProdStocksDaoImplement implements ProdStocksDaoInterface
@@ -40,9 +44,59 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
 
 
+    public function getStockById($stockId)
+    {
+        $resultBdd = DB::select("SELECT * FROM production.stocks WHERE brand_id='" . $stockId . "'");
+
+        try{
+            $stock = new ProdStocks();
+            $stock->setQuantity($resultBdd['quantity']);
+
+            $product = $this->productDao->getproductById($resultBdd['product_id']);
+            $store = $this->storeDao->getStoreById($resultBdd['store_id']);
+
+            $stock->setProdProduct($product);
+            $stock->setSalesStore($store);
+
+            return $stock;
+        } catch (Exception $e) {
+                Log::error('$e');
+        }
+    }
 
 
-    /* VOIR SI C'EST BON ? */
+
+
+    public function createStock($stock)
+    {
+        $resultBdd = DB::insert("INSERT INTO production.stocks(stock_id, product_id, quantity) VALUES (?, ?, ?)", [
+            $stock->getSalesStore()->getStoreId(),
+            $stock->getProdProduct()->getProductId(),
+            $stock->getQuantity()
+        ]);
+    }
+
+
+    
+
+    Public function updateStock(ProdStocks $stocks)
+    {
+        $resultBdd = DB::update("UPDATE production.stocks SET
+            store_id
+            product_id
+            quantity
+        ", [
+            $stocks->getSalesStore()->getStoreId(),
+            $stocks->getProdProduct()->getProductId(),
+            $stocks->getQuantity(),
+        ]);
+    }
+
+
+
+
+
+    /* VOIR SI C'EST BON ?
     public function getStockskByStoreAndYear()
     {
         $resultBdd = DB::select("SELECT product_name, quantity, store_name, model_year, list_price
@@ -67,6 +121,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
         return $allStocks;
     }
+    */
 
 }
 

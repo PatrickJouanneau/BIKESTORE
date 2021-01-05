@@ -40,6 +40,8 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         return $allStaffs;
     }
 
+
+    
     public function getStaffById($staffId)
     {
         $bdd = DB::getpdo();
@@ -58,6 +60,8 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
         return $staff;
     }
+
+
 
     public function createStaff($staffs)
     {

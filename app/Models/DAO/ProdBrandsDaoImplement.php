@@ -5,7 +5,8 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\Model\ProdBrands;
-
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
@@ -36,15 +37,19 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
     public function getBrandById($brandId)
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.brands WHERE brand_id='" . $brandId . "'");
-        $resultBdd = $reponse->fetch();
+        try {
+            $bdd = DB::getPdo();
+            $reponse = $bdd->query("SELECT * FROM production.brands WHERE brand_id='" . $brandId . "'");
+            $resultBdd = $reponse->fetch();
 
-        $brand = new ProdBrands();
-        $brand->setBrandId($resultBdd['brand_id']);
-        $brand->setBrandName($resultBdd['brand_name']);
+            $brand = new ProdBrands();
+            $brand->setBrandId($resultBdd['brand_id']);
+            $brand->setBrandName($resultBdd['brand_name']);
 
-        return $brand;
+            return $brand;
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 
 

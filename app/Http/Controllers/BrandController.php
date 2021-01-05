@@ -15,6 +15,8 @@ class BrandController extends Controller
         return view('Brands.BrandForm');
     }
 
+
+
     public function createBrd(BrandRequest $request, ProdBrandsManagerInterface $BrandsManager)
     {
         $brd = $request->input('brand');
@@ -26,11 +28,16 @@ class BrandController extends Controller
         return redirect('/success/');
     }
 
+
+
+    
     public function formUpdateBrd(ProdBrandsManagerInterface $brandsManager, $id)
     {
         $brand = $brandsManager->getBrandById($id);
         return view('Brands.BrandFormUpdate')->with(["brand" => $brand]);
     }
+
+
 
     public function updateBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $id)
     {
@@ -41,6 +48,8 @@ class BrandController extends Controller
         $brandsManager->updateBrand($brd);
         return redirect('/success/');
     }
+
+
 
     public function deleteBrd(ProdBrandsManagerInterface $brandsManager, $id)
     {

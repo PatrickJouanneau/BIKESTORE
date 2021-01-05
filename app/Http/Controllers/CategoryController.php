@@ -56,7 +56,7 @@ class CategoryController extends Controller
             $CategoriesManager->deleteCategoryById($categoryId);
             return redirect('/success');
         } catch(CategoryException $e) {
-            return view('error').with(['message'=>$e->getMessage()]);
+            return view('failure').with(['message'=>$e->getMessage()]);
         }
     }
 
