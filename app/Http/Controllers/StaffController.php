@@ -16,26 +16,26 @@ class StaffController extends Controller
 
     Public function createStf(StaffRequest $request, SalesStaffsManagerInterface $staffsManager)
     {
-        $stf = $request->input('first-name-stf');
-        $stf = $request->input('last-name-stf');
-        $stf = $request->input('email-stf');
-        $stf = $request->input('phone-stf');
-        $stf = $request->input('store-stf');
-        $stf = $request->input('manager-stf');
-        $stf = $request->input('profif-stf');
-        $stf = $request->input('active');
-        $stf = $request->input('password');
+        $first = $request->input('first-name-stf');
+        $last = $request->input('last-name-stf');
+        $mail = $request->input('email-stf');
+        $tel = $request->input('phone-stf');
+        $mag = $request->input('store-stf');
+        $chef = $request->input('manager-stf');
+        $poste = $request->input('profif-stf');
+        $actif = $request->input('active');
+        $mp = $request->input('password');
 
         $staff = new SalesStaffs();
-        $staff->setFirstName($stf);
-        $staff->setLastName($stf);
-        $staff->setEmail($stf);
-        $staff->setPhone($stf);
-        $staff->setStoreId($stf);
-        $staff->setManagerId($stf);
-        $staff->setProfil($stf);
-        $staff->setActive($stf);
-        $staff->setpassword($stf);
+        $staff->setFirstName($first);
+        $staff->setLastName($last);
+        $staff->setEmail($mail);
+        $staff->setPhone($tel);
+        $staff->setStoreId($mag);
+        $staff->setManagerId($chef);
+        $staff->setProfil($poste);
+        $staff->setActive($actif);
+        $staff->setpassword($mp);
 
         $staffsManager->createStaff($staff);
         return redirect('/success/');

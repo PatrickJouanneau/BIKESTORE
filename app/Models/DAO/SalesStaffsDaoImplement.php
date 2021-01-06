@@ -12,8 +12,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     private $storeDao;
     public function __construct(
         SalesStoresDaoInterface $storeDao
-        )
-    {
+    ) {
         $this->storeDao = $storeDao;
     }
 
@@ -41,11 +40,13 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     }
 
 
-    
+
     public function getStaffById($staffId)
     {
         $bdd = DB::getpdo();
-        $reponse = $bdd->query("SELECT * FROM sales.staffs WHERE staff_id='" . $staffId . "'");
+        $reponse = $bdd->query(
+            "SELECT * FROM sales.staffs WHERE staff_id='" . $staffId . "'"
+        );
         $resultBdd = $reponse->fetch();
 
         $staff = new SalesStaffs();
@@ -65,16 +66,19 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
     public function createStaff($staffs)
     {
-        $resultBdd = DB::insert("INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",[
-            $staffs->getFirstName(),
-            $staffs->getLastName(),
-            $staffs->getEmail(),
-            $staffs->getPhone(),
-            $staffs->getActive(),
-            $staffs->getStoreId(),
-            $staffs->getManagerId(),
-            $staffs->getPassword(),
-            $staffs->getProfil()
-        ]);
+        $resultBdd = DB::insert(
+            "INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            [
+                $staffs->getFirstName(),
+                $staffs->getLastName(),
+                $staffs->getEmail(),
+                $staffs->getPhone(),
+                $staffs->getActive(),
+                $staffs->getStoreId(),
+                $staffs->getManagerId(),
+                $staffs->getPassword(),
+                $staffs->getProfil()
+            ]
+        );
     }
 }

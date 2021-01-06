@@ -48,7 +48,8 @@ Route::get('/categories/{categoryId}/delete', [CategoryController::class, 'delet
 
 Route::get('/products/create', [ProductController::class, 'formCreateProd']);
 Route::post('/products/create', [ProductController::class, 'createProd']);
-Route::get('/products/liste/all', [ProductController::class, 'listeAllProd']);
+//Route::get('/products/liste/all', [ProductController::class, 'listeAllProd']);
+Route::get('/products/json', [ProductController::class, 'allJsonProd']);
 Route::get('/products/{productId}/edit', [ProductController::class, 'formUpdateProd']);
 Route::post('/products/{productId}/edit', [ProductController::class, 'updateProd']);
 Route::get('/products/{productId}/delete', [ProductController::class, 'deleteProd']);
@@ -58,13 +59,14 @@ Route::post('/products/select', [ProductAutocompleteController::class, 'selectPr
 
 Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
 Route::post('/stocks/create', [StockController::class, 'createStk']);
-Route::get('/stocks/liste/all', [SockController::class, 'listeAllStk']);
-Route::get('/stocks/{stockId}/edit', [SockController::class, 'frmUpdateStk']);
-Route::get('/stocks/{stockId}/edit', [SockController::class, 'updateStk']);
+//Route::get('/stocks/liste/all', [StockController::class, 'listeAllStk']);
+Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
+Route::get('/stocks/{stockId}/edit', [StockController::class, 'frmUpdateStk']);
+Route::get('/stocks/{stockId}/edit', [StockController::class, 'updateStk']);
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
-Route::get('/customers/all', [CustomerController::class, 'getAllCust']);
+Route::get('/customers/json', [CustomerController::class, 'allJsonCust']);
 
 Route::get('/orders/all', [OrdererController::class, 'getAllOrd']);
 

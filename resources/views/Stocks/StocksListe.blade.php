@@ -1,5 +1,5 @@
 <h4>Liste des stocks</h4>
-
+<a id="all-stocks" class="btn btn-outline-primary float-right mr-5 mb-4 pr-4">Voir tous les enregistrements</a>
 <table class="table table-sm table-hover">
     <thead>
         <tr>
@@ -11,7 +11,8 @@
             <th scope="col">Prix €</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="body-stock">
+
         @foreach($stocks as $stock)
             <tr>
                 <th>{{ $stock->getProdProduct()->getProductId() }}</th>

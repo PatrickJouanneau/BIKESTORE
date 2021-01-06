@@ -206,13 +206,6 @@
                                                                         <!-- LISTE DES PRODUITS -->
                                                                         @include('Products/ProductsListe')
 
-                                                                        <a href="{{ url('/products/liste/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#productsListeAll" aria-expanded="false" aria-controls="productsListeAll">Tout voir</a>
-
-                                                                        <div class="collapse" id="productsListeAll">
-                                                                          <div class="card card-body">
-                                                                            @include('Products/ProductsListeAll')
-                                                                          </div>
-                                                                        </div>
 
                                                                     </div>
 
@@ -233,14 +226,6 @@
                                                                     <div class="col-xl-9">
                                                                         <!-- LISTE DES STOCKS -->
                                                                         @include('Stocks/StocksListe')
-
-                                                                        <a href="{{ url('/Stocks/liste/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#stocksListeAll" aria-expanded="false" aria-controls="stocksListeAll">Tout voir</a>
-
-                                                                        <div class="collapse" id="stocksListeAll">
-                                                                          <div class="card card-body">
-                                                                            @include('Stocks/StocksListe')
-                                                                          </div>
-                                                                        </div>
 
                                                                     </div>
                                                                 </div>
@@ -283,14 +268,6 @@
                                                                     <div class="col-xl-10">
                                                                         <!-- LISTE DES CLIENTS -->
                                                                         @include('Customers/customersListe')
-
-                                                                        <a href="{{ url('/customers/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#custmerListeAll" aria-expanded="false" aria-controls="custmerListeAll">Tout voir</a>
-
-                                                                        <div class="collapse" id="custmerListeAll">
-                                                                          <div class="card card-body">
-                                                                            @include('Customers/CustomersListe')
-                                                                          </div>
-                                                                        </div>
 
                                                                     </div>
                                                                 </div>

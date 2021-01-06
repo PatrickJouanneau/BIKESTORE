@@ -14,15 +14,20 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
         $this->stocksDao = $stocksDao;
     }
 
+    public function getListeStocks()
+    {
+        return $this->stocksDao->getListeStocks();
+    }
+
     public function getAllStocks()
     {
         return $this->stocksDao->getAllStocks();
     }
 
 
-    public function getStockbyId($id)
+    public function getStockbyId($stockId)
     {
-        return $this->stocksDao->getStockById($id);
+        return $this->stocksDao->getStockById($stockId);
     }
 
 

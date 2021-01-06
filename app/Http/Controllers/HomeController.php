@@ -29,10 +29,10 @@ class HomeController extends Controller
     ) {
         $allBrands = $brandManager->getAllBrands();
         $allCategories = $categoryManager->getAllCategories();
-        $allProducts = $productManager->getAllProducts();
-        $allStocks = $stockMananger->getAllStocks();
+        $listeProducts = $productManager->getListProducts();
+        $listeStocks = $stockMananger->getListeStocks();
         $allStores = $storeManager->getAllStores();
-        $listCustomers = $customerManager->getListCustomers();
+        $listeCustomers = $customerManager->getListeCustomers();
         $allStaffs = $staffManager->getAllStaffs();
         $allOrders = $orderManager->getAllOrders();
         $allOrderItems = $orderItemManager->getAllOrderItems();
@@ -41,10 +41,10 @@ class HomeController extends Controller
         return view('home')->with([
             'brands' => $allBrands,
             'categories' => $allCategories,
-            'products' => $allProducts,
-            'stocks' => $allStocks,
+            'products' => $listeProducts,
+            'stocks' => $listeStocks,
             'stores' => $allStores,
-            'customers' => $listCustomers,
+            'customers' => $listeCustomers,
             'staffs' => $allStaffs,
             'orders' => $allOrders,
             'orderItems' => $allOrderItems,

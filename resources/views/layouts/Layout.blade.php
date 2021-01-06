@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!--<link href="{{ asset('img') }}" rel="stylesheet">-->
     <script src="{{ asset('js/app.js') }}" deffer></script>
-    <script src="{{ asset('js/ProductAutocomplete.js') }}" deffer></script>
+
     <!--<script src="{{ asset('js/demo/chart-area-demo.js') }}" deffer></script>-->
     <!--<script src="{{ asset('js/demo/chart-bar-demo.js') }}" deffer></script>-->
     <!--<script src="{{ asset('js/demo/chart-pie-demo.js') }}" deffer></script>-->
@@ -21,6 +21,8 @@
          @yield('scripts')
     </script>
     <script src="{{ asset('js/custom.js') }}" deffer></script>
+    <script src="{{ asset('js/brands.js') }}" deffer></script>
+    <script src="{{ asset('js/ProductAutocomplete.js') }}" deffer></script>
 
 
     <title>Bike Store</title>

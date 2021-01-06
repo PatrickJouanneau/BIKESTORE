@@ -1,5 +1,5 @@
-<h4>Liste des 10 derniers produits enregistrés</h4>
-
+<h4>Liste des produits enregistrés</h4>
+<a id="all-products" class="btn btn-outline-primary float-right mr-5 mb-4 pr-4">Voir tous les enregistrements</a>
 <table class="table table-sm table-hover">
     <thead>
         <tr>
@@ -12,7 +12,8 @@
             <th scope="col">@</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="body-product">
+
         @foreach($products as $prod)
             <tr>
                 <th>{{ $prod->getProductId() }}</th>
@@ -22,7 +23,7 @@
                 <td>{{ $prod->getProductCategory()->getCategoryName() }}</td>
                 <td>{{ $prod->getListPrice() }}</td>
                 <td>
-                    <a href="{{ url('/products/'.$prod->getProductId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
+                    <a href="{{ url('/products/'.$prod->getProductId().'/edit') }}"><img src="img/wrench.svg" alt="clé"></a>&nbsp;&nbsp;
                     <a href="{{ url('/products/'.$prod->getProductId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
                 </td>
             </tr>

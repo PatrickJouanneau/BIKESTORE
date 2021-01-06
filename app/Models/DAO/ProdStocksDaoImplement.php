@@ -3,10 +3,10 @@
 namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Model\ProdStocks;
 use App\Models\DAO\ProdStocksDaoInterface;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\SalesStoresDaoInterface;
+use App\Models\Model\ProdStocks;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -15,16 +15,40 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 {
     private $productDao;
     private $storeDao;
-    public function __construct(ProdProductsDaoInterface $productDao, SalesStoresDaoInterface $storeDao)
-    {
+    public function __construct(
+        ProdProductsDaoInterface $productDao,
+        SalesStoresDaoInterface $storeDao
+    ) {
         $this->productDao = $productDao;
         $this->storeDao = $storeDao;
     }
 
 
+    public function getListeStocks()
+    {
+        $resultBdd = DB::select('exec dbo.get_liste_stocks');
+
+        $listeStocks = [];
+        foreach ($resultBdd as $i => $row) {
+            $stock = new ProdStocks();
+            $stock->setQuantity($row->quantity);
+
+            $product = $this->productDao->getProductById($row->product_id);
+            $stock->setProdProduct($product);
+
+            $store = $this->storeDao->getStoreById($row->store_id);
+            $stock->setSalesStore($store);
+
+            array_push($listeStocks, $stock);
+        }
+        return $listeStocks;
+    }
+
+
+
     public function getAllStocks()
     {
-        $resultBdd = DB::select("exec get_all_stocks");
+        $resultBdd = DB::select('exec dbo.get_all_stocks');
 
         $allStocks = [];
         foreach ($resultBdd as $i => $row) {
@@ -48,7 +72,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
     {
         $resultBdd = DB::select("SELECT * FROM production.stocks WHERE brand_id='" . $stockId . "'");
 
-        try{
+        try {
             $stock = new ProdStocks();
             $stock->setQuantity($resultBdd['quantity']);
 
@@ -60,7 +84,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
             return $stock;
         } catch (Exception $e) {
-                Log::error('$e');
+            Log::error('$e');
         }
     }
 
@@ -77,14 +101,14 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
     }
 
 
-    
 
-    Public function updateStock(ProdStocks $stocks)
+
+    public function updateStock(ProdStocks $stocks)
     {
         $resultBdd = DB::update("UPDATE production.stocks SET
-            store_id
-            product_id
-            quantity
+            store_id = ?,
+            product_id = ?,
+            quantity = ?
         ", [
             $stocks->getSalesStore()->getStoreId(),
             $stocks->getProdProduct()->getProductId(),
@@ -122,6 +146,4 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         return $allStocks;
     }
     */
-
 }
-

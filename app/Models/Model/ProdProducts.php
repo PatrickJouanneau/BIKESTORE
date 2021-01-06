@@ -4,8 +4,9 @@ namespace App\Models\Model;
 
 use App\Models\Model\ProdBrands;
 use App\Models\Model\ProdCategories;
+use JsonSerializable;
 
-class ProdProducts
+class ProdProducts implements JsonSerializable
 {
     private $productId;
     private $productName;
@@ -68,5 +69,17 @@ class ProdProducts
     public function setProductCategory(ProdCategories $productCategory)
     {
         $this->productCategory = $productCategory;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "id" => $this->productId,
+            "name" => $this->productName,
+            "year" => $this->modelYear,
+            "price" => $this->listPrice,
+            "brand" => $this->productBrand->getBrandName(),
+            "category" => $this->productCategory->getCategoryName()
+        ];
     }
 }

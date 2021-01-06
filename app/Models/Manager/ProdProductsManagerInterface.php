@@ -7,6 +7,7 @@ use App\Models\Model\ProdProducts;
 interface ProdProductsManagerInterface
 {
    public function getAllProducts();
+   public function getListProducts();
    public function countProdProductsWithCategoryId($categoryId);
    public function countProdProductsWithBrandId($brandId);
    public function getProductById($productId);

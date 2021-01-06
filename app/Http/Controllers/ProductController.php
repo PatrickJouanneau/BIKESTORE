@@ -7,11 +7,14 @@ use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
-use App\Models\Model\ProdBrands;
-use App\Models\Model\ProdCategories;
+
 
 class ProductController extends Controller
 {
+    public function index(){
+
+    }
+
     public function formCreateProd()
     {
         return view('/Products.ProductForm');
@@ -61,5 +64,10 @@ class ProductController extends Controller
     }
 
 
+    public function allJsonProd(ProdProductsManagerInterface $productsManager)
+    {
+        $products = $productsManager->getAllProducts();
+        return response()->json($products);
+    }
 
 }

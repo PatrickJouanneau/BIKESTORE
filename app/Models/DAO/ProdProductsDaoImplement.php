@@ -7,10 +7,9 @@ use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoInterface;
 use App\Models\Model\ProdProducts;
-use App\Models\Model\ProdBrands;
-use App\Models\Model\ProdCategories;
 use Exception;
 use Illuminate\Support\Facades\Log;
+
 
 class ProdProductsDaoImplement implements ProdProductsDaoInterface
 {
@@ -26,13 +25,38 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     }
 
 
-    public function getAllProducts()
+    public function getListProducts()
     {
         //$bdd = DB::getPdo();
         //$resultBdd = DB::select("SELECT TOP 10 * FROM production.products ORDER BY product_id DESC");
         //$resultBdd = $reponse->fetchAll();
 
         $resultBdd = DB::select('exec dbo.get_liste_products');
+
+        $listProducts = [];
+        foreach ($resultBdd as $i => $row) {
+            $product = new ProdProducts();
+            $product->setProductId($row->product_id);
+            $product->setProductName($row->product_name);
+            $product->setModelYear($row->model_year);
+            $product->setListPrice($row->list_price);
+
+            $category = $this->categoryDao->getCategoryById($row->category_id);
+            $product->setProductCategory($category);
+
+            $brand = $this->brandDao->getBrandById($row->brand_id);
+            $product->setProductBrand($brand);
+
+            array_push($listProducts, $product);
+        }
+        return $listProducts;
+    }
+
+
+
+    public function getAllProducts()
+    {
+        $resultBdd = DB::select('exec dbo.get_all_products');
 
         $allProducts = [];
         foreach ($resultBdd as $i => $row) {
@@ -47,8 +71,6 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
             $brand = $this->brandDao->getBrandById($row->brand_id);
             $product->setProductBrand($brand);
-
-
 
             array_push($allProducts, $product);
         }
@@ -97,16 +119,19 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-    
+
     public function createProduct($products)
     {
-        $resultBdd = DB::insert("INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)", [
-            $products->getProductName(),
-            $products->getProductBrand()->getBrandId(),
-            $products->getProductCategory()->getCategoryId(),
-            $products->getModelYear(),
-            $products->getListPrice()
-        ]);
+        $resultBdd = DB::insert(
+            "INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)",
+            [
+                $products->getProductName(),
+                $products->getProductBrand()->getBrandId(),
+                $products->getProductCategory()->getCategoryId(),
+                $products->getModelYear(),
+                $products->getListPrice()
+            ]
+        );
     }
 
 

@@ -3,8 +3,10 @@
 namespace App\Models\Model;
 
 use App\Models\Model\ProdProducts;
+use App\Models\Model\SalesStores;
+use JsonSerializable;
 
-class ProdStocks
+class ProdStocks implements JsonSerializable
 {
     private $quantity;
 
@@ -37,5 +39,18 @@ class ProdStocks
     public function setSalesStore(SalesStores $salesStore)
     {
         $this->salesStore = $salesStore;
+    }
+
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->prodProduct->getProductId(),
+            'name' => $this->prodProduct->getProductName(),
+            'quantity' => $this->quantity,
+            'store' => $this->salesStore->getStoreName(),
+            'year' => $this->prodProduct->getModelYear(),
+            'price' => $this->prodProduct->getListPrice()
+        ];
     }
 }

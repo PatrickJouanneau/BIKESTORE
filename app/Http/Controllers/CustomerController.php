@@ -10,10 +10,9 @@ use App\Models\Model\SalesCustomers;
 
 class CustomerController extends Controller
 {
-    public function getAllcustomers()
-    {
-        return view('Customers.CustomersListe');
-    }
+
+
+
 
     public function formCreateCust()
     {
@@ -23,28 +22,34 @@ class CustomerController extends Controller
 
     public function createCust(CustomerRequest  $request, SalesCustomersManagerInterface $CustomerManager)
     {
-        $cust = $request->input('first-name');
-        $cust = $request->input('last-name');
-        $cust = $request->input('phone');
-        $cust = $request->input('email');
-        $cust = $request->input('street');
-        $cust = $request->input('city');
-        $cust = $request->input('state');
-        $cust = $request->input('zip-code');
+        $first = $request->input('first-name');
+        $last = $request->input('last-name');
+        $phone = $request->input('phone');
+        $mail = $request->input('email');
+        $add = $request->input('street');
+        $ville = $request->input('city');
+        $etat = $request->input('state');
+        $cp = $request->input('zip-code');
 
         $customer = new SalesCustomers();
-        $customer->setFirstName($cust);
-        $customer->setLastName($cust);
-        $customer->setPhone($cust);
-        $customer->setEmail($cust);
-        $customer->setStreet($cust);
-        $customer->setCity($cust);
-        $customer->setState($cust);
-        $customer->setZipCode($cust);
+        $customer->setFirstName($first);
+        $customer->setLastName($last);
+        $customer->setPhone($phone);
+        $customer->setEmail($mail);
+        $customer->setStreet($add);
+        $customer->setCity($ville);
+        $customer->setState($etat);
+        $customer->setZipCode($cp);
 
         $CustomerManager->createCustomer($customer);
-        return redirect('/success/');
+        return redirect('/success');
 
+    }
+
+    public function allJsonCust(SalesCustomersManagerInterface $CustomerManager)
+    {
+        $customer = $CustomerManager->getAllCustomers();
+        return response()->json($customer);
     }
 
 }

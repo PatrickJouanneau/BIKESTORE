@@ -1,6 +1,6 @@
 
 <h4>Liste des clients</h4>
-
+<a id="all-customers" class="btn btn-outline-primary float-right mr-5 mb-4 pr-4">Voir tous les enregistrements</a>
 <table class="table table-sm table-hover">
     <thead>
         <tr>
@@ -17,7 +17,8 @@
             <th scope="col">@</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="body-customer">
+
         @foreach ($customers as $cust)
            <tr>
                 <th>{{  $cust->getCustomerId() }}</th>

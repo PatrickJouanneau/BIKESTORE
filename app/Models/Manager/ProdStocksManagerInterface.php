@@ -6,6 +6,7 @@ use App\Models\Model\ProdStocks;
 
 interface ProdStocksManagerInterface
 {
+    public function getListeStocks();
     public function getAllStocks();
     public function getStockById($stockId);
     public function createStock(ProdStocks $stocks);

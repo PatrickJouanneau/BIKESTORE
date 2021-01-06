@@ -1,10 +1,10 @@
 $(function ()
 {
-    $("#search-product").on(function ()
+    $("#search-product").on("click", function()
     {
         $.ajax({
             type: "POST",
-            url: "{{ route('Controllers/productController') }}",
+            url: '/products/select',
             data: 'keyword=' + $(this).val(),
             beforeSend: function ()
             {

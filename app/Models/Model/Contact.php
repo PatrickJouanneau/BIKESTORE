@@ -2,14 +2,15 @@
 
 namespace App\Models\Model;
 
+use JsonSerializable;
 
-class Contact
+class Contact implements JsonSerializable
 {
     private $contactId;
-    private $firstName;
-    private $lastName;
-    private $phone;
-    private $email;
+    protected $firstName;
+    protected $lastName;
+    protected $phone;
+    protected $email;
 
 
     public function getContactId()
@@ -54,5 +55,10 @@ class Contact
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }

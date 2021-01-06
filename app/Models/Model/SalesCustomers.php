@@ -3,6 +3,7 @@
 namespace App\Models\Model;
 
 use App\Models\Model\Contact;
+use JsonSerializable;
 
 class SalesCustomers extends Contact
 {
@@ -54,5 +55,20 @@ class SalesCustomers extends Contact
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "id"     => $this->customerId,
+            "prenom" => $this->firstName,
+            "nom"    => $this->lastName,
+            "street" => $this->street,
+            "city"   => $this->city,
+            "cp"     => $this->zipCode,
+            "state"  => $this->state,
+            "phone"  => $this->phone,
+            "mail"   => $this->email
+        ];
     }
 }

@@ -52,6 +52,7 @@
             <option value="preparateur">Préparateur</option>
             <option value="reparateur">Réparateur</option>
             <option value="direction">Direction</option>
+            <option value="Intérimaire">Autres</option>
             <option value="Autres">Autres</option>
         </select>
     </div>

@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\StockRequest;
-use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerInterface;
-use App\Models\Manager\SalesStoresManagerInterface;
 use App\Models\Model\ProdStocks;
-use Illuminate\Http\Request;
+use App\Models\Manager\ProdProductsManagerInterface;
+use App\Models\Manager\SalesStoresManagerInterface;
+
+
 
 class StockController extends Controller
 {
+    public function index(){
+
+    }
+
     public function formCreateStk()
     {
         return view('/Stocks.StockForm');
@@ -21,13 +26,13 @@ class StockController extends Controller
 
     public function createStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager)
     {
-        $store = $request->input('stock-storeId');
-        $prod = $request->input('stock-productId');
+        $storeId = $request->input('stock-storeId');
+        $prodId = $request->input('stock-productId');
         $q = $request->input('quantity');
 
         $stock = new ProdStocks();
-        $stock->setSalesStore($storesManager->getStoreById($store));
-        $stock->setProdProduct($productsManager->getProductById($prod));
+        $stock->setSalesStore($storesManager->getStoreById($storeId));
+        $stock->setProdProduct($productsManager->getProductById($prodId));
         $stock->setQuantity($q);
 
         $stocksManager->createStock($stock);
@@ -51,5 +56,12 @@ class StockController extends Controller
 
         $stocksManager->updateStock($stock);
         return redirect('/success');
+    }
+
+
+    public function allJsonStk(ProdStocksManagerInterface $stocksManager)
+    {
+        $stock = $stocksManager->getAllStocks();
+        return response()->json($stock);
     }
 }
