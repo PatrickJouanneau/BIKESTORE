@@ -1,5 +1,5 @@
 <h4>Liste des commandes</h4>
-
+<a id="all-orders" class="btn btn-outline-primary float-right mr-5 mb-4 pr-4">Voir tous les enregistrements</a>
 <table class="table table-sm table-hover">
     <thead>
         <tr>
@@ -13,7 +13,8 @@
             <th scope="col">Exécutant</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="body-order">
+
         @foreach ($orders as $o)
             <tr>
                 <th>{{ $o->getOrderId() }}</th>

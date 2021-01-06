@@ -2,8 +2,9 @@
 
 namespace App\Models\Model;
 use App\Models\Model\ProdProducts;
+use JsonSerializable;
 
-class SalesOrderItems extends SalesOrders
+class SalesOrderItems implements JsonSerializable
 {
     private $orderId;
     private $itemId;
@@ -63,5 +64,17 @@ class SalesOrderItems extends SalesOrders
     public function setProdProduct(ProdProducts $prodProduct)
     {
         $this->prodProduct = $prodProduct;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            "oId" => $this->orderId,
+            "iId" => $this->itemId,
+            "name" => $this->prodProduct->getProductName(),
+            "qti" => $this->quantity,
+            "price" => $this->listPrice,
+            "disc" => $this->discount
+        ];
     }
 }

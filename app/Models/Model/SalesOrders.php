@@ -2,8 +2,9 @@
 
 namespace App\Models\Model;
 
+use JsonSerializable;
 
-class SalesOrders
+class SalesOrders implements JsonSerializable
 {
     private $orderId;
     private $orderStatus;
@@ -79,5 +80,20 @@ class SalesOrders
     public function setSalesStaffs(SalesStaffs $salesStaffs)
     {
         $this->salesStaffs = $salesStaffs;
+    }
+
+
+    public function jsonSerialize()
+    {
+        return [
+            "id" => $this->orderId,
+            "cust" => $this->salesCustomers->getLastName(),
+            "status" => $this->orderStatus,
+            "ordDat" => $this->orderDate,
+            "reqDat" => $this->requiredDate,
+            "shipDat" => $this->shippedDate,
+            "store" => $this->salesStores->getStoreName(),
+            "staff" => $this->salesStaffs->getLastName()
+        ];
     }
 }

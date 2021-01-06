@@ -34,8 +34,8 @@ class HomeController extends Controller
         $allStores = $storeManager->getAllStores();
         $listeCustomers = $customerManager->getListeCustomers();
         $allStaffs = $staffManager->getAllStaffs();
-        $allOrders = $orderManager->getAllOrders();
-        $allOrderItems = $orderItemManager->getAllOrderItems();
+        $listeOrders = $orderManager->getListeOrders();
+        $listOrderItems = $orderItemManager->getListeOrderItems();
         $tabActive = !empty($_GET['activeTab']) ? $_GET['activeTab'] : null;
 
         return view('home')->with([
@@ -46,8 +46,8 @@ class HomeController extends Controller
             'stores' => $allStores,
             'customers' => $listeCustomers,
             'staffs' => $allStaffs,
-            'orders' => $allOrders,
-            'orderItems' => $allOrderItems,
+            'orders' => $listeOrders,
+            'orderItems' => $listOrderItems,
             'activeTab' =>$tabActive
         ]);
     }

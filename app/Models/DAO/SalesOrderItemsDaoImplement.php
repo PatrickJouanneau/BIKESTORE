@@ -15,9 +15,34 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $this->prodProduct = $prodProduct;
     }
 
+
+    public function getListeOrderItems()
+    {
+        $resultBdd = DB::select("exec dbo.get_liste_order_items");
+
+        $listeOrderItems = [];
+        foreach ($resultBdd as $i => $row) {
+            $orderItem = new SalesOrderItems();
+            $orderItem->setOrderId($row->order_id);
+            $orderItem->setItemId($row->item_id);
+            $orderItem->setQuantity($row->quantity);
+            $orderItem->setListPrice($row->list_price);
+            $orderItem->setDiscount($row->discount);
+
+            $product = $this->prodProduct->getProductById($row->product_id);
+            $orderItem->setprodProduct($product);
+
+
+            array_push($listeOrderItems, $orderItem);
+        }
+        return $listeOrderItems;
+    }
+
+
+
     public function getAllOrderItems()
     {
-        $resultBdd = DB::select("exec get_liste_order_items");
+        $resultBdd = DB::select("exec dbo.get_all_order_items");
 
         $allOrderItems = [];
         foreach ($resultBdd as $i => $row) {
@@ -38,7 +63,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
     }
 
 
-    
+
     public function getOrderItem($itemId)
     {
         $bdd = DB::getpdo();

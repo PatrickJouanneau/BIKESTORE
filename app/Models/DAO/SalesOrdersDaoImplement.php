@@ -23,9 +23,39 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
     }
 
 
+    
+    public function getListeOrders()
+    {
+        $resultBdd = DB::select('exec dbo.get_liste_orders');
+
+        $listeOrders = [];
+        foreach ($resultBdd as $i => $row) {
+            $order = new SalesOrders();
+            $order->setOrderId($row->order_id);
+            $order->setOrderStatus($row->order_status);
+            $order->setOrderDate($row->order_date);
+            $order->setRequiredDate($row->required_date);
+            $order->setShippedDate($row->shipped_date);
+
+            $customer = $this->customerDao->getCustomerById($row->customer_id);
+            $order->setSalesCustomers($customer);
+
+            $store = $this->storeDao->getStoreById($row->store_id);
+            $order->setSalesStores($store);
+
+            $staff = $this->staffDao->getStaffById($row->staff_id);
+            $order->setSalesStaffs($staff);
+
+            array_push($listeOrders, $order);
+        }
+        return $listeOrders;
+    }
+
+
+
     public function getAllOrders()
     {
-        $resultBdd = DB::select("exec get_all_orders");
+        $resultBdd = DB::select('exec dbo.get_all_orders');
 
         $allOrders = [];
         foreach ($resultBdd as $i => $row) {
@@ -51,7 +81,7 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
     }
 
 
-    
+
     public function getOrderById($orderId)
     {
         $bdd = DB::getPdo();

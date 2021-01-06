@@ -288,14 +288,6 @@
                                                                         <!-- LISTE DES COMMANDES -->
                                                                         @include('Orders/OrdersListe')
 
-                                                                        <a href="{{ url('/orders/all') }}" class="btn btn-outline-primary float-right mr-5 mt-3 pl-4 pr-4" type="button" data-bs-toggle="collapse" data-bs-target="#orderListeAll" aria-expanded="false" aria-controls="orderListeAll">Tout voir</a>
-
-                                                                        <div class="collapse" id="orderListeAll">
-                                                                          <div class="card card-body">
-                                                                            @include('Orders/OrdersListe')
-                                                                          </div>
-                                                                        </div>
-
                                                                     </div>
 
                                                                 </div>

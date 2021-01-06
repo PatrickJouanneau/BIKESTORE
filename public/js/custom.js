@@ -239,3 +239,72 @@ $(function ()
 
     });
 });
+
+
+
+$(function ()
+{
+    $('#all-orders').on("click", function ()
+    {
+        $.ajax({
+            url: "/orders/json",
+            type: 'GET',
+            cache: false,
+            success: function (result)
+            {
+                if (result)
+                {
+                    var content = '';
+                    result.forEach(ord =>
+                    {
+                        content += '<tr><td>' + ord.id + '</td><td>' + ord.cust + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store + '</td><td>' + ord.staff + '</td></tr>'
+                    });
+                    $('#body-order').html(
+                        content
+                    )
+                }
+
+            },
+            error: function ()
+            {
+                alert("No");
+            }
+        });
+
+    });
+});
+
+
+
+
+$(function ()
+{
+    $('#all-orderItems').on("click", function ()
+    {
+        $.ajax({
+            url: "/orderItems/json",
+            type: 'GET',
+            cache: false,
+            success: function (result)
+            {
+                if (result)
+                {
+                    var content = '';
+                    result.forEach(orIte =>
+                    {
+                        content += '<tr><td>' + orIte.oId + '</td><td>' + orIte.iId + '</td><td>' + orIte.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + orIte.disc + '</td></tr>'
+                    });
+                    $('#body-orderItem').html(
+                        content
+                    )
+                }
+
+            },
+            error: function ()
+            {
+                alert("No");
+            }
+        });
+
+    });
+});

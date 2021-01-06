@@ -1,5 +1,5 @@
 <h4>Suivi des commandes</h4>
-
+<a id="all-orderItems" class="btn btn-outline-primary float-right mr-5 mb-4 pr-4">Voir tous les enregistrements</a>
 <table class="table table-sm table-hover">
     <thead>
         <tr>
@@ -12,7 +12,7 @@
             <th scope="col">Remise</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody id="body-orderItem">
         @foreach ($orderItems as $oi)
             <tr>
                 <th>{{ $oi->getOrderId() }}</th>

@@ -14,6 +14,11 @@ class SalesOrdersManagerImplement implements SalesOrdersManagerInterface
         $this->orderDao = $orderDao;
     }
 
+    public function getListeOrders()
+    {
+        return $this->orderDao->getListeOrders();
+    }
+
     public function getAllOrders()
     {
         return $this->orderDao->getAllOrders();

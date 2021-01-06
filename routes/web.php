@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderItemsController;
 use App\Http\Controllers\ProductAutocompleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
@@ -68,7 +70,10 @@ Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
 Route::get('/customers/json', [CustomerController::class, 'allJsonCust']);
 
-Route::get('/orders/all', [OrdererController::class, 'getAllOrd']);
+Route::get('/orders/json', [OrderController::class, 'allJsonOrd']);
+
+Route::get('/orderItems/json', [OrderItemsController::class, 'allJsonOrdItem']);
+
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
 Route::post('/staffs/create', [StaffController::class, 'createStf']);

@@ -12,10 +12,22 @@ class SalesOrderItemsManagerImplement implements SalesOrderItemsManagerInterface
     {
         $this->orderItemDao = $orderItemDao;
     }
+
+
+    
+    public function getListeOrderItems()
+    {
+        return $this->orderItemDao->getListeOrderItems();
+    }
+
+
+
     public function getAllOrderItems()
     {
         return $this->orderItemDao->getAllOrderItems();
     }
+
+
 
     public function countSalesOrderItemsWithProductId($productId)
     {
