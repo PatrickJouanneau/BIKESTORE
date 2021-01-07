@@ -78,8 +78,8 @@ class ProdProducts implements JsonSerializable
             "name" => $this->productName,
             "year" => $this->modelYear,
             "price" => $this->listPrice,
-            "brand" => $this->productBrand->getBrandName(),
-            "category" => $this->productCategory->getCategoryName()
+            "brand" => isset($this->productBrand) ? $this->productBrand->getBrandName() : "",
+            "category" => isset($this->productCategory) ? $this->productCategory->getCategoryName() : ""
         ];
     }
 }

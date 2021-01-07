@@ -11,7 +11,7 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
     public function getAllStores()
     {
 
-        $resultBdd = DB::select("exec get_all_stores");
+        $resultBdd = DB::select("SELECT TOP 10 * FROM sales.stores ORDER BY store_id DESC");
 
         $allStores = [];
         foreach ($resultBdd as $i => $row) {

@@ -15,25 +15,27 @@
                         </div>
 
                         <select name="product-select-brand" id="product-select-brand-up" class="form-control form-control-user mb-2">
-                            <option value="{{ !empty($productBrand) ? $productBrand->getProductBrand($brandManager->getBranId()) : "" }}"></option>
+                            <!--option value="{!-{ !empty($product->getProductBrand()->getBrandId()) ? $product->getProductBrand()->getBrandId()) : "" }}"></option-->
+                            <option value="Tout">Choisir une marque...</option>
+                            @foreach ($brands as $b)
+                                <option value="{{ $b->getBrandId() }}"  {{ !empty($product->getProductBrand()->getBrandId()) && $product->getProductBrand()->getBrandId() ==  $b->getBrandId() ? "selected" : "" }}    >{{ $b->getBrandName() }}</option>
+                            @endforeach
 
+                            
                         </select>
 
                         <select name="product-select-category" id="product-select-category-up" class="form-control form-control-user mb-2">
-                            <option value="s">{{ !empty($productCategory) ? $productCategory->getProductCategory($brandManager->getCategoryId())  : "" }}</option>
-
+                            <option value="allCategories">Choisir une catégorie</option>
+                            @foreach ($categories as $cat)
+                                <option value="{{ $cat->getCategoryId() }}"   {{ !empty($product->getProductCategory()->getCategoryId()) && $product->getProductCategory()->getCategoryId() ==  $cat->getCategoryId() ? "selected" : "" }}>{{ $cat->getCategoryName() }}</option>
+                            @endforeach
                         </select>
 
                         <select name="product-select-year" id="product-select-year-up" class="form-control form-control-user mb-2">
-                            <option value="a">{{ !empty($product) ? $product->getModelYear() : "" }}</option>
-                            <option value="2016">2016</option>
-                            <option value="2017">2017</option>
-                            <option value="2018">2018</option>
-                            <option value="2019">2019</option>
-                            <option value="2020">2020</option>
-                            <option value="2021">2021</option>
-                            <option value="2022">2022</option>
-                            <option value="2023">2023</option>
+
+                            @for ($i = 2016; $i < 2099; $i++)
+                                <option value="{{ $i }}"   {{  $product->getModelYear() ==  $i ? "selected" : "" }}>{{ $i }}</option>
+                            @endfor
                         </select>
 
                         <div class="pb-2">

@@ -13,9 +13,10 @@ $(function ()
             },
             success: function (data)
             {
-                $("#suggesstion-product").show();
-                $("#suggesstion-product").html(data);
-                $("#search-product").css("background", "#FFF");
+                
+                //$("#suggesstion-product").show();
+                //$("#suggesstion-product").html(data);
+                //$("#search-product").css("background", "#FFF");
             }
         });
     });

@@ -6,7 +6,7 @@
     @csrf
 
     <div class="mb-2 formSearch ">
-        <input type="text" id="stock-product" name="stock-product" placeholder="Désignation" class="form-control form-control-user" />
+        <input type="text" id="stock-product" name="stock-product" placeholder="Désignation" class="form-control form-control-user form-control basicAutoComplete" />
         <div id="suggesstion-product"></div>
     </div>
 

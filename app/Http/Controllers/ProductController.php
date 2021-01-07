@@ -7,7 +7,7 @@ use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
-
+use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
 {
@@ -41,10 +41,18 @@ class ProductController extends Controller
     }
 
 
-    public function formUpdateProd(ProdProductsManagerInterface $productsManager, $productId)
+    public function formUpdateProd(ProdProductsManagerInterface $productsManager,ProdBrandsManagerInterface $brandManager,ProdCategoriesManagerInterface $categoryManager, $productId)
     {
+        $brands = $brandManager->getAllBrands();
         $product = $productsManager->getProductById($productId);
-        return view('Products.ProductFormUpdate')->with(["product" => $product]);
+        $categories = $categoryManager->getAllCategories();
+
+        return view('Products.ProductFormUpdate')->with(
+            [
+                "product" => $product,
+                "brands"  => $brands,
+                "categories"  => $categories
+            ]);
     }
 
 
@@ -67,6 +75,14 @@ class ProductController extends Controller
     public function allJsonProd(ProdProductsManagerInterface $productsManager)
     {
         $products = $productsManager->getAllProducts();
+        return response()->json($products);
+    }
+
+    public function getSuggestionProduct(ProdProductsManagerInterface $productsManager)
+    {
+        $keyword = $_POST['keyword'];
+        $products = $productsManager->searchProduct($keyword);
+
         return response()->json($products);
     }
 

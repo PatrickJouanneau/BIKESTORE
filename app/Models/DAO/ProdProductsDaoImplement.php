@@ -143,7 +143,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             brand_id = ?,
             category_id = ?,
             model_year = ?,
-            liste_price = ?
+            list_price = ?
         WHERE product_id = ?
         ", [
             $products->getProductName(),
@@ -165,25 +165,27 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
     
 
-    public function searchProduct($products)
+    public function searchProduct($keyword)
     {
-        if (!empty($_POST["keyword"])) {
-            $resultBdd = DB::select("SELECT product_id, product_name FROM production.products WHERE product_name like '" . $_POST["keyword"] . "%' ORDER BY product_name LIMIT 0,6");
-            $product = new ProdProducts();
-            $product->setProductId($resultBdd['product_id']);
-            $product->setProductName($resultBdd['product_name']);
+        $products =  [];
+        $resultBdd = DB::select("SELECT TOP 6 product_id, product_name FROM production.products WHERE product_name like '" . $keyword . "%' ORDER BY product_name ");
 
-            if (!empty($product)) {
-?> <ul id="product-list">
-                    <?php
-                    foreach ($product as $designation) {
-                    ?>
-                        <li onClick="selectProduct('<?php echo $designation["product_name"]; ?>');"><?php echo $designation["product_name"]; ?>
-                        </li>
-                    <?php } ?>
-                </ul>
-<?php
-            }
+        foreach ($resultBdd as $i => $row) {
+            $product = new ProdProducts();
+            $product->setProductId($row->product_id);
+            $product->setProductName($row->product_name);
+            //$product->setModelYear($row->model_year);
+            //$product->setListPrice($row->list_price);
+
+            //$category = $this->categoryDao->getCategoryById($row->category_id);
+            //$product->setProductCategory($category);
+
+            //$brand = $this->brandDao->getBrandById($row->brand_id);
+            //$product->setProductBrand($brand);
+
+            array_push($products, $product);
         }
+
+        return $products;
     }
 }
