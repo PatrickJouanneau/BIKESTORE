@@ -120,7 +120,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-    public function createProduct($products)
+    public function createProduct(ProdProducts $products)
     {
         $resultBdd = DB::insert(
             "INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)",
@@ -151,7 +151,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             $products->getProductCategory()->getCategoryId(),
             $products->getModelYear(),
             $products->getListPrice(),
-            $products->getProductId(),
+            $products->getProductId()
         ]);
     }
 

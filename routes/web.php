@@ -64,11 +64,14 @@ Route::post('/stocks/create', [StockController::class, 'createStk']);
 //Route::get('/stocks/liste/all', [StockController::class, 'listeAllStk']);
 Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
 Route::get('/stocks/{stockId}/edit', [StockController::class, 'frmUpdateStk']);
-Route::get('/stocks/{stockId}/edit', [StockController::class, 'updateStk']);
+Route::post('/stocks/{stockId}/edit', [StockController::class, 'updateStk']);
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);
 Route::get('/customers/json', [CustomerController::class, 'allJsonCust']);
+Route::get('/customers/{customerId}/edit', [CustomerController::class, 'formUpdateCust']);
+Route::post('/customers/{customerId}/edit', [CustomerController::class, 'updateCust']);
+//Route::get('/customers/{customerId}/delete', [CustomerController::class, 'deleteCust']);
 
 Route::get('/orders/json', [OrderController::class, 'allJsonOrd']);
 
@@ -77,6 +80,8 @@ Route::get('/orderItems/json', [OrderItemsController::class, 'allJsonOrdItem']);
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
 Route::post('/staffs/create', [StaffController::class, 'createStf']);
+Route::get('/staffs/{staffId}/edit', [StaffController::class, 'formUpdateStf']);
+Route::post('/staffs/{staffId}/edit', [StaffController::class, 'updateStf']);
 
 
 

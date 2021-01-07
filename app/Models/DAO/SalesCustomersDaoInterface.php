@@ -11,5 +11,6 @@ interface SalesCustomersDaoInterface
     public function getListeCustomers();
     public function getCustomerById($id);
     public function createCustomer(SalesCustomers $customers);
+    public function updateCustomer(SalesCustomers $customers);
 }
 

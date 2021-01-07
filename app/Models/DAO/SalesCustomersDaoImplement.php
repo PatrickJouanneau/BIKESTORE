@@ -60,11 +60,10 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     public function getCustomerById($id)
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id='" . $id . "'");
+        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $id . " ' ");
         $resultBdd = $reponse->fetch();
 
         $customer = new SalesCustomers();
-
         $customer->setFirstName($resultBdd['first_name']);
         $customer->setLastName($resultBdd['last_name']);
         $customer->setPhone($resultBdd['phone']);
@@ -78,20 +77,54 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     }
 
 
-    public function createCustomer(SalesCustomers $customers)
+    public function createCustomer(SalesCustomers $customer)
     {
         $resultBdd = DB::insert(
-            "INSERT INTO sales.customers (first_name, last_name, phone, email, street, city, state, zip_code) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+            "INSERT INTO sales.customers (
+                first_name,
+                last_name,
+                phone,
+                email,
+                street,
+                city,
+                state,
+                zip_code
+            ) VALUES ('?', '?', ?, '?', '?', '?', '?', ?)",
             [
-                $customers->getFirstName(),
-                $customers->getLastName(),
-                $customers->getPhone(),
-                $customers->getEmail(),
-                $customers->getStreet(),
-                $customers->getCity(),
-                $customers->getState(),
-                $customers->getZipCode()
+                $customer->getFirstName(),
+                $customer->getLastName(),
+                $customer->getPhone(),
+                $customer->getEmail(),
+                $customer->getStreet(),
+                $customer->getCity(),
+                $customer->getState(),
+                $customer->getZipCode()
             ]
         );
+    }
+
+    public function updateCustomer($customer)
+    {
+        $resultBdd = DB::update("UPDATE sales.customers SET
+            first_name = ?,
+            last_name = ?,
+            phone = ?,
+            email = ?,
+            street = ?,
+            city = ?,
+            state = ?,
+            zip_code = ?
+        WHERE customer_id = ?
+        ", [
+            $customer->getFirstName(),
+            $customer->getLastName(),
+            $customer->getPhone(),
+            $customer->getEmail(),
+            $customer->getStreet(),
+            $customer->getCity(),
+            $customer->getState(),
+            $customer->getZipCode(),
+            $customer->getCustomerId()
+        ]);
     }
 }

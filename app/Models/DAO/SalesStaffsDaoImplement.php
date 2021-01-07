@@ -45,7 +45,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     {
         $bdd = DB::getpdo();
         $reponse = $bdd->query(
-            "SELECT * FROM sales.staffs WHERE staff_id='" . $staffId . "'"
+            "SELECT * FROM sales.staffs WHERE staff_id = '" . $staffId . "'"
         );
         $resultBdd = $reponse->fetch();
 
@@ -64,21 +64,48 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
 
 
-    public function createStaff($staffs)
+    public function createStaff($staff)
     {
         $resultBdd = DB::insert(
             "INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
             [
-                $staffs->getFirstName(),
-                $staffs->getLastName(),
-                $staffs->getEmail(),
-                $staffs->getPhone(),
-                $staffs->getActive(),
-                $staffs->getStoreId(),
-                $staffs->getManagerId(),
-                $staffs->getPassword(),
-                $staffs->getProfil()
+                $staff->getFirstName(),
+                $staff->getLastName(),
+                $staff->getEmail(),
+                $staff->getPhone(),
+                $staff->getActive(),
+                $staff->getStoreId(),
+                $staff->getManagerId(),
+                $staff->getPassword(),
+                $staff->getProfil()
             ]
         );
+    }
+
+
+    public function updateStaff($staff)
+    {
+        $resultBdd = DB::update("UPDATE sales.staffs SET
+            first_name = ?,
+            last_name = ?,
+            email = ?,
+            phone = ?,
+            active = ?,
+            store_id = ?,
+            manager_id = ?,
+            password = ?,
+            profil = ?
+        WHERE staff_id = ?
+        ", [
+            $staff->getFirstName(),
+            $staff->getLastName(),
+            $staff->getEmail(),
+            $staff->getPhone(),
+            $staff->getActive(),
+            $staff->getStoreId(),
+            $staff->getManagerId(),
+            $staff->getPassword(),
+            $staff->getProfil()
+        ]);
     }
 }

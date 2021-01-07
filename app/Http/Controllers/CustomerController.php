@@ -6,21 +6,18 @@ use App\Exceptions\CustomerException;
 use App\Http\Requests\CustomerRequest;
 use App\Models\Manager\SalesCustomersManagerInterface;
 use App\Models\Model\SalesCustomers;
+use App\Models\Model\Contact;
 
 
 class CustomerController extends Controller
 {
-
-
-
-
     public function formCreateCust()
     {
         return view('/Customers.CustomerForm');
     }
 
 
-    public function createCust(CustomerRequest  $request, SalesCustomersManagerInterface $CustomerManager)
+    public function createCust(CustomerRequest  $request, SalesCustomersManagerInterface $CustomersManager)
     {
         $first = $request->input('first-name');
         $last = $request->input('last-name');
@@ -41,15 +38,40 @@ class CustomerController extends Controller
         $customer->setState($etat);
         $customer->setZipCode($cp);
 
-        $CustomerManager->createCustomer($customer);
+        $CustomersManager->createCustomer($customer);
         return redirect('/success');
-
     }
 
-    public function allJsonCust(SalesCustomersManagerInterface $CustomerManager)
+
+    public function formUpdateCust(SalesCustomersManagerInterface $customersManager, $customerId)
     {
-        $customer = $CustomerManager->getAllCustomers();
+        $customer = $customersManager->getCustomerById($customerId);
+        return view('Customers.CustomerFormUpdate')->with(["customer" => $customer]);
+    }
+
+
+    public function updateCust(CustomerRequest $request, SalesCustomersManagerInterface $customersManager, $customerId)
+    {
+        $cust = new SalesCustomers();
+        $cust->setCustomerId($customerId);
+        $cust->setFirstName($request->input("first-name"));
+        $cust->setLastName($request->input("last-name"));
+        $cust->setPhone($request->input("phone"));
+        $cust->setEmail($request->input("email"));
+        $cust->setStreet($request->input("street"));
+        $cust->setCity($request->input("city"));
+        $cust->setState($request->input("state"));
+        $cust->setZipCode($request->input("zip-code"));
+
+        $customersManager->updateCustomer($cust);
+        return redirect('/success/');
+    }
+
+
+
+    public function allJsonCust(SalesCustomersManagerInterface $CustomersManager)
+    {
+        $customer = $CustomersManager->getAllCustomers();
         return response()->json($customer);
     }
-
 }

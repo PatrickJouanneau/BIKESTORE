@@ -28,4 +28,9 @@ class SalesStaffsManagerImplement implements SalesStaffsManagerInterface
     {
         $this->staffsDao->createStaff($staffs);
     }
+
+    public function updateStaff(SalesStaffs $staffs)
+    {
+        $this->staffsDao->updateStaff($staffs);
+    }
 }

@@ -1,3 +1,4 @@
+/*
 let dropdown = document.getElementById('#brand-dropdown');
 dropdown.lenght = 0;
 
@@ -33,3 +34,4 @@ request.onerror = function ()
 
 request.send();
 
+*/

@@ -9,4 +9,5 @@ interface SalesStaffsManagerInterface
     public function getAllStaffs();
     public function getStaffById($staffId);
     public function createStaff(SalesStaffs $staffs);
+    public function updateStaff(SalesStaffs $staffs);
 }

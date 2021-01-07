@@ -1,3 +1,4 @@
+
 $(function ()
 {
     $("#search-product").on("click", function()
@@ -25,3 +26,4 @@ function selectProduct(val)
     $("#search-product").val(val);
     $("#suggesstion-product").hide();
 }
+

@@ -155,7 +155,7 @@ $(function ()
                     var content = '';
                     result.forEach(prod =>
                     {
-                        content += '<tr><td>' + prod.id + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand + '</td><td>' + prod.category + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.Id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.Id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
+                        content += '<tr><td>' + prod.id + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand + '</td><td>' + prod.category + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
                     });
                     $('#body-product').html(
                         content
@@ -189,7 +189,7 @@ $(function ()
                     var content = '';
                     result.forEach(stk =>
                     {
-                        content += '<tr><td>' + stk.id + '</td><td>' + stk.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store + '</td><td>' + stk.year + '</td><td>' + stk.price + '</td> <td><a href="/products/' + stk.Id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + stk.Id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
+                        content += '<tr><td>' + stk.id + '</td><td>' + stk.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store + '</td><td>' + stk.year + '</td><td>' + stk.price + '</td> <td><a href="/stocks/' + stk.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
                     });
                     $('#body-stock').html(
                         content
@@ -223,7 +223,7 @@ $(function ()
                     var content = '';
                     result.forEach(cust =>
                     {
-                        content += '<tr><td>' + cust.id + '</td><td>' + cust.nom + '</td><td>' + cust.prenom + '</td><td>' + cust.street + '</td><td>' + cust.city + '</td><td>' + cust.cp + '</td><td>' + cust.state + '</td><td>' + cust.phone + '</td><td>' + cust.mail + '</td> <td><a href="/products/' + cust.Id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + cust.Id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
+                        content += '<tr><td>' + cust.id + '</td><td>' + cust.nom + '</td><td>' + cust.prenom + '</td><td>' + cust.street + '</td><td>' + cust.city + '</td><td>' + cust.cp + '</td><td>' + cust.state + '</td><td>' + cust.phone + '</td><td>' + cust.mail + '</td> <td><a href="/customers/' + cust.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/customers/' + cust.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>'
                     });
                     $('#body-customer').html(
                         content
