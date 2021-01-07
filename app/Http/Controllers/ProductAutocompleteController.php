@@ -10,13 +10,13 @@ class ProductAutocompleteController extends Controller
 
     function formSelectProduct()
     {
-        return view('StockForm');
+        return view('Stocks.StockForm');
     }
 
     function selectProduct(Request $request)
     {
 
-        /*
+
         if ($request->get('query')) {
             $query = $request->get('query');
             $data = DB::table('production.products')
@@ -31,10 +31,5 @@ class ProductAutocompleteController extends Controller
             $output .= '</ul>';
             echo $output;
         }
-        */
     }
-
-
-
-
 }
