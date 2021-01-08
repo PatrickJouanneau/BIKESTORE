@@ -94,9 +94,9 @@
 /***/ (function(module, exports) {
 
 
-  $(document).on("change","#stock-product",function () {  
+  $(document).on("change","#stock-product",function () {
       $.ajax({
-          type: "POST",
+          type: "GET",
           url: '/products/select',
           data: {
             "keyword" : $(this).val()
@@ -112,11 +112,15 @@
             data.forEach(d => {
                 allName.push(d.name);
             });
-            $("#search-product").autoComplete({
-                source: data
-              });
-              $("#suggesstion-product").show();
-              $("#suggesstion-product").html("<p>data</p>");
+            $('.basicAutoComplete').autoComplete({
+                resolverSettings: {
+                    source: data
+                }
+                  });
+
+            $('.basicAutoSelect').autoComplete();
+              $('.basicAutoSelect').show();
+              $('.basicAutoSelect').html("<p>data</p>");
               $("#stock-product").css("background", "#FFF");
           }
       });

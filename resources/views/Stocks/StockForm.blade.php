@@ -4,10 +4,21 @@
 
 <form name="form-stock" action="{{ url('stocks/create') }}" method="POST" class="mb-5">
     @csrf
+    <!-- Autocomplete via JavaScript -->
+    <form autocomplete="on" action="">
+        <div class="autocomplete">
+          <input id="myInput" type="text" name="myCountry" placeholder="Country" class="form-control test">
+        </div>
+
+    </form>
+
+
 
     <div class="mb-2 formSearch ">
-        <input type="text" id="stock-product" name="stock-product" placeholder="Désignation" class="form-control form-control-user form-control basicAutoComplete" />
-        <div id="suggesstion-product"></div>
+        <input type="text" id="stock-product" name="stock-product" placeholder="Désignation" class="form-control-user form-control basicAutoComplete"/>
+
+        <!--<select class="form-control basicAutoSelect" name="simple_select" placeholder="type to search..." data-url="testdata/test-select-simple.json" id="suggesstion-product"></select>-->
+
     </div>
 
     <select id="stock-storeId" name="stock-storeId" class="mb-2 form-control form-control-user">
@@ -24,3 +35,5 @@
     <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
 </form>
 </div>
+
+<script src="/js/autocomplete.js"></script>

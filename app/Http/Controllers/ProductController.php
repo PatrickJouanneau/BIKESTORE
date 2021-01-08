@@ -78,12 +78,21 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-    public function getSuggestionProduct(ProdProductsManagerInterface $productsManager)
-    {
-        $keyword = $_POST['keyword'];
-        $products = $productsManager->searchProduct($keyword);
 
+    public function getSuggestionProd(ProdProductsManagerInterface $productsManager)
+    {
+        $products = $productsManager->searchProduct();
         return response()->json($products);
+
     }
 
+    
+    /*
+    public function getSuggestionProduct(ProdProductsManagerInterface $productsManager)
+    {
+        $keyword = $_GET['keyword'];
+        $products = $productsManager->searchProduct($keyword);
+        return response()->json($products);
+    }
+    */
 }

@@ -14,7 +14,7 @@ interface ProdProductsManagerInterface
    public function createProduct(ProdProducts $products);
    public function updateProduct(ProdProducts $products);
    public function deleteProductById($productId);
-   public function searchProduct($keyword);
+   public function searchProduct();
 
 }
 

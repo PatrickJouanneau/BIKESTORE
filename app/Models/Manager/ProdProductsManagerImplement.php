@@ -20,7 +20,7 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         return $this->productsDao->getListProducts();
     }
 
-    
+
     public function getAllProducts()
     {
         return $this->productsDao->getAllProducts();
@@ -59,9 +59,9 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         $this->productsDao->updateProduct($products);
     }
 
-    public function searchProduct($keyword)
+    public function searchProduct()
     {
-        return $this->productsDao->searchProduct($keyword);
+        return $this->productsDao->searchProduct();
     }
 
 
