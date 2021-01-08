@@ -165,10 +165,10 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
     public function searchProduct()
     {
-        $allProducts = [];
+
         $resultBdd = DB::select("SELECT product_id, product_name FROM production.products ORDER BY product_name");
 
-
+        $allProducts = [];
         foreach ($resultBdd as $i => $row) {
             $product = new ProdProducts();
             $product->setProductId($row->product_id);

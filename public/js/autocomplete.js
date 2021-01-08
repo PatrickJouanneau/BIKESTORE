@@ -116,3 +116,4 @@ var countries = ["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Angu
 
 /*lancer la fonction d'auto-complétion sur l'élément "myInput", et transmettre le tableau des pays comme valeurs d'auto-complétion possibles :*/
 autocomplete(document.getElementById("myInput"), countries);
+/*autocomplete(document.getElementById("myInput"), '/products/select');*/

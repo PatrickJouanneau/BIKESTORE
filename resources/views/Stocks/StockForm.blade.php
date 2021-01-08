@@ -7,7 +7,7 @@
     <!-- Autocomplete via JavaScript -->
     <form autocomplete="on" action="">
         <div class="autocomplete">
-          <input id="myInput" type="text" name="myCountry" placeholder="Country" class="form-control test">
+          <input id="myInput" type="text" name="myCountry" placeholder="Name" class="form-control test">
         </div>
 
     </form>
