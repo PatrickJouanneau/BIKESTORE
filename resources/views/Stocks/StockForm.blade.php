@@ -1,13 +1,24 @@
 <div class="mb-5">
 
+
+<H4>Test avec départements</H4>
+    <input type ="text" id="departement" placeholder="numero departement"/>
+        <table>
+            <tr> </tr>
+            <tbody id="rendu"></tbody>
+        </table>
+    <button onclick="rest()">api rest</button>
+<br><br><br>
+
 <h4>Nouvelle mise en stock</h4>
 
 <form name="form-stock" action="{{ url('stocks/create') }}" method="POST" class="mb-5">
     @csrf
+
     <!-- Autocomplete via JavaScript -->
     <form autocomplete="on" action="">
         <div class="autocomplete">
-          <input id="myInput" type="text" name="myCountry" placeholder="Name" class="form-control test">
+          <input id="myInput" type="text" name="myInput" placeholder="Name" class="form-control test">
         </div>
 
     </form>

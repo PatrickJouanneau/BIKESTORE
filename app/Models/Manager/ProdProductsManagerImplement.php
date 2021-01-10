@@ -59,9 +59,9 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         $this->productsDao->updateProduct($products);
     }
 
-    public function searchProduct()
+    public function searchProduct($keyword)
     {
-        return $this->productsDao->searchProduct();
+        return $this->productsDao->searchProduct($keyword);
     }
 
 

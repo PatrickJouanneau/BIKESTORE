@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
     }
 
     public function formCreateProd()
@@ -41,7 +41,7 @@ class ProductController extends Controller
     }
 
 
-    public function formUpdateProd(ProdProductsManagerInterface $productsManager,ProdBrandsManagerInterface $brandManager,ProdCategoriesManagerInterface $categoryManager, $productId)
+    public function formUpdateProd(ProdProductsManagerInterface $productsManager, ProdBrandsManagerInterface $brandManager, ProdCategoriesManagerInterface $categoryManager, $productId)
     {
         $brands = $brandManager->getAllBrands();
         $product = $productsManager->getProductById($productId);
@@ -52,7 +52,8 @@ class ProductController extends Controller
                 "product" => $product,
                 "brands"  => $brands,
                 "categories"  => $categories
-            ]);
+            ]
+        );
     }
 
 
@@ -68,7 +69,6 @@ class ProductController extends Controller
 
         $productsManager->updateProduct($prod);
         return redirect('/success/');
-
     }
 
 
@@ -78,21 +78,20 @@ class ProductController extends Controller
         return response()->json($products);
     }
 
-
+    /*
     public function getSuggestionProd(ProdProductsManagerInterface $productsManager)
     {
-        $products = $productsManager->searchProduct();
+        $products = $productsManager->searchProduct($keyword);
         return response()->json($products);
 
     }
+*/
 
-    
-    /*
+
     public function getSuggestionProduct(ProdProductsManagerInterface $productsManager)
     {
         $keyword = $_GET['keyword'];
         $products = $productsManager->searchProduct($keyword);
         return response()->json($products);
     }
-    */
 }

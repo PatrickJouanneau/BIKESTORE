@@ -163,7 +163,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-    public function searchProduct()
+    public function searchProduct($keyword)
     {
 
         $resultBdd = DB::select("SELECT product_id, product_name FROM production.products ORDER BY product_name");

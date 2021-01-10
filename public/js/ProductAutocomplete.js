@@ -119,9 +119,9 @@
                   });
 
             $('.basicAutoSelect').autoComplete();
-              $('.basicAutoSelect').show();
-              $('.basicAutoSelect').html("<p>data</p>");
-              $("#stock-product").css("background", "#FFF");
+            $('.basicAutoSelect').show();
+            $('.basicAutoSelect').html("<p>data</p>");
+            $("#stock-product").css("background", "#FFF");
           }
       });
   });

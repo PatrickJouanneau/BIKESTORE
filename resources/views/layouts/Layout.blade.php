@@ -10,17 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900" rel="stylesheet">
     <!--<link rel="stylesheet" href="path/to/easy-autocomplete.min.css">-->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/my.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/app.js') }}" deffer></script>
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/my.css') }}" rel="stylesheet">
+    <script src="{{ asset('/js/app.js') }}" deffer></script>
 
     <script deffer>
          @yield('scripts')
     </script>
 
-    <script src="{{ asset('js/custom.js') }}" deffer></script>
-    <script src="{{ asset('js/brands.js') }}" deffer></script>
-    <script src="{{ asset('js/ProductAutocomplete.js') }}" deffer></script>
+    <script src="{{ asset('/js/custom.js') }}" deffer></script>
+    <script src="{{ asset('/js/brands.js') }}" deffer></script>
+    <script src="{{ asset('/js/ProductAutocomplete.js') }}" deffer></script>
     <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@v2.3.7/dist/latest/bootstrap-autocomplete.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!--<script src="path/to/jquery.easy-autocomplete.min.js"></script>-->
