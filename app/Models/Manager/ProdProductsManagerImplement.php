@@ -20,7 +20,7 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
         return $this->productsDao->getListProducts();
     }
 
-    
+
     public function getAllProducts()
     {
         return $this->productsDao->getAllProducts();

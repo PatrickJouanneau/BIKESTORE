@@ -616,7 +616,7 @@ pre code {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1140px;
+    max-width: 1490px;
   }
 }
 
@@ -8502,9 +8502,18 @@ button.bg-dark:focus {
   margin: 3rem !important;
 }
 
+.m-6{
+    margin: 5rem !important;
+}
+
 .mt-5,
 .my-5 {
   margin-top: 3rem !important;
+}
+
+.mt-6,
+.my-6 {
+    margin-top: 5rem !important;
 }
 
 .mr-5,
@@ -8646,6 +8655,10 @@ button.bg-dark:focus {
   padding: 3rem !important;
 }
 
+.p-6 {
+    padding: 5rem !important;
+}
+
 .pt-5,
 .py-5 {
   padding-top: 3rem !important;
@@ -8654,6 +8667,11 @@ button.bg-dark:focus {
 .pr-5,
 .px-5 {
   padding-right: 3rem !important;
+}
+
+.pr-6,
+.px-6 {
+    padding-right: 5rem !important;
 }
 
 .pb-5,

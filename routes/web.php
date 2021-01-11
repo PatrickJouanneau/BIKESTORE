@@ -55,7 +55,7 @@ Route::get('/products/json', [ProductController::class, 'allJsonProd']);
 Route::get('/products/{productId}/edit', [ProductController::class, 'formUpdateProd']);
 Route::post('/products/{productId}/edit', [ProductController::class, 'updateProd']);
 Route::get('/products/{productId}/delete', [ProductController::class, 'deleteProd']);
-Route::post('/products/select', [ProductController::class, 'getSuggestionProduct']);
+Route::get('/products/select', [ProductController::class, 'getSuggestionProd']);
 
 
 Route::get('/stocks/create', [StockController::class, 'formCreateStk']);

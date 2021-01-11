@@ -82,7 +82,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     public function getProductById($productId)
     {
         $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.products WHERE product_id ='" . $productId . "'");
+        $reponse = $bdd->query("SELECT * FROM production.products WHERE product_id ='" . $productId . "' ");
         $resultBdd = $reponse->fetch();
 
         try {
@@ -163,8 +163,34 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-    
+    public function searchProduct($keyword)
+    {
 
+        $resultBdd = DB::select("SELECT product_id, product_name FROM production.products ORDER BY product_name");
+
+        $allProducts = [];
+        foreach ($resultBdd as $i => $row) {
+            $product = new ProdProducts();
+            $product->setProductId($row->product_id);
+            $product->setProductName($row->product_name);
+
+            array_push($allProducts, $product);
+        }
+        return $allProducts;
+    }
+
+
+
+
+
+}
+
+
+
+
+
+
+/*
     public function searchProduct($keyword)
     {
         $products =  [];
@@ -188,4 +214,5 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
         return $products;
     }
-}
+
+    */
