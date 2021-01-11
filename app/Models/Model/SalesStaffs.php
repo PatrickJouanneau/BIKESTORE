@@ -8,12 +8,14 @@ class SalesStaffs extends Contact
 {
     private $staffId;
     private $active;
-    private $storeId;
-    private $managerId;
+    //private $storeId; => object
+   // private $managerId; => object
     private $profil;
     private $password;
 
     private SalesStores $salesStores;
+    
+    private SalesStaffs $manager;
 
 
 
@@ -52,11 +54,11 @@ class SalesStaffs extends Contact
     {
         $this->staffId = $staffId;
     }
-    public function setActive($active)
+   public function setActive($active)
     {
         $this->active = $active;
     }
-    public function setStoreId($storeId)
+   public function setStoreId($storeId)
     {
         $this->storeId = $storeId;
     }

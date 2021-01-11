@@ -60,6 +60,7 @@
                 <div class="card-body">
                   <div class="chart-bar">
                     <canvas id="myChart"></canvas>
+                    <a type="button" id="test_test">aaaaaaa</a>
                   </div>
                   <hr>
                   <!--Le style du graphique en barres se trouve dans le
