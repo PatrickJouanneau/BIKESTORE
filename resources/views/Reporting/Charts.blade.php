@@ -15,7 +15,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <p class="mb-4">Chart.js is a third party plugin that is used to generate the charts in this theme. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>. <a href="file:///D:/Cnam/.3L%20_38%20PHP%20-%20MVC/Th%C3%A9mesProjets/startbootstrap-sb-admin-2-gh-pages/charts.html">Visualisation qui est sur mon PC D:\Cnam\.3L _38 PHP - MVC\ThémesProjets\startbootstrap-sb-admin-2-gh-pages</a></p>
+          <p class="mb-4">Chart.js est un plugin tiers qui est utilisé pour générer les graphiques de ce thème. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>. <a href="file:///D:/Cnam/.3L%20_38%20PHP%20-%20MVC/Th%C3%A9mesProjets/startbootstrap-sb-admin-2-gh-pages/charts.html">Visualisation qui est sur mon PC D:\Cnam\.3L _38 PHP - MVC\ThémesProjets\startbootstrap-sb-admin-2-gh-pages</a></p>
 
           <!-- Content Row -->
           <div class="row">
@@ -32,8 +32,8 @@
                     <canvas id="myAreaChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the area chart can be found in the
-                  <script>{{asset('js/demo/chart-area-demo.js')}}</script> file.
+                  <!--Le style du diagramme de zone peut être trouvé dans le
+                  <script>{{ asset('js/demo/chart-area-demo.js') }}</script> file.-->
                 </div>
               </div>
 
@@ -47,8 +47,35 @@
                     <canvas id="myBarChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the bar chart can be found in the
-                  <script>/js/demo/chart-bar-demo.js</script> file.
+                  <!--Le style du graphique en barres se trouve dans le
+                  <script>/js/demo/chart-bar-demo.js</script> file.-->
+                </div>
+              </div>
+
+              <!-- Bar Chart NO CODE CHART -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Orders by years</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <canvas id="myChart"></canvas>
+                  </div>
+                  <hr>
+                  <!--Le style du graphique en barres se trouve dans le
+                  <script>/js/demo/chart-bar-demo.js</script> file.-->
+                </div>
+              </div>
+
+              <!-- Horizontal Bar Chart NO CODE CHART -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Orders by customer/years</h6>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <canvas id="myCustomersYears"></canvas>
+                  </div>
                 </div>
               </div>
 
@@ -56,6 +83,20 @@
 
             <!-- Donut Chart -->
             <div class="col-xl-4 col-lg-5">
+
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Stocks by brands</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4">
+                    <canvas id="myStockBrand"></canvas>
+                  </div>
+                </div>
+              </div>
+
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
@@ -67,10 +108,11 @@
                     <canvas id="myPieChart"></canvas>
                   </div>
                   <hr>
-                  Styling for the donut chart can be found in the
-                  <script>/js/demo/chart-pie-demo.js</script> file.
+                  <!--Styling for the donut chart can be found in the
+                  <script>/js/demo/chart-pie-demo.js</script> file.-->
                 </div>
               </div>
+
             </div>
           </div>
 
@@ -121,19 +163,26 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!--<script src="vendor/jquery/jquery.min.js"></script>-->
+  <!--<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!--<script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
+  <!--<script src="js/sb-admin-2.min.js"></script>-->
 
   <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
+  <!--<script src="vendor/chart.js/Chart.min.js"></script>-->
 
   <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/demo/chart-bar-demo.js"></script>
+  <!--<script src="js/demo/chart-area-demo.js"></script>-->
+  <!--<script src="js/demo/chart-pie-demo.js"></script>-->
+  <!--<script src="js/demo/chart-bar-demo.js"></script>-->
+
+  <script src="js/chart-orders-by-years.js"></script>
+  <script src="js/chart-orders-by-customers-years.js"></script>
+  <script src="js/chart-stocks-by-brands.js"></script>
+
+
+

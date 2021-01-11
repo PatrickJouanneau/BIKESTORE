@@ -1,6 +1,6 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#858796';
+// Définir une nouvelle famille de police et une nouvelle couleur de police par défaut pour imiter le style par défaut de Bootstrap
+//Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+//Chart.defaults.global.defaultFontColor = '#858796';
 
 function number_format(number, decimals, dec_point, thousands_sep) {
   // *     example: number_format(1234.56, 2, ',', ' ');
@@ -71,7 +71,7 @@ var myBarChart = new Chart(ctx, {
           max: 15000,
           maxTicksLimit: 5,
           padding: 10,
-          // Include a dollar sign in the ticks
+          // Inclure un signe de dollar dans les tiques
           callback: function(value, index, values) {
             return '$' + number_format(value);
           }
