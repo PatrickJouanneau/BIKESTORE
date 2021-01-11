@@ -73,13 +73,27 @@ class ProdProducts implements JsonSerializable
 
     public function jsonSerialize()
     {
-        return [
-            "id" => $this->productId,
-            "name" => $this->productName,
-            "year" => $this->modelYear,
-            "price" => $this->listPrice,
-            "brand" => isset($this->productBrand) ? $this->productBrand->getBrandName() : "",
-            "category" => isset($this->productCategory) ? $this->productCategory->getCategoryName() : ""
-        ];
+        $arr = [];
+
+        if($this->productId != null){
+            $arr["id"] = $this->productId;
+        }
+        if($this->productName != null){
+            $arr["name"] = $this->productName;
+        }
+        if($this->modelYear != null){
+            $arr["year"] = $this->modelYear;
+        }
+        if($this->listPrice != null){
+            $arr["price"] = $this->listPrice;
+        }
+        if(isset($this->productBrand) && $this->productBrand->getBrandName() != null){
+            $arr["brand"] = $this->productBrand->getBrandName();
+        }
+        if(isset($this->productCategory) && $this->productCategory->getCategoryName() != null){
+            $arr["category"] = $this->productCategory->getCategoryName();
+        }
+
+        return $arr;
     }
 }

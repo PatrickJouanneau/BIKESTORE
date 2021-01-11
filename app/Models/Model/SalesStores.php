@@ -2,8 +2,9 @@
 
 namespace App\Models\Model;
 
+use JsonSerializable;
 
-class SalesStores
+class SalesStores implements JsonSerializable
 {
     private $storeId;
     private $storeName;
@@ -50,6 +51,10 @@ class SalesStores
     }
 
 
+    
+
+
+
 
     public function setStoreId($storeId)
     {
@@ -82,5 +87,13 @@ class SalesStores
     public function setZipCode($zipCode)
     {
         $this->zipCode = $zipCode;
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'id' => $this->storeId,
+            'name' => $this->storeName
+        ];
     }
 }

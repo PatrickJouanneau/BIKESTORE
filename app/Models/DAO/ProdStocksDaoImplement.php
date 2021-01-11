@@ -68,16 +68,17 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
 
 
-    public function getStockById($stockId)
+    public function getStockById($storeId, $productId)
     {
-        $resultBdd = DB::select("SELECT * FROM production.stocks WHERE brand_id='" . $stockId . "'");
-
+        
         try {
-            $stock = new ProdStocks();
-            $stock->setQuantity($resultBdd['quantity']);
+            $resultBdd = DB::select("SELECT * FROM production.stocks WHERE store_id='" . $storeId . "'  and product_id='".$productId."'");
 
-            $product = $this->productDao->getproductById($resultBdd['product_id']);
-            $store = $this->storeDao->getStoreById($resultBdd['store_id']);
+            $stock = new ProdStocks();
+            $stock->setQuantity($resultBdd[0]->quantity);
+
+            $product = $this->productDao->getproductById($resultBdd[0]->product_id);
+            $store = $this->storeDao->getStoreById($resultBdd[0]->store_id);
 
             $stock->setProdProduct($product);
             $stock->setSalesStore($store);
@@ -88,24 +89,18 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
     }
 
-
-
-
     public function createStock($stock)
     {
-        $resultBdd = DB::insert("INSERT INTO production.stocks(stock_id, product_id, quantity) VALUES (?, ?, ?)", [
+        DB::insert("INSERT INTO production.stocks(store_id, product_id, quantity) VALUES (?, ?, ?)", [
             $stock->getSalesStore()->getStoreId(),
             $stock->getProdProduct()->getProductId(),
             $stock->getQuantity()
         ]);
     }
 
-
-
-
     public function updateStock(ProdStocks $stocks)
     {
-        $resultBdd = DB::update("UPDATE production.stocks SET
+        DB::update("UPDATE production.stocks SET
             store_id = ?,
             product_id = ?,
             quantity = ?

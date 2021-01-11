@@ -24,10 +24,10 @@ class StaffRequest extends FormRequest
     public function rules()
     {
         return [
-            "laste-name-stf"=> "required | string | max:25",
+            /*"laste-name-stf"=> "required | string | max:25",
             "first-name-stf"=> "required | string | max:25",
             "phone-stf"     => "required",
-            "email-stf"     => "required | email",
+            "email-stf"     => "required | email",*/
         ];
     }
 

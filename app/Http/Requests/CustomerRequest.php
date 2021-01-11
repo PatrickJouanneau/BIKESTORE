@@ -24,14 +24,14 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            "laste-name"=> "required | string | max:25",
+            /*"last-name"=> "required | string | max:25",
             "first-name"=> "required | string | max:25",
             "phone"     => "required",
             "email"     => "required | email",
             "street"    => "required | string",
             "city"      => "required | string",
             "state"     => "string",
-            "zip_code"  => "required | integer"
+            "zip_code"  => "required | integer"*/
         ];
 
     }

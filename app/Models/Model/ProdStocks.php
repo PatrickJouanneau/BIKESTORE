@@ -45,12 +45,9 @@ class ProdStocks implements JsonSerializable
     public function jsonSerialize()
     {
         return [
-            'id' => $this->prodProduct->getProductId(),
-            'name' => $this->prodProduct->getProductName(),
+            'product' => $this->prodProduct,
+            'store' => $this->salesStore,
             'quantity' => $this->quantity,
-            'store' => $this->salesStore->getStoreName(),
-            'year' => $this->prodProduct->getModelYear(),
-            'price' => $this->prodProduct->getListPrice()
         ];
     }
 }

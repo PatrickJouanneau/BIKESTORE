@@ -62,8 +62,8 @@ Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
 Route::post('/stocks/create', [StockController::class, 'createStk']);
 //Route::get('/stocks/liste/all', [StockController::class, 'listeAllStk']);
 Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
-Route::get('/stocks/{stockId}/edit', [StockController::class, 'frmUpdateStk']);
-Route::post('/stocks/{stockId}/edit', [StockController::class, 'updateStk']);
+Route::get('/stocks/{storeId}/{productId}/edit', [StockController::class, 'formUpdateStk']);
+Route::post('/stocks/{storeId}/{productId}/edit', [StockController::class, 'updateStk']);
 
 Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
 Route::post('/customers/create', [CustomerController::class, 'createCust']);

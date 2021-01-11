@@ -88,7 +88,7 @@ class ProductController extends Controller
 */
 
 
-    public function getSuggestionProduct(ProdProductsManagerInterface $productsManager)
+    public function getSuggestionProd(ProdProductsManagerInterface $productsManager)
     {
         $keyword = $_GET['keyword'];
         $products = $productsManager->searchProduct($keyword);

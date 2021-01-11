@@ -25,9 +25,9 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
     }
 
 
-    public function getStockbyId($stockId)
+    public function getStockbyId($storeId, $productId)
     {
-        return $this->stocksDao->getStockById($stockId);
+        return $this->stocksDao->getStockById($storeId, $productId);
     }
 
 

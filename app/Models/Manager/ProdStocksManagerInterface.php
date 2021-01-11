@@ -8,7 +8,7 @@ interface ProdStocksManagerInterface
 {
     public function getListeStocks();
     public function getAllStocks();
-    public function getStockById($stockId);
+    public function getStockById($storeId, $productId);
     public function createStock(ProdStocks $stocks);
     public function updateStock(ProdStocks $stocks);
 }

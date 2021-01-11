@@ -19,7 +19,7 @@ class StockController extends Controller
 
     public function formCreateStk()
     {
-        return view('/Stocks.StockForm');
+        return view('/Stocks/StockForm');
     }
 
 
@@ -28,7 +28,7 @@ class StockController extends Controller
     {
         $storeId = $request->input('stock-storeId');
         $prodId = $request->input('stock-productId');
-        $q = $request->input('quantity');
+        $q = $request->input('stock-quantity');
 
         $stock = new ProdStocks();
         $stock->setSalesStore($storesManager->getStoreById($storeId));
@@ -40,10 +40,14 @@ class StockController extends Controller
     }
 
 
-    public function formUpdateStk(ProdStocksManagerInterface $stocksManager, $stockId)
+    public function formUpdateStk(ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, $storeId, $productId)
     {
-        $stock = $stocksManager->getStockById($stockId);
-        return view('stocks.stockform')->with(["stock" => $stock]);
+        $stock = $stocksManager->getStockById($storeId, $productId);
+        $stores = $storesManager->getAllStores();
+        return view('stocks/stockform')->with([
+            "stock" => $stock,
+            "stores" => $stores
+        ]);
     }
 
 

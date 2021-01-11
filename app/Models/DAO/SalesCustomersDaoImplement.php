@@ -89,7 +89,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
                 city,
                 state,
                 zip_code
-            ) VALUES ('?', '?', ?, '?', '?', '?', '?', ?)",
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
             [
                 $customer->getFirstName(),
                 $customer->getLastName(),

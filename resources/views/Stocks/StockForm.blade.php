@@ -1,49 +1,30 @@
 <div class="mb-5">
 
 
-<H4>Test avec départements</H4>
-    <input type ="text" id="departement" placeholder="numero departement"/>
-        <table>
-            <tr> </tr>
-            <tbody id="rendu"></tbody>
-        </table>
-    <button onclick="rest()">api rest</button>
-<br><br><br>
-
 <h4>Nouvelle mise en stock</h4>
+
 
 <form name="form-stock" action="{{ url('stocks/create') }}" method="POST" class="mb-5">
     @csrf
 
-    <!-- Autocomplete via JavaScript -->
-    <form autocomplete="on" action="">
-        <div class="autocomplete">
-          <input id="myInput" type="text" name="myInput" placeholder="Name" class="form-control test">
-        </div>
 
-    </form>
-
-
-
-    <div class="mb-2 formSearch ">
-        <input type="text" id="stock-product" name="stock-product" placeholder="Désignation" class="form-control-user form-control basicAutoComplete"/>
-
-        <!--<select class="form-control basicAutoSelect" name="simple_select" placeholder="type to search..." data-url="testdata/test-select-simple.json" id="suggesstion-product"></select>-->
-
+    <div class="autocomplete">
+        <input id="valProd" type="text" placeholder="Name" class="form-control test" value="{{ isset($stock) ? ($stock->getProdProduct() ? $stock->getProdProduct()->getProductName() : '') :'' }}">
+        <input id="idProd" type="hidden" name="stock-productId">
     </div>
 
     <select id="stock-storeId" name="stock-storeId" class="mb-2 form-control form-control-user">
         <option value="allBrands">Choisir un magasin</option>
         @foreach ($stores as $mag)
-            <option value="{{ $mag->getStoreId() }}">{{ $mag->getStoreName() }}</option>
+            <option value="{{ $mag->getStoreId() }}" {{ isset($stock) ? ($mag->getStoreId() == $stock->getSalesStore()->getStoreId() ? "selected" :"") :"" }}>{{ $mag->getStoreName() }}</option>
         @endforeach
     </select>
 
     <div class="mb-2">
-        <input id="stock-quantity" name="stock-quantity" type="text" class="form-control form-control-user" placeholder="Quantité à entrer">
+        <input id="stock-quantity" name="stock-quantity" type="text" class="form-control form-control-user" placeholder="Quantité à entrer" value="{{  isset($stock) ? $stock->getQuantity() : ""  }}">
     </div>
 
-    <button type="submite" class="btn btn-primary btn-user btn-block">Enregistrer</button>
+    <button type="submit" class="btn btn-primary btn-user btn-block">Enregistrer</button>
 </form>
 </div>
 

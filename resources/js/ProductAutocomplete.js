@@ -22,9 +22,9 @@ $(function ()
     });
 });
 
-function selectProduct(val)
+/*function selectProduct(val)
 {
     $("#search-product").val(val);
     $("#suggesstion-product").hide();
 }
-
+*/

@@ -124,7 +124,7 @@ $(function () {
         if (result) {
           var content = '';
           result.forEach(function (stk) {
-            content += '<tr><td>' + stk.id + '</td><td>' + stk.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store + '</td><td>' + stk.year + '</td><td>' + stk.price + '</td> <td><a href="/stocks/' + stk.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+            content += '<tr><td>' + stk.product.id + '</td><td>' + stk.product.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store.name + '</td><td>' + stk.product.year + '</td><td>' + stk.product.price + '</td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id +  '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
           });
           $('#body-stock').html(content);
         }
