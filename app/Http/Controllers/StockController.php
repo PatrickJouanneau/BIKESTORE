@@ -13,8 +13,8 @@ use App\Models\Manager\SalesStoresManagerInterface;
 
 class StockController extends Controller
 {
-    public function index(){
-
+    public function index()
+    {
     }
 
     public function formCreateStk()
@@ -44,18 +44,20 @@ class StockController extends Controller
     {
         $stock = $stocksManager->getStockById($storeId, $productId);
         $stores = $storesManager->getAllStores();
-        return view('stocks/stockform')->with([
-            "stock" => $stock,
-            "stores" => $stores
-        ]);
+        return view('stocks/stockformUpdate')->with(
+            [
+                "stock" => $stock,
+                "stores" => $stores
+            ]
+        );
     }
 
 
-    public function updateStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager, $stockId)
+    public function updateStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager)
     {
         $stock = new ProdStocks();
-        $stock->setSalesStore($request->input("stock-storeId"));
-        $stock->setProdProduct($request->input("stock-productId"));
+        $stock->setSalesStore($storesManager->getStoreById($request->input("stock-storeId")));
+        $stock->setProdProduct($productsManager->getProductById($request->input("stock-productId")));
         $stock->setQuantity($request->input("quantity"));
 
         $stocksManager->updateStock($stock);

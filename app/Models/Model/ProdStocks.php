@@ -9,7 +9,6 @@ use JsonSerializable;
 class ProdStocks implements JsonSerializable
 {
     private $quantity;
-
     private ProdProducts $prodProduct;
     private SalesStores $salesStore;
 
@@ -27,6 +26,7 @@ class ProdStocks implements JsonSerializable
     {
         return $this->salesStore;
     }
+
 
     public function setQuantity($quantity)
     {

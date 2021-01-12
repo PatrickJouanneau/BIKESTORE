@@ -38,9 +38,10 @@ function closeAllLists(elmnt)
     }
 }
 
-var doAutocomplete = function(component){
+var doAutocomplete = function (component)
+{
     arr = products;
-    var a, b, i, val = component.value ;
+    var a, b, i, val = component.value;
     /*ferme toute liste déjà ouverte de valeurs complétées automatiquement*/
     closeAllLists();
     if (!val) { return false; }
@@ -64,7 +65,7 @@ var doAutocomplete = function(component){
             b.innerHTML = "<strong>" + name.substr(0, val.length) + "</strong>";
             b.innerHTML += name.substr(val.length);
             /*insérer un champ de saisie qui contiendra la valeur de l'élément courant du tableau :*/
-            b.innerHTML += "<input id='"+id+"' type='hidden' value='" + name + "'>";
+            b.innerHTML += "<input id='" + id + "' type='hidden' value='" + name + "'>";
             /*exécuter une fonction lorsque quelqu'un clique sur la valeur de l'objet (élément DIV) :*/
             b.addEventListener("click", function (e)
             {
@@ -82,12 +83,7 @@ var doAutocomplete = function(component){
 
 function autocomplete(inp)
 {
-    
-    /*la fonction d'autocomplétion prend deux arguments, l'élément de champ de texte et un tableau de valeurs autocomplétées possibles :*/
-    
-    /*exécuter une fonction lorsque quelqu'un écrit dans le champ de texte :*/
-    
-
+    /*la fonction d'autocomplétion prend un argument, l'élément de champ de texte  :*/
     var task = function (e)
     {
         call(this);
@@ -122,7 +118,6 @@ function autocomplete(inp)
             }
         }
     });
-    
     /*exécuter une fonction lorsque quelqu'un clique dans le document :*/
     document.addEventListener("click", function (e)
     {
@@ -130,21 +125,13 @@ function autocomplete(inp)
     });
 }
 
-
 autocomplete(inp);
 
 
-
-
-
-
-
-/* Functon pour "INTERROGATION D'UNE API ET AFFICHAGE DES DONNEES"
-https://codes-sources.commentcamarche.net/faq/11706-exploiter-des-donnes-json*/
 function call(comp)
 {
     var product = comp.value;
-    var url = 'http://bikestore/products/select?keyword='+product;
+    var url = 'http://bikestore/products/select?keyword=' + product;
     var component = comp;
 
     httpRequest = new XMLHttpRequest();

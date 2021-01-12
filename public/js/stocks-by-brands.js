@@ -4,7 +4,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ["Sun Bicycles", "Electra", "Surly", "Trek", "Ritchey", "Heller", "SPure Cycles", "Strider", "Haro"],
         datasets: [
-            { "label": "Stock", "data": ["1042", "4998", "1105", "5519", "45", "108", "104", "136", "454"], "backgroundColor": "rgba(255, 99, 132, 0.4)" }, { "label": "", "data": ["", "", ""], "backgroundColor": "rgba(75, 192, 192, 0.4)" }, { "label": "", "data": ["", "", ""], "backgroundColor": "rgba(0, 96, 255, 0.4)" }
+            { "label": "Stock", "data": ["1042", "4998", "1105", "5519", "45", "108", "104", "136", "454"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
         ]
     },
     options: {

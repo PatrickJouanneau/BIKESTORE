@@ -7,8 +7,7 @@
 <form name="form-stock" action="{{ url('stocks/create') }}" method="POST" class="mb-5">
     @csrf
 
-
-    <div class="autocomplete">
+    <div class="autocomplete mb-2">
         <input id="valProd" type="text" placeholder="Name" class="form-control test" value="{{ isset($stock) ? ($stock->getProdProduct() ? $stock->getProdProduct()->getProductName() : '') :'' }}">
         <input id="idProd" type="hidden" name="stock-productId">
     </div>
