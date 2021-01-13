@@ -49,8 +49,8 @@ class ProductController extends Controller
 
         return view('Products.ProductFormUpdate')->with(
             [
-                "product" => $product,
-                "brands"  => $brands,
+                "product"     => $product,
+                "brands"      => $brands,
                 "categories"  => $categories
             ]
         );

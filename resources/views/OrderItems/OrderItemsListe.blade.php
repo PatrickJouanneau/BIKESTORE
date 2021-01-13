@@ -12,17 +12,17 @@
             <th scope="col">Remise</th>
         </tr>
     </thead>
-    <tbody id="body-orderItem">
-        @foreach ($orderItems as $oi)
+    <!--<tbody id="body-orderItem">
+        foreach ($orderItems as $oi)
             <tr>
-                <th>{{ $oi->getOrderId() }}</th>
-                <td>{{ $oi->getItemId() }}</td>
-                <td>{{ $oi->getProdProduct()->getProductId() }}</td>
-                <td>{{ $oi->getProdProduct()->getProductName() }}</td>
-                <td>{{ $oi->getQuantity() }}</td>
-                <td>{{ $oi->getListPrice() }}</td>
-                <td>{{ $oi->getDiscount()*100 }} %</td>
+                <th>{{-- $oi->getOrderId() --}}</th>
+                <td>{{-- $oi->getItemId() --}}</td>
+                <td>{{-- $oi->getProdProduct()->getProductId() --}}</td>
+                <td>{{-- $oi->getProdProduct()->getProductName() --}}</td>
+                <td>{{-- $oi->getQuantity() --}}</td>
+                <td>{{-- $oi->getListPrice() --}}</td>
+                <td>{{-- $oi->getDiscount()*100 --}} %</td>
             </tr>
-        @endforeach
-    </tbody>
+        endforeach
+    </tbody>-->
 </table>

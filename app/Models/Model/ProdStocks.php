@@ -8,7 +8,7 @@ use JsonSerializable;
 
 class ProdStocks implements JsonSerializable
 {
-    private $quantity;
+    private int $quantity;
     private ProdProducts $prodProduct;
     private SalesStores $salesStore;
 
@@ -32,6 +32,7 @@ class ProdStocks implements JsonSerializable
     {
         $this->quantity = $quantity;
     }
+
     public function setProdProduct(ProdProducts $prodProduct)
     {
         $this->prodProduct = $prodProduct;
@@ -42,12 +43,30 @@ class ProdStocks implements JsonSerializable
     }
 
 
+
     public function jsonSerialize()
     {
-        return [
-            'product' => $this->prodProduct,
-            'store' => $this->salesStore,
-            'quantity' => $this->quantity,
-        ];
+
+        $arr = [];
+
+        if($this->quantity != null){
+            $arr["quantity"] = $this->quantity;
+        }
+        if(isset($this->prodProduct) && $this->prodProduct->getProductName() != null){
+            $arr["product"] = $this->prodProduct->getProductName();
+        }
+        if(isset($this->prodProduct) && $this->prodProduct->getModelYear() != null){
+            $arr["product"] = $this->prodProduct->getModelYear();
+        }
+        if(isset($this->prodProduct) && $this->prodProduct->getListPrice() != null){
+            $arr["product"] = $this->prodProduct->getListPrice();
+        }
+        if(isset($this->salesStore) && $this->salesStore->getStoreName() != null){
+            $arr["store"] = $this->salesStore->getStoreName();
+        }
+
+
+        return $arr;
+
     }
 }

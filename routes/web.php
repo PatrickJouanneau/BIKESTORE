@@ -70,7 +70,7 @@ Route::post('/customers/create', [CustomerController::class, 'createCust']);
 Route::get('/customers/json', [CustomerController::class, 'allJsonCust']);
 Route::get('/customers/{customerId}/edit', [CustomerController::class, 'formUpdateCust']);
 Route::post('/customers/{customerId}/edit', [CustomerController::class, 'updateCust']);
-//Route::get('/customers/{customerId}/delete', [CustomerController::class, 'deleteCust']);
+Route::get('/customers/{customerId}/delete', [CustomerController::class, 'deleteCust']);
 
 Route::get('/orders/json', [OrderController::class, 'allJsonOrd']);
 

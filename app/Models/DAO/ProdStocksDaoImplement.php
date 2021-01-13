@@ -15,70 +15,109 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 {
     private $productDao;
     private $storeDao;
+
     public function __construct(
         ProdProductsDaoInterface $productDao,
         SalesStoresDaoInterface $storeDao
     ) {
         $this->productDao = $productDao;
-        $this->storeDao = $storeDao;
+        $this->storeDao   = $storeDao;
     }
 
 
     public function getListeStocks()
     {
-        $resultBdd = DB::select('exec dbo.get_liste_stocks');
+        try {
 
-        $listeStocks = [];
-        foreach ($resultBdd as $i => $row) {
-            $stock = new ProdStocks();
-            $stock->setQuantity($row->quantity);
+            $bdd = DB::getPdo();
+            $reponse = $bdd->query("SELECT  * FROM TOP 10 production.stocks JOIN production.products ON production.stocks.product_id = production.products.product_id ORDER BY product_name DESC");
+            $resultBdd = $reponse->fetchAll();
 
-            $product = $this->productDao->getProductById($row->product_id);
-            $stock->setProdProduct($product);
+            $allStocks = [];
+            foreach ($resultBdd as $i => $row) {
+                $stock = new ProdStocks();
+                $stock->setQuantity($row['quantity']);
 
-            $store = $this->storeDao->getStoreById($row->store_id);
-            $stock->setSalesStore($store);
+                $product = $this->productDao->getProductById($row['product_id']);
+                $stock->setProdProduct($product);
 
-            array_push($listeStocks, $stock);
+                $store = $this->storeDao->getStoreById($row['store_id']);
+                $stock->setSalesStore($store);
+
+                array_push($allStocks, $stock);
+            }
+            return $allStocks;
+
+            /*
+            $resultBdd = DB::select('exec dbo.get_liste_stocks');
+
+            $listeStocks = [];
+            foreach ($resultBdd as $i => $row) {
+                $stock = new ProdStocks();
+                $stock->setQuantity($row->quantity);
+
+                $product = $this->productDao->getProductById($row->product_id);
+                $stock->setProdProduct($product);
+
+                $store = $this->storeDao->getStoreById($row->store_id);
+                $stock->setSalesStore($store);
+
+                array_push($listeStocks, $stock);
+            }
+            return $listeStocks;
+            */
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $listeStocks;
     }
 
 
 
     public function getAllStocks()
     {
-        $resultBdd = DB::select('exec dbo.get_all_stocks');
+        try {
+            $resultBdd = DB::select('exec dbo.get_all_stocks');
 
-        $allStocks = [];
-        foreach ($resultBdd as $i => $row) {
-            $stock = new ProdStocks();
-            $stock->setQuantity($row->quantity);
+            $allStocks = [];
+            foreach ($resultBdd as $i => $row) {
+                $stock = new ProdStocks();
+                $stock->setQuantity($row->quantity);
 
-            $product = $this->productDao->getProductById($row->product_id);
-            $stock->setProdProduct($product);
+                $product = $this->productDao->getProductById($row->product_id);
+                $stock->setProdProduct($product);
 
-            $store = $this->storeDao->getStoreById($row->store_id);
-            $stock->setSalesStore($store);
+                $store = $this->storeDao->getStoreById($row->store_id);
+                $stock->setSalesStore($store);
 
-            array_push($allStocks, $stock);
+                array_push($allStocks, $stock);
+            }
+            return $allStocks;
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $allStocks;
     }
 
 
 
     public function getStockById($storeId, $productId)
     {
-        
+
         try {
-            $resultBdd = DB::select("SELECT * FROM production.stocks WHERE store_id='" . $storeId . "'  and product_id='".$productId."'");
+
+
+            $resultBdd = DB::select("SELECT * FROM production.stocks WHERE store_id='" . $storeId . "'  and product_id='" . $productId . "'");
 
             $stock = new ProdStocks();
+            /*
             $stock->setQuantity($resultBdd[0]->quantity);
 
             $product = $this->productDao->getproductById($resultBdd[0]->product_id);
             $store = $this->storeDao->getStoreById($resultBdd[0]->store_id);
+            */
+            $stock->setQuantity($resultBdd['quantity']->quantity);
+
+            $product = $this->productDao->getproductById($resultBdd['product_id']);
+            $store = $this->storeDao->getStoreById($resultBdd['store_id']);
 
             $stock->setProdProduct($product);
             $stock->setSalesStore($store);
@@ -89,56 +128,33 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
     }
 
-    public function createStock($stock)
+    public function createStock($stock, $storeId, $productId)
     {
-        DB::insert("INSERT INTO production.stocks(store_id, product_id, quantity) VALUES (?, ?, ?)", [
-            $stock->getSalesStore()->getStoreId(),
-            $stock->getProdProduct()->getProductId(),
-            $stock->getQuantity()
-        ]);
+        try {
+            DB::insert("INSERT INTO production.stocks(store_id, product_id, quantity) VALUES (?, ?, ?)", [
+                $storeId->getSalesStore()->getStoreId(),
+                $productId->getProdProduct()->getProductId(),
+                $stock->getQuantity()
+            ]);
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 
     public function updateStock(ProdStocks $stocks)
     {
-        DB::update("UPDATE production.stocks SET
+        try {
+            DB::update("UPDATE production.stocks SET
             store_id = ?,
             product_id = ?,
             quantity = ?
         ", [
-            $stocks->getSalesStore()->getStoreId(),
-            $stocks->getProdProduct()->getProductId(),
-            $stocks->getQuantity(),
-        ]);
-    }
-
-
-
-
-
-    /* VOIR SI C'EST BON ?
-    public function getStockskByStoreAndYear()
-    {
-        $resultBdd = DB::select("SELECT product_name, quantity, store_name, model_year, list_price
-        FROM production.stocks stk
-            INNER JOIN production.products prod ON prod.product_id = stk.product_id
-            INNER join sales.stores mag ON mag.store_id = stk.store_id
-        WHERE store_id = ?  AND model_year = ?
-        ORDER BY [product_name];");
-
-        $allStocks = [];
-        foreach ($resultBdd as $i => $row) {
-            $stock = new ProdStocks();
-            $stock->setQuantity($row->quantity);
-
-            $product = $this->productDao->getProductById($row->product_id);
-            $stock->setProdProduct($product);
-
-            $store = $this->storeDao->getStoreById($row->store_id);
-            $stock->setSalesStore($store);
-
-            array_push($allStocks, $stock);
+                $stocks->getSalesStore()->getStoreId(),
+                $stocks->getProdProduct()->getProductId(),
+                $stocks->getQuantity(),
+            ]);
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $allStocks;
     }
-    */
 }

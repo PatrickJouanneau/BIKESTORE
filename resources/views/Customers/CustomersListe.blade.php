@@ -21,7 +21,7 @@
 
         @foreach ($customers as $cust)
            <tr>
-                <th>{{  $cust->getCustomerId() }}</th>
+                <th>{{--  $cust->getCustomerId() --}}</th>
                 <td>{{  $cust->getLastName() }}</td>
                 <td>{{  $cust->getFirstName() }}</td>
                 <td>{{  $cust->getStreet() }}</td>
@@ -30,8 +30,8 @@
                 <td>{{  $cust->getState() }}</td>
                 <td>{{  $cust->getPhone() }}</td>
                 <td>{{  $cust->getEmail() }}</td>
-                <td><a href="{{ url('/customers/'.$cust->getCustomerId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;</td>
-                <td><a href="{{ url('/customers/'.$cust->getCustomerId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a></td>
+                <td><a href="{{ url('/customers'.$cust->getCustomerId().'/edit') }}"><img src="img/wrench.svg" alt="Clé"></a>&nbsp;&nbsp;</td>
+                <td><a href="{{ url('/customers'.$cust->getCustomerId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a></td>
            </tr>
         @endforeach
     </tbody>

@@ -6,6 +6,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrders;
 use App\Models\DAO\SalesOrdersDaoInterface;
 use App\Models\DAO\SalesCustomersDaoInterface;
+use App\Models\DAO\SalesStaffsDaoInterface;
+use App\Models\DAO\SalesStoresDaoInterface;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 {
@@ -23,9 +27,36 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
     }
 
 
-    
-    public function getListeOrders()
+
+    /*public function getListeOrders()
     {
+        $bdd = DB::getPdo();
+        $reponse = $bdd->query('SELECT TOP 10 * FROM sales.orders ORDER BY order_id DESC');
+        $resultBdd = $reponse->fetchAll();
+
+        $listeOrders = [];
+        foreach ($resultBdd as $i => $row) {
+            $order = new SalesOrders();
+            $order->setOrderId($row['order_id']);
+            $order->setOrderStatus($row['order_status']);
+            $order->setOrderDate($row['order_date']);
+            $order->setRequiredDate($row['required_date']);
+            $order->setShippedDate($row['shipped_date']);
+
+            $customer = $this->customerDao->getCustomerById($row['customer_id']);
+            $order->setSalesCustomers($customer);
+
+            $store = $this->storeDao->getStoreById($row['store_id']);
+            $order->setSalesStores($store);
+
+            $staff = $this->staffDao->getStaffById($row['staff_id']);
+            $order->setSalesStaffs($staff);
+
+            array_push($listeOrders, $order);
+        }
+        return $listeOrders;
+
+        
         $resultBdd = DB::select('exec dbo.get_liste_orders');
 
         $listeOrders = [];
@@ -49,7 +80,9 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
             array_push($listeOrders, $order);
         }
         return $listeOrders;
+
     }
+    */
 
 
 

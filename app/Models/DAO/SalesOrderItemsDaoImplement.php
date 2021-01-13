@@ -15,7 +15,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $this->prodProduct = $prodProduct;
     }
 
-
+/*
     public function getListeOrderItems()
     {
         $resultBdd = DB::select("exec dbo.get_liste_order_items");
@@ -38,7 +38,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         return $listeOrderItems;
     }
 
-
+*/
 
     public function getAllOrderItems()
     {

@@ -36,6 +36,7 @@ class SalesCustomers extends Contact
     }
 
 
+
     public function setCustomerId($customerId)
     {
         $this->customerId = $customerId;
@@ -57,8 +58,43 @@ class SalesCustomers extends Contact
         $this->zipCode = $zipCode;
     }
 
+
+
     public function jsonSerialize()
     {
+        $arr = [];
+
+        if ($this->id != null) {
+            $arr["id"] = $this->id;
+        }
+        if ($this->prenom != null) {
+            $arr["prenom"] = $this->prenom;
+        }
+        if ($this->nom != null) {
+            $arr["nom"] = $this->nom;
+        }
+        if ($this->street != null) {
+            $arr["street"] = $this->street;
+        }
+        if ($this->city != null) {
+            $arr["city"] = $this->city;
+        }
+        if ($this->cp != null) {
+            $arr["cp"] = $this->cp;
+        }
+        if ($this->state != null) {
+            $arr["state"] = $this->state;
+        }
+        if ($this->phone != null) {
+            $arr["phone"] = $this->phone;
+        }
+        if ($this->mail != null) {
+            $arr["mail"] = $this->mail;
+        }
+
+        return $arr;
+
+        /*
         return [
             "id"     => $this->customerId,
             "prenom" => $this->firstName,
@@ -70,5 +106,6 @@ class SalesCustomers extends Contact
             "phone"  => $this->phone,
             "mail"   => $this->email
         ];
+        */
     }
 }

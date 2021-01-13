@@ -12,6 +12,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
     public function getAllBrands()
     {
+       try {
         $bdd = DB::getPdo();
         $reponse = $bdd->query("SELECT * FROM production.brands ORDER BY brand_name");
         $resultBdd = $reponse->fetchAll();
@@ -32,6 +33,10 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
             array_push($allBrands, $brand);
         }
         return $allBrands;
+
+       } catch (Exception $e){
+           Log::error('$e');
+       }
     }
 
 
@@ -53,20 +58,35 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     }
 
 
+
     public function createBrand(ProdBrands $brands)
     {
-        $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
-    }
+        try {
+            $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
 
+        } catch (Exception $e){
+            Log::error('$e');
+        }
+    }
 
     public function updateBrand(prodBrands $brands)
     {
-        $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
+        try {
+            $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
+        } catch (Exception $e){
+            Log::error('$e');
+        }
+
     }
 
 
     public function deleteBrandById($brandId)
     {
-        $resultBdd = DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
+        try {
+            $resultBdd = DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
+        } catch (Exception $e){
+            Log::error('$e');
+        }
+
     }
 }

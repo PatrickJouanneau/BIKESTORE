@@ -46,7 +46,11 @@ class CustomerController extends Controller
     public function formUpdateCust(SalesCustomersManagerInterface $customersManager, $customerId)
     {
         $customer = $customersManager->getCustomerById($customerId);
-        return view('Customers.CustomerFormUpdate')->with(["customer" => $customer]);
+        return view('Customers/CustomerFormUpdate')->with(
+            [
+            "customer" => $customer
+            ]
+        );
     }
 
 

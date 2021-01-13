@@ -5,7 +5,8 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesCustomers;
 use App\Models\Dao\SalesCustomersDaoInterface;
-
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 {
@@ -57,23 +58,32 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     }
 
 
-    public function getCustomerById($id)
+    public function getCustomerById($customerId)
     {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $id . " ' ");
-        $resultBdd = $reponse->fetch();
+        //$bdd = DB::getPdo();
+        //$reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $customerId . " ' ");
+        //$resultBdd = $reponse->fetch();
 
-        $customer = new SalesCustomers();
-        $customer->setFirstName($resultBdd['first_name']);
-        $customer->setLastName($resultBdd['last_name']);
-        $customer->setPhone($resultBdd['phone']);
-        $customer->setEmail($resultBdd['email']);
-        $customer->setStreet($resultBdd['street']);
-        $customer->setCity($resultBdd['city']);
-        $customer->setState($resultBdd['state']);
-        $customer->setZipCode($resultBdd['zip_code']);
+        try {
+            $resultBdd = DB::select("SELECT * FROM customer_id WHERE customerId='".$customerId."'");
 
-        return $customer;
+            $customer = new SalesCustomers();
+            $customer->setCustomerId($resultBdd['customer_id']);
+            $customer->setFirstName($resultBdd['first_name']);
+            $customer->setLastName($resultBdd['last_name']);
+            $customer->setPhone($resultBdd['phone']);
+            $customer->setEmail($resultBdd['email']);
+            $customer->setStreet($resultBdd['street']);
+            $customer->setCity($resultBdd['city']);
+            $customer->setState($resultBdd['state']);
+            $customer->setZipCode($resultBdd['zip_code']);
+
+            return $customer;
+
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
+
     }
 
 

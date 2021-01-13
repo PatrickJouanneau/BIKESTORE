@@ -18,16 +18,16 @@
                             <!--option value="{!-{ !empty($product->getProductBrand()->getBrandId()) ? $product->getProductBrand()->getBrandId()) : "" }}"></option-->
                             <option value="Tout">Choisir une marque...</option>
                             @foreach ($brands as $b)
-                                <option value="{{ $b->getBrandId() }}"  {{ !empty($product->getProductBrand()->getBrandId()) && $product->getProductBrand()->getBrandId() ==  $b->getBrandId() ? "selected" : "" }}    >{{ $b->getBrandName() }}</option>
+                            <!--<option value="{{-- $b->getBrandId() --}}" {{-- !empty($product->getProductBrand()->getBrandId()) && $product->getProductBrand()->getBrandId() ==  $b->getBrandId() ? "selected" : "" --}}>{{-- $b->getBrandName() --}}</option>-->
                             @endforeach
 
-                            
+
                         </select>
 
                         <select name="product-select-category" id="product-select-category-up" class="form-control form-control-user mb-2">
                             <option value="allCategories">Choisir une catégorie</option>
                             @foreach ($categories as $cat)
-                                <option value="{{ $cat->getCategoryId() }}"   {{ !empty($product->getProductCategory()->getCategoryId()) && $product->getProductCategory()->getCategoryId() ==  $cat->getCategoryId() ? "selected" : "" }}>{{ $cat->getCategoryName() }}</option>
+                                <!--<option value="{{-- $cat->getCategoryId() --}}" {{-- !empty($product->getProductCategory()->getCategoryId()) && $product->getProductCategory()->getCategoryId() ==  $cat->getCategoryId() ? "selected" : "" --}}>{{-- $cat->getCategoryName() --}}</option>-->
                             @endforeach
                         </select>
 

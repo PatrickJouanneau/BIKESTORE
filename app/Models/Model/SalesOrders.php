@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class SalesOrders implements JsonSerializable
 {
-    private $orderId;
+    private int $orderId;
     private $orderStatus;
     private $orderDate;
     private $requiredDate;
@@ -85,15 +85,57 @@ class SalesOrders implements JsonSerializable
 
     public function jsonSerialize()
     {
+        $arr = [];
+
+        if ($this->id != null) {
+            $arr["id"] = $this->id;
+        }
+        if ($this->status != null) {
+            $arr["status"] = $this->status;
+        }
+        if ($this->ordDat != null) {
+            $arr["ordDat"] = $this->ordDat;
+        }
+
+        if ($this->reqDat != null) {
+            $arr["reqDat"] = $this->reqDat;
+        }
+        if ($this->shipDat != null) {
+            $arr["shipDat"] = $this->shipDat;
+        }
+
+        if (isset($this->salesCustomers) && $this->salesCustomers->getLastName() != null) {
+            $arr["cust"] = $this->salesCustomers->getLastName();
+        }
+        if (isset($this->salesCustomers) && $this->salesCustomers->getCustomerId() != null) {
+            $arr["cust"] = $this->salesCustomers->getCustomerId();
+        }
+        if (isset($this->salesStores) && $this->salesStores->getStoreName() != null) {
+            $arr["store"] = $this->salesStores->getStoreName();
+        }
+        if (isset($this->salesStores) && $this->salesStores->getStoreId() != null) {
+            $arr["store"] = $this->salesStores->getStoreId();
+        }
+
+        if (isset($this->salesStaffs) && $this->salesStaffs->getLastName() != null) {
+            $arr["staff"] = $this->salesStaffs->getLastName();
+        }
+        if (isset($this->salesStaffs) && $this->salesStaffs->getstaffId() != null) {
+            $arr["staff"] = $this->salesStaffs->getstaffId();
+        }
+        return $arr;
+
+        /*
         return [
-            "id" => $this->orderId,
-            "cust" => $this->salesCustomers->getLastName(),
-            "status" => $this->orderStatus,
-            "ordDat" => $this->orderDate,
-            "reqDat" => $this->requiredDate,
+            "id"      => $this->orderId,
+            "cust"    => $this->salesCustomers->getLastName(),
+            "status"  => $this->orderStatus,
+            "ordDat"  => $this->orderDate,
+            "reqDat"  => $this->requiredDate,
             "shipDat" => $this->shippedDate,
-            "store" => $this->salesStores->getStoreName(),
-            "staff" => $this->salesStaffs->getLastName()
+            "store"   => $this->salesStores->getStoreName(),
+            "staff"   => $this->salesStaffs->getLastName()
         ];
+        */
     }
 }

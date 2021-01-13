@@ -31,14 +31,14 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
     }
 
 
-    public function createStock(ProdStocks $stocks)
+    public function createStock($stocks, $storeId, $productId)
     {
-        $this->stocksDao->createStock($stocks);
+        $this->stocksDao->createStock($stocks, $storeId, $productId);
     }
 
-    public function updateStock(ProdStocks $stocks)
+    public function updateStock($storeId, $productId)
     {
-        $this->stocksDao->updateStock($stocks);
+        $this->stocksDao->updateStock($storeId, $productId);
     }
 
 }

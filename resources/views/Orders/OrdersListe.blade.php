@@ -13,19 +13,19 @@
             <th scope="col">Exécutant</th>
         </tr>
     </thead>
-    <tbody id="body-order">
+    <!--<tbody id="body-order">
 
-        @foreach ($orders as $o)
+        foreach ($orders as $o)
             <tr>
-                <th>{{ $o->getOrderId() }}</th>
-                <td>{{ $o->getSalesCustomers()->getLastName() }}</td>
-                <td>{{ $o->getOrderStatus() }}</td>
-                <td>{{ $o->getOrderdate() }}</td>
-                <td>{{ $o->getRequiredDate() }}</td>
-                <td>{{ $o->getShippedDate() }}</td>
-                <td>{{ $o->getSalesStores()->getStoreName() }}</td>
-                <td>{{ $o->getSalesStaffs()->getLastName() }}</td>
+                <th>{{-- $o->getOrderId() --}}</th>
+                <td>{{-- $o->getSalesCustomers()->getLastName() --}}</td>
+                <td>{{-- $o->getOrderStatus() --}}</td>
+                <td>{{-- $o->getOrderdate() --}}</td>
+                <td>{{-- $o->getRequiredDate() --}}</td>
+                <td>{{-- $o->getShippedDate() --}}</td>
+                <td>{{-- $o->getSalesStores()->getStoreName() --}}</td>
+                <td>{{-- $o->getSalesStaffs()->getLastName() --}}</td>
             </tr>
-        @endforeach
-    </tbody>
+        endforeach
+    </tbody>-->
 </table>

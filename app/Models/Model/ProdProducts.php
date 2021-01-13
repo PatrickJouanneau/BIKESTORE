@@ -8,10 +8,10 @@ use JsonSerializable;
 
 class ProdProducts implements JsonSerializable
 {
-    private $productId;
-    private $productName;
-    private $modelYear;
-    private $listPrice;
+    private int $productId;
+    private string $productName;
+    private int $modelYear;
+    private float $listPrice;
 
     private ProdBrands $productBrand;
     private ProdCategories $productCategory;
@@ -71,26 +71,27 @@ class ProdProducts implements JsonSerializable
         $this->productCategory = $productCategory;
     }
 
+
     public function jsonSerialize()
     {
         $arr = [];
 
-        if($this->productId != null){
+        if ($this->productId != null) {
             $arr["id"] = $this->productId;
         }
-        if($this->productName != null){
+        if ($this->productName != null) {
             $arr["name"] = $this->productName;
         }
-        if($this->modelYear != null){
+        if ($this->modelYear != null) {
             $arr["year"] = $this->modelYear;
         }
-        if($this->listPrice != null){
+        if ($this->listPrice != null) {
             $arr["price"] = $this->listPrice;
         }
-        if(isset($this->productBrand) && $this->productBrand->getBrandName() != null){
+        if (isset($this->productBrand) && $this->productBrand->getBrandName() != null) {
             $arr["brand"] = $this->productBrand->getBrandName();
         }
-        if(isset($this->productCategory) && $this->productCategory->getCategoryName() != null){
+        if (isset($this->productCategory) && $this->productCategory->getCategoryName() != null) {
             $arr["category"] = $this->productCategory->getCategoryName();
         }
 
