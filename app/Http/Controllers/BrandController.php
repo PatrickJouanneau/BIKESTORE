@@ -30,7 +30,7 @@ class BrandController extends Controller
 
 
 
-    
+
     public function formUpdateBrd(ProdBrandsManagerInterface $brandsManager, $id)
     {
         $brand = $brandsManager->getBrandById($id);
@@ -62,9 +62,13 @@ class BrandController extends Controller
     }
 
 
+    public function allJsonBrand(ProdBrandsManagerInterface $brandsManager)
+    {
+        $brand = $brandsManager->getAllBrands();
+        return response()->json($brand);
+    }
 
-
-
+    /*
     public function getAllBrandsJson(ProdBrandsManagerInterface $brandManager)
     {
         $brands = $brandManager->getAllBrands();
@@ -82,6 +86,7 @@ class BrandController extends Controller
 
         //return response()->json($brands);
     }
+    */
 
     private function create_item($id, $name)
     {

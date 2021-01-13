@@ -15,7 +15,7 @@ var myChart = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: 'Orders by customers by year'
+            text: 'Orders by staffs by year'
         },
         legend: {
             display: true

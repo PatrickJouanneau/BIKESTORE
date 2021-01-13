@@ -5,7 +5,7 @@ var dataLoaded;
 var myChart2 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["id", "name"],
+        labels: ["2016", "2017", "2018"],
         datasets: dataLoaded/*[
             { "label": "Janv", "data": ["148586.75", "17533.83", "80495.49"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
             { "label": "Fev", "data": ["115892.73", "20510.79", "39364.58"], "backgroundColor": "rgba(75, 192, 192, 0.4)" },
@@ -39,34 +39,46 @@ var myChart2 = new Chart(ctx, {
     }
 });
 
-$('#test_test').on("click", function () {
+$('#test_test').on("click", function ()
+{
     $.ajax({
-      url: "/products/json",
-      type: 'GET',
-      cache: false,
-      success: function success(result) {
-          //var i = 0;
-          for(var i = 0; i<10;i++){
-              var prod = result[i];
-              myChart2.data.datasets[i] = {"label":"lab"+prod.id, "data":[prod.id, i], "backgroundColor": "rgba(255, 99, 132, 0.4)" };
-          }
-
-          for(var i = 0; i<10;i++){
+        url: "/brands/json",
+        type: 'GET',
+        cache: false,
+        success: function success(result)
+        {
+            //Var[i] = id;
+            for (var i = 0; i < 12; i++)
+            {
                 var prod = result[i];
-                myChart2.data.datasets[i] = {"label":"lab"+prod.id, "data":[prod.id, i*2], "backgroundColor": "rgba(255, 99, 132, 0.4)" };
-            }
-        /*result.forEach(function (prod) {
-            //i++;
-            if(i>10){
-                return false;
-            }
-        });*/
-        //myChart.data.labels[5] = "Newly Added";
-        myChart2.update();
-      },
-      error: function error() {
-        alert("No");
-      }
+                myChart2.data.datasets[i] = {
+                    "label": "#" + prod.year, "rien": [prod.price, i],
+                    "backgroundColor": "##ef6c00"
+                };
+            };
+
+            for (var i = 0; i < 12; i++)
+            {
+                var prod = result[i];
+                myChart2.data.datasets[i] = {
+                    "label": "?" + prod.id, "data": [prod.year, i], "backgroundColor": "rgba(158, 102, 255, 0.2)"
+                };
+            };
+
+            /*result.forEach(function (prod) {
+                //i++;
+                if(i>10){
+                    return false;
+                }
+            });*/
+            //myChart.data.labels[5] = "Newly Added";
+            myChart2.update();
+        },
+        error: function error()
+        {
+            alert("No");
+        }
     });
 });
+
 

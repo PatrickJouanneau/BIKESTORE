@@ -9,4 +9,5 @@ interface SalesOrderItemsManagerInterface
     //public function getListeOrderItems();
     public function getAllOrderItems();
     public function countSalesOrderItemsWithProductId($productId);
+    public function getOrdersStoreMonth();
 }

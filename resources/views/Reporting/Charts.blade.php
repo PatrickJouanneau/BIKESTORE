@@ -9,7 +9,6 @@
 
         <!-- Topbar -->
 
-
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -20,37 +19,7 @@
           <!-- Content Row -->
           <div class="row">
 
-            <div class="col-xl-8 col-lg-7">
-
-              <!-- Area Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Area Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                  <hr>
-                  <!--Le style du diagramme de zone peut être trouvé dans le
-                  <script>{{ asset('js/demo/chart-area-demo.js') }}</script> file.-->
-                </div>
-              </div>
-
-              <!-- Bar Chart -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                </div>
-                <div class="card-body">
-                  <div class="chart-bar">
-                    <canvas id="myBarChart"></canvas>
-                  </div>
-                  <hr>
-                  <!--Le style du graphique en barres se trouve dans le
-                  <script>/js/demo/chart-bar-demo.js</script> file.-->
-                </div>
-              </div>
+            <div class="col-xl-12 col-lg-7">
 
               <!-- Bar Chart NO CODE CHART -->
               <div class="card shadow mb-4">
@@ -59,8 +28,8 @@
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
+                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
                     <canvas id="myChart"></canvas>
-                    <a type="button" id="test_test">aaaaaaa</a>
                   </div>
                   <hr>
                   <!--Le style du graphique en barres se trouve dans le
@@ -80,11 +49,6 @@
                 </div>
               </div>
 
-            </div>
-
-            <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
@@ -92,11 +56,17 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4">
+                  <div class="chart-bar pt-4">
+                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
                     <canvas id="myStockBrand"></canvas>
                   </div>
                 </div>
               </div>
+
+            </div>
+
+            <!-- Donut Chart -->
+            <div class="col-xl-4 col-lg-5">
 
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -182,8 +152,8 @@
   <!--<script src="js/demo/chart-bar-demo.js"></script>-->
 
   <script src="js/chart-orders-by-years.js"></script>
-  <script src="js/chart-orders-by-customers-years.js"></script>
-  <script src="js/chart-stocks-by-brands.js"></script>
+  <script src="js/chart-orders-by-staffs-years.js"></script>
+  <script src="js/stocks-by-brands.js"></script>
 
 
 

@@ -85,6 +85,8 @@ class SalesOrders implements JsonSerializable
 
     public function jsonSerialize()
     {
+
+        /*
         $arr = [];
 
         if ($this->id != null) {
@@ -110,6 +112,7 @@ class SalesOrders implements JsonSerializable
         if (isset($this->salesCustomers) && $this->salesCustomers->getCustomerId() != null) {
             $arr["cust"] = $this->salesCustomers->getCustomerId();
         }
+
         if (isset($this->salesStores) && $this->salesStores->getStoreName() != null) {
             $arr["store"] = $this->salesStores->getStoreName();
         }
@@ -123,9 +126,11 @@ class SalesOrders implements JsonSerializable
         if (isset($this->salesStaffs) && $this->salesStaffs->getstaffId() != null) {
             $arr["staff"] = $this->salesStaffs->getstaffId();
         }
+
+
         return $arr;
 
-        /*
+        */
         return [
             "id"      => $this->orderId,
             "cust"    => $this->salesCustomers->getLastName(),
@@ -136,6 +141,5 @@ class SalesOrders implements JsonSerializable
             "store"   => $this->salesStores->getStoreName(),
             "staff"   => $this->salesStaffs->getLastName()
         ];
-        */
     }
 }

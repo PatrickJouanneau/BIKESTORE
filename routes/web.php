@@ -37,7 +37,7 @@ Route::get('/failure', [HomeController::class, 'failure']);
 
 Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
 Route::post('/brands/create', [BrandController::class, 'createBrd']);
-Route::get('/brands/json', [BrandController::class, 'getAllBrandsJson']);
+Route::get('/brands/json', [BrandController::class, 'allJsonBrand']);
 Route::get('/brands/{brandId}/edit', [BrandController::class, 'formUpdateBrd']);
 Route::post('/brands/{brandId}/edit', [BrandController::class, 'updateBrd']);
 Route::get('/brands/{brandId}/delete', [BrandController::class, 'deleteBrd']);
@@ -75,6 +75,7 @@ Route::get('/customers/{customerId}/delete', [CustomerController::class, 'delete
 Route::get('/orders/json', [OrderController::class, 'allJsonOrd']);
 
 Route::get('/orderItems/json', [OrderItemsController::class, 'allJsonOrdItem']);
+Route::get('/orderStoreMonth/json', [OrderItemsController::class, 'getOrdStoreMonth']);
 
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);

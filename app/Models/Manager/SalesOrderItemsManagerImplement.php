@@ -33,4 +33,10 @@ class SalesOrderItemsManagerImplement implements SalesOrderItemsManagerInterface
     {
         return $this->orderItemDao->countSalesOrderItemsWithProductId($productId);
     }
+
+
+    public function getOrdersStoreMonth()
+    {
+        return $this->orderItemDao->getOrdersStoreMonth();
+    }
 }
