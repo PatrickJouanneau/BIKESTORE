@@ -62,12 +62,13 @@ class SalesCustomers extends Contact
 
     public function jsonSerialize()
     {
-        $arr = [];
+        return get_object_vars($this);
+        /*$arr = [];
 
         if ($this->id != null) {
-            $arr["id"] = $this->id;
+            $arr["id"] = $this->customerId;
         }
-        if ($this->prenom != null) {
+        /*if ($this->prenom != null) {
             $arr["prenom"] = $this->prenom;
         }
         if ($this->nom != null) {
@@ -79,13 +80,13 @@ class SalesCustomers extends Contact
         if ($this->city != null) {
             $arr["city"] = $this->city;
         }
-        if ($this->cp != null) {
-            $arr["cp"] = $this->cp;
+        if ($this->zipCode != null) {
+            $arr["cp"] = $this->zipCode;
         }
         if ($this->state != null) {
             $arr["state"] = $this->state;
         }
-        if ($this->phone != null) {
+        /*if ($this->phone != null) {
             $arr["phone"] = $this->phone;
         }
         if ($this->mail != null) {

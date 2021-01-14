@@ -30,7 +30,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         try {
 
             $bdd = DB::getPdo();
-            $reponse = $bdd->query("SELECT  * FROM TOP 10 production.stocks JOIN production.products ON production.stocks.product_id = production.products.product_id ORDER BY product_name DESC");
+            $reponse = $bdd->query("SELECT TOP 10 * FROM  production.stocks JOIN production.products ON production.stocks.product_id = production.products.product_id ORDER BY product_name DESC");
             $resultBdd = $reponse->fetchAll();
 
             $allStocks = [];
@@ -38,6 +38,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
                 $stock = new ProdStocks();
                 $stock->setQuantity($row['quantity']);
 
+                //error_log('valeur de $row[\'product_id\'] :' . $row['product_id']);
                 $product = $this->productDao->getProductById($row['product_id']);
                 $stock->setProdProduct($product);
 

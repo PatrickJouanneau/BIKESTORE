@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class SalesOrders implements JsonSerializable
 {
-    private int $orderId;
+    private  $orderId;
     private $orderStatus;
     private $orderDate;
     private $requiredDate;
@@ -86,52 +86,46 @@ class SalesOrders implements JsonSerializable
     public function jsonSerialize()
     {
 
-        /*
+
         $arr = [];
 
-        if ($this->id != null) {
-            $arr["id"] = $this->id;
+        if ($this->orderId != null) {
+            $arr["id"] = $this->orderId;
         }
-        if ($this->status != null) {
-            $arr["status"] = $this->status;
+        if ($this->orderStatus != null) {
+            $arr["status"] = $this->orderStatus;
         }
-        if ($this->ordDat != null) {
-            $arr["ordDat"] = $this->ordDat;
-        }
-
-        if ($this->reqDat != null) {
-            $arr["reqDat"] = $this->reqDat;
-        }
-        if ($this->shipDat != null) {
-            $arr["shipDat"] = $this->shipDat;
+        if ($this->orderDate != null) {
+            $arr["ordDat"] = $this->orderDate;
         }
 
-        if (isset($this->salesCustomers) && $this->salesCustomers->getLastName() != null) {
-            $arr["cust"] = $this->salesCustomers->getLastName();
+        if ($this->requiredDate != null) {
+            $arr["reqDat"] = $this->requiredDate;
         }
-        if (isset($this->salesCustomers) && $this->salesCustomers->getCustomerId() != null) {
-            $arr["cust"] = $this->salesCustomers->getCustomerId();
-        }
-
-        if (isset($this->salesStores) && $this->salesStores->getStoreName() != null) {
-            $arr["store"] = $this->salesStores->getStoreName();
-        }
-        if (isset($this->salesStores) && $this->salesStores->getStoreId() != null) {
-            $arr["store"] = $this->salesStores->getStoreId();
+        if ($this->shippedDate != null) {
+            $arr["shipDat"] = $this->shippedDate;
         }
 
-        if (isset($this->salesStaffs) && $this->salesStaffs->getLastName() != null) {
-            $arr["staff"] = $this->salesStaffs->getLastName();
+        if (isset($this->salesCustomers)) {
+            $arr["cust"] = $this->salesCustomers;
         }
-        if (isset($this->salesStaffs) && $this->salesStaffs->getstaffId() != null) {
-            $arr["staff"] = $this->salesStaffs->getstaffId();
+
+
+        if (isset($this->salesStores)) {
+            $arr["store"] = $this->salesStores;
         }
+
+
+        if (isset($this->salesStaffs)) {
+            $arr["staff"] = $this->salesStaffs;
+        }
+
 
 
         return $arr;
 
-        */
-        return [
+
+        /*return [
             "id"      => $this->orderId,
             "cust"    => $this->salesCustomers->getLastName(),
             "status"  => $this->orderStatus,
@@ -140,6 +134,6 @@ class SalesOrders implements JsonSerializable
             "shipDat" => $this->shippedDate,
             "store"   => $this->salesStores->getStoreName(),
             "staff"   => $this->salesStaffs->getLastName()
-        ];
+        ];*/
     }
 }

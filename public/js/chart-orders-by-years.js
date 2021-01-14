@@ -5,7 +5,7 @@ var dataLoaded;
 var myChart2 = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ["2016", "2017", "2018"],
+        labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
         datasets: dataLoaded/*[
             { "label": "Janv", "data": ["148586.75", "17533.83", "80495.49"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
             { "label": "Fev", "data": ["115892.73", "20510.79", "39364.58"], "backgroundColor": "rgba(75, 192, 192, 0.4)" },
@@ -42,28 +42,51 @@ var myChart2 = new Chart(ctx, {
 $('#test_test').on("click", function ()
 {
     $.ajax({
-        url: "/brands/json",
+        url: "/orderStoreMonth/json",
         type: 'GET',
         cache: false,
         success: function success(result)
         {
             //Var[i] = id;
-            for (var i = 0; i < 12; i++)
+            //var months = [];
+            //var datas = [];
+            var datasets = [];
+            for (var i = 0; i < result.length; i++)
             {
                 var prod = result[i];
-                myChart2.data.datasets[i] = {
-                    "label": "#" + prod.year, "rien": [prod.price, i],
-                    "backgroundColor": "##ef6c00"
+                if (!datasets.hasOwnProperty(prod.month))
+                {
+                    datasets[prod.month] = [];
                 };
-            };
+                datasets[prod.month].push(prod.sales);
+            }
+            var i = 0;
+            datasets.forEach(function (value, index)
+            {
+                myChart2.data.datasets[i] = { "label": index, "data": value, "backgroundColor": "rgba(255, 99, 132, 0.4)" };
+                i++;
+            });
+            /*for (var i = 0; i < datasets.length; i++)
+            {
 
-            for (var i = 0; i < 12; i++)
+                 myChart2.data.datasets[i] = { "label": datasets[i], "data": ["148586.75", "17533.83", "80495.49"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
+                /*{
+                    "label": months,
+                    "data": datas,
+                    //"backgroundColor": ["##ef6c00", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC", "#01FF70", "#85144b", "#F012BE"]
+                };
+
+            }*/
+
+
+
+            /*for (var i = 0; i < 12; i++)
             {
                 var prod = result[i];
                 myChart2.data.datasets[i] = {
                     "label": "?" + prod.id, "data": [prod.year, i], "backgroundColor": "rgba(158, 102, 255, 0.2)"
                 };
-            };
+            };*/
 
             /*result.forEach(function (prod) {
                 //i++;
@@ -73,7 +96,8 @@ $('#test_test').on("click", function ()
             });*/
             //myChart.data.labels[5] = "Newly Added";
             myChart2.update();
-        },
+        }
+        ,
         error: function error()
         {
             alert("No");

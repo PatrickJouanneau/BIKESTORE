@@ -10,7 +10,7 @@ class ProdProducts implements JsonSerializable
 {
     private int $productId;
     private string $productName;
-    private int $modelYear;
+    private $modelYear;
     private float $listPrice;
 
     private ProdBrands $productBrand;
@@ -85,14 +85,14 @@ class ProdProducts implements JsonSerializable
         if ($this->modelYear != null) {
             $arr["year"] = $this->modelYear;
         }
-        if ($this->listPrice != null) {
+        if (isset($this->listPrice) && is_float($this->listPrice)) {
             $arr["price"] = $this->listPrice;
         }
-        if (isset($this->productBrand) && $this->productBrand->getBrandName() != null) {
-            $arr["brand"] = $this->productBrand->getBrandName();
+        if (isset($this->productBrand)) {
+            $arr["brand"] = $this->productBrand;
         }
-        if (isset($this->productCategory) && $this->productCategory->getCategoryName() != null) {
-            $arr["category"] = $this->productCategory->getCategoryName();
+        if (isset($this->productCategory)) {
+            $arr["category"] = $this->productCategory;
         }
 
         return $arr;

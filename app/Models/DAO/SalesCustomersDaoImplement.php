@@ -13,59 +13,67 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
     public function getListeCustomers()
     {
-        $resultBdd = DB::select("exec dbo.get_liste_customers");
+        try {
+            $resultBdd = DB::select("exec dbo.get_liste_customers");
 
-        $listeCustomers = [];
-        foreach ($resultBdd as $i => $row) {
-            $customer = new SalesCustomers();
-            $customer->setCustomerId($row->customer_id);
-            $customer->setFirstName($row->first_name);
-            $customer->setLastName($row->last_name);
-            $customer->setPhone($row->phone);
-            $customer->setEmail($row->email);
-            $customer->setStreet($row->street);
-            $customer->setCity($row->city);
-            $customer->setState($row->state);
-            $customer->setZipCode($row->zip_code);
+            $listeCustomers = [];
+            foreach ($resultBdd as $i => $row) {
+                $customer = new SalesCustomers();
+                $customer->setCustomerId($row->customer_id);
+                $customer->setFirstName($row->first_name);
+                $customer->setLastName($row->last_name);
+                $customer->setPhone($row->phone);
+                $customer->setEmail($row->email);
+                $customer->setStreet($row->street);
+                $customer->setCity($row->city);
+                $customer->setState($row->state);
+                $customer->setZipCode($row->zip_code);
 
-            array_push($listeCustomers, $customer);
+                array_push($listeCustomers, $customer);
+            }
+            return $listeCustomers;
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $listeCustomers;
     }
 
 
 
     public function getAllCustomers()
     {
-        $resultBdd = DB::select('exec dbo.get_all_customers');
+        try {
+            $resultBdd = DB::select('exec dbo.get_all_customers');
 
-        $allCustomers = [];
-        foreach ($resultBdd as $i => $row) {
-            $customer = new SalesCustomers();
-            $customer->setCustomerId($row->customer_id);
-            $customer->setFirstName($row->first_name);
-            $customer->setLastName($row->last_name);
-            $customer->setPhone($row->phone);
-            $customer->setEmail($row->email);
-            $customer->setStreet($row->street);
-            $customer->setCity($row->city);
-            $customer->setState($row->state);
-            $customer->setZipCode($row->zip_code);
+            $allCustomers = [];
+            foreach ($resultBdd as $i => $row) {
+                $customer = new SalesCustomers();
+                $customer->setCustomerId($row->customer_id);
+                $customer->setFirstName($row->first_name);
+                $customer->setLastName($row->last_name);
+                $customer->setPhone($row->phone);
+                $customer->setEmail($row->email);
+                $customer->setStreet($row->street);
+                $customer->setCity($row->city);
+                $customer->setState($row->state);
+                $customer->setZipCode($row->zip_code);
 
-            array_push($allCustomers, $customer);
+                array_push($allCustomers, $customer);
+            }
+            return $allCustomers;
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $allCustomers;
     }
 
 
     public function getCustomerById($customerId)
     {
-        //$bdd = DB::getPdo();
-        //$reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $customerId . " ' ");
-        //$resultBdd = $reponse->fetch();
-
         try {
-            $resultBdd = DB::select("SELECT * FROM customer_id WHERE customerId='".$customerId."'");
+            $bdd = DB::getPdo();
+            $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $customerId . " ' ");
+            $resultBdd = $reponse->fetch();
+
+            //$resultBdd = DB::select("SELECT * FROM customer_id WHERE customerId='" . $customerId . "'");
 
             $customer = new SalesCustomers();
             $customer->setCustomerId($resultBdd['customer_id']);
@@ -79,43 +87,46 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             $customer->setZipCode($resultBdd['zip_code']);
 
             return $customer;
-
         } catch (Exception $e) {
             Log::error('$e');
         }
-
     }
 
 
     public function createCustomer(SalesCustomers $customer)
     {
-        $resultBdd = DB::insert(
-            "INSERT INTO sales.customers (
-                first_name,
-                last_name,
-                phone,
-                email,
-                street,
-                city,
-                state,
-                zip_code
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
-            [
-                $customer->getFirstName(),
-                $customer->getLastName(),
-                $customer->getPhone(),
-                $customer->getEmail(),
-                $customer->getStreet(),
-                $customer->getCity(),
-                $customer->getState(),
-                $customer->getZipCode()
-            ]
-        );
+        try {
+            $resultBdd = DB::insert(
+                "INSERT INTO sales.customers (
+                    first_name,
+                    last_name,
+                    phone,
+                    email,
+                    street,
+                    city,
+                    state,
+                    zip_code
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    $customer->getFirstName(),
+                    $customer->getLastName(),
+                    $customer->getPhone(),
+                    $customer->getEmail(),
+                    $customer->getStreet(),
+                    $customer->getCity(),
+                    $customer->getState(),
+                    $customer->getZipCode()
+                ]
+            );
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 
     public function updateCustomer($customer)
     {
-        $resultBdd = DB::update("UPDATE sales.customers SET
+        try {
+            $resultBdd = DB::update("UPDATE sales.customers SET
             first_name = ?,
             last_name = ?,
             phone = ?,
@@ -126,15 +137,18 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             zip_code = ?
         WHERE customer_id = ?
         ", [
-            $customer->getFirstName(),
-            $customer->getLastName(),
-            $customer->getPhone(),
-            $customer->getEmail(),
-            $customer->getStreet(),
-            $customer->getCity(),
-            $customer->getState(),
-            $customer->getZipCode(),
-            $customer->getCustomerId()
-        ]);
+                $customer->getFirstName(),
+                $customer->getLastName(),
+                $customer->getPhone(),
+                $customer->getEmail(),
+                $customer->getStreet(),
+                $customer->getCity(),
+                $customer->getState(),
+                $customer->getZipCode(),
+                $customer->getCustomerId()
+            ]);
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 }

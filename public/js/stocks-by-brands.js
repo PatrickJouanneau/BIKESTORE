@@ -32,15 +32,16 @@ var myChart = new Chart(ctx, {
     }
 });
 
+/*
 $('#test_test').on("click", function () {
     $.ajax({
-      url: "/brands/json",
+      url: "/orderStoreMonth/json",
       type: 'GET',
       cache: false,
       success: function success(result) {
           //var i = 0;
           for(var i = 0; i<9;i++){
-              var brand = result[i];
+              var order = result[i];
               myChart2.data.datasets[i] = {"label":"lab"+brand.id, "data":[brand.id, i], "backgroundColor": "rgba(255, 99, 132, 0.2)" };
           }
 /*
@@ -53,7 +54,7 @@ $('#test_test').on("click", function () {
             if(i>10){
                 return false;
             }
-        });*/
+        });
         //myChart.data.labels[5] = "Newly Added";
         myChart2.update();
       },
@@ -61,4 +62,4 @@ $('#test_test').on("click", function () {
         alert("No");
       }
     });
-});
+});*/

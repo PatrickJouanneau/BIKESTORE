@@ -225,7 +225,7 @@
                                 var content = '';
                                 result.forEach(function (ord)
                                 {
-                                    content += '<tr><td>' + ord.id + '</td><td>' + ord.cust + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store + '</td><td>' + ord.staff + '</td></tr>';
+                                    content += '<tr><td>' + ord.id + '</td><td>' + ord.cust.lastName + " " + ord.cust.firstname + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
                                 });
                                 $('#body-order').html(content);
                             }

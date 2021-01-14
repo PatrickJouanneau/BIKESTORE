@@ -10,8 +10,8 @@ use App\Models\Manager\SalesOrdersManagerInterface;
 class OrderItemsController extends Controller
 {
 
-    public function index(){
-
+    public function index()
+    {
     }
 
 
@@ -24,7 +24,10 @@ class OrderItemsController extends Controller
 
     public function getOrdStoreMonth(SalesOrderItemsManagerInterface $orderItemsManager)
     {
-        $orderStoreMonth = $orderItemsManager->getOrdersStoreMonth();
-        return response()->json($orderStoreMonth);
+        //$orderStoreMonth = $orderItemsManager->getOrdersStoreMonth();
+        $array[1] = 1;
+        $array[2] = 2;
+        $array[3][1] = 2;
+        return response()->json($array);
     }
 }

@@ -88,12 +88,12 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
     public function getProductById($productId)
     {
-        //$bdd = DB::getPdo();
-        //$reponse = $bdd->query("SELECT * FROM production.products WHERE product_id ='" . $productId . "' ");
-        //$resultBdd = $reponse->fetch();
 
         try {
-            $resultBdd = DB::select("SELECT * FROM production.products WHERE product_id='" . $productId . "'");
+            $bdd = DB::getPdo();
+            $reponse = $bdd->query("SELECT * FROM production.products WHERE product_id ='" . $productId . "' ");
+            $resultBdd = $reponse->fetch();
+            //$resultBdd = DB::select("SELECT * FROM production.products WHERE product_id='" . $productId . "'");
 
             $product = new ProdProducts();
             $product->setProductId($resultBdd['product_id']);
@@ -108,9 +108,9 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             $product->setProductBrand($brand);
 
             return $product;
-
         } catch (Exception $e) {
-            Log::error('$e');
+            error_log($e);
+            Log::error($e);
         }
     }
 

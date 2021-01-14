@@ -25,7 +25,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $this->salesStaffs = $salesStaffs;
     }
 
-    /*
+
     public function getListeOrderItems()
     {
         $resultBdd = DB::select("exec dbo.get_liste_order_items");
@@ -33,7 +33,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $listeOrderItems = [];
         foreach ($resultBdd as $i => $row) {
             $orderItem = new SalesOrderItems();
-            $orderItem->setOrderId($row->order_id);
+            //$orderItem->setOrderId($row->order_id);
+            $order = $this->salesOrders->getOrderById($row->order_id);
+            $orderItem->setOrder($order);
             $orderItem->setItemId($row->item_id);
             $orderItem->setQuantity($row->quantity);
             $orderItem->setListPrice($row->list_price);
@@ -48,7 +50,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         return $listeOrderItems;
     }
 
-*/
+
 
     public function getAllOrderItems()
     {
@@ -58,7 +60,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $allOrderItems = [];
             foreach ($resultBdd as $i => $row) {
                 $orderItem = new SalesOrderItems();
-                $orderItem->setOrderId($row->order_id);
+                $order = $this->salesOrders->getOrderById($row->order_id);
+                $orderItem->setOrder($order);
+                //$orderItem->setOrderId($row->order_id);
                 $orderItem->setItemId($row->item_id);
                 $orderItem->setQuantity($row->quantity);
                 $orderItem->setListPrice($row->list_price);
@@ -86,7 +90,11 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $resultBdd = $reponse->fetch();
 
             $orderItem = new SalesOrderItems();
-            $orderItem->setOrderId($resultBdd['order_id']);
+
+            $order = $this->salesOrders->getOrderById($resultBdd['order_id']);
+            $order->setOrder($order);
+
+            //$orderItem->setOrderId($resultBdd['order_id']);
             $orderItem->setItemId($resultBdd['item_id']);
             $orderItem->setQuantity($resultBdd['quantity']);
             $orderItem->setListPrice($resultBdd['list_price']);
@@ -113,26 +121,33 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
     public function getOrdersStoreMonth()
     {
-        try {
-            $resultBdd = DB::select("exec dbo.get_orders_store_month");
+        //try {
+        return DB::select("exec dbo.get_orders_store_month");
 
-            $allOrderStore = [];
-            foreach ($resultBdd as $i => $row) {
-                $order = new SalesOrderItems();
-                $order->setOrderId($row->order_id);
-                $order->setItemId($row->item_id);
-                $order->setQuantity($row->quantity);
-                $order->setListPrice($row->list_price);
-                $order->setDiscount($row->discount);
+        //return $resultBdd;
+        //$allOrderStore = [];
+        /*foreach ($resultBdd as $i => $row) {
+            $order = new SalesOrderItems();
 
-                //$store = $this->salesStores->getStoreById($row->store_id);
-                //$order->setSalesStores($store);
 
-                array_push($allOrderStore, $order);
-            }
-            return $allOrderStore;
-        } catch (Exception $e) {
-            Log::error('$e');
-        }
+            $order->setItemId($row->item_id);
+            $order->setQuantity($row->quantity);
+            $order->setListPrice($row->list_price);
+            $order->setDiscount($row->discount);
+
+            $order = $this->salesOrders->getOrderById($row->order_id);
+            $order->setOrder($order);
+
+            //$store = $this->salesStores->getStoreById($row->store_id);
+            //$order->setSalesStores($store);
+
+            array_push($allOrderStore, $order);
+       // }
+        return $allOrderStore;
+        //} catch (Exception $e) {
+        //  error_log($e);
+        //Log::error('$e');
+        //}
+        */
     }
 }

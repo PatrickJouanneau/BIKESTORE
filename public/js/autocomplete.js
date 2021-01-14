@@ -131,7 +131,7 @@ autocomplete(inp);
 function call(comp)
 {
     var product = comp.value;
-    var url = 'http://bikestore/products/select?keyword=' + product;
+    var url = '/products/select?keyword=' + product;
     var component = comp;
 
     httpRequest = new XMLHttpRequest();

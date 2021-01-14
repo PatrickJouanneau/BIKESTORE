@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStaffs;
 use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
+use Exception;
+use Illuminate\Support\Facades\Log;
 
 class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 {
@@ -18,25 +20,29 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
     public function getAllStaffs()
     {
-        $resultBdd = DB::select("exec get_all_staffs");
+        try {
+            $resultBdd = DB::select("exec get_all_staffs");
 
-        $allStaffs = [];
-        foreach ($resultBdd as $i => $row) {
-            $staff = new SalesStaffs();
-            $staff->setStaffId($row->staff_id);
-            $staff->setFirstName($row->first_name);
-            $staff->setLastName($row->last_name);
-            $staff->setPhone($row->phone);
-            $staff->setEmail($row->email);
-            $staff->setActive($row->active);
-            $staff->setManagerId($row->manager_id);
+            $allStaffs = [];
+            foreach ($resultBdd as $i => $row) {
+                $staff = new SalesStaffs();
+                $staff->setStaffId($row->staff_id);
+                $staff->setFirstName($row->first_name);
+                $staff->setLastName($row->last_name);
+                $staff->setPhone($row->phone);
+                $staff->setEmail($row->email);
+                $staff->setActive($row->active);
+                $staff->setManagerId($row->manager_id);
 
-            $store = $this->storeDao->getStoreById($row->store_id);
-            $staff->setSalesStores($store);
+                $store = $this->storeDao->getStoreById($row->store_id);
+                $staff->setSalesStores($store);
 
-            array_push($allStaffs, $staff);
+                array_push($allStaffs, $staff);
+            }
+            return $allStaffs;
+        } catch (Exception $e) {
+            Log::error('$e');
         }
-        return $allStaffs;
     }
 
 
@@ -66,26 +72,31 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
     public function createStaff($staff)
     {
-        $resultBdd = DB::insert(
-            "INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
-            [
-                $staff->getFirstName(),
-                $staff->getLastName(),
-                $staff->getEmail(),
-                $staff->getPhone(),
-                $staff->getActive(),
-                $staff->getStoreId(),
-                $staff->getManagerId(),
-                $staff->getPassword(),
-                $staff->getProfil()
-            ]
-        );
+        try {
+            $resultBdd = DB::insert(
+                "INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    $staff->getFirstName(),
+                    $staff->getLastName(),
+                    $staff->getEmail(),
+                    $staff->getPhone(),
+                    $staff->getActive(),
+                    $staff->getStoreId(),
+                    $staff->getManagerId(),
+                    $staff->getPassword(),
+                    $staff->getProfil()
+                ]
+            );
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 
 
     public function updateStaff($staff)
     {
-        $resultBdd = DB::update("UPDATE sales.staffs SET
+        try {
+            $resultBdd = DB::update("UPDATE sales.staffs SET
             first_name = ?,
             last_name = ?,
             email = ?,
@@ -97,15 +108,21 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
             profil = ?
         WHERE staff_id = ?
         ", [
-            $staff->getFirstName(),
-            $staff->getLastName(),
-            $staff->getEmail(),
-            $staff->getPhone(),
-            $staff->getActive(),
-            $staff->getStoreId(),
-            $staff->getManagerId(),
-            $staff->getPassword(),
-            $staff->getProfil()
-        ]);
+                $staff->getFirstName(),
+                $staff->getLastName(),
+                $staff->getEmail(),
+                $staff->getPhone(),
+                $staff->getActive(),
+                $staff->getStoreId(),
+                $staff->getManagerId(),
+                $staff->getPassword(),
+                $staff->getProfil()
+            ]);
+        } catch (Exception $e) {
+            Log::error('$e');
+        }
     }
 }
+
+
+

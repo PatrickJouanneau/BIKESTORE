@@ -5,6 +5,7 @@ use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\ComplexRequestController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemsController;
@@ -75,7 +76,7 @@ Route::get('/customers/{customerId}/delete', [CustomerController::class, 'delete
 Route::get('/orders/json', [OrderController::class, 'allJsonOrd']);
 
 Route::get('/orderItems/json', [OrderItemsController::class, 'allJsonOrdItem']);
-Route::get('/orderStoreMonth/json', [OrderItemsController::class, 'getOrdStoreMonth']);
+Route::get('/orderStoreMonth/json', [ComplexRequestController::class, 'getOrdStoreMonth']);
 
 
 Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);

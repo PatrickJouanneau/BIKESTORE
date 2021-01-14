@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Models\Model;
+
 use App\Models\Model\ProdProducts;
 use JsonSerializable;
 
 class SalesOrderItems implements JsonSerializable
 {
-    private $orderId;
+    //private $orderId;
+    private $order;
     private $itemId;
     private $quantity;
     private $listPrice;
@@ -15,9 +17,9 @@ class SalesOrderItems implements JsonSerializable
     private ProdProducts $prodProduct;
 
 
-    public function getOrderId()
+    public function getOrder()
     {
-        return $this->orderId;
+        return $this->order;
     }
     public function getItemId()
     {
@@ -41,9 +43,9 @@ class SalesOrderItems implements JsonSerializable
     }
 
 
-    public function setOrderId($orderId)
+    public function setOrder($order)
     {
-        $this->orderId = $orderId;
+        $this->order = $order;
     }
     public function setItemId($itemId)
     {
@@ -69,7 +71,7 @@ class SalesOrderItems implements JsonSerializable
     public function jsonSerialize()
     {
         return [
-            "oId" => $this->orderId,
+            "order" => $this->order,
             "iId" => $this->itemId,
             "name" => $this->prodProduct->getProductName(),
             "qti" => $this->quantity,
