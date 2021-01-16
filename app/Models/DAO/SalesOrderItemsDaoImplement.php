@@ -4,10 +4,8 @@ namespace App\Models\DAO;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrderItems;
-use App\Models\DAO\SalesStoresDaoInterface;
-use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\DAO\ProdProductsDaoInterface;
-use App\Models\Model\ProdProducts;
+use App\Models\DAO\SalesOrdersDaoInterface;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -15,14 +13,12 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 {
     private $prodProduct;
     private $salesOrders;
-    private $salesStores;
-    private $salesStaff;
-    public function __construct(ProdProductsDaoInterface $prodProduct, SalesOrdersDaoInterface $salesOrders, SalesStoresDaoInterface $salesStores, SalesStaffsDaoInterface $salesStaffs)
+    public function __construct(
+        ProdProductsDaoInterface $prodProduct,
+        SalesOrdersDaoInterface $salesOrders)
     {
         $this->prodProduct = $prodProduct;
         $this->salesOrders = $salesOrders;
-        $this->salesStores = $salesStores;
-        $this->salesStaffs = $salesStaffs;
     }
 
 
@@ -33,9 +29,10 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         $listeOrderItems = [];
         foreach ($resultBdd as $i => $row) {
             $orderItem = new SalesOrderItems();
-            //$orderItem->setOrderId($row->order_id);
-            $order = $this->salesOrders->getOrderById($row->order_id);
-            $orderItem->setOrder($order);
+            $orderItem->setOrder($row->order_id);
+            //$order = $this->salesOrders->getOrderById($row->order_id);
+            //$orderItem->setSalesOrder($order);
+
             $orderItem->setItemId($row->item_id);
             $orderItem->setQuantity($row->quantity);
             $orderItem->setListPrice($row->list_price);
@@ -60,9 +57,10 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $allOrderItems = [];
             foreach ($resultBdd as $i => $row) {
                 $orderItem = new SalesOrderItems();
-                $order = $this->salesOrders->getOrderById($row->order_id);
-                $orderItem->setOrder($order);
-                //$orderItem->setOrderId($row->order_id);
+                $orderItem->setOrder($row->order_id);
+                //$order = $this->salesOrders->getOrderById($row->order_id);
+                //$orderItem->setSalesOrder($order);
+
                 $orderItem->setItemId($row->item_id);
                 $orderItem->setQuantity($row->quantity);
                 $orderItem->setListPrice($row->list_price);

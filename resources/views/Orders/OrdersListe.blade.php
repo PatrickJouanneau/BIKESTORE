@@ -3,7 +3,7 @@
 <table class="table table-sm table-hover">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col">Order</th>
             <th scope="col">Client</th>
             <th scope="col">Statut</th>
             <th scope="col">Date commande</th>
@@ -18,7 +18,7 @@
         @foreach ($orders as $o)
             <tr>
                 <th>{{ $o->getOrderId() }}</th>
-                <td>{{ $o->getSalesCustomers()->getLastName() }}</td>
+                <td>{{ $o->getSalesCustomers()->getLastName() }} {{ $o->getSalesCustomers()->getfirstName() }}</td>
                 <td>{{ $o->getOrderStatus() }}</td>
                 <td>{{ $o->getOrderdate() }}</td>
                 <td>{{ $o->getRequiredDate() }}</td>

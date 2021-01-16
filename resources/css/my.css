@@ -1,4 +1,4 @@
-.m-6{
+.m-6 {
     margin: 5rem !important;
 }
 
@@ -9,6 +9,21 @@
 .mt-6,
 .my-6 {
     margin-top: 5rem !important;
+}
+
+.mt-7,
+.my-7 {
+    margin-top: 8rem !important;
+}
+
+.mt-8,
+.my-8 {
+    margin-top: 9rem !important;
+}
+
+.mt-9,
+.my-9 {
+    margin-top: 10rem !important;
 }
 
 .pr-6,

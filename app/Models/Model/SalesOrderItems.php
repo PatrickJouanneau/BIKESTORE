@@ -4,6 +4,7 @@ namespace App\Models\Model;
 
 use App\Models\Model\ProdProducts;
 use JsonSerializable;
+use Ramsey\Uuid\Type\Integer;
 
 class SalesOrderItems implements JsonSerializable
 {
@@ -15,6 +16,7 @@ class SalesOrderItems implements JsonSerializable
     private $discount;
 
     private ProdProducts $prodProduct;
+    //private SalesOrders $salesOrder;
 
 
     public function getOrder()
@@ -70,13 +72,40 @@ class SalesOrderItems implements JsonSerializable
 
     public function jsonSerialize()
     {
+
+        $arr = [];
+
+        if ($this->order != null) {
+            $arr["order"] = $this->order;
+        }
+        if ($this->itemId != null) {
+            $arr["item"] = $this->itemId;
+        }
+        if (isset($this->prodProduct)) {
+            $arr["prod"] = $this->prodProduct;
+        }
+        if ($this->quantity != null) {
+            $arr["qti"] = $this->quantity;
+        }
+        if ($this->listPrice != null) {
+            $arr["price"] = $this->listPrice;
+        }
+        if ($this->discount != null)  {
+            $arr["disc"] = $this->discount;
+        }
+
+        return $arr;
+
+        /*
         return [
             "order" => $this->order,
-            "iId" => $this->itemId,
+            "item" => $this->itemId,
+            "proId" => $this->prodProduct->getProductId(),
             "name" => $this->prodProduct->getProductName(),
             "qti" => $this->quantity,
             "price" => $this->listPrice,
             "disc" => $this->discount
         ];
+        */
     }
 }

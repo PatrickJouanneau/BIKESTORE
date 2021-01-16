@@ -57,7 +57,7 @@ class BrandController extends Controller
             $brandsManager->deleteBrandById($id);
             return redirect('/success/');
         } catch (CategoryException $e) {
-            return view('error') . with(['message' => $e->getMessage()]);
+            return view('failure');
         }
     }
 

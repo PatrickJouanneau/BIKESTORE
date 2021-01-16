@@ -7,7 +7,7 @@
         <!-- Rangée extérieure -->
         <div class="row">
             <div class="col-lg-2"></div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 mt-6 ">
                 <div class="card border-primary mt-6">
                     <div class="card-body p-1">
                         <!-- Rangée imbriquée dans le corps de la carte -->
@@ -79,7 +79,7 @@
                                         <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="input">
+                                        <!--<input type="submit" class="btn btn-primary btn-user btn-block" value="input">-->
 
                                         <!--<a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
@@ -90,7 +90,7 @@
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Mot de passe oublié ?</a>
+                                        <a class="small" href="forgot-password.html">Mot de passe oublié  ?</a>
                                     </div>
                                 </div>
                             </div>

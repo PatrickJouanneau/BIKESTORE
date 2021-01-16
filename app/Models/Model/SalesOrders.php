@@ -6,7 +6,7 @@ use JsonSerializable;
 
 class SalesOrders implements JsonSerializable
 {
-    private  $orderId;
+    private $orderId;
     private $orderStatus;
     private $orderDate;
     private $requiredDate;

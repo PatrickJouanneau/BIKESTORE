@@ -14,7 +14,7 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <p class="mb-4">Chart.js est un plugin tiers qui est utilisé pour générer les graphiques de ce thème. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>. <a href="file:///D:/Cnam/.3L%20_38%20PHP%20-%20MVC/Th%C3%A9mesProjets/startbootstrap-sb-admin-2-gh-pages/charts.html">Visualisation qui est sur mon PC D:\Cnam\.3L _38 PHP - MVC\ThémesProjets\startbootstrap-sb-admin-2-gh-pages</a></p>
+          <!--<p class="mb-4">Chart.js est un plugin tiers qui est utilisé pour générer les graphiques de ce thème. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>. <a href="file:///D:/Cnam/.3L%20_38%20PHP%20-%20MVC/Th%C3%A9mesProjets/startbootstrap-sb-admin-2-gh-pages/charts.html">Visualisation qui est sur mon PC D:\Cnam\.3L _38 PHP - MVC\ThémesProjets\startbootstrap-sb-admin-2-gh-pages</a></p>-->
 
           <!-- Content Row -->
           <div class="row">
@@ -44,6 +44,7 @@
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
+                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
                     <canvas id="myCustomersYears"></canvas>
                   </div>
                 </div>

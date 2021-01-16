@@ -14,7 +14,7 @@ class StaffController extends Controller
     }
 
 
-    Public function createStf(StaffRequest $request, SalesStaffsManagerInterface $staffsManager)
+    public function createStf(StaffRequest $request, SalesStaffsManagerInterface $staffsManager)
     {
         $first = $request->input('first-name-stf');
         $last = $request->input('last-name-stf');
@@ -22,7 +22,7 @@ class StaffController extends Controller
         $tel = $request->input('phone-stf');
         $mag = $request->input('store-stf');
         $chef = $request->input('manager-stf');
-        $poste = $request->input('profif-stf');
+        $poste = $request->input('profil-stf');
         $actif = $request->input('active');
         $mp = $request->input('password');
 
@@ -41,4 +41,28 @@ class StaffController extends Controller
         return redirect('/success/');
     }
 
+    public function formUpdateStf(SalesStaffsManagerInterface $staffsManager)
+    {
+        $staff = $staffsManager->getAllStaffs();
+        return view('Staffs.StaffFormUpdate')->with(['staff' => $staff]);
+    }
+
+
+    public function updateStaff(StaffRequest $request, SalesStaffsManagerInterface $staffsManager, $staffId)
+    {
+        $staff = new SalesStaffs();
+        $staff->setStaffId($staffId);
+        $staff->setFirstName($request->input('first-name-stf'));
+        $staff->setLastName($request->input('last-name-stf'));
+        $staff->setEmail($request->input('email-stf'));
+        $staff->setPhone($request->input('phone-stf'));
+        $staff->setStoreId($request->input('store-stf'));
+        $staff->setManagerId($request->input('manager-stf'));
+        $staff->setProfil($request->input('profil-stf'));
+        $staff->setActive($request->input('active'));
+        $staff->setpassword($request->input('password'));
+
+        $staffsManager->updateStaff($staff);
+        return redirect('/success/');
+    }
 }

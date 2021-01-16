@@ -25,8 +25,8 @@
                 <td>{{  $staff->getManagerId() }}</td>
                 <td>{{  $staff->getActive() }}</td>
                 <td>
-                    <a href="{{-- url('/home/'.$staff->getStaffId().'/edit') --}}"><img src="img/wrench.svg" alt="clé"></a>&nbsp;&nbsp;
-                    <a href="{{-- url('/home/'.$staff->getStaffId().'/delete') --}}"><img src="img/trash.svg" alt="Poubelle"></a>
+                    <a href="{{ url('/staffs/'.$staff->getStaffId().'/edit') }}"><img src="img/wrench.svg" alt="clé"></a>&nbsp;&nbsp;
+                    <!--<a href="{{-- url('/home/'.$staff->getStaffId().'/delete') --}}"><img src="img/trash.svg" alt="Poubelle"></a>-->
                 </td>
             </tr>
         @endforeach

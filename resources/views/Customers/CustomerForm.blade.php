@@ -4,13 +4,13 @@
     @csrf
 
     <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("first-name") ? $errors->first("first-name") : "" }}</div>
+            <input id="first-name" name="first-name" type="text" class="form-control" placeholder="Prénom">
+        </div>
+        
+    <div class="form-marque pb-2">
         <div class="error">{{ $errors->has("last-name") ? $errors->first("last-name") : "" }}</div>
-        <input id="last-name" name="last-name" type="text" class="form-control" placeholder="Prénom">
-    </div>
-
-   <div class="form-marque pb-2">
-    <div class="error">{{ $errors->has("first-name") ? $errors->first("first-name") : "" }}</div>
-        <input id="first-name" name="first-name" type="text" class="form-control" placeholder="Nom">
+        <input id="last-name" name="last-name" type="text" class="form-control" placeholder="Nom">
     </div>
 
     <div class="form-marque pb-2">

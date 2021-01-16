@@ -3,8 +3,8 @@
 <table class="table table-sm table-hover">
     <thead>
         <tr>
-            <th scope="col">Order_id</th>
-            <th scope="col">Item_id</th>
+            <th scope="col">Order</th>
+            <th scope="col">Item</th>
             <th scope="col">Product_id</th>
             <th scope="col">Product Name</th>
             <th scope="col">Quantité</th>
@@ -15,7 +15,7 @@
     <tbody id="body-orderItem">
         @foreach ($orderItems as $oi)
             <tr>
-                <th>{{ $oi->getOrder()->getOrderId() }}</th>
+                <th>{{ $oi->getOrder() }}</th>
                 <td>{{ $oi->getItemId() }}</td>
                 <td>{{ $oi->getProdProduct()->getProductId() }}</td>
                 <td>{{ $oi->getProdProduct()->getProductName() }}</td>

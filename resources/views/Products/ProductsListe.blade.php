@@ -16,7 +16,7 @@
 
         @foreach($products as $prod)
             <tr>
-                <th>{{ $prod->getProductId() }}</th>
+                <th>{{-- $prod->getProductId() --}}</th>
                 <td>{{ $prod->getProductName() }}</td>
                 <td>{{ $prod->getModelYear() }}</td>
                 <td>{{ $prod->getProductBrand()->getBrandName() }}</td>

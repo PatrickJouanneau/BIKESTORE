@@ -1,9 +1,9 @@
 @extends('layouts/Layout')
 
-<body style="background-image: url(/img/couple-5709651_1920.jpg">
+<body style="background-image: url(/img/f3c39c89455520ea0fd627f7d66a8e74.jpg">
     <div class="container row">
         <div class="col-md-4"></div>
-            <div class="jumbotron border border-primary col-md-5 mt-6">
+            <div class="jumbotron border border-primary col-md-5 mt-9">
                 <div class="p-3">
                     <h4 class="pb-5" >MODIFICATION d'une marque <small> : </small><img src="/img/wrench.svg" alt="Clé"></h4>
 

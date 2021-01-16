@@ -63,6 +63,8 @@ class SalesCustomers extends Contact
     public function jsonSerialize()
     {
         return get_object_vars($this);
+
+
         /*$arr = [];
 
         if ($this->id != null) {

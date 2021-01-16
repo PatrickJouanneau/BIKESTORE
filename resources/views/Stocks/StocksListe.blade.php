@@ -15,7 +15,7 @@
 
         @foreach($stocks as $stock)
             <tr>
-                <th>{{ $stock->getProdProduct()->getProductId() }}</th>
+                <th>{{-- $stock->getProdProduct()->getProductId() --}}</th>
                 <td>{{ $stock->getProdProduct()->getProductName() }}</td>
                 <td>{{ $stock->getQuantity() }}</td>
                 <td>{{ $stock->getSalesStore()->getStoreName() }}</td>

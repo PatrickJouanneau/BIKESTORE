@@ -132,7 +132,7 @@
                                 var content = '';
                                 result.forEach(function (prod)
                                 {
-                                    content += '<tr><td>' + prod.id + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand + '</td><td>' + prod.category + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+                                    content += '<tr><td>' + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand + '</td><td>' + prod.category + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
                                 });
                                 $('#body-product').html(content);
                             }
@@ -146,7 +146,7 @@
             });
 
             /*---------------------------------------
-                        Alll Stiocks
+                        Alll Stocks
              --------------------------------------*/
             $(function ()
             {
@@ -163,7 +163,7 @@
                                 var content = '';
                                 result.forEach(function (stk)
                                 {
-                                    content += '<tr><td>' + stk.product.id + '</td><td>' + stk.product.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store.name + '</td><td>' + stk.product.year + '</td><td>' + stk.product.price + '</td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+                                    content += '<tr><td>' + '</td><td>' + stk.product.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store.name + '</td><td>' + stk.product.year + '</td><td>' + stk.product.price + '</td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
                                 });
                                 $('#body-stock').html(content);
                             }
@@ -194,7 +194,7 @@
                                 var content = '';
                                 result.forEach(function (cust)
                                 {
-                                    content += '<tr><td>' + cust.id + '</td><td>' + cust.nom + '</td><td>' + cust.prenom + '</td><td>' + cust.street + '</td><td>' + cust.city + '</td><td>' + cust.cp + '</td><td>' + cust.state + '</td><td>' + cust.phone + '</td><td>' + cust.mail + '</td> <td><a href="/customers/' + cust.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/customers/' + cust.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+                                    content += '<tr><td>' + '</td><td>' + cust.lastName + ' ' + cust.firstName + '</td><td>' + cust.street + '</td><td>' + cust.city + '</td><td>' + cust.zipCode + '</td><td>' + cust.state + '</td><td>' + cust.phone + '</td><td>' + cust.email + '</td> <td><a href="/customers/' + cust.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td>';
                                 });
                                 $('#body-customer').html(content);
                             }
@@ -207,6 +207,8 @@
                 });
             });
 
+
+
             /*---------------------------------------
                         Alll Orders
              ---------------------------------------*/
@@ -217,15 +219,18 @@
                     $.ajax({
                         url: "/orders/json",
                         type: 'GET',
+                        //data: 'orderby =' + lastName,
                         cache: false,
                         success: function success(result)
                         {
                             if (result)
                             {
+                                //result.sort(sortByLastName);
                                 var content = '';
                                 result.forEach(function (ord)
                                 {
-                                    content += '<tr><td>' + ord.id + '</td><td>' + ord.cust.lastName + " " + ord.cust.firstname + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
+                                    //ord.sort(sortByLastName);
+                                    content += '<tr><td>' +ord.id+ '</td><td>' + ord.cust.lastName + " " + ord.cust.firstname + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
                                 });
                                 $('#body-order').html(content);
                             }
@@ -237,6 +242,11 @@
                     });
                 });
             });
+
+            function sortByLastName(key1, key2)
+            {
+                return key1.lastName > key2.lastName;
+            }
 
             /*---------------------------------------
                         Alll Order-Items
@@ -256,7 +266,7 @@
                                 var content = '';
                                 result.forEach(function (orIte)
                                 {
-                                    content += '<tr><td>' + orIte.oId + '</td><td>' + orIte.iId + '</td><td>' + orIte.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + orIte.disc + '</td></tr>';
+                                    content += '<tr><td>' + orIte.order + '</td><td>' + orIte.item + '</td><td>' + orIte.prod.id + '</td><td>' + orIte.prod.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + orIte.disc *100 +' %'  + '</td></tr>';
                                 });
                                 $('#body-orderItem').html(content);
                             }
@@ -268,6 +278,7 @@
                     });
                 });
             });
+
 
             /***/
         }),

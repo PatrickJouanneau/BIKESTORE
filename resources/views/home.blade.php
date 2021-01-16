@@ -108,7 +108,9 @@
                                     </div>
                                 </div>
 
-                                <div class="card-header">{{ __('Tableau de bord') }}</div>
+                                <div class="card-header">
+                                    <h5>{{ __('Bienvenue sur votre tableau de bord') }}</h5>
+                                </div>
 
                                 <div class="card-body">
                                     @if (session('status'))
