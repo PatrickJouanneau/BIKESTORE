@@ -28,7 +28,11 @@
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
-                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
+                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a><br>
+                    <p class="float-right">Choisir un magasin :
+                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary ml-1">Baldwin Bikes</a>&nbsp;
+                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary ml-1">Rowlett Bikes</a>&nbsp;
+                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary">Santa Cruz Bikes</a></p>
                     <canvas id="myChart"></canvas>
                   </div>
                   <hr>

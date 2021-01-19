@@ -52,47 +52,25 @@ $('#test_test').on("click", function ()
             //var months = [];
             //var datas = [];
             var datasets = [];
-            /*
-            for (var h = 0; h < result.length; h++)
-            {
-
-                var prod = result[h];
-                if (!datasets.hasOwnProperty(prod.sales))
-                {
-                    datasets[prod.sales] = [];
-                };
-                */
             for (var i = 0; i < result.length; i++)
             {
                 var prod = result[i];
+                //if (!datasets.hasOwnProperty(prod.month))
                 if (!datasets.hasOwnProperty(prod.year))
                 {
+                    //datasets[prod.month] = [];
                     datasets[prod.year] = [];
                 };
-                //datasets[prod.year].push(prod.sales);
-
-                for (var k = 0; k < result.length; k++)
-                {
-                    var prod = result[k];
-                    if (!datasets.hasOwnProperty(prod.month))
-                    {
-                        datasets[prod.month] = [];
-                    };
-                    datasets[prod.month].push(prod.sales);
-
-                }
-
+                //datasets[prod.month].push(prod.sales);
+                datasets[prod.year].push(prod.sales);
             }
-            //}
-
             var i = 0;
             datasets.forEach(function (value, index)
             {
                 myChart2.data.datasets[i] = {
                     "label": index,
                     "data": value,
-                    "backgroundColor": getRandomColor(),
-                };
+                    "backgroundColor": [ "rgba(255, 99, 132, 0.4)", "rgba(0, 96, 255, 0.4)", "rgba(239, 108, 0, 0.4)"] };
                 i++;
             });
             /*for (var i = 0; i < datasets.length; i++)
@@ -135,13 +113,3 @@ $('#test_test').on("click", function ()
 });
 
 
-function getRandomColor()
-{
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++)
-    {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}

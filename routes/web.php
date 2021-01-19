@@ -106,7 +106,7 @@ Route::post('/error', [LoginController::class, 'login']);
 
 
 
-Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'formulaireLogin']);
+Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'FormulaireLogin']);
 
 Route::get('/fact', [\App\Http\Controllers\FactureController::class, 'facture']);
 

@@ -102,10 +102,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
     public function getStockById($storeId, $productId)
     {
-
         try {
-
-
             $resultBdd = DB::select("SELECT * FROM production.stocks WHERE store_id='" . $storeId . "'  and product_id='" . $productId . "'");
 
             $stock = new ProdStocks();
@@ -124,6 +121,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             $stock->setSalesStore($store);
 
             return $stock;
+
         } catch (Exception $e) {
             Log::error('$e');
         }

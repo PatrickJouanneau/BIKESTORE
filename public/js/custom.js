@@ -132,7 +132,7 @@
                                 var content = '';
                                 result.forEach(function (prod)
                                 {
-                                    content += '<tr><td>' + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand + '</td><td>' + prod.category + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+                                    content += '<tr><td>' + '</td><td>' + prod.name + '</td><td>' + prod.year + '</td><td>' + prod.brand.name + '</td><td>' + prod.category.name + '</td><td>' + prod.price + '</td> <td><a href="/products/' + prod.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/products/' + prod.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
                                 });
                                 $('#body-product').html(content);
                             }
@@ -163,7 +163,7 @@
                                 var content = '';
                                 result.forEach(function (stk)
                                 {
-                                    content += '<tr><td>' + '</td><td>' + stk.product.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store.name + '</td><td>' + stk.product.year + '</td><td>' + stk.product.price + '</td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/edit"><img src="img/wrench.svg" alt="clé"></a></td> <td><a href="/stocks/' + stk.store.id + '/' + stk.product.id + '/delete"><img src="img/trash.svg" alt=""></a></td></tr>';
+                                    content += '<tr><td>' + '</td><td>' + stk.product.name + '</td><td>' + stk.quantity + '</td><td>' + stk.store.name + '</td><td>' + stk.product.year + '</td><td>' + stk.product.price + '</td> </tr>';
                                 });
                                 $('#body-stock').html(content);
                             }
@@ -230,7 +230,7 @@
                                 result.forEach(function (ord)
                                 {
                                     //ord.sort(sortByLastName);
-                                    content += '<tr><td>' +ord.id+ '</td><td>' + ord.cust.lastName + " " + ord.cust.firstname + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
+                                    content += '<tr><td>' +ord.id+ '</td><td>' + ord.cust.lastName + " " + ord.cust.firstName + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
                                 });
                                 $('#body-order').html(content);
                             }
@@ -266,7 +266,7 @@
                                 var content = '';
                                 result.forEach(function (orIte)
                                 {
-                                    content += '<tr><td>' + orIte.order + '</td><td>' + orIte.item + '</td><td>' + orIte.prod.id + '</td><td>' + orIte.prod.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + orIte.disc *100 +' %'  + '</td></tr>';
+                                    content += '<tr><td>' + orIte.order + '</td><td>' + orIte.item + '</td><td>' + orIte.prod.id + '</td><td>' + orIte.prod.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + (orIte.disc *100).toFixed(0) +' %'  + '</td></tr>';
                                 });
                                 $('#body-orderItem').html(content);
                             }

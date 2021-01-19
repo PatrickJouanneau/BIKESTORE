@@ -1,7 +1,7 @@
 <div class="mb-5">
 
 
-<h4>Nouvelle mise en stock</h4>
+<h4>Mise stock</h4>
 
 
 <form name="form-stock" action="{{ url('stocks/create') }}" method="POST" class="mb-5">

@@ -2,13 +2,14 @@
 
 namespace App\Models\Model;
 
+use JsonSerializable;
 
-class ProdCategories
+class ProdCategories implements JsonSerializable
 {
     private $categoryId;
     private $categoryName;
 
-    
+
     public function getCategoryId()
     {
         return $this->categoryId;
@@ -26,5 +27,14 @@ class ProdCategories
     public function setCategoryName($categoryName)
     {
         $this->categoryName = $categoryName;
+    }
+
+
+    public function jsonSerialize()
+    {
+        return [
+            "id" => $this->categoryId,
+            "name" => $this->categoryName
+        ];
     }
 }

@@ -24,7 +24,7 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
         return [
-            "last-name"=> "required | string | max:25",
+            "last-name" => "required | string | max:25",
             "first-name"=> "required | string | max:25",
             "phone"     => "required",
             "email"     => "required | email",
@@ -39,9 +39,9 @@ class CustomerRequest extends FormRequest
     public function message()
     {
         return [
-            "last-name.required"   => "Le nom est requis !",
-            "last-name.string"     => "Le champ doit contenir que des lettres",
-            "last-name.max"        => "Le champ doit comporter moins de 25 caractères",
+            "last-name.required"    => "Le nom est requis !",
+            "last-name.string"      => "Le champ doit contenir que des lettres",
+            "last-name.max"         => "Le champ doit comporter moins de 25 caractères",
             "first-name.required"   => "Le nom est requis !",
             "first-name.string"     => "Le champ doit contenir que des lettres",
             "first-name.max"        => "Le champ doit comporter moins de 25 caractères",

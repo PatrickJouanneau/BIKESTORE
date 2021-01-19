@@ -14,6 +14,7 @@ class FormulaireLoginController extends Controller
 
     public function formulaireLogin() {
         return view('FormulaireLogin');
+        //return view('Staffs.StaffFormUpdate');
     }
 
 }
