@@ -104,11 +104,11 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
                 $order->setRequiredDate($row->required_date);
                 $order->setShippedDate($row->shipped_date);
 
-                $customer = $this->customerDao->getCustomerById($row->last_name);
+                $customer = $this->customerDao->getCustomerById($row->customer_id);
                 $order->setSalesCustomers($customer);
 
-                $customer = $this->customerDao->getCustomerById($row->first_name);
-                $order->setSalesCustomers($customer);;
+                /*$customer = $this->customerDao->getCustomerById($row->first_name);
+                $order->setSalesCustomers($customer);;*/
 
                 $store = $this->storeDao->getStoreById($row->store_id);
                 $order->setSalesStores($store);

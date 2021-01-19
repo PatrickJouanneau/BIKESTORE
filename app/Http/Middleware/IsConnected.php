@@ -17,7 +17,7 @@ class IsConnected
     public function handle(Request $request, Closure $next)
     {
         if(empty(session("connection"))){
-            return redirect('FormulaireLogin');
+            return redirect('formLogin');
         }
         return $next($request);
     }

@@ -4,7 +4,7 @@ namespace App\Models\Manager;
 
 use App\Exceptions\CategoryException;
 use App\Models\DAO\ProdBrandsDaoInterface;
-use app\Models\Manager\ProdBrandsManagerInterface;
+use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdBrands;
 

@@ -121,6 +121,7 @@
 
                                     {{ __('Vous êtes connecté !') }}
                                 </div>
+                                <div> <a href="{{ url('logout') }}"  >Se deconnecter</a></div>
                             </div>
                         </div>
                     </div>

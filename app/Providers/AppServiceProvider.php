@@ -21,6 +21,8 @@ use App\Models\DAO\SalesStaffsDaoImplement;
 use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\DAO\SalesStoresDaoImplement;
 use App\Models\DAO\SalesStoresDaoInterface;
+use App\Models\Manager\LoginManagerImplement;
+use app\Models\Manager\LoginManagerInterface;
 use App\Models\Manager\ProdBrandsManagerImplement;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerImplement;
@@ -69,6 +71,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesOrdersDaoInterface::class, SalesOrdersDaoImplement::class);
         $this->app->bind(SalesOrderItemsManagerInterface::class, SalesOrderItemsManagerImplement::class);
         $this->app->bind(SalesOrderItemsDaoInterface::class, SalesOrderItemsDaoImplement::class);
+        $this->app->bind(LoginManagerInterface::class, LoginManagerImplement::class);
     }
 
     /**
