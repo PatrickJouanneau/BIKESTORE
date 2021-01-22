@@ -28,10 +28,10 @@ var chartStockByBrand = new Chart(ctx, {
 
 $('#update_stock_by_brand').on("click", function ()
 {
-    test();
+    test_B();
 });
 
-var test = function ()
+var test_B = function ()
 {
 
     $.ajax({
@@ -45,6 +45,14 @@ var test = function ()
             {
                 var prod = result[i];
                 datasets[prod.brand_name] = prod.quantity;
+            }
+
+            var cat = 0;
+            var labels = [];
+
+            for (var cat = 0; cat <= 7; cat++)
+            {
+                    labels.push(prod.brand_name);
             }
 
             var indiceDataset = 0;
@@ -81,4 +89,4 @@ var test = function ()
         }
     });
 };
-test();
+test_B();

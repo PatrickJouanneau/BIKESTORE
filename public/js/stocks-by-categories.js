@@ -11,7 +11,7 @@ var chartStockByCtaegories = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: 'Stocks by brands'
+            text: 'Stocks by categories'
         },
         legend: {
             display: true
@@ -28,10 +28,10 @@ var chartStockByCtaegories = new Chart(ctx, {
 
 $('#update_stock_by_categories').on("click", function ()
 {
-    test();
+    test_C();
 });
 
-var test = function ()
+var test_C = function ()
 {
 
     $.ajax({
@@ -44,7 +44,21 @@ var test = function ()
             for (var i = 0; i < result.length; i++)
             {
                 var prod = result[i];
+
+                if (!datasets.hasOwnProperty(prod.category_name))
+                {
+                    datasets[prod.category_name] = [];
+                };
+
                 datasets[prod.category_name] = prod.quantity;
+            }
+
+            var cat = 0;
+            var labels = [];
+
+            for (var cat = 0; cat <= 7; cat++)
+            {
+                    labels.push(prod.category_name);
             }
 
             var indiceDataset = 0;
@@ -81,4 +95,4 @@ var test = function ()
         }
     });
 };
-test();
+test_C();

@@ -29,10 +29,10 @@ var chartOrderStoreWeek2016 = new Chart(ctx, {
 
 $('#update_order_store_week_2016').on("click", function ()
 {
-    test();
+    test_S6();
 });
 
-var test = function ()
+var test_S6 = function ()
 {
 
     $.ajax({
@@ -59,9 +59,7 @@ var test = function ()
                 datasets[prod.store][prod.year][prod.week] = prod.sales;
             }
 
-            var i = 0;
             var labels = [];
-
             for (var year = 2016; year <= 2016; year++)
             {
                 for (var week = 1; week <= 53; week++)
@@ -111,5 +109,5 @@ var test = function ()
         }
     });
 };
-test();
+test_S6();
 

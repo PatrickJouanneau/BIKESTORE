@@ -29,10 +29,10 @@ var chartOrderStaffYear = new Chart(ctx, {
 
 $('#update_order_staff_year').on("click", function ()
 {
-    test();
+    test_StaY();
 });
 
-var test = function ()
+var test_StaY = function ()
 {
 
     $.ajax({
@@ -59,9 +59,7 @@ var test = function ()
                 datasets[prod.staff][prod.year] = prod.sales;
             }
 
-            var i = 0;
             var labels = [];
-
             for (var year = 2016; year <= 2018; year++)
             {
                 labels.push(year);
@@ -103,5 +101,5 @@ var test = function ()
         }
     });
 };
-test();
+test_StaY();
 

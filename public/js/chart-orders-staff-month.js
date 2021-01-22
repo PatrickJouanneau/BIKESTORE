@@ -19,7 +19,8 @@ var chartOrderStaffMonth = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    callback: function(value, index, values) {
+                    callback: function (value, index, values)
+                    {
                         return '$ ' + value;
                     }
                 }
@@ -30,10 +31,11 @@ var chartOrderStaffMonth = new Chart(ctx, {
 
 $('#update_order_staff').on("click", function ()
 {
-    test();
+    test_StaM();
 });
 
-var test = function(){
+var test_StaM = function ()
+{
 
     $.ajax({
         url: "/orderStaffMonth/json",
@@ -61,29 +63,34 @@ var test = function(){
                 datasets[prod.staff][prod.year][prod.month] = prod.sales;
             }
 
-            var i = 0;
+
             var labels = [];
-
-            for(var year = 2016; year <= 2018; year ++){
-                for(var month = 1; month <=12 ; month ++){
-
+            for (var year = 2016; year <= 2018; year++)
+            {
+                for (var month = 1; month <= 12; month++)
+                {
                     labels.push(month + "/" + year);
                 }
             }
 
             var indiceDataset = 0;
-            for (key in datasets) {
+            for (key in datasets)
+            {
 
-                var dataset= [];
+                var dataset = [];
 
                 var lab = key;
                 var datas = [];
 
-                for(var year = 2016; year <= 2018; year ++){
-                    for(var month = 1; month <=12 ; month ++){
-                        if (datasets[lab].hasOwnProperty(year) && datasets[lab][year].hasOwnProperty(month)){
+                for (var year = 2016; year <= 2018; year++)
+                {
+                    for (var month = 1; month <= 12; month++)
+                    {
+                        if (datasets[lab].hasOwnProperty(year) && datasets[lab][year].hasOwnProperty(month))
+                        {
                             datas.push(datasets[key][year][month]);
-                        }else{
+                        } else
+                        {
                             datas.push("");
                         }
                     }
@@ -107,5 +114,5 @@ var test = function(){
         }
     });
 };
-test();
+test_StaM();
 

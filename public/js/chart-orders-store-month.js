@@ -29,10 +29,10 @@ var chartOrderStoreMonth = new Chart(ctx, {
 
 $('#update_order_store_month').on("click", function ()
 {
-    test();
+    test_SM();
 });
 
-var test = function ()
+var test_SM = function ()
 {
     $.ajax({
         url: "/orderStoreMonth/json",
@@ -58,9 +58,7 @@ var test = function ()
                 datasets[prod.store][prod.year][prod.month] = prod.sales;
             }
 
-            var i = 0;
             var labels = [];
-
             for (var year = 2016; year <= 2018; year++)
             {
                 for (var month = 1; month <= 12; month++)
@@ -110,7 +108,7 @@ var test = function ()
         }
     });
 };
-test();
+test_SM();
 
 
 
