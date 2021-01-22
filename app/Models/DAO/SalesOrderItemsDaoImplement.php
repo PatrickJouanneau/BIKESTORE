@@ -15,8 +15,8 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
     private $salesOrders;
     public function __construct(
         ProdProductsDaoInterface $prodProduct,
-        SalesOrdersDaoInterface $salesOrders)
-    {
+        SalesOrdersDaoInterface $salesOrders
+    ) {
         $this->prodProduct = $prodProduct;
         $this->salesOrders = $salesOrders;
     }
@@ -74,7 +74,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             }
             return $allOrderItems;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -103,7 +103,7 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
             return $orderItem;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -112,40 +112,31 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         try {
             return DB::select("SELECT count(*) AS count FROM sales.order_items WHERE product_id = " . $productId)[0]->count;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
 
     public function getOrdersStoreMonth()
     {
-        //try {
         return DB::select("exec dbo.get_orders_store_month");
-
-        //return $resultBdd;
-        //$allOrderStore = [];
-        /*foreach ($resultBdd as $i => $row) {
-            $order = new SalesOrderItems();
+    }
 
 
-            $order->setItemId($row->item_id);
-            $order->setQuantity($row->quantity);
-            $order->setListPrice($row->list_price);
-            $order->setDiscount($row->discount);
+    public function getOrdersStoreWeek()
+    {
+        return DB::select("exec dbo.get_orders_store_week");
+    }
 
-            $order = $this->salesOrders->getOrderById($row->order_id);
-            $order->setOrder($order);
 
-            //$store = $this->salesStores->getStoreById($row->store_id);
-            //$order->setSalesStores($store);
+    public function getOrdersStaffMonth()
+    {
+        return DB::select("exec dbo.get_orders_staffs_month");
+    }
 
-            array_push($allOrderStore, $order);
-       // }
-        return $allOrderStore;
-        //} catch (Exception $e) {
-        //  error_log($e);
-        //Log::error('$e');
-        //}
-        */
+
+    public function getOrdersStaffYear()
+    {
+        return DB::select("exec dbo.get_orders_staffs_years");
     }
 }

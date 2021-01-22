@@ -68,7 +68,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             return $listeStocks;
             */
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -94,7 +94,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             }
             return $allStocks;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -123,7 +123,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             return $stock;
 
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -136,7 +136,7 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
                 $stock->getQuantity()
             ]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -153,7 +153,23 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
                 $stocks->getQuantity(),
             ]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
+
+
+    public function getStockBrand()
+    {
+       try {
+        return DB::select("exec dbo.get_stock_by_brands");
+       } catch (Exception $e) {
+           Log::error($e);
+       }
+    }
+
+    public function getStockCategory()
+    {
+        return DB::select("exec dbo.get_stock_by_category");
+    }
+
 }

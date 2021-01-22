@@ -13,86 +13,138 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">Charts</h1>
-          <!--<p class="mb-4">Chart.js est un plugin tiers qui est utilisé pour générer les graphiques de ce thème. The charts below have been customized - for further customization options, please visit the <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>. <a href="file:///D:/Cnam/.3L%20_38%20PHP%20-%20MVC/Th%C3%A9mesProjets/startbootstrap-sb-admin-2-gh-pages/charts.html">Visualisation qui est sur mon PC D:\Cnam\.3L _38 PHP - MVC\ThémesProjets\startbootstrap-sb-admin-2-gh-pages</a></p>-->
+          <h1 class="h3 mb-4 text-gray-800">Représentation graphique des données</h1>
 
           <!-- Content Row -->
           <div class="row">
 
             <div class="col-xl-12 col-lg-7">
 
-              <!-- Bar Chart NO CODE CHART -->
+            <!-- COMMANDES PAR MAGASIN PAR MOIS -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Orders by years</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commandes par magasins et par mois</h4>
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
-                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a><br>
-                    <p class="float-right">Choisir un magasin :
-                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary ml-1">Baldwin Bikes</a>&nbsp;
-                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary ml-1">Rowlett Bikes</a>&nbsp;
-                    <a type="button" id="test_test" class="btn float-right btn-sm btn-outline-primary">Santa Cruz Bikes</a></p>
-                    <canvas id="myChart"></canvas>
+                    <a type="button" id="update_order_store_month" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a><br>
+                    <canvas id="chartOrderStoreMonth"></canvas>
                   </div>
                   <hr>
-                  <!--Le style du graphique en barres se trouve dans le
-                  <script>/js/demo/chart-bar-demo.js</script> file.-->
                 </div>
               </div>
 
-              <!-- Horizontal Bar Chart NO CODE CHART -->
+            <!-- COMMANDES PAR MAGASIN POUR 2016 -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Orders by customer/years</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commandes par magasins/semaines pour 2016</h4>
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
-                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
-                    <canvas id="myCustomersYears"></canvas>
+                    <a type="button" id="update_order_store_week_2016" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a><br>
+                    <canvas id="chartOrderStoreWeek2016"></canvas>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+            <!-- COMMANDES PAR MAGASIN POUR 2017 -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commandes par magasins/semaines pour 2017</h4>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <a type="button" id="update_order_store_week_2017" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a><br>
+                    <canvas id="chartOrderStoreWeek2017"></canvas>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <!-- COMMANDES PAR MAGASIN PAR SEMAINES -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commandes par magasins/semaines sur 3 ans</h4>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <a type="button" id="update_order_store_week" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a><br>
+                    <canvas id="chartOrderStoreWeek"></canvas>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+
+              <!-- COMMANDES PAR SALARIES PAR MOIS -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commandes par salariés et par mois</h4>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <a type="button" id="update_order_staff" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a><br>
+
+                    <canvas id="chartOrderStaffMonth"></canvas>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+
+              <!-- COMMANDES PAR SALARIES PAR ANS -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Commande par salariés par an</h4>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <a type="button" id="update_order_staff_year" class="btn float-right btn-sm btn-outline-primary">Actualisé le graphique</a>
+                    <canvas id="chartOrderStaffYear"></canvas>
+                  </div>
+                  <hr>
+                </div>
+              </div>
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp;  Stocks par marques</h4>
+                </div>
+                <div class="card-body">
+                  <div class="chart-bar">
+                    <!--<a type="button" id="test_myChartCopy" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>-->                    <canvas id="myCustomersYears"></canvas>
                   </div>
                 </div>
               </div>
 
+              <!-- STOCKS PAR MARQUES -->
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Stocks by brands</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Stocks par marques</h4>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-bar pt-4">
-                    <a type="button" id="test_test" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>
-                    <canvas id="myStockBrand"></canvas>
+                    <a type="button" id="update_stock_by_brand" class="btn float-right btn-sm btn-outline-primary">Charger le graphique</a>
+                    <canvas id="chartStockByBrand"></canvas>
                   </div>
                 </div>
               </div>
 
-            </div>
-
-            <!-- Donut Chart -->
-            <div class="col-xl-4 col-lg-5">
-
+              <!-- STOCKS PARCATEGORIES -->
               <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Stocks par catégories</h4>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  <div class="chart-pie pt-4">
-                    <canvas id="myPieChart"></canvas>
+                  <div class="chart-bar pt-4">
+                    <a type="button" id="update_stock_by_categories" class="btn float-right btn-sm btn-outline-primary">Charger le graphique</a>
+                    <canvas id="chartStockByCtaegories"></canvas>
                   </div>
-                  <hr>
-                  <!--Styling for the donut chart can be found in the
-                  <script>/js/demo/chart-pie-demo.js</script> file.-->
                 </div>
               </div>
 
             </div>
           </div>
-
         </div>
+
         <!-- /.container-fluid -->
 
       </div>
@@ -102,7 +154,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2020</span>
+            <span>Copyright &copy; Bike-Stores 2021</span>
           </div>
         </div>
       </footer>
@@ -112,31 +164,7 @@
     <!-- End of Content Wrapper -->
 
   </div>
-  <!-- End of Page Wrapper -->
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Bootstrap core JavaScript-->
   <!--<script src="vendor/jquery/jquery.min.js"></script>-->
@@ -156,9 +184,15 @@
   <!--<script src="js/demo/chart-pie-demo.js"></script>-->
   <!--<script src="js/demo/chart-bar-demo.js"></script>-->
 
-  <script src="js/chart-orders-by-years.js"></script>
+  <script src="js/chart-orders-store-month.js"></script>
+  <script src="js/chart-orders-store-week-2016.js"></script>
+  <script src="js/chart-orders-store-week-2017.js"></script>
+  <script src="js/chart-orders-store-week.js"></script>
+  <script src="js/chart-orders-staff-month.js"></script>
+  <script src="js/chart-orders-staff-year.js"></script>
   <script src="js/chart-orders-by-staffs-years.js"></script>
   <script src="js/stocks-by-brands.js"></script>
+  <script src="js/stocks-by-categories.js"></script>
 
 
 

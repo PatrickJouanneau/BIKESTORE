@@ -41,4 +41,17 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
         $this->stocksDao->updateStock($storeId, $productId);
     }
 
+
+    public function getStockBrand()
+    {
+        return $this->stocksDao->getStockBrand();
+    }
+
+
+    
+    public function getStockCategory()
+    {
+        return $this->stocksDao->getStockCategory();
+    }
+
 }

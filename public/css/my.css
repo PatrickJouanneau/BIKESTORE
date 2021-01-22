@@ -86,3 +86,8 @@ input[type=submit] {
     padding-right: 5rem !important;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color:#0668E8;
+    border-color: #3490dc;
+  }

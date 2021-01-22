@@ -10,4 +10,7 @@ interface SalesOrderItemsManagerInterface
     public function getAllOrderItems();
     public function countSalesOrderItemsWithProductId($productId);
     public function getOrdersStoreMonth();
+    public function getOrdersStoreWeek();
+    public function getOrdersStaffMonth();
+    public function getOrdersStaffyear();
 }

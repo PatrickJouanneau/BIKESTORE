@@ -11,5 +11,7 @@ interface ProdStocksDaoInterface
     public function getStockById($storeId, $productId);
     public function createStock($stocks, $storeId, $productId);
     public function updateStock(ProdStocks $stocks);
+    public function getStockBrand();
+    public function getStockCategory();
 
 }

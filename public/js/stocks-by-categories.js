@@ -1,8 +1,8 @@
 
-var ctx = document.getElementById('chartStockByBrand').getContext('2d');
+var ctx = document.getElementById('chartStockByCtaegories').getContext('2d');
 
 var dataLoaded;
-var chartStockByBrand = new Chart(ctx, {
+var chartStockByCtaegories = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
         labels: [""],
@@ -26,7 +26,7 @@ var chartStockByBrand = new Chart(ctx, {
     }
 });
 
-$('#update_stock_by_brand').on("click", function ()
+$('#update_stock_by_categories').on("click", function ()
 {
     test();
 });
@@ -35,7 +35,7 @@ var test = function ()
 {
 
     $.ajax({
-        url: "/stockByBrand/json",
+        url: "/stockByCategory/json",
         type: 'GET',
         cache: false,
         success: function success(result)
@@ -44,7 +44,7 @@ var test = function ()
             for (var i = 0; i < result.length; i++)
             {
                 var prod = result[i];
-                datasets[prod.brand_name] = prod.quantity;
+                datasets[prod.category_name] = prod.quantity;
             }
 
             var indiceDataset = 0;
@@ -62,7 +62,7 @@ var test = function ()
                 }
 
 
-                chartStockByBrand.data.datasets[indiceDataset] = {
+                chartStockByCtaegories.data.datasets[indiceDataset] = {
                     "label": lab,
                     "data": datas,
                     "backgroundColor": getRandomColor(),
@@ -71,8 +71,8 @@ var test = function ()
                 indiceDataset++;
             }
 
-            //chartStockByBrand.data.labels = labels;
-            chartStockByBrand.update();
+            //chartStockByCtaegories.data.labels = labels;
+            chartStockByCtaegories.update();
         }
         ,
         error: function error()

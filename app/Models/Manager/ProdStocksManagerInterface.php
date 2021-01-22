@@ -11,4 +11,6 @@ interface ProdStocksManagerInterface
     public function getStockById($storeId, $productId);
     public function createStock($stocks, $storeId, $productId);
     public function updateStock($storeId, $productId);
+    public function getStockBrand();
+    public function getStockCategory();
 }

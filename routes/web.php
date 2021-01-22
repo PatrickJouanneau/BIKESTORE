@@ -7,13 +7,15 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ComplexRequestController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FormulaireLoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemsController;
-use App\Http\Controllers\ProductAutocompleteController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StockController;
 use Illuminate\Support\Facades\Route;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['is_connected'], function () {
-    
+Route::group(['middleware' => ['is_connected']], function () {
+
 
     Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
     Route::post('/brands/create', [BrandController::class, 'createBrd']);
@@ -70,6 +72,11 @@ Route::group(['middleware' => ['is_connected'], function () {
 
     Route::get('/orderItems/json', [OrderItemsController::class, 'allJsonOrdItem']);
     Route::get('/orderStoreMonth/json', [ComplexRequestController::class, 'getOrdStoreMonth']);
+    Route::get('/orderStoreWeek/json', [ComplexRequestController::class, 'getOrdStoreWeek']);
+    Route::get('/orderStaffMonth/json', [ComplexRequestController::class, 'getOrdStaffMonth']);
+    Route::get('/orderStaffYear/json', [ComplexRequestController::class, 'getOrdStaffYear']);
+    Route::get('/stockByBrand/json', [ComplexRequestController::class, 'getStkBrand']);
+    Route::get('/stockByCategory/json', [ComplexRequestController::class, 'getStkCat']);
 
 
     Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
@@ -91,13 +98,13 @@ Route::group(['middleware' => ['is_connected'], function () {
     //Route::get('/success/{tabActive}', [HomeController::class, 'success']);
     Route::get('/failure', [HomeController::class, 'failure']);
 
-    
+
     Route::get('/fact', [\App\Http\Controllers\FactureController::class, 'facture']);
 
     Route::get('/1', [BikeController::class, 'categories']);
-    Route::get('/2', [\App\Http\Controllers\BikeController::class, 'order']);
-    Route::get('/3', [\App\Http\Controllers\BikeController::class, 'bonjour']);
-    Route::get('/5', [\App\Http\Controllers\BikeController::class, 'accueil']);
+    Route::get('/2', [BikeController::class, 'order']);
+    Route::get('/3', [BikeController::class, 'bonjour']);
+    Route::get('/5', [BikeController::class, 'accueil']);
     Route::get('/info', [HomeController::class, 'phpinfo']);
     Route::get('/6', [\App\Http\Controllers\BikeController::class, 'home']);
     Route::get('/pdf', [\App\Http\Controllers\BikeController::class, 'pdf']);
@@ -105,9 +112,9 @@ Route::group(['middleware' => ['is_connected'], function () {
 });
 
 
-Route::get('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'FormulaireLogin']);
-Route::post('/formLogin', [\App\Http\Controllers\FormulaireLoginController::class, 'login']);
-Route::get('/logout', [\App\Http\Controllers\FormulaireLoginController::class, 'logout']);
+Route::get('/formLogin', [FormulaireLoginController::class, 'FormulaireLogin']);
+Route::post('/formLogin', [FormulaireLoginController::class, 'login']);
+Route::get('/logout', [FormulaireLoginController::class, 'logout']);
 
 
 

@@ -39,4 +39,22 @@ class SalesOrderItemsManagerImplement implements SalesOrderItemsManagerInterface
     {
         return $this->orderItemDao->getOrdersStoreMonth();
     }
+
+
+    public function getOrdersStoreWeek()
+    {
+        return $this->orderItemDao->getOrdersStoreWeek();
+    }
+
+
+    public function getOrdersStaffMonth()
+    {
+        return $this->orderItemDao->getOrdersStaffMonth();
+    }
+
+
+    public function getOrdersStaffYear()
+    {
+        return $this->orderItemDao->getOrdersStaffYear();
+    }
 }

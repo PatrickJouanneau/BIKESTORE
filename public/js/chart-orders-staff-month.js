@@ -1,8 +1,8 @@
-/* Shéma des commandes par années */
-var ctx = document.getElementById('myChart').getContext('2d');
+
+var ctx = document.getElementById('chartOrderStaffMonth').getContext('2d');
 
 var dataLoaded;
-var myChart2 = new Chart(ctx, {
+var chartOrderStaffMonth = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: [""],
@@ -11,7 +11,7 @@ var myChart2 = new Chart(ctx, {
     options: {
         title: {
             display: true,
-            text: 'Orders by store for 2016'
+            text: 'Orders by staffs and by months'
         },
         legend: {
             display: true
@@ -19,14 +19,16 @@ var myChart2 = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    callback: function(value, index, values) {
+                        return '$ ' + value;
+                    }
                 }
             }]
         }
     }
 });
 
-$('#test_test').on("click", function ()
+$('#update_order_staff').on("click", function ()
 {
     test();
 });
@@ -34,7 +36,7 @@ $('#test_test').on("click", function ()
 var test = function(){
 
     $.ajax({
-        url: "/orderStoreMonth/json",
+        url: "/orderStaffMonth/json",
         type: 'GET',
         cache: false,
         success: function success(result)
@@ -44,19 +46,19 @@ var test = function(){
             {
                 var prod = result[i];
 
-                if (!datasets.hasOwnProperty(prod.store))
+                if (!datasets.hasOwnProperty(prod.staff))
                 {
-                    datasets[prod.store] = [];
+                    datasets[prod.staff] = [];
                 };
 
-                if (!datasets[prod.store].hasOwnProperty(prod.year))
+                if (!datasets[prod.staff].hasOwnProperty(prod.year))
                 {
-                    datasets[prod.store][prod.year] = [];
+                    datasets[prod.staff][prod.year] = [];
                 };
 
 
 
-                datasets[prod.store][prod.year][prod.month] = prod.sales;
+                datasets[prod.staff][prod.year][prod.month] = prod.sales;
             }
 
             var i = 0;
@@ -64,7 +66,7 @@ var test = function(){
 
             for(var year = 2016; year <= 2018; year ++){
                 for(var month = 1; month <=12 ; month ++){
-                
+
                     labels.push(month + "/" + year);
                 }
             }
@@ -87,16 +89,16 @@ var test = function(){
                     }
                 }
 
-                myChart2.data.datasets[indiceDataset] = {
+                chartOrderStaffMonth.data.datasets[indiceDataset] = {
                     "label": lab,
                     "data": datas,
                     "backgroundColor": getRandomColor(),
                 };
                 indiceDataset++;
             }
-            
-            myChart2.data.labels = labels;
-            myChart2.update();
+
+            chartOrderStaffMonth.data.labels = labels;
+            chartOrderStaffMonth.update();
         }
         ,
         error: function error()
@@ -107,13 +109,3 @@ var test = function(){
 };
 test();
 
-function getRandomColor()
-{
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++)
-    {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}

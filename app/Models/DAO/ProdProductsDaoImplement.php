@@ -52,7 +52,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             }
             return $listProducts;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -81,7 +81,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             }
             return $allProducts;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -107,7 +107,6 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             $product->setProductBrand($brand);
 
             return $product;
-
         } catch (Exception $e) {
             error_log($e);
             Log::error($e);
@@ -122,7 +121,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
         try {
             return DB::select("SELECT count(*) AS count FROM production.products WHERE category_id = " . $categoryId)[0]->count;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -133,7 +132,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
         try {
             return DB::select("SELECT count(*) AS count FROM production.products WHERE brand_id = " . $brandId)[0]->count;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -154,7 +153,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
                 ]
             );
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -179,7 +178,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
                 $products->getProductId()
             ]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -189,7 +188,7 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
         try {
             $resultBdd = DB::delete("DELETE FROM production.products WHERE product_id = ? ", [$productId]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -210,11 +209,9 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
             }
             return $allProducts;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
-
-
 }
 
 

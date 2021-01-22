@@ -11,4 +11,7 @@ interface SalesOrderItemsDaoInterface
     public function getOrderItem($itemId);
     public function countSalesOrderItemsWithProductId(ProdProducts $productId);
     public function getOrdersStoreMonth();
+    public function getOrdersStoreWeek();
+    public function getOrdersStaffMonth();
+    public function getOrdersStaffYear();
 }

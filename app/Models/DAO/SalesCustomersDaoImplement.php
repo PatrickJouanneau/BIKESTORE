@@ -33,7 +33,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             }
             return $listeCustomers;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -61,7 +61,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             }
             return $allCustomers;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -88,7 +88,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
             return $customer;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -119,7 +119,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
                 ]
             );
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -148,7 +148,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
                 $customer->getCustomerId()
             ]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 }

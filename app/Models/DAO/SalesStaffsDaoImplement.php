@@ -41,7 +41,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
             }
             return $allStaffs;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -88,7 +88,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                 ]
             );
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -119,10 +119,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                 $staff->getProfil()
             ]);
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 }
-
-
-

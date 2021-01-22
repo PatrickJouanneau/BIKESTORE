@@ -24,11 +24,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
                 array_push($allCategories, $category);
             }
             return $allCategories;
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 
 
@@ -44,11 +42,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
             $category->setCategoryName($resultBdd['category_name']);
 
             return $category;
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 
 
@@ -56,11 +52,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     {
         try {
             DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$categories->getCategoryName()]);
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 
 
@@ -68,11 +62,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     {
         try {
             DB::update("UPDATE production.categories set category_name = ? WHERE category_id = ?", [$categories->getCategoryName(), $categories->getCategoryId()]);
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 
 
@@ -81,10 +73,8 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     {
         try {
             DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 }

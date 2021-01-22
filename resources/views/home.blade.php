@@ -104,24 +104,26 @@
                                     <!--<img class="mr-3" width="80" height="80" alt="Avatar" src="" >-->
                                     <div class="media-body">
                                         <h3 class="mb-0">Bonjour {{ __('John Doe,') }}</h3>
-                                        <p class="text-muted mb-0">{{ __('Admin') }}</p>
+
+
+                                        <div class="card-body">
+                                            <p class="text-muted mb-0">{{ __('Admin') }}</p>
+                                            @if (session('status'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{ session('status') }}
+                                            </div>
+                                            @endif
+
+                                            {{ __('Vous êtes connecté !') }}
+                                            <br><br>
+                                            <div><a href="{{ url('logout') }}" class="btn  btn-sm btn-outline-primary" >Se deconnecter</a></div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="card-header">
-                                    <h5>{{ __('Bienvenue sur votre tableau de bord') }}</h5>
+                                    <h4 class="text-center text-primary">{{ __('Bienvenue sur votre tableau de bord') }}</h4>
                                 </div>
-
-                                <div class="card-body">
-                                    @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                    @endif
-
-                                    {{ __('Vous êtes connecté !') }}
-                                </div>
-                                <div> <a href="{{ url('logout') }}"  >Se deconnecter</a></div>
                             </div>
                         </div>
                     </div>
@@ -345,7 +347,7 @@
                                                     <div class="tab-content">
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
-                                                                <h4>This is home title</h4>
+                                                                <h4 class="mt-4"></h4>
                                                                 @include('Reporting/Charts')
 
                                                             </div>

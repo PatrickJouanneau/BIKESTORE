@@ -31,7 +31,7 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
             }
             return $allStores;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -56,7 +56,7 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
 
             return $store;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 }

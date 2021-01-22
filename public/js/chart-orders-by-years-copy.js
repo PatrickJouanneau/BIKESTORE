@@ -1,8 +1,8 @@
 /* Shéma des commandes par années */
-var ctx = document.getElementById('myChart').getContext('2d');
+var ctx = document.getElementById('myChartCopy').getContext('2d');
 
 var dataLoaded;
-var myChart2 = new Chart(ctx, {
+var myChartCopy = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["2016", "2017", "2018"],
@@ -40,7 +40,7 @@ var myChart2 = new Chart(ctx, {
     }
 });
 
-$('#test_test').on("click", function ()
+$('#test_myChartCopy').on("click", function ()
 {
     $.ajax({
         url: "/orderStoreMonth/json",
@@ -64,19 +64,23 @@ $('#test_test').on("click", function ()
                 //datasets[prod.month].push(prod.sales);
                 datasets[prod.year].push(prod.sales);
             }
+
+            /*
             var i = 0;
             datasets.forEach(function (value, index)
             {
-                myChart2.data.datasets[i] = {
+                myChartCopy.data.datasets[i] = {
                     "label": index,
                     "data": value,
-                    "backgroundColor": [ "rgba(255, 99, 132, 0.4)", "rgba(0, 96, 255, 0.4)", "rgba(239, 108, 0, 0.4)"] };
+                    "backgroundColor": getRandomColor() };
                 i++;
             });
+            */
+
             /*for (var i = 0; i < datasets.length; i++)
             {
 
-                 myChart2.data.datasets[i] = { "label": datasets[i], "data": ["148586.75", "17533.83", "80495.49"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
+                 myChartCopy.data.datasets[i] = { "label": datasets[i], "data": ["148586.75", "17533.83", "80495.49"], "backgroundColor": "rgba(255, 99, 132, 0.4)" },
                 /*{
                     "label": months,
                     "data": datas,
@@ -90,7 +94,7 @@ $('#test_test').on("click", function ()
             /*for (var i = 0; i < 12; i++)
             {
                 var prod = result[i];
-                myChart2.data.datasets[i] = {
+                myChartCopy.data.datasets[i] = {
                     "label": "?" + prod.id, "data": [prod.year, i], "backgroundColor": "rgba(158, 102, 255, 0.2)"
                 };
             };*/
@@ -102,7 +106,7 @@ $('#test_test').on("click", function ()
                 }
             });*/
             //myChart.data.labels[5] = "Newly Added";
-            myChart2.update();
+            myChartCopy.update();
         }
         ,
         error: function error()

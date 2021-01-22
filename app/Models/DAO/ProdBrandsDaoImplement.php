@@ -12,31 +12,30 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
     public function getAllBrands()
     {
-       try {
-        $bdd = DB::getPdo();
-        $reponse = $bdd->query("SELECT * FROM production.brands ORDER BY brand_name");
-        $resultBdd = $reponse->fetchAll();
+        try {
+            $bdd = DB::getPdo();
+            $reponse = $bdd->query("SELECT * FROM production.brands ORDER BY brand_name");
+            $resultBdd = $reponse->fetchAll();
 
-        $allBrands = [];  // je crée une variable $allBrands de type tableau
+            $allBrands = [];  // je crée une variable $allBrands de type tableau
 
-        // Ensuite je parcours les résultats de la requête stockée dans $resultBdd
-        foreach ($resultBdd as $i => $row) {
-            // A chaque exécution de la boucle, je crée une variable $brand,
-            // et on instancie un objet ProdBrands que l'on place dans la variable $brand
-            $brand = new ProdBrands();
-            // $brand contientl'instance de de l'objet ProdBrand (La variable $brand est de type ProdBrands)
+            // Ensuite je parcours les résultats de la requête stockée dans $resultBdd
+            foreach ($resultBdd as $i => $row) {
+                // A chaque exécution de la boucle, je crée une variable $brand,
+                // et on instancie un objet ProdBrands que l'on place dans la variable $brand
+                $brand = new ProdBrands();
+                // $brand contientl'instance de de l'objet ProdBrand (La variable $brand est de type ProdBrands)
 
-            // Ensuite on rempli les valeurs de $brand (qui est de type ProdBrand) grace aux valeurs retournées par la requêtes sql.
-            $brand->setBrandId($row['brand_id']);
-            $brand->setBrandName($row['brand_name']);
-            // On insère la variable $brand (qui est de type ProdBrands) dans le tableau $allbrands définit avant la boucle foreach.
-            array_push($allBrands, $brand);
+                // Ensuite on rempli les valeurs de $brand (qui est de type ProdBrand) grace aux valeurs retournées par la requêtes sql.
+                $brand->setBrandId($row['brand_id']);
+                $brand->setBrandName($row['brand_name']);
+                // On insère la variable $brand (qui est de type ProdBrands) dans le tableau $allbrands définit avant la boucle foreach.
+                array_push($allBrands, $brand);
+            }
+            return $allBrands;
+        } catch (Exception $e) {
+            Log::error($e);
         }
-        return $allBrands;
-
-       } catch (Exception $e){
-           Log::error('$e');
-       }
     }
 
 
@@ -53,7 +52,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
             return $brand;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -63,9 +62,8 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     {
         try {
             $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
-
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
     }
 
@@ -73,10 +71,9 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     {
         try {
             $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 
 
@@ -84,9 +81,8 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     {
         try {
             $resultBdd = DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
-        } catch (Exception $e){
-            Log::error('$e');
+        } catch (Exception $e) {
+            Log::error($e);
         }
-
     }
 }

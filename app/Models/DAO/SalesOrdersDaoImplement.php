@@ -83,7 +83,7 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
             }
             return $listeOrders;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 
@@ -152,7 +152,7 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 
             return $order;
         } catch (Exception $e) {
-            Log::error('$e');
+            Log::error($e);
         }
     }
 }
