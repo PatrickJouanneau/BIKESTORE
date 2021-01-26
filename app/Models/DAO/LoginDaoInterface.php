@@ -1,12 +1,11 @@
 <?php
 
-namespace app\Models\Manager;
+namespace App\Models\DAO;
 
 use App\Models\Model\Login;
 
 
-
-interface LoginManagerInterface
+interface LoginDaoInterface
 {
     public function login($email, $password);
 }

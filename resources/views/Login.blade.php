@@ -55,7 +55,7 @@
                                         @csrf
                                         <div class="form-group">
                                             <div class="error">{{ $errors->has('email') ? $errors->first('email') : ''  }}</div>
-                                            <input type="email" name="email" class="form-control form-control-user" id="username" aria-describedby="emailHelp" placeholder="Identifiant...">
+                                            <input type="email" name="email" class="form-control form-control-user" id="email-log" aria-describedby="emailHelp" placeholder="Identifiant...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password" class="form-control form-control-user" id="password" placeholder="Mot de passe">

@@ -28,4 +28,19 @@ class SalesStoresManagerImplement implements SalesStoresManagerInterface
     {
         return $this->storeDao->getStoreById($storeId);
     }
+
+
+
+    
+    public function createStore(SalesStores $stores)
+    {
+        $this->storeDao->createStore($stores);
+    }
+
+
+
+    public function updateStore(SalesStores $stores)
+    {
+        $this->storeDao->updateStore($stores);
+    }
 }

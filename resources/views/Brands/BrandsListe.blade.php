@@ -14,7 +14,7 @@
                 <th>{{ $brand->getBrandId() }}</th>
                 <td>{{ $brand->getBrandName() }}</td>
                 <td>
-                    <a href="{{ url('/brands/'.$brand->getBrandId().'/edit') }}"><img src="img/wrench.svg" alt="Clé"></a>&nbsp;&nbsp;
+                    <a href="{{ url('/brands/'.$brand->getBrandId().'/edit') }}"><img src="img/wrench.svg" alt="Clé"><i class="bi bi-wrench"></i></a>&nbsp;&nbsp;
                     <a href="{{ url('/brands/'.$brand->getBrandId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
                 </td>
             </tr>

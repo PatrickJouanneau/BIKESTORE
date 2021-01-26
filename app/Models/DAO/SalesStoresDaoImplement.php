@@ -59,4 +59,55 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
             Log::error($e);
         }
     }
+
+
+
+    public function createStore(SalesStores $stores)
+    {
+        try {
+            DB::insert(
+                "INSERT INTO sales.stores (store_name, phone, email, street, city, state, zip_code)
+        VALUE (?, ?, ?, ?, ?, ?, ? )",
+                [
+                    $stores->getStoreName(),
+                    $stores->getPhone(),
+                    $stores->getEmail(),
+                    $stores->getStreet(),
+                    $stores->getCity(),
+                    $stores->getState(),
+                    $stores->getZipCode()
+                ]
+            );
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
+
+
+
+    public function updateStore(SalesStores $stores)
+    {
+        try {
+            DB::update("UPDATE sales.stores SET
+            store_name ?,
+            phone ?,
+            email ?,
+            street ?,
+            city ?,
+            state ?,
+            zip_code ?
+        WHERE store_id = ?
+        ", [
+                $stores->getStoreName(),
+                $stores->getPhone(),
+                $stores->getEmail(),
+                $stores->getStreet(),
+                $stores->getCity(),
+                $stores->getState(),
+                $stores->getZipCode()
+            ]);
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+    }
 }

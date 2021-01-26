@@ -7,7 +7,7 @@
                 <div class="p-3">
                     <h4 class="pb-5" >MODIFICATION d'un utilisateur <small> : </small><img src="/img/wrench.svg" alt="Clé"></h4>
 
-                    <form class="staff-create" action="{{ url('staffs/create') }}" method="POST">
+                    <form class="staff-create" action="{{ !empty($staff) ? url('/staffs/'.$staff->getStaffId().'/edit') :url('staffs/create') }}" method="POST">>
                         @csrf
                         <div class="form-group">
                             <div class="error">{{ $errors->has("first-name-stf") ? $errors->first("first-name-stf") : "" }}</div>
@@ -31,10 +31,14 @@
 
                         <div class="form-group">
                             <div class="error">{{ $errors->has("store-stf") ? $errors->first("store-stf") : "" }}</div>
-                            <select id="store-stf-up" name="store-stf" class="form-control" value="{{ old('magasin') }}" required>
-                                <option>value="{{ !empty($staff->getStoreId()) ? $staff->getstore()  : "" }}"></option>
+
+                            <select id="store-stf-up" name="store-stf" class="form-control" required>
+                                <option>Magasin</option></option>
+
                             @foreach ($stores as $store)
-                                <option value="{{ $staff->getStoreId() }}">{{ $staff->getStoreName() }}</option>
+
+                                <option value="{{ $store->getStoreId() }}" {{ !empty($sales->getSalesStores()   ->getStoreId()) && $sales->getSalesStores()->getStoreId() ==  $store->getStoreId   () ? "selected" : "" }}>{{ $store->getstoreName() }}</option>
+
                             @endforeach
                             </select>
                         </div>
@@ -42,10 +46,13 @@
                         <div class="form-group">
                             <div class="error">{{ $errors->has("manager-stf") ? $errors->first("manager-stf") : "" }}</div>
                             <select id="manager-stf-up" name="manager-stf" class="form-control" value="{{ old('manager') }}" required>
+
                                 <option>value="{{ !empty($staff->getManagerId()) ? $staff->getFirstName()  : "" }}"></option>
+
                             @foreach ($staffs as $staff)
                                 <option value="{{ $staff->getManagerId() }}">{{ $staff->getFirstName() }} {{ $staff->getLastName() }}</option>
                             @endforeach
+
                             </select>
                         </div>
 
@@ -77,8 +84,8 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="error">{{ $errors->has("password-bis") ? $errors->first("password-bis") : "" }}</div>
-                            <input id="password-bis-up" name="password-bis" type="password" class="form-control form-control-user"   placeholder="Confirmer le mot de passe">
+                            <div class="error">{{ $errors->has("passwordBis") ? $errors->first("passwordBis") : "" }}</div>
+                            <input id="passwordBis-up" name="passwordBis" type="password" class="form-control form-control-user"   placeholder="Confirmer le mot de passe">
                         </div>
 
                         <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>

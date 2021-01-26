@@ -1,18 +1,19 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
+
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ComplexRequestController;
 use App\Http\Controllers\CustomerController;
-use App\Http\Controllers\FormulaireLoginController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -84,8 +85,10 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::get('/staffs/{staffId}/edit', [StaffController::class, 'formUpdateStf']);
     Route::post('/staffs/{staffId}/edit', [StaffController::class, 'updateStf']);
 
-
-
+    Route::get('/stores/create', [StoreController::class, 'formCreateStr']);
+    Route::post('/stores/create', [StoreController::class, 'createStr']);
+    Route::get('/stores/{storeId}/edit', [StoreController::class, 'formUpdateStr']);
+    Route::get('/stores/{storeId}/edit', [StoreController::class, 'updateStr']);
 
 
 
@@ -108,13 +111,12 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::get('/info', [HomeController::class, 'phpinfo']);
     Route::get('/6', [\App\Http\Controllers\BikeController::class, 'home']);
     Route::get('/pdf', [\App\Http\Controllers\BikeController::class, 'pdf']);
-
 });
 
 
-Route::get('/formLogin', [FormulaireLoginController::class, 'FormulaireLogin']);
-Route::post('/formLogin', [FormulaireLoginController::class, 'login']);
-Route::get('/logout', [FormulaireLoginController::class, 'logout']);
+Route::get('/formLogin', [LoginController::class, 'FormulaireLogin']);
+Route::post('/formLogin', [LoginController::class, 'login']);
+Route::get('/logout', [LoginController::class, 'logout']);
 
 
 

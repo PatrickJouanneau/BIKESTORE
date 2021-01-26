@@ -5,7 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStaffs;
 use App\Models\DAO\SalesStaffsDaoInterface;
-use App\Models\Manager\SalesStaffsManagerInterface;
+use App\Models\DAO\SalesStoresDaoInterface;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -17,6 +17,8 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     ) {
         $this->storeDao = $storeDao;
     }
+
+
 
     public function getAllStaffs()
     {
@@ -62,7 +64,10 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         $staff->setPhone($resultBdd['phone']);
         $staff->setEmail($resultBdd['email']);
         $staff->setActive($resultBdd['active']);
-        $staff->setStoreId($resultBdd['store_id']);
+
+        $store = $this->storeDao->getStoreById($resultBdd['store_id']);
+        $staff->setSalesStores($store);
+
         $staff->setManagerId($resultBdd['manager_id']);
 
         return $staff;
@@ -73,15 +78,15 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     public function createStaff($staff)
     {
         try {
-            $resultBdd = DB::insert(
-                "INSERT INTO sales.staffs (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+            DB::insert("INSERT INTO sales.staffs
+            (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [
                     $staff->getFirstName(),
                     $staff->getLastName(),
                     $staff->getEmail(),
                     $staff->getPhone(),
                     $staff->getActive(),
-                    $staff->getStoreId(),
+                    $staff->getSalesStores()->getStoreId(),
                     $staff->getManagerId(),
                     $staff->getPassword(),
                     $staff->getProfil()
@@ -96,7 +101,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     public function updateStaff($staff)
     {
         try {
-            $resultBdd = DB::update("UPDATE sales.staffs SET
+            DB::update("UPDATE sales.staffs SET
             first_name = ?,
             last_name = ?,
             email = ?,
@@ -113,7 +118,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                 $staff->getEmail(),
                 $staff->getPhone(),
                 $staff->getActive(),
-                $staff->getStoreId(),
+                $staff->getSalesStores()->getStoreId(),
                 $staff->getManagerId(),
                 $staff->getPassword(),
                 $staff->getProfil()

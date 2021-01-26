@@ -121,7 +121,6 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             $stock->setSalesStore($store);
 
             return $stock;
-
         } catch (Exception $e) {
             Log::error($e);
         }
@@ -160,16 +159,19 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
     public function getStockBrand()
     {
-       try {
-        return DB::select("exec dbo.get_stock_by_brands");
-       } catch (Exception $e) {
-           Log::error($e);
-       }
+        try {
+            return DB::select("exec dbo.get_stock_by_brands");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
     public function getStockCategory()
     {
-        return DB::select("exec dbo.get_stock_by_category");
+        try {
+            return DB::select("exec dbo.get_stock_by_category");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
-
 }

@@ -119,24 +119,40 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
     public function getOrdersStoreMonth()
     {
-        return DB::select("exec dbo.get_orders_store_month");
+        try {
+            return DB::select("exec dbo.get_orders_store_month");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
 
     public function getOrdersStoreWeek()
     {
-        return DB::select("exec dbo.get_orders_store_week");
+        try {
+            return DB::select("exec dbo.get_orders_store_week");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
 
     public function getOrdersStaffMonth()
     {
-        return DB::select("exec dbo.get_orders_staffs_month");
+        try {
+            return DB::select("exec dbo.get_orders_staffs_month");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 
 
     public function getOrdersStaffYear()
     {
-        return DB::select("exec dbo.get_orders_staffs_years");
+        try {
+            return DB::select("exec dbo.get_orders_staffs_years");
+        } catch (Exception $e) {
+            Log::error($e);
+        }
     }
 }

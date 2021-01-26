@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Exceptions;
-use Illuminate\Support\Facades\Log;
 
 use Exception;
+use Illuminate\Support\Facades\Log;
 
-class StockException extends Exception
+class StoreException extends Exception
 {
     public function __construct($message)
     {

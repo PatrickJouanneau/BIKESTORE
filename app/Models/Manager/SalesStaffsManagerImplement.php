@@ -2,6 +2,7 @@
 
 namespace App\Models\Manager;
 
+use App\Exceptions\StaffException;
 use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
 use App\Models\Model\SalesStaffs;

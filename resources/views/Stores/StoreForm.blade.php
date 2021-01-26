@@ -1,80 +1,47 @@
 <div class="mb-5">
     <h4>Nouveau magasin</h4>
-<form method="POST" action="{{-- route('register') --}}">
+<form name="store-create" method="POST" action="{{ url('stores/create') }}">
     @csrf
 
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('store_name')is-invalid @enderror" name="store_name" value="{{ old('store_name') }}" requiredautocomplete="store_name" autofocus placeholder="{{ __('Nom') }}">
-        @error('store_name')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("store-name") ? $errors->first("store-name") : "" }}</div>
+        <input id="store-name-mag" name="store-name" type="text" class="form-control" placeholder="Nom">
+    </div>
 
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}" required autocomplete="street" placeholder="{{ __('Adresse') }}">
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("street") ? $errors->first("street") : "" }}</div>
+        <input id="street-mag" name="street" type="text" class="form-control" placeholder="Adresse">
+    </div>
 
-        @error('street')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
-
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('zip_code') is-invalid @enderror" name="zip_code" value="{{ old('zip_code') }}" required autocomplete="zip_code" placeholder="{{ __('Code postal') }}">
-
-        @error('zip_code')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
-
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" placeholder="{{ __('Ville') }}">
-
-        @error('city')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
-
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('state') is-invalid @enderror" name="state" value="{{ old('state') }}" required autocomplete="state" placeholder="{{ __('Région') }}">
-
-        @error('state')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
-
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone" placeholder="{{ __('Téléphone') }}">
-
-        @error('phone')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
-
-    <div class="form-marque">
-        <input   type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="{{ __('Email') }}">
-
-        @error('email')
-        <span class="invalid-feedback" role="alert">
-            <strong>{{ $message }}</strong>
-        </span>
-        @enderror
-    </div><br>
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("city") ? $errors->first("city") : "" }}</div>
+        <input id="city-mag" name="city" type="text" class="form-control" placeholder="Ville">
+    </div>
 
 
-    <div class="form-marque">
-        <a class="btn btn-primary btn-user btn-block" href="{{ __('')  }}">Ajouter</a>
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("zip-code") ? $errors->first("zip-code") : "" }}</div>
+        <input id="zip-code-mag" name="zip-code" type="text" class="form-control" placeholder="Code postal">
+    </div>
+
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("state") ? $errors->first("state") : "" }}</div>
+        <input id="state-mag" name="state" type="text" class="form-control" placeholder="Région">
+    </div>
+
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("phone") ? $errors->first("phone") : "" }}</div>
+        <input id="phone-mag" name="phone" type="text" class="form-control" placeholder="Téléphone">
+    </div>
+
+    <div class="form-marque pb-2">
+        <div class="error">{{ $errors->has("email") ? $errors->first("email") : "" }}</div>
+        <input id="email-mag" name="email" type="text" class="form-control" placeholder="Email">
+    </div>
+
+
+    <div class="form-marque pt-3">
+        <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
     </div>
 
 </form>

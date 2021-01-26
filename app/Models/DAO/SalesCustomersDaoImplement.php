@@ -96,8 +96,7 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     public function createCustomer(SalesCustomers $customer)
     {
         try {
-            $resultBdd = DB::insert(
-                "INSERT INTO sales.customers (
+            DB::insert("INSERT INTO sales.customers (
                     first_name,
                     last_name,
                     phone,

@@ -3,19 +3,18 @@
 namespace App\Models\Model;
 
 use App\Models\Model\Contact;
+use App\Models\Model\SalesStores;
 
 class SalesStaffs extends Contact
 {
     private $staffId;
     private $active;
-    //private $storeId; => object
-   // private $managerId; => object
     private $profil;
     private $password;
+    private $passwordBis;
 
     private SalesStores $salesStores;
-    
-    private SalesStaffs $manager;
+
 
 
 
@@ -26,10 +25,6 @@ class SalesStaffs extends Contact
     public function getActive()
     {
         return $this->active;
-    }
-    public function getStoreId()
-    {
-        return $this->storeId;
     }
     public function getManagerId()
     {
@@ -43,6 +38,10 @@ class SalesStaffs extends Contact
     {
         return $this->password;
     }
+    public function getpasswordBis()
+    {
+        return $this->passwordBis;
+    }
     public function getSalesStores(): SalesStores
     {
         return $this->salesStores;
@@ -54,13 +53,9 @@ class SalesStaffs extends Contact
     {
         $this->staffId = $staffId;
     }
-   public function setActive($active)
+    public function setActive($active)
     {
         $this->active = $active;
-    }
-   public function setStoreId($storeId)
-    {
-        $this->storeId = $storeId;
     }
     public function setManagerId($managerId)
     {
@@ -74,8 +69,19 @@ class SalesStaffs extends Contact
     {
         $this->password = $password;
     }
+    public function setpasswordBis($passwordBis)
+    {
+        $this->passwordBis = $passwordBis;
+    }
     public function setSalesStores(SalesStores $salesStores)
     {
         $this->salesStores = $salesStores;
+    }
+
+
+    
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }

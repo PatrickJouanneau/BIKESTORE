@@ -17,6 +17,7 @@
                         <select name="product-select-brand" id="product-select-brand-up" class="form-control form-control-user mb-2">
                             <!--<option value="{{-- !empty($product->getProductBrand()->getBrandId()) ? $product->getProductBrand()->getBrandId()) : "" --}}"></option>-->
                             <option value="Tout">Choisir une marque...</option>
+                            
                             @foreach ($brands as $b)
                             <option value="{{ $b->getBrandId() }}" {{ !empty($product->getProductBrand()->getBrandId()) && $product->getProductBrand()->getBrandId() ==  $b->getBrandId() ? "selected" : "" }}>{{ $b->getBrandName() }}</option>
                             @endforeach

@@ -24,18 +24,19 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'username' => 'required|min:5|max:20|alpha',
-            'email' => 'required|email',
+            'username' => 'required | email',
+            'password' => 'required | confirmed'
         ];
     }
 
     public function messages()
     {
         return [
-            'username.required' => 'Votre nom d\'utilisateur est requis',
-            'username.min' => 'Votre nom d\utilisateur doit comporter plus de 5 caractères',
-            'username.max' => 'Votre nom d\utilisateur doit comporter moins de 20 caractères',
-            'email.required' => 'L\email est requis',
+            'username.required' => 'Votre adresse mail est requis',
+            'username.email'    => 'le format email est requis',
+            'password.required' => 'Votre mot de pass est requis',
+            'password.confirmed'=> 'Oups... il y a une erreur !'
+
         ];
     }
 }

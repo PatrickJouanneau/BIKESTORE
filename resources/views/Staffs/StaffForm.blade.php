@@ -25,17 +25,17 @@
 
     <div class="form-group">
         <div class="error">{{ $errors->has("store-stf") ? $errors->first("store-stf") : "" }}</div>
-        <select id="store-stf" name="store-stf" class="form-control" value="{{ old('magasin') }}" required>
+        <select id="store-stf" name="store-stf" class="form-control" required>
             <option>Affecter un magasin...</option>
-        @foreach ($stores as $store)
-            <option value="{{ $store->getStoreId() }}">{{ $store->getStoreName() }}</option>
-        @endforeach
+            @foreach ($stores as $mag)
+                <option value="{{ $mag->getStoreId() }}">{{ $mag->getStoreName() }}</option>
+            @endforeach
         </select>
     </div>
 
     <div class="form-group">
         <div class="error">{{ $errors->has("manager-stf") ? $errors->first("manager-stf") : "" }}</div>
-        <select id="manager-stf" name="manager-stf" class="form-control" value="{{ old('manager') }}" required>
+        <select id="manager-stf" name="manager-stf" class="form-control" required>
             <option>Responsable...</option>
         @foreach ($staffs as $staff)
             <option value="{{ $staff->getManagerId() }}">{{ $staff->getFirstName() }} {{ $staff->getLastName() }}</option>
@@ -45,7 +45,7 @@
 
     <div class="form-group">
         <div class="error">{{ $errors->has("profil-stf") ? $errors->first("profil-stf") : "" }}</div>
-        <select id="profil-stf" name="profil-stf" class="form-control" value="{{ old('profil') }}" required>
+        <select id="profil-stf" name="profil-stf" class="form-control" required>
             <option selected>Profil du poste</option>
             <option value="vendeur">Vendeur</option>
             <option value="administratif">Administratif</option>
@@ -71,10 +71,12 @@
     </div>
 
     <div class="form-group">
-        <div class="error">{{ $errors->has("password-bis") ? $errors->first("password-bis") : "" }}</div>
-        <input id="password-bis" name="password-bis" type="password" class="form-control form-control-user"   placeholder="Confirmer le mot de passe">
+        <div class="error">{{ $errors->has("passwordBis") ? $errors->first("passwordBis") : "" }}</div>
+        <input id="passwordBis" name="passwordBis" type="password" class="form-control form-control-user"   placeholder="Confirmer le mot de passe">
     </div>
 
-    <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
+    <div class="form-group pt-3">
+        <button type="submit" class="btn btn-primary btn-user btn-block">Ajouter</button>
+    </div>
 </form>
 </div>

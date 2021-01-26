@@ -6,13 +6,12 @@ use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerInterface;
-use App\Models\Manager\SalesStoresManagerInterface;
 use App\Models\Manager\SalesCustomersManagerInterface;
 use App\Models\Manager\SalesOrderItemsManagerInterface;
 use App\Models\Manager\SalesOrdersManagerInterface;
 use App\Models\Manager\SalesStaffsManagerInterface;
-use GuzzleHttp\Psr7\Request;
-use Symfony\Component\Console\Input\Input;
+use App\Models\Manager\SalesStoresManagerInterface;
+
 
 class HomeController extends Controller
 {
@@ -48,7 +47,7 @@ class HomeController extends Controller
             'staffs' => $allStaffs,
             'orders' => $listeOrders,
             'orderItems' => $listOrderItems,
-            'activeTab' =>$tabActive
+            'activeTab' => $tabActive
         ]);
     }
 

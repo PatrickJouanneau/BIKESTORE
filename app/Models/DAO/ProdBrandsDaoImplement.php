@@ -8,6 +8,7 @@ use App\Models\Model\ProdBrands;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
+
 class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 {
     public function getAllBrands()

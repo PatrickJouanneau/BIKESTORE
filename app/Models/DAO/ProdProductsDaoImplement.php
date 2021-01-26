@@ -142,8 +142,9 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     public function createProduct(ProdProducts $products)
     {
         try {
-            $resultBdd = DB::insert(
-                "INSERT INTO production.products (product_name, brand_id, category_id, model_year, list_price) VALUES (?, ?, ?, ?, ?)",
+            DB::insert("INSERT INTO production.products
+            (product_name, brand_id, category_id, model_year, list_price)
+            VALUES (?, ?, ?, ?, ?)",
                 [
                     $products->getProductName(),
                     $products->getProductBrand()->getBrandId(),
@@ -162,12 +163,12 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
     public function updateProduct($products)
     {
         try {
-            $resultBdd = DB::update("UPDATE production.products SET
-            product_name = ?,
-            brand_id = ?,
-            category_id = ?,
-            model_year = ?,
-            list_price = ?
+            DB::update("UPDATE production.products SET
+                product_name = ?,
+                brand_id = ?,
+                category_id = ?,
+                model_year = ?,
+                list_price = ?
         WHERE product_id = ?
         ", [
                 $products->getProductName(),
@@ -216,32 +217,3 @@ class ProdProductsDaoImplement implements ProdProductsDaoInterface
 
 
 
-
-
-
-/*
-    public function searchProduct($keyword)
-    {
-        $products =  [];
-        $resultBdd = DB::select("SELECT TOP 6 product_id, product_name FROM production.products WHERE product_name like '" . $keyword . "%' ORDER BY product_name ");
-
-        foreach ($resultBdd as $i => $row) {
-            $product = new ProdProducts();
-            $product->setProductId($row->product_id);
-            $product->setProductName($row->product_name);
-            //$product->setModelYear($row->model_year);
-            //$product->setListPrice($row->list_price);
-
-            //$category = $this->categoryDao->getCategoryById($row->category_id);
-            //$product->setProductCategory($category);
-
-            //$brand = $this->brandDao->getBrandById($row->brand_id);
-            //$product->setProductBrand($brand);
-
-            array_push($products, $product);
-        }
-
-        return $products;
-    }
-
-    */

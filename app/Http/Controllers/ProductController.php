@@ -7,7 +7,6 @@ use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
-use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
 {
@@ -43,8 +42,8 @@ class ProductController extends Controller
 
     public function formUpdateProd(ProdProductsManagerInterface $productsManager, ProdBrandsManagerInterface $brandManager, ProdCategoriesManagerInterface $categoryManager, $productId)
     {
-        $brands = $brandManager->getAllBrands();
         $product = $productsManager->getProductById($productId);
+        $brands = $brandManager->getAllBrands();
         $categories = $categoryManager->getAllCategories();
 
         return view('Products.ProductFormUpdate')->with(

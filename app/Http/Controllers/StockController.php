@@ -35,7 +35,7 @@ class StockController extends Controller
         $stock->setProdProduct($productsManager->getProductById($prodId));
         $stock->setQuantity($q);
 
-        $stocksManager->createStock($stock);
+        $stocksManager->createStock($stock, $storeId, $prodId);
         return redirect('/success');
     }
 

@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Exceptions;
-use Illuminate\Support\Facades\Log;
 
+use Illuminate\Support\Facades\Log;
 use Exception;
 
-class StockException extends Exception
+class LoginException extends Exception
 {
     public function __construct($message)
     {
@@ -23,3 +23,4 @@ class StockException extends Exception
         Log::debug('Une Exception');
     }
 }
+
