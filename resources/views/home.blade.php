@@ -442,13 +442,13 @@
                                                         <!-- ** HISTORIQUE ** -->
                                                             <div class="container">
                                                                 <div class="row">
-                                                                    <div class="col-xl-6">
+                                                                    <div class="col-xl-2">
                                                                         <h4>This is brand</h4>
                                                                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
                                                                     </div>
-                                                                    <div class="col-xl-6">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                    <div class="col-xl-10">
+                                                                        <!-- LISTE DES MAGASINS -->
+                                                                        @include('Audits/ProductAudits')
                                                                     </div>
                                                                 </div>
                                                             </div>

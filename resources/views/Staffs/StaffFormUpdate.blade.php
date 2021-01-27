@@ -37,7 +37,7 @@
 
                             @foreach ($stores as $store)
 
-                                <option value="{{ $store->getStoreId() }}" {{ !empty($sales->getSalesStores()   ->getStoreId()) && $sales->getSalesStores()->getStoreId() ==  $store->getStoreId   () ? "selected" : "" }}>{{ $store->getstoreName() }}</option>
+                                <option value="{{ $store->getStoreId() }}" {{ !empty($store->getSalesStores()->getStoreId()) && $store->getSalesStores()->getStoreId() ==  $store->getStoreId   () ? "selected" : "" }}>{{ $store->getstoreName() }}</option>
 
                             @endforeach
                             </select>

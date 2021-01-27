@@ -46,7 +46,7 @@ class ProductController extends Controller
         $brands = $brandManager->getAllBrands();
         $categories = $categoryManager->getAllCategories();
 
-        return view('Products.ProductFormUpdate')->with(
+        return view('/Products.ProductFormUpdate')->with(
             [
                 "product"     => $product,
                 "brands"      => $brands,

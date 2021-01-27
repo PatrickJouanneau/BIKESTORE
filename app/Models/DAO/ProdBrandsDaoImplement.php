@@ -62,7 +62,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     public function createBrand(ProdBrands $brands)
     {
         try {
-            $resultBdd = DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
+            DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
         } catch (Exception $e) {
             Log::error($e);
         }
@@ -71,7 +71,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     public function updateBrand(prodBrands $brands)
     {
         try {
-            $resultBdd = DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
+            DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
         } catch (Exception $e) {
             Log::error($e);
         }
@@ -81,7 +81,7 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     public function deleteBrandById($brandId)
     {
         try {
-            $resultBdd = DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
+            DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
         } catch (Exception $e) {
             Log::error($e);
         }

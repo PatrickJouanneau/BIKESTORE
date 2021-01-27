@@ -7,6 +7,8 @@ use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Model\ProdProducts;
 
+
+
 class ProdProductsManagerImplement implements ProdProductsManagerInterface
 {
     private $productsDao;
@@ -14,6 +16,8 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
     {
         $this->productsDao = $productsDao;
     }
+
+
 
     public function getListProducts()
     {
@@ -58,6 +62,8 @@ class ProdProductsManagerImplement implements ProdProductsManagerInterface
     {
         $this->productsDao->updateProduct($products);
     }
+
+
 
     public function searchProduct($keyword)
     {

@@ -41,12 +41,16 @@ class BrandController extends Controller
 
     public function updateBrd(BrandRequest $request, ProdBrandsManagerInterface $brandsManager, $id)
     {
+       try {
         $brd = new ProdBrands();
         $brd->setBrandId($id);
         $brd->setBrandName($request->input("brand"));
 
         $brandsManager->updateBrand($brd);
         return redirect('/success/');
+       } catch (CategoryException $e) {
+            return view('failure');
+       }
     }
 
 

@@ -17,9 +17,16 @@ class StockController extends Controller
     {
     }
 
-    public function formCreateStk()
+    public function formCreateStk(ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, $storeId, $productId)
     {
-        return view('/Stocks/StockForm');
+        $stock = $stocksManager->getStockById($storeId, $productId);
+        $stores = $storesManager->getAllStores();
+        return view('/Stocks/StockForm')->with(
+            [
+                "stock" => $stock,
+                "stores" => $stores
+            ]
+        );
     }
 
 

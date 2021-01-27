@@ -7,6 +7,8 @@ use App\Models\DAO\ProdBrandsDaoImplement;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoImplement;
 use App\Models\DAO\ProdCategoriesDaoInterface;
+use App\Models\Dao\ProdProductAuditDaoImplement;
+use App\Models\Dao\ProdProductAuditDaoInterface;
 use App\Models\DAO\ProdProductsDaoImplement;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\ProdStocksDaoImplement;
@@ -27,6 +29,8 @@ use App\Models\Manager\ProdBrandsManagerImplement;
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerImplement;
 use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Manager\ProdProductAuditManagerImplement;
+use App\Models\Manager\ProdProductAuditManagerInterface;
 use App\Models\Manager\ProdProductsManagerImplement;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerImplement;
@@ -59,6 +63,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(ProdCategoriesDaoInterface::class, ProdCategoriesDaoImplement::class);
         $this->app->bind(ProdProductsManagerInterface::class, ProdProductsManagerImplement::class);
         $this->app->bind(ProdProductsDaoInterface::class, ProdProductsDaoImplement::class);
+        $this->app->bind(ProdProductAuditManagerInterface::class, ProdProductAuditManagerImplement::class);
+        $this->app->bind(ProdProductAuditDaoInterface::class, ProdProductAuditDaoImplement::class);
         $this->app->bind(ProdStocksManagerInterface::class, ProdStocksManagerImplement::class);
         $this->app->bind(ProdStocksDaoInterface::class, ProdStocksDaoImplement::class);
         $this->app->bind(SalesStoresManagerInterface::class, SalesStoresManagerImplement::class);
@@ -72,6 +78,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesOrderItemsManagerInterface::class, SalesOrderItemsManagerImplement::class);
         $this->app->bind(SalesOrderItemsDaoInterface::class, SalesOrderItemsDaoImplement::class);
         $this->app->bind(LoginManagerInterface::class, LoginManagerImplement::class);
+        $this->app->bind(LoginManagerDaoInterface::class, LoginManagerDaoImplement::class);
     }
 
     /**

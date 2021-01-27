@@ -13,6 +13,7 @@ class LoginDaoImplement implements LoginDaoInterface
 {
     public function login($email, $password)
     {
+
         $user = new Login();
         $resultBdd = DB::select("SELECT email, password, staff_id, first_name, last_name FROM sales.staffs WHERE email='".$email."' AND password='".$password."' ")[0];
 
@@ -24,5 +25,6 @@ class LoginDaoImplement implements LoginDaoInterface
             $user->setLastName($resultBdd['last_name']);
         }
         return $user;
+
     }
 }

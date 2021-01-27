@@ -13,7 +13,8 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
     public function getAllCategories()
     {
         try {
-            $resultBdd = DB::select('SELECT * FROM production.categories ORDER BY category_name');
+            //$resultBdd = DB::select('SELECT * FROM production.categories ORDER BY category_name');
+            $resultBdd = DB::select('exec dbo.get_all_categories');
 
             $allCategories = [];
             foreach ($resultBdd as $i => $row) {

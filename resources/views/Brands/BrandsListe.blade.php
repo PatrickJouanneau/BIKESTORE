@@ -1,5 +1,7 @@
 
-<h4>Liste des marques</h4>
+<div class="pb-2 pt-2">
+    <h4>Liste des marques</h4>
+</div>
 
 <table class="table table-sm table-hover">
     <thead>

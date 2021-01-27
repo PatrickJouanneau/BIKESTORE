@@ -10,6 +10,10 @@ use App\Models\Manager\SalesStoresManagerInterface;
 
 class StaffController extends Controller
 {
+    public function index()
+    {
+    }
+    
     public function formCreateStf(SalesStaffsManagerInterface $staffsManager, SalesStoresManagerInterface $storesManager)
     {
         $staffs = $staffsManager->getAllStaffs();
@@ -62,7 +66,7 @@ class StaffController extends Controller
         $staffs = $staffsManager->getStaffById($staffId);
         $stores = $storesManager->getAllStores();
 
-        return view('Staffs.StaffFormUpdate')->with(
+        return view('/Staffs.StaffFormUpdate')->with(
             [
                 'staffs' => $staffs,
                 'stores' => $stores

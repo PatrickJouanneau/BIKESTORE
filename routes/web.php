@@ -1,6 +1,5 @@
 <?php
 
-
 use App\Http\Controllers\BikeController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemsController;
+use App\Http\Controllers\ProductAuditController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\StockController;
@@ -53,6 +53,8 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::post('/products/{productId}/edit', [ProductController::class, 'updateProd']);
     Route::get('/products/{productId}/delete', [ProductController::class, 'deleteProd']);
     Route::get('/products/select', [ProductController::class, 'getSuggestionProd']);
+
+    Route::get('/productAudits/json', [ProductAuditController::class, 'allJsonAuditProd']);
 
 
     Route::get('/stocks/create', [StockController::class, 'formCreateStk']);

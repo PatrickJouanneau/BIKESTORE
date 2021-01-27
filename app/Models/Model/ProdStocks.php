@@ -55,17 +55,18 @@ class ProdStocks implements JsonSerializable
         if (isset($this->prodProduct)) {
             $arr["product"] = $this->prodProduct;
         }
-        /*if(isset($this->prodProduct) && $this->prodProduct->getModelYear() != null){
+        /*
+        if(isset($this->prodProduct) && $this->prodProduct->getModelYear() != null){
             $arr["product"]["year"] = $this->prodProduct->getModelYear();
         }
 
         if(isset($this->prodProduct) && $this->prodProduct->getListPrice() != null){
             $arr["product"] = $this->prodProduct->getListPrice();
-        }*/
+        }
+        */
         if (isset($this->salesStore)) {
             $arr["store"] = $this->salesStore;
         }
-
 
         return $arr;
     }
