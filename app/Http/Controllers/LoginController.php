@@ -24,7 +24,7 @@ class LoginController extends Controller
             return redirect()->intended('/');
         } else {
             // Revenir sur l'erreur (ou faire ce que vous voulez)
-            return redirect()->back('formLogin');
+            return redirect('formLogin')->back();
         }
 
     }

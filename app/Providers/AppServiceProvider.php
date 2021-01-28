@@ -80,7 +80,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SalesOrderItemsManagerInterface::class, SalesOrderItemsManagerImplement::class);
         $this->app->bind(SalesOrderItemsDaoInterface::class, SalesOrderItemsDaoImplement::class);
         $this->app->bind(LoginManagerInterface::class, LoginManagerImplement::class);
-        $this->app->bind(LoginManagerDaoInterface::class, LoginManagerDaoImplement::class);
+        $this->app->bind(LoginDaoInterface::class, LoginDaoImplement::class);
     }
 
     /**
