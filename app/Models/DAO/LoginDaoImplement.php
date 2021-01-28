@@ -14,7 +14,7 @@ class LoginDaoImplement implements LoginDaoInterface
     public function login($email, $password)
     {
         return DB::select("select count(*) as count from sales.staffs where email='".$email."' and password='".$password."'")[0]->count;
-        
+
         /*
         $user = new Login();
         $resultBdd = DB::select("SELECT email, password, staff_id, first_name, last_name FROM sales.staffs WHERE email='".$email."' AND password='".$password."' ")[0];
