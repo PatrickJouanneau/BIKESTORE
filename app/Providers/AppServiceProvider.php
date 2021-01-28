@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Pagination\Paginator;
+use App\Models\DAO\LoginDaoImplement;
+use App\Models\DAO\LoginDaoInterface;
 use App\Models\DAO\ProdBrandsDaoImplement;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\DAO\ProdCategoriesDaoImplement;

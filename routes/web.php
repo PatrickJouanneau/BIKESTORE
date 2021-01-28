@@ -29,8 +29,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['is_connected']], function () {
+Route::get('/formLogin', [LoginController::class, 'FormulaireLogin']);
+Route::post('/formLogin', [LoginController::class, 'login']);
 
+Route::group(['middleware' => ['is_connected']], function () {
 
     Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
     Route::post('/brands/create', [BrandController::class, 'createBrd']);
@@ -115,10 +117,8 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::get('/pdf', [\App\Http\Controllers\BikeController::class, 'pdf']);
 });
 
-
-Route::get('/formLogin', [LoginController::class, 'FormulaireLogin']);
-Route::post('/formLogin', [LoginController::class, 'login']);
 Route::get('/logout', [LoginController::class, 'logout']);
+
 
 
 
