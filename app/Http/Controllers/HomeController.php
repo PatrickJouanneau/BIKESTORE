@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Manager\ProdBrandsManagerInterface;
 use App\Models\Manager\ProdCategoriesManagerInterface;
+use App\Models\Manager\ProdProductAuditManagerInterface;
 use App\Models\Manager\ProdProductsManagerInterface;
 use App\Models\Manager\ProdStocksManagerInterface;
 use App\Models\Manager\SalesCustomersManagerInterface;
@@ -24,7 +25,8 @@ class HomeController extends Controller
         SalesCustomersManagerInterface $customerManager,
         SalesStaffsManagerInterface $staffManager,
         SalesOrdersManagerInterface $orderManager,
-        SalesOrderItemsManagerInterface $orderItemManager
+        SalesOrderItemsManagerInterface $orderItemManager,
+        ProdProductAuditManagerInterface $productAuditManager
     ) {
         $allBrands = $brandManager->getAllBrands();
         $allCategories = $categoryManager->getAllCategories();
@@ -35,6 +37,10 @@ class HomeController extends Controller
         $allStaffs = $staffManager->getAllStaffs();
         $listeOrders = $orderManager->getListeOrders();
         $listOrderItems = $orderItemManager->getListeOrderItems();
+
+        $allProductAudits = $productAuditManager->getAllProductAudits();
+        //$staff = $staffManager->getStaffById(session("connection"));
+        $staff =null;
         $tabActive = !empty($_GET['activeTab']) ? $_GET['activeTab'] : null;
 
         return view('home')->with([
@@ -47,7 +53,9 @@ class HomeController extends Controller
             'staffs' => $allStaffs,
             'orders' => $listeOrders,
             'orderItems' => $listOrderItems,
-            'activeTab' => $tabActive
+            'activeTab' => $tabActive,
+            'staff' => $staff,
+            'allProductAudits' => $allProductAudits
         ]);
     }
 

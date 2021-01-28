@@ -3,7 +3,7 @@ var ctx = document.getElementById('chartStockByCtaegories').getContext('2d');
 
 var dataLoaded;
 var chartStockByCtaegories = new Chart(ctx, {
-    type: 'horizontalBar',
+    type: 'pie',
     data: {
         labels: [""],
         datasets: dataLoaded,
@@ -40,17 +40,13 @@ var test_C = function ()
         cache: false,
         success: function success(result)
         {
-            var datasets = [];
+            var datas = [];
+            var backgr = [];
             for (var i = 0; i < result.length; i++)
             {
                 var prod = result[i];
-
-                if (!datasets.hasOwnProperty(prod.category_name))
-                {
-                    datasets[prod.category_name] = [];
-                };
-
-                datasets[prod.category_name] = prod.quantity;
+                datas.push(prod.quantity);
+                backgr.push(getRandomColor());
             }
 
             var cat = 0;
@@ -58,34 +54,17 @@ var test_C = function ()
 
             for (var cat = 0; cat <= 7; cat++)
             {
-                    labels.push(prod.category_name);
+                labels.push(prod.category_name);
             }
 
             var indiceDataset = 0;
-            for (key in datasets)
-            {
-                var lab = key;
-                var datas = [];
+            
+            chartStockByCtaegories.data.datasets[0] = {
+                "data": datas,
+                "backgroundColor": backgr,
+            };
 
-                if (datasets.hasOwnProperty(key))
-                {
-                    datas.push(datasets[key]);
-                } else
-                {
-                    datas.push("");
-                }
-
-
-                chartStockByCtaegories.data.datasets[indiceDataset] = {
-                    "label": lab,
-                    "data": datas,
-                    "backgroundColor": getRandomColor(),
-                };
-
-                indiceDataset++;
-            }
-
-            //chartStockByCtaegories.data.labels = labels;
+            chartStockByCtaegories.data.labels = labels;
             chartStockByCtaegories.update();
         }
         ,

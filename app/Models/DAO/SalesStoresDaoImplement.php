@@ -2,6 +2,7 @@
 
 namespace App\Models\DAO;
 
+use App\Exceptions\DaoException;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStores;
 use App\Models\DAO\SalesStoresDaoInterface;
@@ -31,7 +32,9 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
             }
             return $allStores;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -56,7 +59,9 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
 
             return $store;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -67,7 +72,7 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
         try {
             DB::insert(
                 "INSERT INTO sales.stores (store_name, phone, email, street, city, state, zip_code)
-        VALUE (?, ?, ?, ?, ?, ?, ? )",
+        VALUES (?, ?, ?, ?, ?, ?, ? )",
                 [
                     $stores->getStoreName(),
                     $stores->getPhone(),
@@ -79,7 +84,9 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
                 ]
             );
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -107,7 +114,9 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
                 $stores->getZipCode()
             ]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

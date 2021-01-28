@@ -2,6 +2,7 @@
 
 namespace App\Models\DAO;
 
+use App\Exceptions\DaoException;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesStaffs;
 use App\Models\DAO\SalesStaffsDaoInterface;
@@ -52,6 +53,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     public function getStaffById($staffId)
     {
         $bdd = DB::getpdo();
+        error_log("****  ".$staffId);
         $reponse = $bdd->query(
             "SELECT * FROM sales.staffs WHERE staff_id = '" . $staffId . "'"
         );
@@ -64,6 +66,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         $staff->setPhone($resultBdd['phone']);
         $staff->setEmail($resultBdd['email']);
         $staff->setActive($resultBdd['active']);
+        $staff->setProfil($resultBdd['profil']);
 
         $store = $this->storeDao->getStoreById($resultBdd['store_id']);
         $staff->setSalesStores($store);
@@ -92,8 +95,11 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                     $staff->getProfil()
                 ]
             );
+            Log::debug("Utilisateur ".$staff->getFirstName()." ".$staff->getLastName()." ajouté");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            
         }
     }
 
@@ -121,10 +127,14 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                 $staff->getSalesStores()->getStoreId(),
                 $staff->getManagerId(),
                 $staff->getPassword(),
-                $staff->getProfil()
+                $staff->getProfil(),
+                $staff->getStaffId(),
             ]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();            
         }
     }
+    
 }

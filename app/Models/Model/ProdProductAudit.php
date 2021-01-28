@@ -18,10 +18,6 @@ class ProdProductAudit implements JsonSerializable
     private $operation;
 
 
-    public function getChangeId()
-    {
-        return $this->changeId;
-    }
     public function getProductId()
     {
         return $this->productId;
@@ -50,16 +46,10 @@ class ProdProductAudit implements JsonSerializable
     {
         return $this->updated;
     }
-    public function getOperation()
-    {
-        return $this->operation;
-    }
 
 
-    public function setChangeId($changeId)
-    {
-        $this->changeId = $changeId;
-    }
+
+   
     public function setProductId($productId)
     {
         $this->productId = $productId;
@@ -88,14 +78,51 @@ class ProdProductAudit implements JsonSerializable
     {
         $this->updated = $updated;
     }
-    public function setOption($option)
-    {
-        $this->option = $option;
-    }
+
 
 
     public function jsonSerialize()
     {
         return get_object_vars($this);
+    }
+
+    /**
+     * Get the value of changeId
+     */ 
+    public function getChangeId()
+    {
+        return $this->changeId;
+    }
+
+    /**
+     * Set the value of changeId
+     *
+     * @return  self
+     */ 
+    public function setChangeId($changeId)
+    {
+        $this->changeId = $changeId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of operation
+     */ 
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * Set the value of operation
+     *
+     * @return  self
+     */ 
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
+
+        return $this;
     }
 }

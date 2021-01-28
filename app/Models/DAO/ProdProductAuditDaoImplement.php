@@ -24,7 +24,7 @@ class ProdProductAuditDaoImplement implements ProdProductAuditDaoInterface
             $product->setCategotyId($row->category_id);
             $product->setListPrice($row->list_price);
             $product->setUpdated($row->updated_at);
-            $product->setOption($row->operation);
+            $product->setOperation($row->operation);
 
             array_push($allProducts, $product);
         }

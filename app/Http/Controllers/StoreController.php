@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Http\Requests\StoreRequest;
 use App\Models\Manager\SalesStoresManagerInterface;
 use App\Models\Model\SalesStores;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class StoreController extends Controller
 
 
 
-    public function createStr(ProductRequest $request, SalesStoresManagerInterface $storesManager)
+    public function createStr(StoreRequest $request, SalesStoresManagerInterface $storesManager)
     {
         $name = $request->input('store-name');
         $street = $request->input('street');

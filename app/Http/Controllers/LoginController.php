@@ -32,6 +32,11 @@ class LoginController extends Controller
     public function logout()
     {
         session(['connection' => null]);
+        session(['firstname' => null]);
+        session(['lastname' => null]);
+        session(['profil' => null]);
+        session(['staff_id' => null]);
+
         return redirect('formLogin');
     }
 }

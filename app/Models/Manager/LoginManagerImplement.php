@@ -23,9 +23,14 @@ class LoginManagerImplement implements LoginManagerInterface
     public function login($email, $password)
     {
 
-        $authenticated = $this->loginDao->logIn($email, $password) != 0;
+        $loginInformation = $this->loginDao->logIn($email, $password) ;
+        $authenticated = $loginInformation->count != 0;
         if ($authenticated) {
             Session::put("connection", 'true');
+            Session::put("firstname", $loginInformation->first_name);
+            Session::put("lastname", $loginInformation->last_name);
+            Session::put("staff_id", $loginInformation->staff_id);
+            Session::put("profil", $loginInformation->profil);
         } else {
             throw new LoginException('Désolé il y des erreurs');
         }

@@ -11,7 +11,7 @@
 
                     <div class="form-marque pb-2">
                         <div class="error">{{ $errors->has("store-name") ? $errors->first("store-name") : "" }}</div>
-                        <input id="store-name-mag-up" name="store-name" type="text" class="form-control" placeholder="Nom">
+                        <input id="store-name-mag-up" name="store-name" type="text" class="form-control" placeholder="Nom" value="{{ $store->getStoreName() }}">
                     </div>
 
                     <div class="form-marque pb-2">

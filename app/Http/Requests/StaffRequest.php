@@ -30,8 +30,9 @@ class StaffRequest extends FormRequest
             "email-stf"      => "required | email",
             "store-stf"      => "required",
             "manager-stf"    => "required",
-            "profile-stf"    => "required",
+            "profil-stf"    => "required",
             "password"       => "min:6 | required_with:passwordBis | same:passwordBis",
+           // "password" =>   "min:6",
             "passwordBis"    => "min:6"
         ];
     }
@@ -50,10 +51,10 @@ class StaffRequest extends FormRequest
             "email-stf.email"           => "Le champ doit être au format email",
             "store-stf.required"        => "Le magasin est requis",
             "manager-stf.required"      => "Le manager est requis",
-            "profile-stf.required"      => "Le profif est requis",
+            "profil-stf.required"      => "Le profif est requis",
             "password.min"              => "Le mot de passe doit comporter au moins 6 caractères",
             "password.required_with"         => "Le mot de passe est requis",
-            "passeword.same"            => "les mots de passe sont différents",
+            "password.same"            => "les mots de passe sont différents",
             "passwordBis.min"           => "Le mot de passe doit comporter au moins 6 caractères"
         ];
     }

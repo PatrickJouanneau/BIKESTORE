@@ -92,7 +92,7 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::get('/stores/create', [StoreController::class, 'formCreateStr']);
     Route::post('/stores/create', [StoreController::class, 'createStr']);
     Route::get('/stores/{storeId}/edit', [StoreController::class, 'formUpdateStr']);
-    Route::get('/stores/{storeId}/edit', [StoreController::class, 'updateStr']);
+    Route::post('/stores/{storeId}/edit', [StoreController::class, 'updateStr']);
 
 
 

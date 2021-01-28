@@ -60,8 +60,8 @@
     <div class="form-group">
         <p class="form-control form-control-user">
             Activité &nbsp;? &nbsp;&nbsp;&nbsp;
-            <label class="radio-inline"><input type="radio" name="active"  checked value="oui"> &nbsp; Oui</label>&nbsp;&nbsp;&nbsp;
-            <label class="radio-inline"><input type="radio" name="active"  value="non"> &nbsp; Non</label>
+            <label class="radio-inline"><input type="radio" name="active"  checked value="1"> &nbsp; Oui</label>&nbsp;&nbsp;&nbsp;
+            <label class="radio-inline"><input type="radio" name="active"  value="0"> &nbsp; Non</label>
         </p>
     </div>
 

@@ -63,11 +63,14 @@ class StaffController extends Controller
 
     public function formUpdateStf(SalesStaffsManagerInterface $staffsManager, SalesStoresManagerInterface $storesManager, $staffId)
     {
-        $staffs = $staffsManager->getStaffById($staffId);
+        $staff = $staffsManager->getStaffById($staffId);
+        $staffs = $staffsManager->getAllStaffs();
         $stores = $storesManager->getAllStores();
+
 
         return view('/Staffs.StaffFormUpdate')->with(
             [
+                'staff' => $staff,
                 'staffs' => $staffs,
                 'stores' => $stores
             ]

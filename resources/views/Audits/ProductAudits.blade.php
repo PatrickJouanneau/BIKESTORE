@@ -15,17 +15,17 @@
         </tr>
     </thead>
     <tbody id="productAudit">
-        @foreach($products as $prod)
+        @foreach($allProductAudits as $prod)
             <tr>
-                <th>{{-- $prod->getChangeId() --}}</th>
+                <th>{{ $prod->getChangeId() }}</th>
                 <td>{{ $prod->getProductId() }}</td>
                 <td>{{ $prod->getProductName() }}</td>
-                <td>{{-- $prod->getBrandId() --}}</td>
-                <td>{{-- $prod->getCategoryId() --}}</td>
+                <td>{{ $prod->getBrandId() }}</td>
+                <td>{{ $prod->getCategoryId() }}</td>
                 <td>{{ $prod->getModelYear() }}</td>
                 <td>{{ $prod->getListPrice() }}</td>
-                <td>{{-- $prod->getUptdated() --}}</td>
-                <td>{{-- $prod->getOption() --}}</td>
+                <td>{{ $prod->getUpdated() }}</td>
+                <td>{{ $prod->getOperation() }}</td>
             </tr>
         @endforeach
     </tbody>

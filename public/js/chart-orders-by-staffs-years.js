@@ -9,6 +9,7 @@ var myCustomersYears = new Chart(ctx, {
             "backgroundColor": [
                 "#ef6c00", "#FF4136", "#2ECC40", "#FF851B", "#7FDBFF", "#B10DC9", "#FFDC00", "#001f3f", "#39CCCC"
             ],
+            
             hoverOffset: 9,
         }]
     },

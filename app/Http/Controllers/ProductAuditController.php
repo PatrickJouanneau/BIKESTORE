@@ -14,7 +14,7 @@ class ProductAuditController extends Controller
     public function allJsonAuditProd(ProdProductAuditManagerInterface $productAuditManager)
     {
         $allProduct = $productAuditManager->getAllProductAudits();
-        response()->json($allProduct);
-        return view('/Audits/ProductAudits')->with(['productAudits' => $allProduct]);
+        return response()->json($allProduct);
+        //return view('/Audits/ProductAudits')->with(['productAudits' => $allProduct]);
     }
 }

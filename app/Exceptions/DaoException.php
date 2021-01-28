@@ -9,7 +9,7 @@ class DaoException extends Exception
 {
     public function render()
     {
-        return view('404');
+        return view('error');
     }
 
     public function report()
