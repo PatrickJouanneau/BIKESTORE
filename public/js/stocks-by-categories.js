@@ -52,13 +52,13 @@ var test_C = function ()
             var cat = 0;
             var labels = [];
 
-            for (var cat = 0; cat <= 7; cat++)
+            for (var cat = 0; cat <= 6; cat++)
             {
                 labels.push(prod.category_name);
             }
 
             var indiceDataset = 0;
-            
+
             chartStockByCtaegories.data.datasets[0] = {
                 "data": datas,
                 "backgroundColor": backgr,

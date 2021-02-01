@@ -9,6 +9,7 @@ use App\Models\DAO\SalesCustomersDaoInterface;
 use App\Models\DAO\SalesStaffsDaoInterface;
 use App\Models\DAO\SalesStoresDaoInterface;
 use Exception;
+use App\Exceptions\DaoException;
 use Illuminate\Support\Facades\Log;
 
 class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
@@ -83,7 +84,9 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
             }
             return $listeOrders;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -122,6 +125,7 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
         } catch (Exception $e) {
             error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -152,7 +156,9 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
 
             return $order;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

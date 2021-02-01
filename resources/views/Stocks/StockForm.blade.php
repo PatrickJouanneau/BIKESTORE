@@ -20,7 +20,7 @@
     </select>
 
     <div class="mb-2">
-        <input id="stock-quantity" name="stock-quantity" type="text" class="form-control form-control-user" placeholder="Quantité à entrer" value="{{  isset($stock) ? $stock->getQuantity() : ""  }}">
+        <input id="stock-quantity" name="stock-quantity" type="text" class="form-control form-control-user" placeholder="Quantité à entrer" value="{{ isset($stock) ? $stock->getQuantity() : ""  }}">
     </div>
 
     <button type="submit" class="btn btn-primary btn-user btn-block">Enregistrer</button>

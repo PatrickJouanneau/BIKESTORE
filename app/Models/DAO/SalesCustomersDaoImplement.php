@@ -5,6 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesCustomers;
 use App\Models\Dao\SalesCustomersDaoInterface;
+use App\Exceptions\DaoException;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -33,7 +34,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             }
             return $listeCustomers;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -61,7 +64,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
             }
             return $allCustomers;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -70,7 +75,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     {
         try {
             $bdd = DB::getPdo();
-            $reponse = $bdd->query("SELECT * FROM sales.customers WHERE customer_id = ' " . $customerId . " ' ");
+            $reponse = $bdd->query(
+                "SELECT * FROM sales.customers WHERE customer_id = ' " . $customerId . " ' "
+            );
             $resultBdd = $reponse->fetch();
 
             //$resultBdd = DB::select("SELECT * FROM customer_id WHERE customerId='" . $customerId . "'");
@@ -88,7 +95,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
 
             return $customer;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -96,7 +105,8 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
     public function createCustomer(SalesCustomers $customer)
     {
         try {
-            DB::insert("INSERT INTO sales.customers (
+            DB::insert(
+                "INSERT INTO sales.customers (
                     first_name,
                     last_name,
                     phone,
@@ -118,7 +128,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
                 ]
             );
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -147,7 +159,9 @@ class SalesCustomersDaoImplement implements SalesCustomersDaoInterface
                 $customer->getCustomerId()
             ]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<body background="img/bicycle-1839005_1280.jpg">
+<body style="background-image: url(/img/bicycle-1839005_1280.jpg)">
 	<div class="container text-center mt-5">
         <div class="jumbotron border border-primary col-md-5 mt-9">
 		<div class="brand">

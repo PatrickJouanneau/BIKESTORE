@@ -34,6 +34,9 @@ Route::post('/formLogin', [LoginController::class, 'login']);
 
 Route::group(['middleware' => ['is_connected']], function () {
 
+    //if (session($loginInformation->profil) == 'administratif'){ }
+
+
     Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
     Route::post('/brands/create', [BrandController::class, 'createBrd']);
     Route::get('/brands/json', [BrandController::class, 'allJsonBrand']);
@@ -118,15 +121,3 @@ Route::group(['middleware' => ['is_connected']], function () {
 });
 
 Route::get('/logout', [LoginController::class, 'logout']);
-
-
-
-
-
-/*
-Route::get('/3', function () {
-    $info = DB::select('SELECT * FROM production.categories');
-    return response($info);
-    //return $info;
-});
-*/

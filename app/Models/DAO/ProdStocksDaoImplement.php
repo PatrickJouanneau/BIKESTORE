@@ -7,6 +7,7 @@ use App\Models\DAO\ProdStocksDaoInterface;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\SalesStoresDaoInterface;
 use App\Models\Model\ProdStocks;
+use App\Exceptions\DaoException;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -68,7 +69,9 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             return $listeStocks;
             */
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -94,7 +97,9 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
             }
             return $allStocks;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -122,7 +127,9 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
             return $stock;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -135,24 +142,28 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
                 $stock->getQuantity()
             ]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
-    public function updateStock(ProdStocks $stocks)
+    public function updateStock($stock)
     {
         try {
             DB::update("UPDATE production.stocks SET
-            store_id = ?,
-            product_id = ?,
-            quantity = ?
+                 store_id    = ?,
+                 product_id  = ?,
+                 quantity    = ?
         ", [
-                $stocks->getSalesStore()->getStoreId(),
-                $stocks->getProdProduct()->getProductId(),
-                $stocks->getQuantity(),
+                $stock->getSalesStore()->getStoreId(),
+                $stock->getProdProduct()->getProductId(),
+                $stock->getQuantity()
             ]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -162,7 +173,9 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         try {
             return DB::select("exec dbo.get_stock_by_brands");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -171,7 +184,9 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         try {
             return DB::select("exec dbo.get_stock_by_category");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

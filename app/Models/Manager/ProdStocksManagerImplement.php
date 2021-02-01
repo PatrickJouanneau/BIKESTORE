@@ -14,15 +14,20 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
         $this->stocksDao = $stocksDao;
     }
 
+
+
     public function getListeStocks()
     {
         return $this->stocksDao->getListeStocks();
     }
 
+
+
     public function getAllStocks()
     {
         return $this->stocksDao->getAllStocks();
     }
+
 
 
     public function getStockbyId($storeId, $productId)
@@ -31,10 +36,13 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
     }
 
 
+
     public function createStock($stocks, $storeId, $productId)
     {
         $this->stocksDao->createStock($stocks, $storeId, $productId);
     }
+
+
 
     public function updateStock($storeId, $productId)
     {
@@ -42,13 +50,14 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
     }
 
 
+    
     public function getStockBrand()
     {
         return $this->stocksDao->getStockBrand();
     }
 
 
-    
+
     public function getStockCategory()
     {
         return $this->stocksDao->getStockCategory();

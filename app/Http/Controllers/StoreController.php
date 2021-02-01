@@ -13,7 +13,7 @@ class StoreController extends Controller
 
     public function formCreateStr()
     {
-        return view(('Stores/StoreForm'));
+        return view(('/Stores/StoreForm'));
     }
 
 
@@ -52,7 +52,7 @@ class StoreController extends Controller
 
 
 
-    public function updateStr(ProductRequest $request, SalesStoresManagerInterface $storesManager, $storeId)
+    public function updateStr(StoreRequest $request, SalesStoresManagerInterface $storesManager, $storeId)
     {
         $store = new SalesStores();
         $store->setStoreId($storeId);
@@ -65,7 +65,6 @@ class StoreController extends Controller
         $store->setEmail($request->input('email'));
 
         $storesManager->updateStore($store);
-        return redirect('/success/');
-
+        return redirect('/success');
     }
 }

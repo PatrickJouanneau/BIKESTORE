@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use app\Models\Manager\LoginManagerInterface;
+use Exception;
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -17,16 +18,21 @@ class LoginController extends Controller
     {
         $email = $request->input('email');
         $password = $request->input('password');
-        $loginManager->login($email, $password);
 
-        if (['email' => $email, 'password' => $password]) {
-            // Success
+        try {
+            $loginManager->login($email, $password);
             return redirect()->intended('/');
-        } else {
-            // Revenir sur l'erreur (ou faire ce que vous voulez)
-            return redirect('formLogin')->back();
+        } catch (Exception $e) {
+            error_log("not work");
+            return redirect('formLogin');
         }
 
+        //if (['email' => $email, 'password' => $password]) {
+        // Success
+        //} else {
+        // Revenir sur l'erreur (ou faire ce que vous voulez)
+
+        //}
     }
 
     public function logout()

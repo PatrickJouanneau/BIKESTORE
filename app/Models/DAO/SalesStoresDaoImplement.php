@@ -14,7 +14,7 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
     public function getAllStores()
     {
         try {
-            $resultBdd = DB::select("SELECT TOP 10 * FROM sales.stores ORDER BY store_id DESC");
+            $resultBdd = DB::select("SELECT * FROM sales.stores ORDER BY store_id DESC");
 
             $allStores = [];
             foreach ($resultBdd as $i => $row) {
@@ -44,7 +44,9 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
     {
         try {
             $bdd = DB::getPdo();
-            $reponse = $bdd->query("SELECT * FROM sales.stores WHERE store_id='" . $storeId . "'");
+            $reponse = $bdd->query(
+                "SELECT * FROM sales.stores WHERE store_id='" . $storeId . "'"
+            );
             $resultBdd = $reponse->fetch();
 
             $store = new SalesStores();
@@ -67,20 +69,21 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
 
 
 
-    public function createStore(SalesStores $stores)
+    public function createStore(SalesStores $store)
     {
         try {
             DB::insert(
-                "INSERT INTO sales.stores (store_name, phone, email, street, city, state, zip_code)
+                "INSERT INTO sales.stores
+                (store_name, phone, email, street, city, state, zip_code)
         VALUES (?, ?, ?, ?, ?, ?, ? )",
                 [
-                    $stores->getStoreName(),
-                    $stores->getPhone(),
-                    $stores->getEmail(),
-                    $stores->getStreet(),
-                    $stores->getCity(),
-                    $stores->getState(),
-                    $stores->getZipCode()
+                    $store->getStoreName(),
+                    $store->getPhone(),
+                    $store->getEmail(),
+                    $store->getStreet(),
+                    $store->getCity(),
+                    $store->getState(),
+                    $store->getZipCode()
                 ]
             );
         } catch (Exception $e) {
@@ -92,26 +95,27 @@ class SalesStoresDaoImplement implements SalesStoresDaoInterface
 
 
 
-    public function updateStore(SalesStores $stores)
+    public function updateStore($store)
     {
         try {
             DB::update("UPDATE sales.stores SET
-            store_name ?,
-            phone ?,
-            email ?,
-            street ?,
-            city ?,
-            state ?,
-            zip_code ?
+            store_name = ?,
+            phone = ?,
+            email = ?,
+            street = ?,
+            city = ?,
+            state = ?,
+            zip_code = ?
         WHERE store_id = ?
         ", [
-                $stores->getStoreName(),
-                $stores->getPhone(),
-                $stores->getEmail(),
-                $stores->getStreet(),
-                $stores->getCity(),
-                $stores->getState(),
-                $stores->getZipCode()
+                $store->getStoreName(),
+                $store->getPhone(),
+                $store->getEmail(),
+                $store->getStreet(),
+                $store->getCity(),
+                $store->getState(),
+                $store->getZipCode(),
+                $store->getStoreId()
             ]);
         } catch (Exception $e) {
             error_log($e);

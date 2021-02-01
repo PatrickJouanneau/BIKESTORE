@@ -4,6 +4,9 @@ namespace App\Models\Dao;
 
 use App\Models\Model\ProdProductAudit;
 use App\Models\Dao\ProdProductAuditDaoInterface;
+use App\Exceptions\DaoException;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
 
 
@@ -11,24 +14,30 @@ class ProdProductAuditDaoImplement implements ProdProductAuditDaoInterface
 {
     public function getAllProductAudits()
     {
-        $resultBdd = DB::select('exec dbo.get_all_product_audits');
+        try {
+            $resultBdd = DB::select('exec dbo.get_all_product_audits');
 
-        $allProducts = [];
-        foreach ($resultBdd as $i => $row) {
-            $product = new ProdProductAudit();
-            $product->setChangeId($row->change_id);
-            $product->setProductId($row->product_id);
-            $product->setProductName($row->product_name);
-            $product->setModelYear($row->model_year);
-            $product->setBrandId($row->brand_id);
-            $product->setCategotyId($row->category_id);
-            $product->setListPrice($row->list_price);
-            $product->setUpdated($row->updated_at);
-            $product->setOperation($row->operation);
+            $allProducts = [];
+            foreach ($resultBdd as $i => $row) {
+                $product = new ProdProductAudit();
+                $product->setChangeId($row->change_id);
+                $product->setProductId($row->product_id);
+                $product->setProductName($row->product_name);
+                $product->setModelYear($row->model_year);
+                $product->setBrandId($row->brand_id);
+                $product->setCategotyId($row->category_id);
+                $product->setListPrice($row->list_price);
+                $product->setUpdated($row->updated_at);
+                $product->setOperation($row->operation);
 
-            array_push($allProducts, $product);
+                array_push($allProducts, $product);
+            }
+            return $allProducts;
+        } catch (Exception $e) {
+            error_log($e);
+            Log::error($e);
+            throw new DaoException();
         }
-        return $allProducts;
 
     }
 }

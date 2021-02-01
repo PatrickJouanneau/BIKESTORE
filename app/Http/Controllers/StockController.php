@@ -60,11 +60,11 @@ class StockController extends Controller
     }
 
 
-    public function updateStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager)
+    public function updateStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager, $storeId, $productId)
     {
         $stock = new ProdStocks();
-        $stock->setSalesStore($storesManager->getStoreById($request->input("stock-storeId")));
-        $stock->setProdProduct($productsManager->getProductById($request->input("stock-productId")));
+        $stock->setSalesStore($storesManager->getStoreById($storeId->$request->input("stock-storeId")));
+        $stock->setProdProduct($productsManager->getProductById($productId->$request->input("stock-productId")));
         $stock->setQuantity($request->input("quantity"));
 
         $stocksManager->updateStock($stock);

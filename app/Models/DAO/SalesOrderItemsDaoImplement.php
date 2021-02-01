@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Model\SalesOrderItems;
 use App\Models\DAO\ProdProductsDaoInterface;
 use App\Models\DAO\SalesOrdersDaoInterface;
+use App\Exceptions\DaoException;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -24,7 +25,8 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
 
     public function getListeOrderItems()
     {
-        $resultBdd = DB::select("exec dbo.get_liste_order_items");
+        try {
+            $resultBdd = DB::select("exec dbo.get_liste_order_items");
 
         $listeOrderItems = [];
         foreach ($resultBdd as $i => $row) {
@@ -45,6 +47,11 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             array_push($listeOrderItems, $orderItem);
         }
         return $listeOrderItems;
+        } catch (Exception $e) {
+            error_log($e);
+            Log::error($e);
+            throw new DaoException();
+        }
     }
 
 
@@ -74,7 +81,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             }
             return $allOrderItems;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -102,8 +111,10 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
             $orderItem->setProdProduct($product);
 
             return $orderItem;
-        } catch (Exception $e) {
+        }catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -122,7 +133,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         try {
             return DB::select("exec dbo.get_orders_store_month");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -142,7 +155,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         try {
             return DB::select("exec dbo.get_orders_staffs_month");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -152,7 +167,9 @@ class SalesOrderItemsDaoImplement implements SalesOrderItemsDaoInterface
         try {
             return DB::select("exec dbo.get_orders_staffs_years");
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

@@ -15,21 +15,29 @@ class SalesStaffsManagerImplement implements SalesStaffsManagerInterface
         $this->staffsDao = $staffsDao;
     }
 
+
+
     public function getAllStaffs()
     {
         return $this->staffsDao->getAllStaffs();
     }
+
+
 
     public function getStaffById($staffId)
     {
         return $this->staffsDao->getStaffById($staffId);
     }
 
+
+
     public function createStaff(SalesStaffs $staffs)
     {
         $this->staffsDao->createStaff($staffs);
     }
 
+
+    
     public function updateStaff(SalesStaffs $staffs)
     {
         $this->staffsDao->updateStaff($staffs);

@@ -13,7 +13,7 @@ class CustomerController extends Controller
 {
     public function formCreateCust()
     {
-        return view('/Customers.CustomerForm');
+        return view('/Customers/CustomerForm');
     }
 
 

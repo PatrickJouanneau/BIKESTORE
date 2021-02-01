@@ -5,6 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\DAO\ProdCategoriesDaoInterface;
 use App\Models\Model\ProdCategories;
+use App\Exceptions\DaoException;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -26,7 +27,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
             }
             return $allCategories;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -44,7 +47,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
 
             return $category;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -54,7 +59,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
         try {
             DB::insert("INSERT INTO production.categories (category_name) VALUES (?)", [$categories->getCategoryName()]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -64,7 +71,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
         try {
             DB::update("UPDATE production.categories set category_name = ? WHERE category_id = ?", [$categories->getCategoryName(), $categories->getCategoryId()]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -75,7 +84,9 @@ class ProdCategoriesDaoImplement implements ProdCategoriesDaoInterface
         try {
             DB::delete("DELETE FROM production.categories WHERE category_id = ? ", [$categoryId]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

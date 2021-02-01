@@ -5,6 +5,7 @@ namespace App\Models\DAO;
 use Illuminate\Support\Facades\DB;
 use App\Models\DAO\ProdBrandsDaoInterface;
 use App\Models\Model\ProdBrands;
+use App\Exceptions\DaoException;
 use Exception;
 use Illuminate\Support\Facades\Log;
 
@@ -35,7 +36,9 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
             }
             return $allBrands;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -53,7 +56,9 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
 
             return $brand;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -64,7 +69,9 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         try {
             DB::insert("INSERT INTO production.brands (brand_name) VALUES (?)", [$brands->getBrandName()]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -72,8 +79,10 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
     {
         try {
             DB::update("UPDATE production.brands SET brand_name = ? WHERE brand_id = ? ", [$brands->getBrandName(), $brands->getBrandId()]);
-        } catch (Exception $e) {
+        }catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -83,7 +92,9 @@ class ProdBrandsDaoImplement implements ProdBrandsDaoInterface
         try {
             DB::delete("DELETE FROM production.brands WHERE brand_id = ? ", [$brandId]);
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 }

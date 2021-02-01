@@ -107,7 +107,7 @@
 
 
                                         <div class="card-body">
-                                            <p class="text-muted mb-0">{{ __('Admin') }}</p>
+                                            <p class="text-muted mb-0">Profil : {{ Session::has("profil") ? Session::get("profil") : "" }}</p>
                                             @if (session('status'))
                                             <div class="alert alert-success" role="alert">
                                                 {{ session('status') }}
@@ -341,21 +341,21 @@
                                             <div class="card-body">
                                                 <div class="custom-tab-1">
                                                     <ul class="nav nav-tabs mb-3">
-                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production3">Production</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente4">Vente</a></li>
+                                                        <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#production3">Ventes</a></li>
+                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#vente4">Production</a></li>
                                                     </ul>
                                                     <div class="tab-content">
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4 class="mt-4"></h4>
-                                                                @include('Reporting/Charts')
+                                                                @include('Reporting/ChartsVentes')
 
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="vente4">
                                                             <div class="p-t-15">
-                                                                <h4>This is profile title</h4>
-
+                                                                <h4></h4>
+                                                                @include('Reporting/ChartsProducts')
                                                             </div>
                                                         </div>
                                                     </div>
@@ -443,8 +443,8 @@
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-2">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                        <h4></h4>
+                                                                        <p></p>
                                                                     </div>
                                                                     <div class="col-xl-10">
                                                                         <!-- LISTE DES MAGASINS -->

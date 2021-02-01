@@ -36,6 +36,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                 $staff->setEmail($row->email);
                 $staff->setActive($row->active);
                 $staff->setManagerId($row->manager_id);
+                $staff->setProfil($row->profil);
 
                 $store = $this->storeDao->getStoreById($row->store_id);
                 $staff->setSalesStores($store);
@@ -44,7 +45,9 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
             }
             return $allStaffs;
         } catch (Exception $e) {
+            error_log($e);
             Log::error($e);
+            throw new DaoException();
         }
     }
 
@@ -52,28 +55,34 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
 
     public function getStaffById($staffId)
     {
-        $bdd = DB::getpdo();
-        error_log("****  ".$staffId);
-        $reponse = $bdd->query(
-            "SELECT * FROM sales.staffs WHERE staff_id = '" . $staffId . "'"
-        );
-        $resultBdd = $reponse->fetch();
+        try {
+            $bdd = DB::getpdo();
+            //error_log("****  ".$staffId);
+            $reponse = $bdd->query(
+                "SELECT * FROM sales.staffs WHERE staff_id = '" . $staffId . "'"
+            );
+            $resultBdd = $reponse->fetch();
 
-        $staff = new SalesStaffs();
-        $staff->setStaffId($resultBdd['staff_id']);
-        $staff->setFirstName($resultBdd['first_name']);
-        $staff->setLastName($resultBdd['last_name']);
-        $staff->setPhone($resultBdd['phone']);
-        $staff->setEmail($resultBdd['email']);
-        $staff->setActive($resultBdd['active']);
-        $staff->setProfil($resultBdd['profil']);
+            $staff = new SalesStaffs();
+            $staff->setStaffId($resultBdd['staff_id']);
+            $staff->setFirstName($resultBdd['first_name']);
+            $staff->setLastName($resultBdd['last_name']);
+            $staff->setPhone($resultBdd['phone']);
+            $staff->setEmail($resultBdd['email']);
+            $staff->setActive($resultBdd['active']);
+            $staff->setProfil($resultBdd['profil']);
 
-        $store = $this->storeDao->getStoreById($resultBdd['store_id']);
-        $staff->setSalesStores($store);
+            $store = $this->storeDao->getStoreById($resultBdd['store_id']);
+            $staff->setSalesStores($store);
 
-        $staff->setManagerId($resultBdd['manager_id']);
+            $staff->setManagerId($resultBdd['manager_id']);
 
-        return $staff;
+            return $staff;
+        } catch (Exception $e) {
+            error_log($e);
+            Log::error($e);
+            throw new DaoException();
+        }
     }
 
 
@@ -81,7 +90,8 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
     public function createStaff($staff)
     {
         try {
-            DB::insert("INSERT INTO sales.staffs
+            DB::insert(
+                "INSERT INTO sales.staffs
             (first_name, last_name, email, phone, active, store_id, manager_id, password, profil) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 [
                     $staff->getFirstName(),
@@ -95,11 +105,11 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
                     $staff->getProfil()
                 ]
             );
-            Log::debug("Utilisateur ".$staff->getFirstName()." ".$staff->getLastName()." ajouté");
+            Log::debug("Utilisateur " . $staff->getFirstName() . " " . $staff->getLastName() . " ajouté");
         } catch (Exception $e) {
             error_log($e);
             Log::error($e);
-            
+            throw new DaoException();
         }
     }
 
@@ -133,8 +143,7 @@ class SalesStaffsDaoImplement implements SalesStaffsDaoInterface
         } catch (Exception $e) {
             error_log($e);
             Log::error($e);
-            throw new DaoException();            
+            throw new DaoException();
         }
     }
-    
 }

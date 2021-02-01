@@ -102,44 +102,18 @@
                   <hr>
                 </div>
               </div>
-              <div class="card shadow mb-4">
+
+              <!--<div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp;  Stocks par marques</h4>
                 </div>
                 <div class="card-body">
                   <div class="chart-bar">
-                    <!--<a type="button" id="test_myChartCopy" class="btn btn-lg btn-block btn-outline-primary">Charger le graphique</a>-->                    <canvas id="myCustomersYears"></canvas>
+                        <canvas id="myCustomersYears"></canvas>
                   </div>
                 </div>
-              </div>
+              </div>-->
 
-              <!-- STOCKS PAR MARQUES -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Stocks par marques</h4>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-bar pt-4">
-                    <a type="button" id="update_stock_by_brand" class="btn float-right btn-sm btn-outline-primary">Charger le graphique</a>
-                    <canvas id="chartStockByBrand"></canvas>
-                  </div>
-                </div>
-              </div>
-
-              <!-- STOCKS PARCATEGORIES -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h4 class="m-0 font-weight-bold text-primary">&#x27A4 &nbsp; Stocks par catégories</h4>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-bar pt-4">
-                    <a type="button" id="update_stock_by_categories" class="btn float-right btn-sm btn-outline-primary">Charger le graphique</a>
-                    <canvas id="chartStockByCtaegories"></canvas>
-                  </div>
-                </div>
-              </div>
 
             </div>
           </div>
@@ -172,8 +146,7 @@
   <script src="js/chart-orders-staff-month.js"></script>
   <script src="js/chart-orders-staff-year.js"></script>
   <script src="js/chart-orders-by-staffs-years.js"></script>
-  <script src="js/stocks-by-brands.js"></script>
-  <script src="js/stocks-by-categories.js"></script>
+
 
 
 
