@@ -37,7 +37,7 @@
 
                             @foreach ($stores as $store)
 
-                                <option value="{{ $store->getStoreId() }}" 
+                                <option value="{{ $store->getStoreId() }}"
                                     {{ !empty($staff->getSalesStores()) && $staff->getSalesStores()->getStoreId() ==  $store->getStoreId() ? "selected" : "" }} >
                                     {{ $store->getStoreName() }}</option>
 
@@ -48,9 +48,7 @@
                         <div class="form-group">
                             <div class="error">{{ $errors->has("manager-stf") ? $errors->first("manager-stf") : "" }}</div>
                             <select id="manager-stf-up" name="manager-stf" class="form-control" value="{{ old('manager') }}" required>
-
-                                <!--option value="{{ !empty($staff->getManagerId()) ? $staff->getFirstName()  : "" }}"></option-->
-
+                                <!--option value="{{-- !empty($staff->getManagerId()) ? $staff->getFirstName()  : "" --}}"></option-->
                             @foreach ($staffs as $st)
                                 @if($st->getStaffId() != $staff->getStaffId())
                                     <option value="{{ $st->getStaffId() }}"   {{ $st->getStaffId() == $staff->getManagerId() ? "selected" : "" }}  >{{ $st->getFirstName() }} {{ $st->getLastName() }}</option>
@@ -64,12 +62,12 @@
                             <div class="error">{{ $errors->has("profil-stf") ? $errors->first("profil-stf") : "" }}</div>
                             <select id="profil-stf-up" name="profil-stf" class="form-control" value="{{ old('profil') }}" required>
                                 <!--option selected value="{{ $staff->getProfil()   }}"></option-->
-                                <option value="vendeur" {{ $staff->getProfil() =="vendeur" ? "selected" : "" }}>Vendeur</option>
-                                <option value="administratif" {{ $staff->getProfil() =="administratif" ? "selected" : "" }} >Administratif</option>
-                                <option value="preparateur" {{ $staff->getProfil() =="preparateur" ? "selected" : "" }}>Préparateur</option>
-                                <option value="reparateur" {{ $staff->getProfil() =="reparateur" ? "selected" : "" }}>Réparateur</option>
-                                <option value="direction" {{ $staff->getProfil() =="direction" ? "selected" : "" }}>Direction</option>
-                                <option value="Interimaire" {{ $staff->getProfil() =="Interimaire" ? "selected" : "" }}>Autres</option>
+                                <option value="Vendeur" {{ $staff->getProfil() =="Vendeur" ? "selected" : "" }}>Vendeur</option>
+                                <option value="Administratif" {{ $staff->getProfil() =="Administratif" ? "selected" : "" }} >Administratif</option>
+                                <option value="Preparateur" {{ $staff->getProfil() =="Preparateur" ? "selected" : "" }}>Préparateur</option>
+                                <option value="Reparateur" {{ $staff->getProfil() =="Reparateur" ? "selected" : "" }}>Réparateur</option>
+                                <option value="Manager" {{ $staff->getProfil() =="Manager" ? "selected" : "" }}>Manager</option>
+                                <option value="Interimaire" {{ $staff->getProfil() =="Interimaire" ? "selected" : "" }}>Intérimaire</option>
                                 <option value="Autres" {{ $staff->getProfil() =="Autres" ? "selected" : "" }}>Autres</option>
                             </select>
                         </div>

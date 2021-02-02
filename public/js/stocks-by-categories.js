@@ -70,7 +70,7 @@ var test_C = function ()
         ,
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

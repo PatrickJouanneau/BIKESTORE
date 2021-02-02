@@ -145,6 +145,7 @@
                             <!-------------------
                                 PRODUCTION
                             --------------------->
+
                             <div class="tab-pane fade show active" id="production" role="tabpanel">
                                 <div class="p-t-15">
                                     <div class="col-md-12">
@@ -166,7 +167,10 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!--MODIFICATION & CREATION d'une nouvelle marque-->
-                                                                        @include('Brands/BrandForm')
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "preparateur" || Session::get('profil') == "administratif" ))
+                                                                            @include('Brands/BrandForm')
+
+                                                                        @endif
                                                                     </div>
 
                                                                     <div class="col-xl-9">
@@ -185,7 +189,9 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!-- MODIFICATION d'une catégorie -->
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "preparateur" || Session::get('profil') == "administratif" ))
                                                                         @include('Categories/CategoryForm')
+                                                                    @endif
                                                                     </div>
 
                                                                     <div class="col-xl-9">

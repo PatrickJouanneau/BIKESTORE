@@ -34,15 +34,32 @@ Route::post('/formLogin', [LoginController::class, 'login']);
 
 Route::group(['middleware' => ['is_connected']], function () {
 
-    //if (session($loginInformation->profil) == 'administratif'){ }
 
 
-    Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
-    Route::post('/brands/create', [BrandController::class, 'createBrd']);
-    Route::get('/brands/json', [BrandController::class, 'allJsonBrand']);
-    Route::get('/brands/{brandId}/edit', [BrandController::class, 'formUpdateBrd']);
-    Route::post('/brands/{brandId}/edit', [BrandController::class, 'updateBrd']);
-    Route::get('/brands/{brandId}/delete', [BrandController::class, 'deleteBrd']);
+
+    Route::group(['middleware' => ['is_vendeur']], function () {
+
+        Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
+        Route::post('/stocks/create', [StockController::class, 'createStk']);
+        //Route::get('/stocks/liste/all', [StockController::class, 'listeAllStk']);
+        Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
+        Route::get('/stocks/{storeId}/{productId}/edit', [StockController::class, 'formUpdateStk']);
+        Route::post('/stocks/{storeId}/{productId}/edit', [StockController::class, 'updateStk']);
+    });
+
+
+
+    Route::group(['middleware' => ['is_preparateur']], function () {
+        Route::get('/brands/create', [BrandController::class, 'formCreateBrd']);
+        Route::post('/brands/create', [BrandController::class, 'createBrd']);
+        Route::get('/brands/json', [BrandController::class, 'allJsonBrand']);
+        Route::get('/brands/{brandId}/edit', [BrandController::class, 'formUpdateBrd']);
+        Route::post('/brands/{brandId}/edit', [BrandController::class, 'updateBrd']);
+        Route::get('/brands/{brandId}/delete', [BrandController::class, 'deleteBrd']);
+    });
+
+
+
 
     Route::get('/categories/create', [CategoryController::class, 'formCreateCat']);
     Route::post('/categories/create', [CategoryController::class, 'createCat']);
@@ -62,12 +79,6 @@ Route::group(['middleware' => ['is_connected']], function () {
     Route::get('/productAudits/json', [ProductAuditController::class, 'allJsonAuditProd']);
 
 
-    Route::get('/stocks/create', [StockController::class, 'formCreateStk']);
-    Route::post('/stocks/create', [StockController::class, 'createStk']);
-    //Route::get('/stocks/liste/all', [StockController::class, 'listeAllStk']);
-    Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
-    Route::get('/stocks/{storeId}/{productId}/edit', [StockController::class, 'formUpdateStk']);
-    Route::post('/stocks/{storeId}/{productId}/edit', [StockController::class, 'updateStk']);
 
     Route::get('/customers/create', [CustomerController::class, 'formCreateCust']);
     Route::post('/customers/create', [CustomerController::class, 'createCust']);

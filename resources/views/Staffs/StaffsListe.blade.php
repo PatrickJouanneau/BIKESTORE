@@ -12,6 +12,7 @@
             <th scope="col">Magasin</th>
             <th scope="col">Responsable</th>
             <th scope="col">Activité</th>
+            <th scope="col">#</th>
         </tr>
     </thead>
     <tbody>
@@ -24,8 +25,7 @@
                 <td>{{  $staff->getPhone() }}</td>
                 <td>{{  $staff->getProfil() }}</td>
                 <td>{{  $staff->getSalesStores()->getStoreName() }}</td>
-                <td>{{  $staff->getSalesStores()->getStoreName() }}</td>
-                <td>{{  $staff->getManagerId() }}</td>
+                <td>{{  $staff->getManagerId() }} </td>
                 <td>{{  $staff->getActive() }}</td>
                 <td>
                     <a href="{{ url('/staffs/'.$staff->getStaffId().'/edit') }}"><img src="img/wrench.svg" alt="clé"></a>&nbsp;&nbsp;

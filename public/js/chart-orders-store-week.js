@@ -106,7 +106,7 @@ var test_SW = function ()
 
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

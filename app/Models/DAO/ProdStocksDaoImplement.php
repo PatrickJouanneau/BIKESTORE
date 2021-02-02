@@ -133,12 +133,12 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
         }
     }
 
-    public function createStock($stock, $storeId, $productId)
+    public function createStock($stock)
     {
         try {
             DB::insert("INSERT INTO production.stocks(store_id, product_id, quantity) VALUES (?, ?, ?)", [
-                $storeId->getSalesStore()->getStoreId(),
-                $productId->getProdProduct()->getProductId(),
+                $stock->getSalesStore()->getStoreId(),
+                $stock->getProdProduct()->getProductId(),
                 $stock->getQuantity()
             ]);
         } catch (Exception $e) {

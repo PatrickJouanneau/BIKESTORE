@@ -110,7 +110,7 @@ var test_StaM = function ()
         ,
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

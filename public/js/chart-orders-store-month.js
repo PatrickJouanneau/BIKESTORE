@@ -104,7 +104,7 @@ var test_SM = function ()
         ,
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

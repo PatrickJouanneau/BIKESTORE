@@ -139,7 +139,7 @@
                         },
                         error: function error()
                         {
-                            alert("No");
+                            //alert("No");
                         }
                     });
                 });
@@ -170,7 +170,7 @@
                         },
                         error: function error()
                         {
-                            alert("No");
+                            //alert("No");
                         }
                     });
                 });
@@ -201,7 +201,7 @@
                         },
                         error: function error()
                         {
-                            alert("No");
+                            //alert("No");
                         }
                     });
                 });
@@ -237,7 +237,7 @@
                         },
                         error: function error()
                         {
-                            alert("No");
+                           // alert("No");
                         }
                     });
                 });
@@ -273,7 +273,7 @@
                         },
                         error: function error()
                         {
-                            alert("No");
+                            //alert("No");
                         }
                     });
                 });

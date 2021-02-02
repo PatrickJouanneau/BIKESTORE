@@ -111,7 +111,7 @@ $('#test_myChartCopy').on("click", function ()
         ,
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 });

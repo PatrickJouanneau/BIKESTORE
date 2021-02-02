@@ -106,7 +106,7 @@ var test_S7 = function ()
 
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

@@ -42,7 +42,7 @@ class StockController extends Controller
         $stock->setProdProduct($productsManager->getProductById($prodId));
         $stock->setQuantity($q);
 
-        $stocksManager->createStock($stock, $storeId, $prodId);
+        $stocksManager->createStock($stock);
         return redirect('/success');
     }
 
@@ -63,8 +63,11 @@ class StockController extends Controller
     public function updateStk(StockRequest $request, ProdStocksManagerInterface $stocksManager, SalesStoresManagerInterface $storesManager, ProdProductsManagerInterface $productsManager, $storeId, $productId)
     {
         $stock = new ProdStocks();
-        $stock->setSalesStore($storesManager->getStoreById($storeId->$request->input("stock-storeId")));
-        $stock->setProdProduct($productsManager->getProductById($productId->$request->input("stock-productId")));
+
+        $stock->setSalesStore($storesManager->getStoreById($storeId));
+        //$stock->setSalesStore($storeId);
+        $stock->setProdProduct($productsManager->getProductById($productId));
+        //$stock->setProdProduct(
         $stock->setQuantity($request->input("quantity"));
 
         $stocksManager->updateStock($stock);

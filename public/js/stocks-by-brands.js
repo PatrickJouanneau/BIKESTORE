@@ -85,7 +85,7 @@ var test_B = function ()
         ,
         error: function error()
         {
-            alert("No");
+            //alert("No");
         }
     });
 };

@@ -47,11 +47,11 @@
         <div class="error">{{ $errors->has("profil-stf") ? $errors->first("profil-stf") : "" }}</div>
         <select id="profil-stf" name="profil-stf" class="form-control" required>
             <option selected>Profil du poste</option>
-            <option value="vendeur">Vendeur</option>
-            <option value="administratif">Administratif</option>
-            <option value="preparateur">Préparateur</option>
-            <option value="reparateur">Réparateur</option>
-            <option value="direction">Direction</option>
+            <option value="Vendeur">Vendeur</option>
+            <option value="Administratif">Administratif</option>
+            <option value="Preparateur">Préparateur</option>
+            <option value="Reparateur">Réparateur</option>
+            <option value="Manager">Manager</option>
             <option value="Intérimaire">Autres</option>
             <option value="Autres">Autres</option>
         </select>

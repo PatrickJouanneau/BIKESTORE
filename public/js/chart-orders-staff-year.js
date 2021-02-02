@@ -97,7 +97,7 @@ var test_StaY = function ()
         ,
         error: function error()
         {
-            alert("No");
+           // alert("No");
         }
     });
 };

@@ -37,20 +37,20 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
 
 
 
-    public function createStock($stocks, $storeId, $productId)
+    public function createStock($stocks)
     {
-        $this->stocksDao->createStock($stocks, $storeId, $productId);
+        $this->stocksDao->createStock($stocks);
     }
 
 
 
-    public function updateStock($storeId, $productId)
+    public function updateStock($stock)
     {
-        $this->stocksDao->updateStock($storeId, $productId);
+        $this->stocksDao->updateStock($stock);
     }
 
 
-    
+
     public function getStockBrand()
     {
         return $this->stocksDao->getStockBrand();
@@ -62,5 +62,4 @@ class ProdStocksManagerImplement implements ProdStocksManagerInterface
     {
         return $this->stocksDao->getStockCategory();
     }
-
 }
