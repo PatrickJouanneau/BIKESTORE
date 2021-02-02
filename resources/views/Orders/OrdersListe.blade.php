@@ -24,7 +24,7 @@
                 <td>{{ $o->getRequiredDate() }}</td>
                 <td>{{ $o->getShippedDate() }}</td>
                 <td>{{ $o->getSalesStores()->getStoreName() }}</td>
-                <td>{{ $o->getSalesStaffs()->getLastName() }}</td>
+                <td>{{ $o->getSalesStaffs()->getLastName() }} {{ $o->getSalesStaffs()->getFirstName() }}</td>
             </tr>
         @endforeach
     </tbody>

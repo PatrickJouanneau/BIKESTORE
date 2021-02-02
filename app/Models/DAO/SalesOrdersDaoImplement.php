@@ -110,9 +110,6 @@ class SalesOrdersDaoImplement implements SalesOrdersDaoInterface
                 $customer = $this->customerDao->getCustomerById($row->customer_id);
                 $order->setSalesCustomers($customer);
 
-                /*$customer = $this->customerDao->getCustomerById($row->first_name);
-                $order->setSalesCustomers($customer);;*/
-
                 $store = $this->storeDao->getStoreById($row->store_id);
                 $order->setSalesStores($store);
 

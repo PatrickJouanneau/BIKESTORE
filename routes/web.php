@@ -108,8 +108,6 @@ Route::group(['middleware' => ['is_connected']], function () {
         Route::get('/productAudits/json', [ProductAuditController::class, 'allJsonAuditProd']);
     });
 
-
-
     Route::get('/products/json', [ProductController::class, 'allJsonProd']);
     Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
     Route::get('/customers/json', [CustomerController::class, 'allJsonCust']);
