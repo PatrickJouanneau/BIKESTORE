@@ -26,7 +26,7 @@
                     <td>{{  $store->getEmail() }}</td>
                     <td>
                         <a href="{{ url('/stores/'.$store->getStoreId().'/edit') }}"><img src="img/wrench.svg" alt=""></a>&nbsp;&nbsp;
-                        <a href="{{ url('/stores/'.$store->getStoreId().'/delete') }}"><img src="img/trash.svg" alt="Poubelle"></a>
+                        <!--<a href="{{-- url('/stores/'.$store->getStoreId().'/delete') --}}"><img src="img/trash.svg" alt="Poubelle"></a>-->
                     </td>
                 </tr>
             @endforeach

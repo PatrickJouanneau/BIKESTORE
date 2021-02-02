@@ -167,7 +167,7 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!--MODIFICATION & CREATION d'une nouvelle marque-->
-                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                             @include('Brands/BrandForm')
 
                                                                         @endif
@@ -189,7 +189,7 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!-- MODIFICATION d'une catégorie -->
-                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                         @include('Categories/CategoryForm')
                                                                     @endif
                                                                     </div>
@@ -209,7 +209,7 @@
 
                                                                     <div class="col-xl-3">
                                                                     <!-- SELECTION MODIFICATION et CREATION d'un produit -->
-                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                         @include('Products/ProductSelect')
                                                                         @include('Products/ProductForm')
                                                                     @endif
@@ -232,7 +232,7 @@
                                                                 <div class="row">
                                                                     <div class="col-xl-3">
                                                                     <!-- SELECTION & MISE EN STOCK d'un produit -->
-                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                         @include('Stocks/stockSelect')
                                                                         @include('Stocks/StockForm')
                                                                     @endif
@@ -277,7 +277,7 @@
 
                                                                     <div class="col-xl-2">
                                                                         <!-- FORMULAIRE CREATION et MODIFICATION DE CLIENT -->
-                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                             @include('Customers/CustomerForm')
                                                                         @endif
                                                                     </div>
@@ -315,7 +315,7 @@
                                                             <!-- ** BON DE COMMANDE ** -->
                                                             <div class="p-t-15">
                                                                 <h4>Bon de commande</h4>
-                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                     @include('BonDeCommande')
                                                                 @endif
                                                             </div>
@@ -362,7 +362,7 @@
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4 class="mt-4"></h4>
-                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                     @include('Reporting/ChartsVentes')
                                                                 @endif
                                                             </div>
@@ -370,7 +370,7 @@
                                                         <div class="tab-pane fade" id="vente4">
                                                             <div class="p-t-15">
                                                                 <h4 class="mt-4"></h4>
-                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                     @include('Reporting/ChartsProducts')
                                                                 @endif
                                                             </div>
@@ -407,7 +407,7 @@
                                                                     <div class="col-xl-3">
                                                                         <div class="card-body">
                                                                             <!-- CREATION MODIFICATION d'un UTILISATEUR -->
-                                                                            @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administratif"))
+                                                                            @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administrateur"))
                                                                                 @include('Staffs/StaffForm')
                                                                             @endif
                                                                             <hr>
@@ -429,7 +429,7 @@
                                                                 <div class="row">
 
                                                                     <div class="col-xl-3">
-                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administratif"))
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administrateur"))
                                                                             @include('Stores/StoreForm')
                                                                         @endif
                                                                     </div>
@@ -469,7 +469,7 @@
                                                                     </div>
                                                                     <div class="col-xl-10">
                                                                         <!-- LISTE DES MAGASINS -->
-                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administrateur"))
                                                                             @include('Audits/ProductAudits')
                                                                         @endif
                                                                     </div>

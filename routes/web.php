@@ -16,8 +16,6 @@ use App\Http\Controllers\StockController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,11 +88,10 @@ Route::group(['middleware' => ['is_connected']], function () {
         //Route::get('/stocks/json', [StockController::class, 'allJsonStk']);
         Route::get('/stocks/{storeId}/{productId}/edit', [StockController::class, 'formUpdateStk']);
         Route::post('/stocks/{storeId}/{productId}/edit', [StockController::class, 'updateStk']);
-
     });
 
 
-    Route::group(['middleware' => ['is_administratif']], function () {
+    Route::group(['middleware' => ['is_Administrateur']], function () {
         Route::get('/staffs/create', [StaffController::class, 'formCreateStf']);
         Route::post('/staffs/create', [StaffController::class, 'createStf']);
         Route::get('/staffs/{staffId}/edit', [StaffController::class, 'formUpdateStf']);
@@ -126,6 +123,8 @@ Route::group(['middleware' => ['is_connected']], function () {
 });
 
 Route::get('/logout', [LoginController::class, 'logout']);
+
+
 
 
 

@@ -6,7 +6,7 @@ use App\Http\Middleware\IsAuthenticated;
 use App\Http\Middleware\IsConnected;
 use App\Http\Middleware\IsPreparateur;
 use App\Http\Middleware\IsVendeur;
-use App\Http\Middleware\Middleware\IsAdministratif;
+use App\Http\Middleware\Middleware\IsAdministrateur;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -69,7 +69,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_authenticated' => IsAuthenticated::class,
         'is_connected' => IsConnected::class,
-        ///'is_administatif' => IsAdministratif::class,
+        ///'is_administateur' => IsAdministrateur::class,
         'is_preparateur' => IsPreparateur::class,
         //'is_reparateur' => IsReparateur::class,
         'is_vendeur' => IsVendeur::class

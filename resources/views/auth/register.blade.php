@@ -112,7 +112,7 @@
                                                 <select id="profil" class="form-control" value="{{ old('profil') }}" required>
                                                     <option selected>Choisir</option>
                                                     <option>Vendeur</option>
-                                                    <option>Administratif</option>
+                                                    <option>Administrateur</option>
                                                     <option>Préparateur</option>
                                                     <option>Réparateur</option>
                                                     <option>Direction</option>

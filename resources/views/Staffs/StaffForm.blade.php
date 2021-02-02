@@ -48,7 +48,7 @@
         <select id="profil-stf" name="profil-stf" class="form-control" required>
             <option selected>Profil du poste</option>
             <option value="Vendeur">Vendeur</option>
-            <option value="Administratif">Administratif</option>
+            <option value="Administrateur">Administrateur</option>
             <option value="Preparateur">Préparateur</option>
             <option value="Reparateur">Réparateur</option>
             <option value="Manager">Manager</option>

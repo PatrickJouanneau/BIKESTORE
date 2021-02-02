@@ -63,7 +63,7 @@
                             <select id="profil-stf-up" name="profil-stf" class="form-control" value="{{ old('profil') }}" required>
                                 <!--option selected value="{{ $staff->getProfil()   }}"></option-->
                                 <option value="Vendeur" {{ $staff->getProfil() =="Vendeur" ? "selected" : "" }}>Vendeur</option>
-                                <option value="Administratif" {{ $staff->getProfil() =="Administratif" ? "selected" : "" }} >Administratif</option>
+                                <option value="Administrateur" {{ $staff->getProfil() =="Administrateur" ? "selected" : "" }} >Administrateur</option>
                                 <option value="Preparateur" {{ $staff->getProfil() =="Preparateur" ? "selected" : "" }}>Préparateur</option>
                                 <option value="Reparateur" {{ $staff->getProfil() =="Reparateur" ? "selected" : "" }}>Réparateur</option>
                                 <option value="Manager" {{ $staff->getProfil() =="Manager" ? "selected" : "" }}>Manager</option>
