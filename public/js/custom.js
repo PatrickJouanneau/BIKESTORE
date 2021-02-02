@@ -230,14 +230,14 @@
                                 result.forEach(function (ord)
                                 {
                                     //ord.sort(sortByLastName);
-                                    content += '<tr><td>' +ord.id+ '</td><td>' + ord.cust.lastName + " " + ord.cust.firstName + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
+                                    content += '<tr><td>' + ord.id + '</td><td>' + ord.cust.lastName + " " + ord.cust.firstName + '</td><td>' + ord.status + '</td><td>' + ord.ordDat + '</td><td>' + ord.reqDat + '</td><td>' + ord.shipDat + '</td><td>' + ord.store.name + '</td><td>' + ord.staff.lastName + " " + ord.staff.firstName + '</td></tr>';
                                 });
                                 $('#body-order').html(content);
                             }
                         },
                         error: function error()
                         {
-                           // alert("No");
+                            alert("No");
                         }
                     });
                 });
@@ -266,7 +266,7 @@
                                 var content = '';
                                 result.forEach(function (orIte)
                                 {
-                                    content += '<tr><td>' + orIte.order + '</td><td>' + orIte.item + '</td><td>' + orIte.prod.id + '</td><td>' + orIte.prod.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + (orIte.disc *100).toFixed(0) +' %'  + '</td></tr>';
+                                    content += '<tr><td>' + orIte.order + '</td><td>' + orIte.item + '</td><td>' + orIte.prod.id + '</td><td>' + orIte.prod.name + '</td><td>' + orIte.qti + '</td><td>' + orIte.price + '</td><td>' + (orIte.disc * 100).toFixed(0) + ' %' + '</td></tr>';
                                 });
                                 $('#body-orderItem').html(content);
                             }

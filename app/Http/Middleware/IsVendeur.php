@@ -20,7 +20,7 @@ class IsVendeur
         if (!empty(session("profil"))) {
            // error_log("mon profil est '" . session("profil") . "'");
         }
-        if (empty(session("profil")) || (session("profil") != "Vendeur" && session("profil") != "Administratif")) {
+        if (empty(session("profil")) || (session("profil") != "Vendeur" && session("profil") != "Manager" && session("profil") != "Administratif")) {
             error_log("je suis vendeur");
             return redirect('/');
         } else {

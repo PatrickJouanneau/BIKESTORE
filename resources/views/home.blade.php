@@ -167,7 +167,7 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!--MODIFICATION & CREATION d'une nouvelle marque-->
-                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "preparateur" || Session::get('profil') == "administratif" ))
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
                                                                             @include('Brands/BrandForm')
 
                                                                         @endif
@@ -189,7 +189,7 @@
 
                                                                     <div class="col-xl-3">
                                                                         <!-- MODIFICATION d'une catégorie -->
-                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "preparateur" || Session::get('profil') == "administratif" ))
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
                                                                         @include('Categories/CategoryForm')
                                                                     @endif
                                                                     </div>
@@ -209,8 +209,10 @@
 
                                                                     <div class="col-xl-3">
                                                                     <!-- SELECTION MODIFICATION et CREATION d'un produit -->
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
                                                                         @include('Products/ProductSelect')
                                                                         @include('Products/ProductForm')
+                                                                    @endif
                                                                     </div>
 
                                                                     <div class="col-xl-9">
@@ -230,8 +232,10 @@
                                                                 <div class="row">
                                                                     <div class="col-xl-3">
                                                                     <!-- SELECTION & MISE EN STOCK d'un produit -->
-                                                                    @include('Stocks/stockSelect')
-                                                                    @include('Stocks/StockForm')
+                                                                    @if(!empty(Session::get('profil')) && (Session::get('profil') == "Preparateur" || Session::get('profil') == "Reparateur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                        @include('Stocks/stockSelect')
+                                                                        @include('Stocks/StockForm')
+                                                                    @endif
                                                                     </div>
 
                                                                     <div class="col-xl-9">
@@ -273,7 +277,9 @@
 
                                                                     <div class="col-xl-2">
                                                                         <!-- FORMULAIRE CREATION et MODIFICATION DE CLIENT -->
-                                                                        @include('Customers/CustomerForm')
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                            @include('Customers/CustomerForm')
+                                                                        @endif
                                                                     </div>
 
                                                                     <div class="col-xl-10">
@@ -290,12 +296,12 @@
                                                             <div class="container">
                                                                 <div class="row">
 
-                                                                    <div class="col-xl-3">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                    <div class="col-xl-1">
+                                                                        <h4></h4>
+                                                                        <p></p>
                                                                     </div>
 
-                                                                    <div class="col-xl-9">
+                                                                    <div class="col-xl-10">
                                                                         <!-- LISTE DES COMMANDES -->
                                                                         @include('Orders/OrdersListe')
 
@@ -309,7 +315,9 @@
                                                             <!-- ** BON DE COMMANDE ** -->
                                                             <div class="p-t-15">
                                                                 <h4>Bon de commande</h4>
-                                                                @include('BonDeCommande')
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Vendeur" || Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @include('BonDeCommande')
+                                                                @endif
                                                             </div>
                                                         </div>
 
@@ -317,11 +325,11 @@
                                                         <!-- ** VENTES**  -->
                                                             <div class="container">
                                                                 <div class="row">
-                                                                    <div class="col-xl-3">
-                                                                        <h4>This is brand</h4>
-                                                                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove.</p>
+                                                                    <div class="col-xl-1">
+                                                                        <h4></h4>
+                                                                        <p></p>
                                                                     </div>
-                                                                    <div class="col-xl-9">
+                                                                    <div class="col-xl-10">
                                                                         <!-- SUIVI DES COMMANDES -->
                                                                         @include('OrderItems/OrderItemsListe')
                                                                     </div>
@@ -354,14 +362,17 @@
                                                         <div class="tab-pane fade show active" id="production3" role="tabpanel">
                                                             <div class="p-t-15">
                                                                 <h4 class="mt-4"></h4>
-                                                                @include('Reporting/ChartsVentes')
-
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @include('Reporting/ChartsVentes')
+                                                                @endif
                                                             </div>
                                                         </div>
                                                         <div class="tab-pane fade" id="vente4">
                                                             <div class="p-t-15">
-                                                                <h4></h4>
-                                                                @include('Reporting/ChartsProducts')
+                                                                <h4 class="mt-4"></h4>
+                                                                @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                    @include('Reporting/ChartsProducts')
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
@@ -384,7 +395,7 @@
                                                     <ul class="nav nav-tabs mb-3">
                                                         <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#utilisateur">Utilisateurs</a></li>
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#magasins">Magasins</a></li>
-                                                        <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#profil">Profil</a></li>
+                                                        <!--<li class="nav-item"><a class="nav-link" data-toggle="tab" href="#profil">Profil</a></li>-->
                                                         <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#historique">Historiques</a></li>
                                                     </ul>
                                                     <div class="tab-content">
@@ -396,7 +407,9 @@
                                                                     <div class="col-xl-3">
                                                                         <div class="card-body">
                                                                             <!-- CREATION MODIFICATION d'un UTILISATEUR -->
-                                                                            @include('Staffs/StaffForm')
+                                                                            @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administratif"))
+                                                                                @include('Staffs/StaffForm')
+                                                                            @endif
                                                                             <hr>
                                                                         </div>
                                                                     </div>
@@ -416,7 +429,9 @@
                                                                 <div class="row">
 
                                                                     <div class="col-xl-3">
-                                                                        @include('Stores/StoreForm')
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Administratif"))
+                                                                            @include('Stores/StoreForm')
+                                                                        @endif
                                                                     </div>
 
                                                                     <div class="col-xl-9">
@@ -428,8 +443,8 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="tab-pane fade" id="profil">
-                                                        <!-- ** PRROFILE ** -->
+                                                        <!--<div class="tab-pane fade" id="profil">
+                                                         ** PRROFILE **
                                                             <div class="container">
                                                                 <div class="row">
                                                                     <div class="col-xl-6">
@@ -442,7 +457,7 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div>-->
 
                                                         <div class="tab-pane fade" id="historique">
                                                         <!-- ** HISTORIQUE ** -->
@@ -454,7 +469,9 @@
                                                                     </div>
                                                                     <div class="col-xl-10">
                                                                         <!-- LISTE DES MAGASINS -->
-                                                                        @include('Audits/ProductAudits')
+                                                                        @if(!empty(Session::get('profil')) && (Session::get('profil') == "Manager" || Session::get('profil') == "Administratif"))
+                                                                            @include('Audits/ProductAudits')
+                                                                        @endif
                                                                     </div>
                                                                 </div>
                                                             </div>

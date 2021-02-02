@@ -69,9 +69,9 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_authenticated' => IsAuthenticated::class,
         'is_connected' => IsConnected::class,
-        'is_administatif' => IsAdministratif::class,
+        ///'is_administatif' => IsAdministratif::class,
         'is_preparateur' => IsPreparateur::class,
-        'is_reparateur' => IsReparateur::class,
+        //'is_reparateur' => IsReparateur::class,
         'is_vendeur' => IsVendeur::class
 
     ];

@@ -52,7 +52,6 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
 
             /*
             $resultBdd = DB::select('exec dbo.get_liste_stocks');
-
             $listeStocks = [];
             foreach ($resultBdd as $i => $row) {
                 $stock = new ProdStocks();
@@ -76,11 +75,14 @@ class ProdStocksDaoImplement implements ProdStocksDaoInterface
     }
 
 
-
     public function getAllStocks()
     {
         try {
             $resultBdd = DB::select('exec dbo.get_all_stocks');
+
+            //$bdd = DB::getPdo();
+            //$reponse = $bdd->query("SELECT product_name, store_id, quantity FROM production.stocks AS s INNER JOIN production.products AS p ON p.product_id = s.product_id GROUP BY p.product_id, p.product_name, store_id, quantity ORDER BY product_name");
+            //$resultBdd = $reponse->fetchAll();
 
             $allStocks = [];
             foreach ($resultBdd as $i => $row) {

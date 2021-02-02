@@ -16,7 +16,7 @@ class IsPreparateur
      */
     public function handle(Request $request, Closure $next)
     {
-        if (empty(session("profil")) || session("profil") != "Preparateur" && session("profil") != "Reparateur" && session("profil") != "Administratif") {
+        if (empty(session("profil")) || session("profil") != "Preparateur" && session("profil") != "Reparateur" && session("profil") != "Manager" && session("profil") != "Administratif") {
             return redirect('/');
         }
         return $next($request);
